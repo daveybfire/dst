@@ -16,7 +16,7 @@
     <!-- resources.js is NOT loaded here by default anymore. It will be loaded dynamically -->
 
     <style>
-        /* CSS STYLES (as provided by you, unchanged) */
+        /* CSS STYLES (as provided by you, unchanged) - OMITTED FOR BREVITY */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
         .container { max-width: 800px; width: 90%; margin: 20px auto; background: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px 30px; padding-top: 10px; }
         h1, h2, h3 { font-size: 28px; margin: 20px 0; color: #2c3e50; }
@@ -102,7 +102,8 @@
     </select>
 </div>
 
-<!-- HTML structure for Start, Assessment, End screens remains the same -->
+<!-- Start Screen, Assessment Screen, End Screen HTML structure remains the same -->
+<!-- ... (Full HTML structure for screens) ... -->
 <div class="container" id="start-screen">
     <h1 id="start-screen-title"></h1>
     <p id="start-screen-p1"></p>
@@ -199,7 +200,10 @@
 <script>
     // Global variables
     let i18nData = {};
-    let currentVariantIdentifier = 'en'; // e.g., "en", "es", "en-superdrug"
+    let currentLanguage = 'en'; // Stores the selected language e.g. "en", "es"
+    let currentBU = null; // Stores the current BU e.g. "superdrug"
+    let currentVariantIdentifier = 'en'; // Stores the final identifier e.g. "en", "en-superdrug"
+
     let questionsData = [];
     let competenciesData = [];
     let overallProficiencyLevelsData = [];
@@ -217,6 +221,7 @@
         startScreen = document.getElementById("start-screen");
         assessmentScreen = document.getElementById("assessment-screen");
         endScreen = document.getElementById("end-screen");
+        // ... (all other element assignments as before) ...
         progressBar = document.getElementById("progress-bar");
         progressLabel = document.getElementById("progress-label");
         competencyBanner = document.getElementById("competency-banner");
@@ -234,7 +239,7 @@
     function setText(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
     function setHTML(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
 
-    function t(key, replacements = {}) {
+    function t(key, replacements = {}) { /* ... Same robust t() function ... */ 
         if (typeof i18nData !== 'object' || i18nData === null) return `MISSING_I18NDATA: ${key}`;
         let textValue = i18nData;
         const parts = key.split('.');
@@ -252,106 +257,112 @@
         return finalText;
     }
 
-    async function loadVariantFiles(variantIdentifier) {
-        console.log(`loadVariantFiles CALLED for variant: ${variantIdentifier}`);
-        let textJsonToLoad = `${variantIdentifier}.json`;
-        let resourcesJsToLoad = `resources-${variantIdentifier}.js`;
-        let primaryLangForFallback = variantIdentifier.split('-')[0];
-        
+    async function loadAndApplyVariant(variantId) {
+        console.log(`loadAndApplyVariant CALLED for effective variant: ${variantId}`);
+        let textJsonToLoad = `${variantId}.json`;
+        let resourcesJsToLoad = `resources-${variantId}.js`;
+        let primaryLangForFallback = variantId.split('-')[0]; // e.g., "en" from "en-superdrug"
+        let successLoadingText = false;
+        let successLoadingResources = false;
+
+        // 1. Attempt to load Text JSON
         try {
-            // 1. Load Text JSON
             let response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
-            if (!response.ok) {
-                console.warn(`Could not load ${textJsonToLoad}. Attempting primary language fallback: ${primaryLangForFallback}.json`);
-                if (primaryLangForFallback !== variantIdentifier && primaryLangForFallback) { // Avoid re-fetching if variant IS primary
+            if (!response.ok) { // Try primary language if variant fails (e.g., en-superdrug.json fails, try en.json)
+                if (variantId !== primaryLangForFallback) { // Only if different
+                    console.warn(`Could not load ${textJsonToLoad}. Attempting primary language fallback: ${primaryLangForFallback}.json`);
                     textJsonToLoad = `${primaryLangForFallback}.json`;
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
                 }
-                if (!response.ok) { // If primary lang also fails, try 'en.json'
-                    console.warn(`Could not load ${textJsonToLoad}. Falling back to en.json.`);
-                    if (textJsonToLoad.startsWith('en')) throw new Error(`Critical: Failed to load ${textJsonToLoad}.`);
+                if (!response.ok) { // If primary also fails (or was 'en' initially), try 'en.json' as ultimate fallback for text
+                    console.warn(`Could not load ${textJsonToLoad}. Falling back to en.json for text.`);
+                    if (textJsonToLoad.startsWith('en') && variantId !== 'en') throw new Error(`Failed to load primary ${textJsonToLoad} after variant failed.`);
                     textJsonToLoad = 'en.json';
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
-                    if (!response.ok) throw new Error('Critical: Failed to load en.json as fallback.');
+                    if (!response.ok) throw new Error('CRITICAL: Failed to load en.json as text fallback.');
                 }
             }
             i18nData = await response.json();
-            currentVariantIdentifier = textJsonToLoad.replace('.json', ''); // Store the actual variant loaded
+            currentVariantIdentifier = textJsonToLoad.replace('.json', ''); // Reflect what was actually loaded
+            successLoadingText = true;
             console.log('Successfully loaded Text JSON for:', currentVariantIdentifier);
-
-            // 2. Dynamically Load Resources JS
-            const oldResourcesScript = document.getElementById('dynamic-resources-script');
-            if (oldResourcesScript) oldResourcesScript.remove();
-            window.customResources = []; // Clear/reset
-
-            const resourcesScript = document.createElement('script');
-            resourcesScript.id = 'dynamic-resources-script';
-            resourcesScript.src = `${resourcesJsToLoad}?v=${new Date().getTime()}`;
-            
-            const resourcesPromise = new Promise((resolve, reject) => {
-                resourcesScript.onload = () => {
-                    console.log(`Resources loaded from ${resourcesJsToLoad}`);
-                    resolve();
-                };
-                resourcesScript.onerror = async () => {
-                    console.warn(`Could not load ${resourcesJsToLoad}.`);
-                    let fallbackResourceJs = `resources-${primaryLangForFallback}.js`;
-                    if (primaryLangForFallback !== variantIdentifier && primaryLangForFallback) {
-                        console.warn(`Attempting fallback to ${fallbackResourceJs}`);
-                        resourcesScript.src = `${fallbackResourceJs}?v=${new Date().getTime()}`;
-                        // Need to re-attach onload/onerror for the new attempt
-                        resourcesScript.onload = () => { console.log(`Resources loaded from ${fallbackResourceJs}`); resolve(); };
-                        resourcesScript.onerror = async () => {
-                            console.warn(`Could not load ${fallbackResourceJs}. Falling back to resources-en.js`);
-                            resourcesScript.src = `resources-en.js?v=${new Date().getTime()}`;
-                            resourcesScript.onload = () => { console.log("Resources loaded from resources-en.js"); resolve(); };
-                            resourcesScript.onerror = () => { console.error("Critical: Failed to load resources-en.js."); window.customResources = []; resolve(); /* Resolve anyway to not block UI */ };
-                            document.head.appendChild(resourcesScript.cloneNode(true)); // Must clone for re-append if src changed
-                        };
-                         document.head.appendChild(resourcesScript.cloneNode(true));
-                    } else if (variantIdentifier !== 'en' && primaryLangForFallback !== 'en') { // If primary also failed or was 'en' initially
-                         console.warn(`Falling back to resources-en.js`);
-                         resourcesScript.src = `resources-en.js?v=${new Date().getTime()}`;
-                         resourcesScript.onload = () => { console.log("Resources loaded from resources-en.js"); resolve(); };
-                         resourcesScript.onerror = () => { console.error("Critical: Failed to load resources-en.js."); window.customResources = []; resolve();};
-                         document.head.appendChild(resourcesScript.cloneNode(true));
-                    } else { // Already tried 'en' or was 'en' initially and failed
-                        console.error(`Critical: Failed to load resources-en.js (or initial attempt). No resources will be available.`);
-                        window.customResources = [];
-                        resolve(); // Resolve to not block UI
-                    }
-                };
-                document.head.appendChild(resourcesScript);
-            });
-
-            await resourcesPromise; // Wait for resources script to load (or fail gracefully)
-
-            // 3. Populate data and apply translations
-            document.documentElement.lang = i18nData.lang || currentVariantIdentifier.split('-')[0];
-            document.title = t('appTitle');
-            questionsData = i18nData.questions || [];
-            competenciesData = i18nData.competencyList || [];
-            overallProficiencyLevelsData = i18nData.overallProficiencyLevels || [];
-            if (competenciesData && competenciesData.length > 0) {
-                const numCompetencies = competenciesData.length;
-                answers.Knowledge = Array(numCompetencies).fill(0);
-                answers.Skills = Array(numCompetencies).fill(0);
-                answers.Attitudes = Array(numCompetencies).fill(0);
-            }
-            applyTranslations();
-            updateLanguageSelectorValue(currentVariantIdentifier);
-            localStorage.setItem('selectedUserVariant', currentVariantIdentifier);
-            console.log(`${currentVariantIdentifier.toUpperCase()} variant files applied successfully.`);
-
         } catch (error) {
-            console.error("Fatal error loading variant files:", error);
-            document.body.innerHTML = `<div style="text-align:center;padding:20px;"><h1>Error</h1><p>Could not load resources.</p><p><em>${error.message}</em></p></div>`;
+            console.error("Fatal error loading text JSON file:", error);
+            document.body.innerHTML = `<div style="text-align:center;padding:20px;"><h1>Error</h1><p>Could not load language text resources.</p><p><em>${error.message}</em></p></div>`;
+            return; // Stop further execution
         }
+
+        // 2. Dynamically Load Resources JS
+        const oldResourcesScript = document.getElementById('dynamic-resources-script');
+        if (oldResourcesScript) oldResourcesScript.remove();
+        window.customResources = []; // Clear/reset
+
+        const resourcesScript = document.createElement('script');
+        resourcesScript.id = 'dynamic-resources-script';
+        
+        const loadScript = (src) => {
+            return new Promise((resolve, reject) => {
+                resourcesScript.src = `${src}?v=${new Date().getTime()}`;
+                resourcesScript.onload = () => { console.log(`Resources loaded from ${src}`); successLoadingResources = true; resolve(); };
+                resourcesScript.onerror = () => { console.warn(`Could not load ${src}`); reject(new Error(`Failed to load ${src}`)); };
+                document.head.appendChild(resourcesScript.cloneNode(false)); // Use false to not deep clone if not needed
+            });
+        };
+
+        try {
+            await loadScript(resourcesJsToLoad);
+        } catch (error) {
+            if (variantId !== primaryLangForFallback) { // Try primary lang resources
+                try {
+                    console.log(`Attempting fallback for resources: resources-${primaryLangForFallback}.js`);
+                    await loadScript(`resources-${primaryLangForFallback}.js`);
+                } catch (error2) {
+                    if (primaryLangForFallback !== 'en') { // Try 'en' resources
+                         try {
+                            console.log(`Attempting fallback for resources: resources-en.js`);
+                            await loadScript('resources-en.js');
+                         } catch (error3) {
+                            console.error("CRITICAL: Failed to load resources-en.js as final fallback.");
+                         }
+                    } else {
+                        console.error(`CRITICAL: Failed to load resources-${primaryLangForFallback}.js (primary was en or already tried en).`);
+                    }
+                }
+            } else if (variantId !== 'en') { // Was primary lang but not 'en', try 'en'
+                 try {
+                    console.log(`Attempting fallback for resources: resources-en.js`);
+                    await loadScript('resources-en.js');
+                 } catch (error3) {
+                    console.error("CRITICAL: Failed to load resources-en.js as final fallback.");
+                 }
+            } else {
+                console.error(`CRITICAL: Failed to load initial resources script ${resourcesJsToLoad} (was en or no other fallback).`);
+            }
+        }
+        if (!successLoadingResources) window.customResources = []; // Ensure it's empty if all attempts failed
+
+        // 3. Populate data and apply translations
+        document.documentElement.lang = i18nData.lang || currentVariantIdentifier.split('-')[0];
+        document.title = t('appTitle');
+        questionsData = i18nData.questions || [];
+        competenciesData = i18nData.competencyList || [];
+        overallProficiencyLevelsData = i18nData.overallProficiencyLevels || [];
+        if (competenciesData && competenciesData.length > 0) {
+            const numCompetencies = competenciesData.length;
+            answers.Knowledge = Array(numCompetencies).fill(0);
+            answers.Skills = Array(numCompetencies).fill(0);
+            answers.Attitudes = Array(numCompetencies).fill(0);
+        }
+        applyTranslations();
+        updateLanguageSelectorValue(currentLanguage); // Update dropdown to reflect base language
+        localStorage.setItem('selectedUserLanguage', currentLanguage); // Store base language
+        if (currentBU) localStorage.setItem('selectedUserBU', currentBU); else localStorage.removeItem('selectedUserBU');
+        console.log(`${currentVariantIdentifier.toUpperCase()} variant files applied successfully.`);
     }
     
-    function updateLanguageSelectorValue(variantId) {
+    function updateLanguageSelectorValue(langCode) {
         if (!langSelectorElement) return;
-        langSelectorElement.value = variantId; // The dropdown values should be full variant IDs e.g. "en-superdrug"
+        langSelectorElement.value = langCode; // langCode is "en", "es" etc.
         const label = document.getElementById('language-selector-label');
         if (label) {
             const labelText = t('misc.languageLabel');
@@ -359,13 +370,16 @@
         }
     }
 
-    function applyTranslations() { /* ... Same as your last working version, ensure all IDs are covered ... */ }
+    // --- applyTranslations and all other functions (renderQuestion, showResults, etc.) are assumed to be the working versions ---
+    // --- from your last complete code that correctly displayed dimensions. I will include the core logic. ---
+    // (Make sure to paste the full set of your working functions here)
+    function applyTranslations() { /* ... Same as your last working version ... */ }
     function constructRadarLegend() { /* ... Same ... */ }
-    function populateProficiencyButtons() { /* ... Same, ensure proficiencyButtonsNodeList is updated ... */ }
+    function populateProficiencyButtons() { /* ... Same ... */ }
     function getCompetencyNameByKey(key) { /* ... Same ... */ }
-    function renderQuestion(index) { /* ... Same, ensure it uses proficiencyButtonsNodeList ... */ }
-    function attachEventListeners() { /* ... Same, ensure it uses proficiencyButtonsNodeList ... */ }
-    function showResults() { /* ... Same, ensure it calls applyTranslations for end screen static text ... */ }
+    function renderQuestion(index) { /* ... Same ... */ }
+    function attachEventListeners() { /* ... Same ... */ }
+    function showResults() { /* ... Same ... */ }
     function encodeResponses() { /* ... Same ... */ }
     function decodeAndLoadResults() { /* ... Same ... */ }
     function displayKeyCharacteristics(characteristics) { /* ... Same ... */ }
@@ -375,15 +389,14 @@
     function getFeedbackForCompetency(competencyKey, dimension) { /* ... Same ... */ }
     function getGrowthFeedbackForCompetency(competencyKey, dimension) { /* ... Same ... */ }
     function getSmartObjective(competencyKey, dimension) { /* ... Same ... */ }
-    function generateStrengths(topCompetencies) { /* ... Same ... */ }
+    function generateStrengths(topCompetencies) { /* ... Same, ensure it uses window.customResources ... */ }
     function generateGrowthAreas(bottomCompetencies) { /* ... Same ... */ }
-    
-    function generateSmartObjectives(bottomCompetencies) {
-        if (!smartObjectivesContainer) { console.error("smartObjectivesContainer is null"); return; }
+    function generateSmartObjectives(bottomCompetencies) { /* ... Updated to use window.customResources, and comp.name (translated) for matching ... */
+        if (!smartObjectivesContainer) { return; }
         smartObjectivesContainer.innerHTML = '';
         bottomCompetencies.forEach(comp => {
             const weakestDimension = getWeakestDimension(comp);
-            const competencyNameDisplay = comp.name; 
+            const competencyNameDisplay = comp.name; // This is the (potentially) translated name for display
             const growthLabel = t('endScreen.growthAreaLabel');
             const smartObjectiveLabel = t('endScreen.smartObjectiveLabel');
             const translatedDimensionNameForSMART = t(`endScreen.radarChartLegend${weakestDimension}`);
@@ -391,8 +404,8 @@
             const userLevel = comp[`${weakestDimension.toLowerCase()}Score`];
             let levelsToShow = userLevel ? (userLevel === 1 ? [1,2,3] : (userLevel === 5 ? [3,4,5] : [userLevel-1, userLevel, userLevel+1].filter(l=>l>=1 && l<=5))) : [1,2,3];
             
-            // Use the current competency name (which is translated) for matching against window.customResources
-            // This assumes competency names in resources-[variant].js match the translated names in [variant].json
+            // For resource lookup, we use comp.name because resources-[variant].js
+            // should have competency names matching the [variant].json
             const competencyForResourceLookup = comp.name; 
 
             const filteredResources = (window.customResources || []).filter(r => {
@@ -408,9 +421,11 @@
             smartObjectivesContainer.innerHTML += `<div class="smart-item card"><h4>${competencyNameDisplay}</h4><p><strong>${growthLabel}</strong> ${translatedDimensionNameForSMART}</p><p><strong>${smartObjectiveLabel}</strong> ${smartObjectiveText}</p>${resourcesHTML}</div>`;
         });
     }
+    function generateRadarChart() { /* ... Same ... */ }
+    function updateQRCodeURL(data) { /* ... Same ... */ }
+    function generateQRCode(data, canvasId) { /* ... Same ... */ }
+    function toggleDropdown(event) { /* ... Same ... */ }
 
-    function generateRadarChart() { /* ... Same, uses t() for labels ... */ }
-    
     function addEventListenersToDOM() { 
         if (restartButton) {
             restartButton.addEventListener("click", () => {
@@ -431,7 +446,7 @@
                 if(strengthsContainer) strengthsContainer.innerHTML = '';
                 if(growthAreasContainer) growthAreasContainer.innerHTML = '';
                 if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
-                applyTranslations(); 
+                applyTranslations(); // Re-apply to ensure start screen is correct
             });
         }
 
@@ -454,24 +469,26 @@
 
         if (langSelectorElement) {
             langSelectorElement.addEventListener('change', async (event) => {
-                const newVariant = event.target.value; // Value should be "en", "es", "en-superdrug" etc.
-                console.log(`Language/Variant dropdown changed to: ${newVariant}.`);
-                await loadVariantFiles(newVariant); 
+                const newLang = event.target.value; // This is "en", "es", etc.
+                console.log(`Language dropdown changed to: ${newLang}. Current BU: ${currentBU}`);
+                currentLanguage = newLang; // Update global current language
+                
+                let variantToLoad = currentLanguage;
+                if (currentBU) {
+                    variantToLoad = `${currentLanguage}-${currentBU}`;
+                }
+                await loadVariantFiles(variantToLoad); 
 
                 if (startScreen && !startScreen.classList.contains('hidden') && 
                     assessmentScreen && assessmentScreen.classList.contains('hidden') && 
                     endScreen && endScreen.classList.contains('hidden')) {
-                    // On start screen fine
+                    // On start screen, fine
                 } else { 
                     if (restartButton) restartButton.click(); 
                 }
             });
         }
     }
-
-    function updateQRCodeURL(data) { /* ... Same ... */ }
-    function generateQRCode(data, canvasId) { /* ... Same ... */ }
-    function toggleDropdown(event) { /* ... Same ... */ }
     
     async function initializeApp() {
         console.log("initializeApp CALLED");
@@ -479,39 +496,30 @@
         addEventListenersToDOM(); 
 
         const urlParams = new URLSearchParams(window.location.search);
-        const buParam = urlParams.get('bu'); // e.g., "superdrug"
+        currentBU = urlParams.get('bu'); // Store BU globally if present e.g. "superdrug"
+        if(currentBU) currentBU = currentBU.toLowerCase();
 
-        let initialLang = localStorage.getItem('selectedUserVariant') || navigator.language || navigator.userLanguage || 'en';
-        let initialVariant = initialLang.toLowerCase().split('-')[0]; // Default to primary lang e.g. 'en'
+        let storedLang = localStorage.getItem('selectedUserLanguage');
+        let browserLang = navigator.language || navigator.userLanguage;
+        let initialLang = storedLang || browserLang.split('-')[0] || 'en';
 
-        // Handle specific Chinese variants from browser
-        if (initialLang.toLowerCase() === 'zh-cn' || initialLang.toLowerCase() === 'zh-sg') initialVariant = 'zh-hans';
-        if (initialLang.toLowerCase() === 'zh-tw' || initialLang.toLowerCase() === 'zh-hk') initialVariant = 'zh-hant';
+        // Handle specific Chinese variants from browser/storage for initial load correctly
+        const fullStoredOrBrowserLang = storedLang || browserLang;
+        if (fullStoredOrBrowserLang.toLowerCase().startsWith('zh-hans') || fullStoredOrBrowserLang.toLowerCase() === 'zh-cn' || fullStoredOrBrowserLang.toLowerCase() === 'zh-sg') initialLang = 'zh-hans';
+        else if (fullStoredOrBrowserLang.toLowerCase().startsWith('zh-hant') || fullStoredOrBrowserLang.toLowerCase() === 'zh-tw' || fullStoredOrBrowserLang.toLowerCase() === 'zh-hk') initialLang = 'zh-hant';
+        else initialLang = initialLang.split('-')[0]; // get primary code like 'en', 'es'
         
-        // If BU param exists, construct variant identifier
-        if (buParam) {
-            // If lang already has region (e.g. en-gb from localStorage), keep it, else use primary lang
-            let langPartForBU = initialVariant.includes('-') ? initialVariant : initialVariant.split('-')[0];
-            if (initialLang.toLowerCase() === 'zh-cn' || initialLang.toLowerCase() === 'zh-sg') langPartForBU = 'zh-hans';
-            if (initialLang.toLowerCase() === 'zh-tw' || initialLang.toLowerCase() === 'zh-hk') langPartForBU = 'zh-hant';
+        currentLanguage = initialLang; // Set global currentLanguage
 
-            initialVariant = `${langPartForBU}-${buParam.toLowerCase()}`; // e.g., en-superdrug, es-superdrug
-            console.log(`BU parameter found: '${buParam}'. Attempting variant: '${initialVariant}'`);
+        let variantToLoad = currentLanguage;
+        if (currentBU) {
+            variantToLoad = `${currentLanguage}-${currentBU}`;
+            console.log(`BU parameter found: '${currentBU}'. Attempting initial variant: '${variantToLoad}'`);
         } else {
-            // If no BU param, ensure localStorage or browser lang is used for dropdown value
-            const storedVariant = localStorage.getItem('selectedUserVariant');
-            if (storedVariant) {
-                initialVariant = storedVariant;
-            } else {
-                 // Ensure lang selector values match potential browser values e.g. zh-hans
-                if (initialLang.toLowerCase().startsWith('zh-hans') || initialLang.toLowerCase() === 'zh-cn' || initialLang.toLowerCase() === 'zh-sg') initialVariant = 'zh-hans';
-                else if (initialLang.toLowerCase().startsWith('zh-hant') || initialLang.toLowerCase() === 'zh-tw' || initialLang.toLowerCase() === 'zh-hk') initialVariant = 'zh-hant';
-                else initialVariant = initialLang.split('-')[0];
-            }
-             console.log(`No BU parameter. Initial variant from localStorage/browser: '${initialVariant}'`);
+            console.log(`No BU parameter. Initial language: '${currentLanguage}'`);
         }
         
-        await loadVariantFiles(initialVariant); 
+        await loadVariantFiles(variantToLoad); 
         
         decodeAndLoadResults(); 
         console.log("initializeApp COMPLETED");
