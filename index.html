@@ -405,16 +405,39 @@
         }
         console.log("applyTranslations: Finished setting start screen elements.");
         
-        if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
+ if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
+        
         const toggleProfButton = document.getElementById('toggle-proficiency-button');
-        if (toggleProfButton) { /* ... */ }
+        if (toggleProfButton) { 
+            const proficiencyDropdownEl = document.getElementById('proficiency-dropdown-content');
+            if (proficiencyDropdownEl && (proficiencyDropdownEl.style.display === "none" || proficiencyDropdownEl.style.display === "")) {
+                toggleProfButton.textContent = t('assessmentScreen.showProficiencyLevelsButton');
+            } else if (proficiencyDropdownEl) {
+                toggleProfButton.textContent = t('assessmentScreen.hideProficiencyLevelsButton');
+            }
+        }
+
         const proficiencyDropdown = document.getElementById('proficiency-dropdown-content');
-        if (proficiencyDropdown) { /* ... */ }
-        populateProficiencyButtons();
+        if (proficiencyDropdown) { 
+            proficiencyDropdown.innerHTML = `<p>${t('assessmentScreen.proficiencyLevelsDropdown.beginner')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.developing')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.competent')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.proficient')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.expert')}</p>`;
+        }
+        
+        populateProficiencyButtons(); // This re-creates proficiency buttons with translated text
+
+        // Re-render current question if on assessment screen
         if (assessmentScreen && !assessmentScreen.classList.contains('hidden') && questionsData.length > 0 && currentIndex < questionsData.length) {
             renderQuestion(currentIndex); 
         }
-        if (endScreen && !endScreen.classList.contains('hidden')) { /* ... (all end screen setText/setHTML calls) ... */ }
+
+        // Re-translate static parts of end screen if it's visible, and re-generate dynamic results
+        if (endScreen && !endScreen.classList.contains('hidden')) { 
+            // ... (all end screen setText/setHTML calls for static titles, intros etc.) ...
+            setText('end-screen-title', t('endScreen.title'));
+            // ... (many more like this) ...
+            if (answers.Knowledge.length > 0 || answers.Skills.length > 0 || answers.Attitudes.length > 0) { // Check if results were previously generated
+                 generateResultsPageContent(); // This will re-generate strengths, growth, smart objectives with new lang
+            }
+        }
     }
 
     function constructRadarLegend() { /* ...Full function ... */ 
