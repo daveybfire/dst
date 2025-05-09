@@ -363,40 +363,65 @@
         }
     }
 
-    function applyTranslations() {
-        console.log("applyTranslations CALLED. Translating Start Screen elements."); // Added log
+        function applyTranslations() {
+        console.log("applyTranslations CALLED. Current language for t():", currentVariantIdentifier.split('-')[0]); // Log current base lang
+        console.log("Attempting to translate Start Screen elements...");
 
         const langLabel = document.getElementById('language-selector-label');
         if (langLabel) {
             const labelText = t('misc.languageLabel');
-            // console.log("Setting language label to:", labelText); // Uncomment for debug
+            console.log(" - Language selector label text from JSON:", labelText);
             langLabel.textContent = labelText.startsWith('MISSING_') ? 'Language:' : labelText;
         } else {
-            // console.warn("language-selector-label not found in applyTranslations."); // Uncomment for debug
+            console.warn("language-selector-label not found in applyTranslations.");
         }
 
         // Start Screen
+        const ssTitleEl = document.getElementById('start-screen-title');
         const ssTitleText = t('startScreen.title');
-        console.log(`Start Screen - Title: "${ssTitleText}" (Element for ID 'start-screen-title' exists: ${!!document.getElementById('start-screen-title')})`);
-        setText('start-screen-title', ssTitleText);
+        console.log(` - Start Screen Title: "${ssTitleText}" (Element found: ${!!ssTitleEl})`);
+        if (ssTitleEl) setText('start-screen-title', ssTitleText); else console.error("start-screen-title element NOT FOUND");
 
+        const ssP1El = document.getElementById('start-screen-p1');
         const ssP1Text = t('startScreen.introParagraph1');
-        console.log(`Start Screen - P1: (length ${ssP1Text.length}) (Element for ID 'start-screen-p1' exists: ${!!document.getElementById('start-screen-p1')})`);
-        setHTML('start-screen-p1', ssP1Text);
-
-        setHTML('start-screen-p2', t('startScreen.introParagraph2'));
-        setHTML('start-screen-p3', t('startScreen.introParagraph3'));
-        setHTML('start-screen-p4', t('startScreen.introParagraph4'));
+        console.log(` - Start Screen P1: (Length ${ssP1Text.length}) (Element found: ${!!ssP1El})`);
+        if (ssP1El) setHTML('start-screen-p1', ssP1Text); else console.error("start-screen-p1 element NOT FOUND");
         
+        const ssP2El = document.getElementById('start-screen-p2');
+        const ssP2Text = t('startScreen.introParagraph2');
+        console.log(` - Start Screen P2: (Length ${ssP2Text.length}) (Element found: ${!!ssP2El})`);
+        if (ssP2El) setHTML('start-screen-p2', ssP2Text); else console.error("start-screen-p2 element NOT FOUND");
+
+        const ssP3El = document.getElementById('start-screen-p3');
+        const ssP3Text = t('startScreen.introParagraph3');
+        console.log(` - Start Screen P3: (Length ${ssP3Text.length}) (Element found: ${!!ssP3El})`);
+        if (ssP3El) setHTML('start-screen-p3', ssP3Text); else console.error("start-screen-p3 element NOT FOUND");
+
+        const ssP4El = document.getElementById('start-screen-p4');
+        const ssP4Text = t('startScreen.introParagraph4');
+        console.log(` - Start Screen P4: (Length ${ssP4Text.length}) (Element found: ${!!ssP4El})`);
+        if (ssP4El) setHTML('start-screen-p4', ssP4Text); else console.error("start-screen-p4 element NOT FOUND");
+        
+        // 'startButton' is a global variable assigned in assignDOMelements()
         if (startButton) { 
             const ssButtonTextVal = t('startScreen.startButtonText');
-            console.log(`Start Screen - Button Text: "${ssButtonTextVal}" (Button element var 'startButton' exists: true)`);
+            console.log(` - Start Screen Button Text: "${ssButtonTextVal}" (startButton global var exists: true)`);
             setText('start-button', ssButtonTextVal);
         } else {
-            console.error("startButton DOM element is null/undefined in applyTranslations when trying to set text.");
+            console.error("startButton global variable is null/undefined in applyTranslations when trying to set text.");
+            // As a fallback, try to get it directly here, though it should have been set
+            const directStartButton = document.getElementById('start-button');
+            if (directStartButton) {
+                console.log("Fallback: Found start-button directly in applyTranslations.");
+                setText('start-button', t('startScreen.startButtonText'));
+            } else {
+                console.error("Fallback: Still couldn't find start-button directly in applyTranslations.");
+            }
         }
         console.log("applyTranslations: Finished setting start screen elements.");
         
+        // --- REST OF applyTranslations for Assessment and End screens ---
+        // (This part should remain the same as the last complete version I sent)
         if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
         const toggleProfButton = document.getElementById('toggle-proficiency-button');
         if (toggleProfButton) {
