@@ -1,0 +1,176 @@
+{
+  "lang": "fr",
+  "langName": "Français (Placeholder)",
+
+  "appTitle": "DSA - French Test Mode",
+
+  "startScreen": {
+    "title": "Évaluation des Compétences Numériques (TEST FR)",
+    "introParagraph1": "[FR TEXTE - Cette évaluation rapide vous aidera à réfléchir à vos compétences numériques...] (P1)",
+    "introParagraph2": "[FR TEXTE - Vous verrez une série de courtes déclarations avec des exemples...] (P2)",
+    "introParagraph3": "<strong>[FR TEXTE - C'est anonyme et ne prend que quelques minutes.]</strong> (P3)",
+    "introParagraph4": "[FR TEXTE - Soyez honnête, prenez votre temps et commençons !] (P4)",
+    "startButtonText": "Continuer (FR)"
+  },
+
+  "assessmentScreen": {
+    "competencyBannerPrefix": "Compétence (FR): ",
+    "progressLabelSuffix": "% (FR)",
+    "noSelectionWarning": "[FR TEXTE - Veuillez faire une sélection pour continuer.]",
+    "showProficiencyLevelsButton": "Afficher Niveaux (FR)",
+    "hideProficiencyLevelsButton": "Masquer Niveaux (FR)",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>[FR] Débutant:</strong> Peu ou pas d'expérience...",
+      "developing": "<strong>[FR] En Développement:</strong> Je peux le faire avec un peu de soutien...",
+      "competent": "<strong>[FR] Compétent:</strong> Je peux le faire de manière autonome...",
+      "proficient": "<strong>[FR] Chevronné:</strong> Je le fais bien de manière autonome...",
+      "expert": "<strong>[FR] Expert:</strong> J'effectue cela de manière constante à un haut niveau..."
+    }
+  },
+
+  "endScreen": {
+    "title": "Évaluation Terminée (FR)",
+    "qrCodeSectionTitle": "Votre Code QR (FR)",
+    "qrCodeInstruction": "[FR TEXTE - Scannez ce code QR pour marquer et revisiter vos résultats plus tard.]",
+    "keyCharacteristicsTitle": "Caractéristiques Clés (FR):",
+    "keyCharacteristicsIntro": "[FR TEXTE - Voici les caractéristiques clés qui définissent votre niveau de compétence...]",
+    "radarChartTitle": "Votre Radar de Compétences (FR)",
+    "radarChartDescription": "[FR TEXTE - Utilisez ce graphique pour identifier rapidement vos forces et domaines de croissance...]",
+    "radarChartLegendIntro": "[FR TEXTE - Ce graphique visualise vos scores...]: ",
+    "radarChartLegendKnowledge": "Connaissances (FR)",
+    "radarChartLegendSkills": "Compétences (FR)",
+    "radarChartLegendAttitudes": "Attitudes (FR)",
+    "radarChartLegendExplanation": ". [FR TEXTE - Chaque ligne de couleur représente un domaine...]",
+    "radarChartLegendSkillsExample": "Compétences (FR)",
+    "radarChartLegendKnowledgeExample": "Connaissances (FR)",
+    "radarChartLegendExplanationSuffix": " [FR TEXTE - dans une compétence, vous pourriez travailler à appliquer ce que vous savez.]",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>Vos 3 Principales Forces (FR)",
+    "strengthsSectionIntro": "[FR TEXTE - D'après votre évaluation, voici trois de vos principales forces...]",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Domaines de Croissance (FR)",
+    "growthAreasSectionIntro": "[FR TEXTE - Ce sont trois domaines avec d'importantes opportunités de croissance...]",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>Objectifs SMART (FR)",
+    "smartObjectivesSectionIntro": "[FR TEXTE - Voici quelques objectifs SMART suggérés basés sur vos domaines de croissance...]",
+    "thankYouMessage": "Beau travail (FR)! Continuez à grandir et à améliorer vos compétences numériques.",
+    "surveyPrompt": "[FR TEXTE - Nous apprécions vos commentaires ! Veuillez prendre un moment pour remplir notre sondage.]",
+    "surveyButtonText": "Remplir le Sondage (FR)",
+    "restartButtonText": "Recommencer (FR)",
+    "strongestDimensionLabel": "Dimension la Plus Forte (FR):",
+    "growthAreaLabel": "Domaine de Croissance (FR):",
+    "smartObjectiveLabel": "Objectif SMART (FR):",
+    "recommendedResourcesLabel": "Ressources Recommandées (FR):"
+  },
+
+  "proficiencyLabels": {
+    "1": "Débutant (FR)",
+    "2": "En Développement (FR)",
+    "3": "Compétent (FR)",
+    "4": "Chevronné (FR)",
+    "5": "Expert (FR)"
+  },
+  
+  "overallProficiencyLevels": [ 
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+
+  "proficiencyTexts": { 
+    "proficiency_beginner_name": "Débutant (FR)",
+    "proficiency_beginner_char1": "[FR] A une compréhension de base...",
+    "proficiency_beginner_char2": "[FR] Nécessite des conseils et une supervision...",
+    "proficiency_beginner_char3": "[FR] Peut avoir des difficultés à résoudre les problèmes...",
+    "proficiency_beginner_char4": "[FR] A besoin de soutien lors de l'utilisation d'outils inconnus...",
+    "proficiency_beginner_feedback": "[FR FEEDBACK] À ce niveau, vous pouvez sentir que ce domaine n'est pas familier ou est difficile...",
+    "proficiency_developing_name": "En Développement (FR)",
+    "proficiency_developing_char1": "[FR] Démontre une compréhension croissante...",
+    "proficiency_developing_char2": "[FR] Peut effectuer des tâches de routine avec une certaine supervision...",
+    "proficiency_developing_char3": "[FR] Commence à résoudre les problèmes courants de manière autonome...",
+    "proficiency_developing_char4": "[FR] A besoin d'aide pour les tâches complexes...",
+    "proficiency_developing_feedback": "[FR FEEDBACK] À ce niveau, vous commencez à explorer ce domaine...",
+    "proficiency_competent_name": "Compétent (FR)",
+    "proficiency_competent_char1": "[FR] Démontre une solide compréhension...",
+    "proficiency_competent_char2": "[FR] Peut travailler de manière autonome avec peu ou pas de supervision...",
+    "proficiency_competent_char3": "[FR] À l'aise avec l'utilisation d'une large gamme d'outils numériques...",
+    "proficiency_competent_char4": "[FR] Capable de résoudre efficacement les problèmes courants...",
+    "proficiency_competent_char5": "[FR] Peut encore avoir besoin d'aide pour des tâches très complexes...",
+    "proficiency_competent_feedback": "[FR FEEDBACK] À ce niveau, vous progressez régulièrement...",
+    "proficiency_proficient_name": "Chevronné (FR)",
+    "proficiency_proficient_char1": "[FR] Fait preuve d'une forte maîtrise des outils numériques...",
+    "proficiency_proficient_char2": "[FR] Travaille de manière autonome et efficace...",
+    "proficiency_proficient_char3": "[FR] Résout des problèmes complexes et propose des solutions innovantes...",
+    "proficiency_proficient_char4": "[FR] Aide souvent les autres dans les tâches numériques...",
+    "proficiency_proficient_char5": "[FR] Cherche continuellement à apprendre et à adopter de nouvelles technologies...",
+    "proficiency_proficient_feedback": "[FR FEEDBACK] À ce niveau, vous vous épanouissez et gérez la plupart des situations...",
+    "proficiency_expert_name": "Expert (FR)",
+    "proficiency_expert_char1": "[FR] Autorité reconnue en matière d'outils et de technologies numériques...",
+    "proficiency_expert_char2": "[FR] Dirige des initiatives impliquant l'innovation numérique...",
+    "proficiency_expert_char3": "[FR] Développe de nouvelles solutions et optimise les processus existants...",
+    "proficiency_expert_char4": "[FR] Encadre les autres et partage largement son expertise...",
+    "proficiency_expert_char5": "[FR] Reste à l'avant-garde des tendances de l'industrie...",
+    "proficiency_expert_feedback": "[FR FEEDBACK] À ce niveau, vous êtes un expert et votre confiance est inspirante..."
+  },
+  
+  "competencyList": [
+    { "key": "learningAdapting", "name": "Apprentissage et Adaptation (FR)" },
+    { "key": "aiTools", "name": "IA et Outils Numériques (FR)" },
+    { "key": "onlineSafety", "name": "Sécurité en Ligne (FR)" },
+    { "key": "dataWork", "name": "Travail avec les Données (FR)" },
+    { "key": "communication", "name": "Communication (FR)" },
+    { "key": "creativity", "name": "Créativité et Innovation (FR)" },
+    { "key": "digitalResponsibility", "name": "Responsabilité Numérique (FR)" },
+    { "key": "findingInfo", "name": "Recherche d'Information (FR)" },
+    { "key": "problemSolving", "name": "Résolution de Problèmes (FR)" },
+    { "key": "wellbeing", "name": "Bien-être et Durabilité (FR)" }
+  ],
+
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" },
+    { "competencyKey": "learningAdapting", "type": "Skills",    "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" },
+    { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" }
+    // ... KEEP THE REST OF THE QUESTION STRUCTURE THE SAME AS en.json
+  ],
+
+  "questionTexts": {
+    "q_learningAdapting_k_text": "[FR TEXTE] Je suis ouvert à l'apprentissage de nouvelles technologies.",
+    "q_learningAdapting_k_example": "[FR] Essayer de nouveaux systèmes, applications ou outils au travail.",
+    "q_learningAdapting_s_text": "[FR TEXTE] Je prends le temps d'améliorer mes compétences numériques.",
+    "q_learningAdapting_s_example": "[FR] Suivre une formation en ligne ou pratiquer avec de nouveaux outils tels que l'IA."
+    // ... MODIFY THE REST OF questionTexts SIMILARLY
+  },
+
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "[FR FEEDBACK FORT] Être ouvert à l'apprentissage de nouvelles technologies...",
+      "Skills": "[FR FEEDBACK FORT] Prendre le temps d'améliorer vos compétences numériques...",
+      "Attitudes": "[FR FEEDBACK FORT] S'adapter rapidement aux changements..."
+    }
+    // ... MODIFY THE REST OF feedbackStrengths SIMILARLY
+  },
+
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "[FR FEEDBACK CROISSANCE] Apprendre de nouvelles choses vous aidera...",
+      "Skills": "[FR FEEDBACK CROISSANCE] Développer vos compétences numériques vous aidera...",
+      "Attitudes": "[FR FEEDBACK CROISSANCE] Être proactif face au changement vous rendra..."
+    }
+    // ... MODIFY THE REST OF feedbackGrowth SIMILARLY
+  },
+
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "[FR OBJECTIF SMART] M'inscrire à un cours sur les technologies émergentes...",
+      "Skills": "[FR OBJECTIF SMART] Consacrer au moins deux heures par semaine à l'amélioration de mes compétences...",
+      "Attitudes": "[FR OBJECTIF SMART] Accueillir au moins un nouveau changement technologique..."
+    }
+    // ... MODIFY THE REST OF smartObjectives SIMILARLY
+  },
+
+  "misc": {
+    "examplePrefix": "Exemple (FR): ",
+    "andConjunction": "et (FR)",
+    "areLowerThanConjunction": "sont inférieures à (FR)",
+    "languageLabel": "Langue :" 
+  }
+}
