@@ -380,7 +380,10 @@
     }
   },
 
-  "misc": {
-    "examplePrefix": "Example: "
-  }
+"misc": {
+  "examplePrefix": "Example: ",
+  "andConjunction": "and",
+  "areLowerThanConjunction": "are lower than",
+  "languageLabel": "Language:"
+}
 }
