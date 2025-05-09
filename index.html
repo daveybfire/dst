@@ -16,7 +16,7 @@
     <!-- resources.js is NOT loaded here by default anymore. It will be loaded dynamically -->
 
     <style>
-        /* CSS STYLES (as provided by you, unchanged) */
+        /* CSS STYLES (as provided by you, unchanged) - OMITTED FOR BREVITY */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
         .container { max-width: 800px; width: 90%; margin: 20px auto; background: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px 30px; padding-top: 10px; }
         h1, h2, h3 { font-size: 28px; margin: 20px 0; color: #2c3e50; }
@@ -102,7 +102,7 @@
     </select>
 </div>
 
-<!-- Start Screen, Assessment Screen, End Screen HTML structure remains the same -->
+<!-- HTML structure for Start, Assessment, End screens remains the same -->
 <div class="container" id="start-screen">
     <h1 id="start-screen-title"></h1>
     <p id="start-screen-p1"></p>
@@ -220,7 +220,6 @@
     // --- FUNCTION DEFINITIONS (Order Matters) ---
 
     function assignDOMelements() {
-        // console.log("assignDOMelements CALLED");
         startScreen = document.getElementById("start-screen");
         assessmentScreen = document.getElementById("assessment-screen");
         endScreen = document.getElementById("end-screen");
@@ -236,7 +235,6 @@
         restartButton = document.getElementById("restart-button");
         startButton = document.getElementById("start-button");
         langSelectorElement = document.getElementById('language-selector');
-        // console.log("assignDOMelements FINISHED.");
     }
 
     function setText(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
@@ -261,7 +259,7 @@
     }
     
     async function loadVariantFiles(variantId) {
-        console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`);
+        console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`); // Keep this log
         let textJsonToLoad = `${variantId}.json`;
         let resourcesJsToLoad = `resources-${variantId}.js`;
         let primaryLangForFallback = variantId.split('-')[0]; 
@@ -279,7 +277,7 @@
                 if (!response.ok) { 
                     console.warn(`Could not load ${textJsonToLoad}. Falling back to en.json for text.`);
                     if (textJsonToLoad.startsWith('en') && variantId !== 'en' && primaryLangForFallback !== 'en') {}
-                    else if (textJsonToLoad === 'en.json' || textJsonToLoad === 'en') { /* If en.json itself failed after trying as primary */ throw new Error('CRITICAL: Failed to load en.json for text.'); }
+                    else if (textJsonToLoad === 'en.json' || textJsonToLoad === 'en') { throw new Error('CRITICAL: Failed to load en.json for text.'); }
                     
                     textJsonToLoad = 'en.json';
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
@@ -289,7 +287,8 @@
             i18nData = await response.json();
             currentVariantIdentifier = textJsonToLoad.replace('.json', ''); 
             successLoadingText = true;
-            console.log('Successfully loaded Text JSON for:', currentVariantIdentifier);
+            // console.log('Successfully loaded Text JSON for:', currentVariantIdentifier); // Verbose, can be commented out later
+
         } catch (error) {
             console.error("Fatal error loading text JSON file:", error);
             document.body.innerHTML = `<div style="text-align:center;padding:20px;"><h1>Error</h1><p>Could not load language text resources.</p><p><em>${error.message}</em></p></div>`;
@@ -305,8 +304,8 @@
         
         const loadScript = (src) => {
             return new Promise((resolve, reject) => {
-                const scriptToLoad = document.createElement('script'); // Create new script element each time
-                scriptToLoad.id = 'dynamic-resources-script'; // Re-assign ID if needed
+                const scriptToLoad = document.createElement('script'); 
+                scriptToLoad.id = 'dynamic-resources-script'; 
                 scriptToLoad.src = `${src}?v=${new Date().getTime()}`;
                 scriptToLoad.onload = () => { console.log(`Resources loaded from ${src}`); successLoadingResources = true; resolve(); };
                 scriptToLoad.onerror = () => { console.warn(`Could not load ${src}`); reject(new Error(`Failed to load ${src}`)); };
@@ -366,31 +365,30 @@
         }
     }
 
-    function applyTranslations() { /* ... Same as previous correct version ... */ }
-    function constructRadarLegend() { /* ... Same as previous correct version ... */ }
-    function populateProficiencyButtons() { /* ... Same as previous correct version ... */ }
-    function getCompetencyNameByKey(key) { /* ... Same as previous correct version ... */ }
-    function renderQuestion(index) { /* ... Same as previous correct version ... */ }
-    function attachEventListeners() { /* ... Same as previous correct version ... */ }
-    function showResults() { /* ... Same as previous correct version ... */ }
-    function encodeResponses() { /* ... Same as previous correct version ... */ }
-    function decodeAndLoadResults() { /* ... Same as previous correct version ... */ }
-    function displayKeyCharacteristics(characteristics) { /* ... Same as previous correct version ... */ }
-    function generateResultsPageContent() { /* ... Same as previous correct version ... */ }
-    function getStrongestDimension(comp) { /* ... Same as previous correct version ... */ }
-    function getWeakestDimension(comp) { /* ... Same as previous correct version ... */ }
-    function getFeedbackForCompetency(competencyKey, dimension) { /* ... Same as previous correct version ... */ }
-    function getGrowthFeedbackForCompetency(competencyKey, dimension) { /* ... Same as previous correct version ... */ }
-    function getSmartObjective(competencyKey, dimension) { /* ... Same as previous correct version ... */ }
-    function generateStrengths(topCompetencies) { /* ... Same as previous correct version ... */ }
-    function generateGrowthAreas(bottomCompetencies) { /* ... Same as previous correct version ... */ }
-    function generateSmartObjectives(bottomCompetencies) { /* ... Same as previous correct version (using window.customResources) ... */ }
-    function generateRadarChart() { /* ... Same as previous correct version ... */ }
-    function updateQRCodeURL(data) { /* ... Same as previous correct version ... */ }
-    function generateQRCode(data, canvasId) { /* ... Same as previous correct version ... */ }
-    function toggleDropdown(event) { /* ... Same as previous correct version ... */ }
+    function applyTranslations() { /* ... Same as before ... */ }
+    function constructRadarLegend() { /* ... Same as before ... */ }
+    function populateProficiencyButtons() { /* ... Same as before ... */ }
+    function getCompetencyNameByKey(key) { /* ... Same as before ... */ }
+    function renderQuestion(index) { /* ... Same as before ... */ }
+    function attachEventListeners() { /* ... Same as before ... */ }
+    function showResults() { /* ... Same as before ... */ }
+    function encodeResponses() { /* ... Same as before ... */ }
+    function decodeAndLoadResults() { /* ... Same as before ... */ }
+    function displayKeyCharacteristics(characteristics) { /* ... Same as before ... */ }
+    function generateResultsPageContent() { /* ... Same as before ... */ }
+    function getStrongestDimension(comp) { /* ... Same as before ... */ }
+    function getWeakestDimension(comp) { /* ... Same as before ... */ }
+    function getFeedbackForCompetency(competencyKey, dimension) { /* ... Same as before ... */ }
+    function getGrowthFeedbackForCompetency(competencyKey, dimension) { /* ... Same as before ... */ }
+    function getSmartObjective(competencyKey, dimension) { /* ... Same as before ... */ }
+    function generateStrengths(topCompetencies) { /* ... Same as before ... */ }
+    function generateGrowthAreas(bottomCompetencies) { /* ... Same as before ... */ }
+    function generateSmartObjectives(bottomCompetencies) { /* ... Same as before (using window.customResources) ... */ }
+    function generateRadarChart() { /* ... Same as before ... */ }
+    function updateQRCodeURL(data) { /* ... Same as before ... */ }
+    function generateQRCode(data, canvasId) { /* ... Same as before ... */ }
+    function toggleDropdown(event) { /* ... Same as before ... */ }
     
-    // Moved addEventListenersToDOM to be defined before initializeApp
     function addEventListenersToDOM() { 
         if (restartButton) {
             restartButton.addEventListener("click", () => {
@@ -413,9 +411,7 @@
                 if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
                 applyTranslations(); 
             });
-        } else {
-            console.error("Restart button not found when trying to add listener.");
-        }
+        } else { console.error("Restart button not found for listener."); }
 
         if (startButton) {
             startButton.addEventListener("click", () => {
@@ -428,13 +424,9 @@
                     answers.Attitudes = Array(numCompetencies).fill(0);
                     currentIndex = 0; 
                     renderQuestion(currentIndex);
-                } else {
-                    console.error("Cannot start assessment, competencies data not loaded.");
-                }
+                } else { console.error("Cannot start assessment, competencies data not loaded."); }
             });
-        } else {
-            console.error("Start button not found when trying to add listener.");
-        }
+        } else { console.error("Start button not found for listener."); }
 
         if (langSelectorElement) {
             langSelectorElement.addEventListener('change', async (event) => {
@@ -456,15 +448,13 @@
                     if (restartButton) restartButton.click(); 
                 }
             });
-        }  else {
-            // console.warn("Language selector element not found for event listener attachment in addEventListenersToDOM.");
-        }
+        }  else { console.warn("Language selector element 'language-selector' not found for event listener attachment."); }
     }
     
     async function initializeApp() {
-        console.log("initializeApp CALLED");
+        console.log("initializeApp CALLED"); // Line 494
         assignDOMelements(); 
-        addEventListenersToDOM(); // Call this AFTER assignDOMelements
+        addEventListenersToDOM(); 
 
         const urlParams = new URLSearchParams(window.location.search);
         currentBU = urlParams.get('bu'); 
@@ -478,10 +468,15 @@
             initialLang = storedLang;
         } else if (browserLang) {
             const primaryBrowserLang = browserLang.toLowerCase().split('-')[0];
-            const langOptionExists = Array.from(langSelectorElement ? langSelectorElement.options : []).some(opt => opt.value === primaryBrowserLang);
+            // Check if the primary browser language is one of the options in the dropdown
+            let langOptionExists = false;
+            if (langSelectorElement && langSelectorElement.options) { // Check if langSelectorElement is not null
+                 langOptionExists = Array.from(langSelectorElement.options).some(opt => opt.value === primaryBrowserLang);
+            }
             if (langOptionExists) {
                 initialLang = primaryBrowserLang;
             }
+            // Handle specific Chinese variants
             if (browserLang.toLowerCase().startsWith('zh-hans') || browserLang.toLowerCase() === 'zh-cn' || browserLang.toLowerCase() === 'zh-sg') initialLang = 'zh-hans';
             else if (browserLang.toLowerCase().startsWith('zh-hant') || browserLang.toLowerCase() === 'zh-tw' || browserLang.toLowerCase() === 'zh-hk') initialLang = 'zh-hant';
         }
@@ -493,15 +488,16 @@
             variantToLoad = `${currentLanguage}-${currentBU}`;
             console.log(`BU parameter found: '${currentBU}'. Attempting initial variant: '${variantToLoad}'`);
         } else {
-            console.log(`No BU parameter. Initial language: '${currentLanguage}' (effective variant: ${variantToLoad})`);
+            console.log(`No BU parameter. Initial language: '${currentLanguage}' (effective variant: ${variantToLoad})`); // Line 519
         }
         
-        await loadVariantFiles(variantToLoad); 
+        await loadVariantFiles(variantToLoad); // Line 522 - ERROR OCCURS HERE
         
         decodeAndLoadResults(); 
         console.log("initializeApp COMPLETED");
     }
 
+    // This MUST be last, after all functions it uses are defined.
     document.addEventListener('DOMContentLoaded', initializeApp);
     // --- END OF SCRIPT ---
 </script>
