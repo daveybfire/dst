@@ -1,27 +1,259 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Default lang, will be updated by JS -->
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX8HLE4W5Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WX8HLE4W5Q');
+    </script>
+    <meta charset="utf-8"/>
+    <title>Digital Skills Assessment</title> <!-- Will be updated by JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="resources.js"></script>
+
+    <style>
+        /* CSS STYLES (as provided by you, unchanged) */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
+        .container { max-width: 800px; width: 90%; margin: 20px auto; background: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px 30px; padding-top: 10px; }
+        h1, h2, h3 { font-size: 28px; margin: 20px 0; color: #2c3e50; }
+        h4 { font-size: 22px; margin-bottom: 10px; color: #2c3e50; }
+        p { margin: 10px 0 20px; font-size: 16px; color: #555; line-height: 1.6; }
+        .progress-bar-container { width: 100%; background: #e0e0e0; border-radius: 10px; height: 20px; margin: 20px 0; overflow: hidden; position: relative; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, #0f777b, #4caf50); width: 0; transition: width 0.4s ease; }
+        .progress-label { position: absolute; width: 100%; text-align: center; top: 0; font-size: 14px; color: #000; line-height: 20px; }
+        .competency-banner { font-weight: bold; background: #0f777b; color: #fff; padding: 15px; border-radius: 5px; margin: 20px 0; font-size: 20px; }
+        .question-container { background: #e0f7fa; border: 2px solid #0f777b; border-radius: 10px; padding: 15px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); min-height: 120px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .question-container h2 { font-size: 24px; font-weight: bold; color: #333; margin: 0; line-height: 1.5; }
+        .example { font-style: italic; color: #555; font-size: 16px; margin-top: 15px; }
+        .proficiency-buttons { margin: 20px 0; display: flex; justify-content: space-between; flex-wrap: nowrap; }
+        .proficiency-button { background: #e0e0e0; border: none; padding: 12px 10px; margin: 0 5px; border-radius: 5px; font-size: 14px; cursor: pointer; transition: background 0.3s ease, transform 0.1s ease; flex: 1; text-align: center; white-space: nowrap; }
+        .proficiency-button:hover { background: #d5d5d5; }
+        .proficiency-button.selected { background: #4caf50; color: white; transform: scale(1.05); }
+        .no-selection-warning { color: red; font-size: 14px; margin-top: 10px; display: none; }
+        .button { padding: 12px 25px; margin: 20px 0; background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
+        .button:hover { background: #0a5e60; }
+        .button:disabled { background: #ccc; cursor: not-allowed; }
+        .hidden { display: none; }
+        .summary-header { background: #e0f7fa; border: 1px solid #0f777b; border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; }
+        .summary-header p { font-size: 18px; color: #2c3e50; margin: 10px 0; }
+        .summary-header p span { font-weight: bold; }
+        .key-characteristics { text-align: left; margin: 10px 0; padding: 10px; background: #f9f9f9; border-left: 4px solid #4caf50; border-radius: 5px; }
+        .key-characteristics ul { list-style: none; padding-left: 0; }
+        .key-characteristics li { margin-bottom: 10px; font-size: 16px; position: relative; padding-left: 25px; }
+        .key-characteristics li::before { content: "✔"; position: absolute; left: 0; color: #4caf50; font-size: 18px; }
+        .personalised-feedback { font-size: 16px; font-style: italic; color: #555; background: #fff; padding: 15px 20px; border-left: 4px solid #ff9800; margin: 20px 0; border-radius: 5px; text-align: left; }
+        #competencyRadarChart { max-width: 100%; height: auto; }
+        .chart-container { margin: 30px 0; }
+        .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin: 20px 0; text-align: left; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .card h4 { margin: 0 0 15px; color: #2c3e50; }
+        .strengths .card { border-left: 4px solid #4caf50; }
+        .growth-areas .card { border-left: 4px solid #f44336; }
+        .smart-objectives .card { border-left: 4px solid #ff9800; }
+        .section-title { font-size: 24px; margin-top: 40px; color: #2c3e50; text-align: left; padding-bottom: 10px; }
+        .icon { font-size: 24px; vertical-align: middle; margin-right: 10px; }
+        .thank-you { background: #e0f7fa; border: 1px solid #0f777b; border-radius: 10px; padding: 20px; margin: 30px 0; font-size: 18px; color: #2c3e50; }
+        .thank-you p { font-size: 18px; font-weight: bold; }
+        .thank-you a { color: #ffffff; background-color: #0f777b; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 16px; }
+        .thank-you a:hover { background-color: #0a5e60; }
+        @media (max-width: 600px) { .proficiency-button { flex: 1 1 100%; margin: 5px 0; } .container { padding: 15px 20px; } }
+        .strengths { background: #e8f5e9; border: 2px solid #4caf50; border-radius: 10px; padding: 20px; margin: 30px 0; }
+        .growth-areas { background: #ffebee; border: 2px solid #f44336; border-radius: 10px; padding: 20px; margin: 30px 0; }
+        .smart-objectives { background: #fff3e0; border: 2px solid #ff9800; border-radius: 10px; padding: 20px; margin: 30px 0; }
+        .strengths .section-title, .growth-areas .section-title, .smart-objectives .section-title { background: rgba(0,0,0,0.05); padding: 10px 15px; border-radius: 5px; margin: -20px -20px 20px -20px; }
+        .strengths .card, .growth-areas .card, .smart-objectives .card { background: #fff; border-radius: 8px; padding: 15px; margin: 15px 0; }
+        .dropdown .button { background: #0f777b; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px; transition: background 0.3s ease; }
+        .dropdown .button:hover { background: #0a5e60; }
+        .dropdown-content { display: none; padding: 15px; margin-top: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #333; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        #question-text-container { font-size: 18px; font-weight: bold; color: #2c3e50; line-height: 1.6; margin-bottom: 10px; text-align: center; }
+        #example-text-container { font-size: 16px; font-style: italic; color: #555; line-height: 1.4; margin-top: 5px; margin-bottom: 0; text-align: center; }
+        .chart-description { font-size: 16px; color: #555; margin-bottom: 20px; line-height: 1.5; text-align: center; }
+        .qr-url { font-size: 12px; color: #e0e0e0; margin-top: 10px; word-wrap: break-word; }
+        #language-selector-container { padding: 10px; text-align: right; background-color: #f8f9fa; border-bottom: 1px solid #e0e0e0; margin-bottom:15px; }
+    </style>
+</head>
+<body>
+
+<div id="language-selector-container">
+    <label for="language-selector" id="language-selector-label" style="margin-right: 5px;">Language:</label>
+    <select id="language-selector">
+        <option value="en">English</option>
+        <option value="es">Español (Test)</option>
+        <option value="fr">Français (Test)</option>
+        <option value="cs">Čeština (Test)</option>
+        <option value="nl">Nederlands (Test)</option>
+        <option value="de">Deutsch (Test)</option>
+        <option value="hu">Magyar (Test)</option>
+        <option value="it">Italiano (Test)</option>
+        <option value="lv">Latviešu (Test)</option>
+        <option value="lt">Lietuvių (Test)</option>
+        <option value="ro">Română (Test)</option>
+        <option value="sk">Slovenčina (Test)</option>
+        <option value="tr">Türkçe (Test)</option>
+        <option value="uk">Українська (Test)</option>
+        <option value="zh-hans">中文 (简体) (Test)</option>
+        <option value="zh-hant">中文 (繁體) (Test)</option>
+        <option value="id">Bahasa Indonesia (Test)</option>
+        <option value="th">ไทย (Test)</option>
+        <option value="vi">Tiếng Việt (Test)</option>
+    </select>
+</div>
+
+<!-- Start Screen -->
+<div class="container" id="start-screen">
+    <h1 id="start-screen-title"></h1>
+    <p id="start-screen-p1"></p>
+    <p id="start-screen-p2"></p>
+    <p id="start-screen-p3"></p>
+    <p id="start-screen-p4"></p>
+    <div style="text-align: center;">
+        <button class="button" id="start-button" type="button"></button>
+    </div>
+</div>
+
+<!-- Assessment Screen -->
+<div class="container hidden" id="assessment-screen">
+    <div class="competency-banner" id="competency-banner"></div>
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-label" id="progress-label">0%</div>
+    </div>
+    <div class="question-container">
+        <h2 id="question-text-container"></h2>
+        <p class="example" id="example-text-container"></p>
+    </div>
+    <div class="proficiency-buttons">
+        <!-- Buttons will be populated by JS -->
+    </div>
+    <div class="no-selection-warning" id="no-selection-warning"></div>
+    <div class="dropdown">
+        <button class="button" id="toggle-proficiency-button" onclick="toggleDropdown(event)"></button>
+        <div class="dropdown-content" id="proficiency-dropdown-content" style="display: block;">
+            <!-- Proficiency descriptions will be populated by JS -->
+        </div>
+    </div>
+</div>
+
+<!-- End Screen -->
+<div class="container hidden" id="end-screen">
+    <h2 id="end-screen-title"></h2>
+    <div id="advanced-results">
+        <div class="summary-header">
+            <p style="font-size: 28px; font-weight: bold; color: #4caf50; margin: 10px 0;">
+                <span id="total-score-advanced"></span>
+            </p>
+            <p style="font-size: 14px; color: #555; margin: 5px 0;">
+                <span id="current-date-advanced"></span>
+            </p>
+            <div id="qr-code-container" style="text-align: center; margin-top: 20px;">
+                <h3 id="qr-code-title"></h3>
+                <canvas id="qr-code"></canvas>
+                <p id="qr-code-instruction"></p>
+            </div>
+        </div>
+        <div class="key-characteristics">
+            <h3 id="key-char-title"></h3>
+            <p id="key-char-intro"></p>
+            <ul id="key-characteristics-advanced"></ul>
+        </div>
+        <div class="personalised-feedback" id="personalised-feedback-advanced"></div>
+        <div class="chart-container">
+            <h3 id="radar-chart-title"></h3>
+            <p class="chart-description" id="radar-chart-desc"></p>
+            <canvas id="competencyRadarChart"></canvas>
+            <p id="radar-chart-legend"></p>
+        </div>
+        <div class="strengths">
+            <h3 class="section-title" id="strengths-title"></h3>
+            <p id="strengths-intro"></p>
+            <div id="strengths"></div>
+        </div>
+        <div class="growth-areas">
+            <h3 class="section-title" id="growth-areas-title"></h3>
+            <p id="growth-areas-intro"></p>
+            <div id="growth-areas"></div>
+        </div>
+        <div class="smart-objectives">
+            <h3 class="section-title" id="smart-objectives-title"></h3>
+            <p id="smart-objectives-intro"></p>
+            <div id="smart-objectives"></div>
+        </div>
+        <div class="thank-you">
+            <span id="thank-you-message"></span>
+            <div id="survey-link" style="text-align: center; margin-top: 20px;">
+                <p id="survey-prompt"></p>
+                <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=-QiCXGC1CUmQO1pcxbHUWnL9uYyvyttIoQ6Huyhcv7tUOUM4QU05UTUxUUhFS0dIOU5SM0pXUVdaQy4u"
+                   target="_blank"
+                   id="survey-button"
+                   style="color: #ffffff; background-color: #0f777b; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 16px;">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <button class="button" id="restart-button" type="button"></button>
+        <div style="text-align: center; margin-top: 10px;">
+            <p id="qr-url" class="qr-url"></p>
+        </div>
+    </div>
+</div>
+
 <script>
+    // Global variables
     let i18nData = {};
     let currentSelectedLang = 'en';
     let questionsData = [];
     let competenciesData = [];
     let overallProficiencyLevelsData = [];
+    const answers = { Knowledge: [], Skills: [], Attitudes: [] };
+    let currentIndex = 0;
+    let radarChart;
 
-    // DEFINE setText and setHTML EARLIER
+    // DOM Element Grabbers (will be assigned after DOM is loaded)
+    let startScreen, assessmentScreen, endScreen, progressBar, progressLabel, competencyBanner,
+        questionTextContainer, exampleTextContainer, proficiencyButtons, noSelectionWarningEl,
+        strengthsContainer, growthAreasContainer, smartObjectivesContainer,
+        restartButton, startButton, langSelectorElement;
+
+
+    function assignDOMelements() {
+        startScreen = document.getElementById("start-screen");
+        assessmentScreen = document.getElementById("assessment-screen");
+        endScreen = document.getElementById("end-screen");
+        progressBar = document.getElementById("progress-bar");
+        progressLabel = document.getElementById("progress-label");
+        competencyBanner = document.getElementById("competency-banner");
+        questionTextContainer = document.getElementById("question-text-container");
+        exampleTextContainer = document.getElementById("example-text-container");
+        proficiencyButtons = document.querySelectorAll("#assessment-screen .proficiency-button"); // Initial query
+        noSelectionWarningEl = document.getElementById("no-selection-warning");
+        strengthsContainer = document.getElementById("strengths");
+        growthAreasContainer = document.getElementById("growth-areas");
+        smartObjectivesContainer = document.getElementById("smart-objectives");
+        restartButton = document.getElementById("restart-button");
+        startButton = document.getElementById("start-button");
+        langSelectorElement = document.getElementById('language-selector');
+    }
+
+    // Helper functions for DOM manipulation
     function setText(id, text) {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
-        // else console.warn(`Element with ID ${id} not found for setText: ${text}`);
+        else console.warn(`Element with ID '${id}' not found for setText.`);
     }
 
     function setHTML(id, html) {
         const el = document.getElementById(id);
         if (el) el.innerHTML = html;
-        // else console.warn(`Element with ID ${id} not found for setHTML: ${html}`);
+        else console.warn(`Element with ID '${id}' not found for setHTML.`);
     }
 
-    // ROBUST t() function (remains the same)
+    // ROBUST t() function
     function t(key, replacements = {}) {
         if (typeof i18nData !== 'object' || i18nData === null) {
-            // console.warn(`i18nData not an object or is null when looking for key: ${key}`);
             return `MISSING_I18NDATA: ${key}`;
         }
         let textValue = i18nData;
@@ -31,12 +263,10 @@
             if (textValue && typeof textValue === 'object' && Object.prototype.hasOwnProperty.call(textValue, part)) {
                 textValue = textValue[part];
             } else {
-                // console.warn(`Translation key path broken at '${part}' for key: ${key}`);
                 return `MISSING_TRANSLATION: ${key}`; 
             }
         }
         if (typeof textValue !== 'string') {
-            // console.warn(`Translation for key '${key}' is not a string:`, textValue);
             return `INVALID_TRANSLATION_TYPE: ${key}`;
         }
         let finalText = textValue;
@@ -47,9 +277,6 @@
     }
 
     async function loadTranslations(langCodeToTry) {
-        // ... (rest of loadTranslations function as it was) ...
-        // IT CALLS applyTranslations() AT THE END OF THE TRY BLOCK
-    // ... (this function is now defined)
         console.log(`loadTranslations CALLED for lang: ${langCodeToTry}`);
         let langToLoad = langCodeToTry.toLowerCase().split('-')[0]; 
         if (langCodeToTry.toLowerCase() === 'zh-hans') langToLoad = 'zh-hans';
@@ -71,7 +298,7 @@
                 }
             }
             i18nData = await response.json();
-            // console.log('Successfully loaded i18nData for:', langToLoad, JSON.parse(JSON.stringify(i18nData))); // Keep for debugging if needed
+            // console.log('Successfully loaded i18nData for:', langToLoad, JSON.parse(JSON.stringify(i18nData))); // Verbose
             
             currentSelectedLang = langToLoad; 
             document.documentElement.lang = currentSelectedLang;
@@ -104,27 +331,27 @@
     }
     
     function updateLanguageSelectorValue(langCode) {
-        const selector = document.getElementById('language-selector');
-        if (selector) {
-            selector.value = langCode;
-            const label = document.getElementById('language-selector-label');
-            if (label) { // Ensure label exists
-                const labelText = t('misc.languageLabel');
-                label.textContent = labelText.startsWith('MISSING_') ? 'Language:' : labelText;
-            }
+        if (!langSelectorElement) {
+            console.warn("Language selector element not available for updateLanguageSelectorValue");
+            return;
+        }
+        langSelectorElement.value = langCode;
+        const label = document.getElementById('language-selector-label');
+        if (label) {
+            const labelText = t('misc.languageLabel');
+            label.textContent = labelText.startsWith('MISSING_') ? 'Language:' : labelText;
         }
     }
 
     function applyTranslations() {
-        // console.log("applyTranslations CALLED for lang:", currentSelectedLang); // Keep for debugging if needed
-        // Page title is set in loadTranslations now
+        // console.log("applyTranslations CALLED for lang:", currentSelectedLang);
         setText('start-screen-title', t('startScreen.title'));
         setHTML('start-screen-p1', t('startScreen.introParagraph1'));
         setHTML('start-screen-p2', t('startScreen.introParagraph2'));
         setHTML('start-screen-p3', t('startScreen.introParagraph3'));
         setHTML('start-screen-p4', t('startScreen.introParagraph4'));
-        setText('start-button', t('startScreen.startButtonText'));
-        setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
+        if (startButton) setText('start-button', t('startScreen.startButtonText'));
+        if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
         
         const toggleProfButton = document.getElementById('toggle-proficiency-button');
         if (toggleProfButton) {
@@ -148,13 +375,11 @@
         }
         populateProficiencyButtons();
 
-        if (document.getElementById('assessment-screen') && !assessmentScreen.classList.contains('hidden') && questionsData.length > 0) {
-            //  console.log("Assessment screen visible, re-rendering current question for new language.");
+        if (assessmentScreen && !assessmentScreen.classList.contains('hidden') && questionsData.length > 0) {
             renderQuestion(currentIndex); 
         }
 
-        if (document.getElementById('end-screen') && !endScreen.classList.contains('hidden')) {
-            // console.log("End screen visible, re-applying translations and re-generating results for new language.");
+        if (endScreen && !endScreen.classList.contains('hidden')) {
             setText('end-screen-title', t('endScreen.title'));
             setText('qr-code-title', t('endScreen.qrCodeSectionTitle'));
             setText('qr-code-instruction', t('endScreen.qrCodeInstruction'));
@@ -172,7 +397,7 @@
             setHTML('thank-you-message', t('endScreen.thankYouMessage'));
             setText('survey-prompt', t('endScreen.surveyPrompt'));
             setText('survey-button', t('endScreen.surveyButtonText'));
-            setText('restart-button', t('endScreen.restartButtonText'));
+            if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
             
             if (answers.Knowledge.length > 0 || answers.Skills.length > 0 || answers.Attitudes.length > 0) {
                  generateResultsPageContent();
@@ -180,7 +405,6 @@
         }
     }
 
-    // ... (constructRadarLegend is now defined after setText/setHTML)
     function constructRadarLegend() {
         const andConj = t('misc.andConjunction');
         const lowerThanConj = t('misc.areLowerThanConjunction');
@@ -194,8 +418,6 @@
                 ${t('endScreen.radarChartLegendExplanationSuffix')}`;
     }
 
-
-    // ... (populateProficiencyButtons is now defined after setText/setHTML) ...
     function populateProficiencyButtons() {
         const container = document.querySelector('#assessment-screen .proficiency-buttons');
         if (!container) return;
@@ -205,35 +427,11 @@
             button.classList.add('proficiency-button');
             button.setAttribute('data-value', i);
             button.type = 'button';
-            button.textContent = t(`proficiencyLabels.${i}`); // Uses t()
+            button.textContent = t(`proficiencyLabels.${i}`); 
             container.appendChild(button);
         }
-        proficiencyButtons = document.querySelectorAll(".proficiency-button"); // Re-query
+        proficiencyButtons = document.querySelectorAll("#assessment-screen .proficiency-button"); // Re-query
     }
-
-
-    // ALL OTHER SCRIPT CONTENT REMAINS THE SAME
-    // ... (answers const, DOM element consts, getCompetencyNameByKey, renderQuestion, etc. ...)
-    // ... (The full script block from the previous correctly working version) ...
-
-    const answers = { Knowledge: [], Skills: [], Attitudes: [] };
-    const startScreen = document.getElementById("start-screen");
-    const assessmentScreen = document.getElementById("assessment-screen");
-    const endScreen = document.getElementById("end-screen");
-    const progressBar = document.getElementById("progress-bar");
-    const progressLabel = document.getElementById("progress-label");
-    const competencyBanner = document.getElementById("competency-banner");
-    const questionTextContainer = document.getElementById("question-text-container");
-    const exampleTextContainer = document.getElementById("example-text-container");
-    let proficiencyButtons = document.querySelectorAll(".proficiency-button");
-    const noSelectionWarningEl = document.getElementById("no-selection-warning");
-    const strengthsContainer = document.getElementById("strengths");
-    const growthAreasContainer = document.getElementById("growth-areas");
-    const smartObjectivesContainer = document.getElementById("smart-objectives");
-    const restartButton = document.getElementById("restart-button");
-    const startButton = document.getElementById("start-button");
-    let currentIndex = 0;
-    let radarChart;
 
     function getCompetencyNameByKey(key) {
         if (!competenciesData) return `NO_COMP_DATA_FOR_KEY: ${key}`;
@@ -242,7 +440,7 @@
     }
 
     function renderQuestion(index) {
-        // console.log(`renderQuestion CALLED for index: ${index}`); // Keep for debug if needed
+        // console.log(`renderQuestion CALLED for index: ${index}`);
         if (!questionsData || questionsData.length === 0 || index >= questionsData.length) {
             console.error("Questions data issue or index out of bounds in renderQuestion.", { qDataLength: questionsData?.length, index });
             return;
@@ -251,13 +449,13 @@
         const competencyName = getCompetencyNameByKey(question.competencyKey);
         const examplePrefixText = t('misc.examplePrefix');
 
-        competencyBanner.textContent = `${t('assessmentScreen.competencyBannerPrefix')}${competencyName}`;
-        questionTextContainer.textContent = t(`questionTexts.${question.questionKey}`);
-        exampleTextContainer.textContent = `${examplePrefixText.startsWith("MISSING_") ? "Example: " : examplePrefixText}${t(`questionTexts.${question.exampleKey}`)}`;
+        if (competencyBanner) competencyBanner.textContent = `${t('assessmentScreen.competencyBannerPrefix')}${competencyName}`;
+        if (questionTextContainer) questionTextContainer.textContent = t(`questionTexts.${question.questionKey}`);
+        if (exampleTextContainer) exampleTextContainer.textContent = `${examplePrefixText.startsWith("MISSING_") ? "Example: " : examplePrefixText}${t(`questionTexts.${question.exampleKey}`)}`;
 
         const progressPercentage = Math.round(((index + 1) / questionsData.length) * 100);
-        progressBar.style.width = `${progressPercentage}%`;
-        progressLabel.textContent = `${progressPercentage}${t('assessmentScreen.progressLabelSuffix')}`;
+        if (progressBar) progressBar.style.width = `${progressPercentage}%`;
+        if (progressLabel) progressLabel.textContent = `${progressPercentage}${t('assessmentScreen.progressLabelSuffix')}`;
         
         proficiencyButtons = document.querySelectorAll("#assessment-screen .proficiency-button");
         proficiencyButtons.forEach(button => button.classList.remove("selected"));
@@ -267,7 +465,7 @@
     }
 
     function attachEventListeners() {
-        // console.log("attachEventListeners CALLED"); // Keep for debug if needed
+        // console.log("attachEventListeners CALLED");
         proficiencyButtons = document.querySelectorAll("#assessment-screen .proficiency-button");
         
         proficiencyButtons.forEach(button => {
@@ -300,20 +498,13 @@
                     currentIndex++;
                     renderQuestion(currentIndex);
                 } else {
-                    // console.log("Last question answered, calling showResults()"); // Keep for debug
+                    // console.log("Last question answered, calling showResults()");
                     showResults();
                 }
             };
         });
     }
     
-    // --- (The rest of the JS functions: showResults, encodeResponses, decodeAndLoadResults, etc.
-    // ---  generateStrengths, generateGrowthAreas, generateSmartObjectives (with their console.logs)
-    // ---  generateRadarChart, restartButton/startButton listeners, QR code fns, toggleDropdown
-    // ---  should be the versions from the file you provided in message #39, 
-    // ---  as those were the ones producing the correct console logs showing "Knowledge", "Skills" etc.
-    // ---  for `translatedDimensionName`. I am pasting them again here for absolute completeness.)
-
     function showResults() {
         // console.log("showResults() function CALLED");
         if(progressBar) progressBar.style.width = "100%";
@@ -595,7 +786,7 @@
     function generateRadarChart() {
         if (radarChart) radarChart.destroy();
         if (!competenciesData || competenciesData.length === 0 || !document.getElementById('competencyRadarChart')) return;
-        const radarLabels = competenciesData.map(c => c.name);
+        const radarLabels = competenciesData.map(c => c.name); // Names are already translated via competencyList from JSON
         const data = {
             labels: radarLabels,
             datasets: [
@@ -611,41 +802,52 @@
         });
     }
 
-    restartButton.addEventListener("click", () => {
-        currentIndex = 0;
-        if (competenciesData && competenciesData.length > 0) {
-            const numCompetencies = competenciesData.length;
-            answers.Knowledge = Array(numCompetencies).fill(0);
-            answers.Skills = Array(numCompetencies).fill(0);
-            answers.Attitudes = Array(numCompetencies).fill(0);
-        }
-        if(endScreen) endScreen.classList.add("hidden");
-        if(assessmentScreen) assessmentScreen.classList.add("hidden");
-        if(startScreen) startScreen.classList.remove("hidden");
-        if (radarChart) { radarChart.destroy(); radarChart = null; }
-        const qrCodeCanvas = document.getElementById('qr-code');
-        if (qrCodeCanvas && qrCodeCanvas.getContext) qrCodeCanvas.getContext('2d').clearRect(0, 0, qrCodeCanvas.width, qrCodeCanvas.height);
-        setText('qr-url', '');
-        if(strengthsContainer) strengthsContainer.innerHTML = '';
-        if(growthAreasContainer) growthAreasContainer.innerHTML = '';
-        if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
-        applyTranslations(); 
-    });
-
-    startButton.addEventListener("click", () => {
-        if(startScreen) startScreen.classList.add("hidden");
-        if(assessmentScreen) assessmentScreen.classList.remove("hidden");
-        if (competenciesData && competenciesData.length > 0) {
-            const numCompetencies = competenciesData.length;
-            answers.Knowledge = Array(numCompetencies).fill(0);
-            answers.Skills = Array(numCompetencies).fill(0);
-            answers.Attitudes = Array(numCompetencies).fill(0);
-            currentIndex = 0; 
-            renderQuestion(currentIndex);
+    function addEventListenersToButtons() {
+        if (restartButton) {
+            restartButton.addEventListener("click", () => {
+                currentIndex = 0;
+                if (competenciesData && competenciesData.length > 0) {
+                    const numCompetencies = competenciesData.length;
+                    answers.Knowledge = Array(numCompetencies).fill(0);
+                    answers.Skills = Array(numCompetencies).fill(0);
+                    answers.Attitudes = Array(numCompetencies).fill(0);
+                }
+                if(endScreen) endScreen.classList.add("hidden");
+                if(assessmentScreen) assessmentScreen.classList.add("hidden");
+                if(startScreen) startScreen.classList.remove("hidden");
+                if (radarChart) { radarChart.destroy(); radarChart = null; }
+                const qrCodeCanvas = document.getElementById('qr-code');
+                if (qrCodeCanvas && qrCodeCanvas.getContext) qrCodeCanvas.getContext('2d').clearRect(0, 0, qrCodeCanvas.width, qrCodeCanvas.height);
+                setText('qr-url', '');
+                if(strengthsContainer) strengthsContainer.innerHTML = '';
+                if(growthAreasContainer) growthAreasContainer.innerHTML = '';
+                if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
+                applyTranslations(); 
+            });
         } else {
-            console.error("Cannot start assessment, competencies data not loaded.");
+            console.error("Restart button not found");
         }
-    });
+
+        if (startButton) {
+            startButton.addEventListener("click", () => {
+                if(startScreen) startScreen.classList.add("hidden");
+                if(assessmentScreen) assessmentScreen.classList.remove("hidden");
+                if (competenciesData && competenciesData.length > 0) {
+                    const numCompetencies = competenciesData.length;
+                    answers.Knowledge = Array(numCompetencies).fill(0);
+                    answers.Skills = Array(numCompetencies).fill(0);
+                    answers.Attitudes = Array(numCompetencies).fill(0);
+                    currentIndex = 0; 
+                    renderQuestion(currentIndex);
+                } else {
+                    console.error("Cannot start assessment, competencies data not loaded.");
+                }
+            });
+        } else {
+            console.error("Start button not found");
+        }
+    }
+
 
     function updateQRCodeURL(data) {
         const resultsURL = `${window.location.origin}${window.location.pathname}?data=${data}`;
@@ -673,14 +875,15 @@
     
     async function initializeApp() {
         console.log("initializeApp CALLED");
-        const langSelectorElement = document.getElementById('language-selector');
+        assignDOMelements(); // Assign global DOM element vars here
+
         if (langSelectorElement) {
             langSelectorElement.addEventListener('change', async (event) => {
                 const newLang = event.target.value;
                 console.log(`Language dropdown changed to: ${newLang}.`);
                 await loadTranslations(newLang); 
 
-                if (!startScreen.classList.contains('hidden') && assessmentScreen.classList.contains('hidden') && endScreen.classList.contains('hidden')) {
+                if (startScreen && !startScreen.classList.contains('hidden') && assessmentScreen && assessmentScreen.classList.contains('hidden') && endScreen && endScreen.classList.contains('hidden')) {
                     // On start screen, applyTranslations called by loadTranslations is enough
                 } else { 
                     console.log("Language changed mid-process, simulating restart.");
@@ -691,6 +894,8 @@
             console.warn("Language selector element 'language-selector' not found.");
         }
 
+        addEventListenersToButtons(); // Add listeners to start/restart buttons AFTER they are assigned
+
         const preferredLang = localStorage.getItem('selectedUserLanguage') || navigator.language || navigator.userLanguage || 'en';
         await loadTranslations(preferredLang); 
         
@@ -698,7 +903,7 @@
         console.log("initializeApp COMPLETED");
     }
 
-    window.onload = initializeApp;
+    document.addEventListener('DOMContentLoaded', initializeApp);
 
 </script>
 </body>
