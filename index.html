@@ -201,7 +201,6 @@
     </div>
 </div>
 
-<!-- SCRIPT MOVED TO THE END OF BODY -->
 <script>
     // Global variables
     let i18nData = {};
@@ -219,8 +218,9 @@
         strengthsContainer, growthAreasContainer, smartObjectivesContainer,
         restartButton, startButton, langSelectorElement;
 
+
     function assignDOMelements() {
-        console.log("assignDOMelements CALLED");
+        // console.log("assignDOMelements CALLED"); // Keep for debug if needed
         startScreen = document.getElementById("start-screen");
         assessmentScreen = document.getElementById("assessment-screen");
         endScreen = document.getElementById("end-screen");
@@ -236,20 +236,17 @@
         restartButton = document.getElementById("restart-button");
         startButton = document.getElementById("start-button");
         langSelectorElement = document.getElementById('language-selector');
-        // proficiencyButtonsNodeList is populated dynamically, so it's queried in populateProficiencyButtons & attachEventListeners
-        console.log("assignDOMelements FINISHED. Start button:", startButton, "Restart button:", restartButton, "Lang selector:", langSelectorElement);
+        // console.log("assignDOMelements FINISHED. Start button:", startButton, "Restart button:", restartButton, "Lang selector:", langSelectorElement);
     }
 
     function setText(id, text) {
         const el = document.getElementById(id);
         if (el) el.textContent = text;
-        // else console.warn(`Element with ID '${id}' not found for setText: ${text}`);
     }
 
     function setHTML(id, html) {
         const el = document.getElementById(id);
         if (el) el.innerHTML = html;
-        // else console.warn(`Element with ID '${id}' not found for setHTML: ${html}`);
     }
 
     function t(key, replacements = {}) {
@@ -277,7 +274,7 @@
     }
 
     async function loadTranslations(langCodeToTry) {
-        console.log(`loadTranslations CALLED for lang: ${langCodeToTry}`);
+        // console.log(`loadTranslations CALLED for lang: ${langCodeToTry}`);
         let langToLoad = langCodeToTry.toLowerCase().split('-')[0]; 
         if (langCodeToTry.toLowerCase() === 'zh-hans') langToLoad = 'zh-hans';
         if (langCodeToTry.toLowerCase() === 'zh-hant') langToLoad = 'zh-hant';
@@ -297,7 +294,6 @@
                 }
             }
             i18nData = await response.json();
-            // console.log('Successfully loaded i18nData for:', langToLoad); // Simplified log
             
             currentSelectedLang = langToLoad; 
             document.documentElement.lang = currentSelectedLang;
@@ -315,6 +311,7 @@
             } else {
                 console.error("Competencies data is empty. Answers not initialized.");
             }
+
             applyTranslations(); 
             updateLanguageSelectorValue(currentSelectedLang); 
             localStorage.setItem('selectedUserLanguage', currentSelectedLang); 
@@ -326,10 +323,7 @@
     }
     
     function updateLanguageSelectorValue(langCode) {
-        if (!langSelectorElement) { // langSelectorElement is now a global var
-            // console.warn("Language selector element not available for updateLanguageSelectorValue");
-            return;
-        }
+        if (!langSelectorElement) return;
         langSelectorElement.value = langCode;
         const label = document.getElementById('language-selector-label');
         if (label) {
@@ -339,13 +333,12 @@
     }
 
     function applyTranslations() {
-        // console.log("applyTranslations CALLED for lang:", currentSelectedLang);
         setText('start-screen-title', t('startScreen.title'));
         setHTML('start-screen-p1', t('startScreen.introParagraph1'));
         setHTML('start-screen-p2', t('startScreen.introParagraph2'));
         setHTML('start-screen-p3', t('startScreen.introParagraph3'));
         setHTML('start-screen-p4', t('startScreen.introParagraph4'));
-        if (startButton) setText('start-button', t('startScreen.startButtonText')); // Check if startButton exists
+        if (startButton) setText('start-button', t('startScreen.startButtonText'));
         if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
         
         const toggleProfButton = document.getElementById('toggle-proficiency-button');
@@ -357,7 +350,6 @@
                 toggleProfButton.textContent = t('assessmentScreen.hideProficiencyLevelsButton');
             }
         }
-
         const proficiencyDropdown = document.getElementById('proficiency-dropdown-content');
         if (proficiencyDropdown) {
             proficiencyDropdown.innerHTML = `
@@ -393,7 +385,6 @@
             setText('survey-prompt', t('endScreen.surveyPrompt'));
             setText('survey-button', t('endScreen.surveyButtonText'));
             if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
-            
             if (answers.Knowledge.length > 0 || answers.Skills.length > 0 || answers.Attitudes.length > 0) {
                  generateResultsPageContent();
             }
@@ -435,9 +426,7 @@
     }
 
     function renderQuestion(index) {
-        // console.log(`renderQuestion CALLED for index: ${index}`);
         if (!questionsData || questionsData.length === 0 || index >= questionsData.length) {
-            console.error("Questions data issue or index out of bounds in renderQuestion.", { qDataLength: questionsData?.length, index });
             return;
         }
         const question = questionsData[index];
@@ -452,7 +441,7 @@
         if (progressBar) progressBar.style.width = `${progressPercentage}%`;
         if (progressLabel) progressLabel.textContent = `${progressPercentage}${t('assessmentScreen.progressLabelSuffix')}`;
         
-        proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button"); 
+        proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button");
         if (proficiencyButtonsNodeList) {
             proficiencyButtonsNodeList.forEach(button => button.classList.remove("selected"));
         }
@@ -462,8 +451,8 @@
     }
 
     function attachEventListeners() {
-        // console.log("attachEventListeners CALLED");
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button"); 
+        if (!proficiencyButtonsNodeList) return;
         
         proficiencyButtonsNodeList.forEach(button => {
             const newButton = button.cloneNode(true); 
@@ -482,20 +471,17 @@
                 const currentQuestion = questionsData[currentIndex];
                 const competencyIndex = competenciesData.findIndex(c => c.key === currentQuestion.competencyKey);
 
-                if (competencyIndex === -1) {
-                    console.error("Could not find competency index for key:", currentQuestion.competencyKey); return;
-                }
+                if (competencyIndex === -1) { return; }
                 if (answers[currentQuestion.type] && competencyIndex < answers[currentQuestion.type].length) {
                      answers[currentQuestion.type][competencyIndex] = selectedValue;
                 } else {
-                    console.error(`Answer type ${currentQuestion.type} or index ${competencyIndex} out of bounds. Answers array for type:`, answers[currentQuestion.type]);
+                    console.error(`Answer type ${currentQuestion.type} or index ${competencyIndex} out of bounds.`);
                 }
 
                 if (currentIndex < questionsData.length - 1) {
                     currentIndex++;
                     renderQuestion(currentIndex);
                 } else {
-                    // console.log("Last question answered, calling showResults()");
                     showResults();
                 }
             };
@@ -503,7 +489,6 @@
     }
     
     function showResults() {
-        // console.log("showResults() function CALLED");
         if(progressBar) progressBar.style.width = "100%";
         if(progressLabel) progressLabel.textContent = `100${t('assessmentScreen.progressLabelSuffix')}`;
         if(assessmentScreen) assessmentScreen.classList.add("hidden");
@@ -516,10 +501,7 @@
         const currentYear = today.getFullYear();
         const formattedCurrentDate = `${currentDay}/${currentMonth}/${currentYear}`;
         setText('current-date-advanced', formattedCurrentDate);
-
-        // console.log("Attempting to call generateResultsPageContent() from showResults");
         generateResultsPageContent();
-        // console.log("Finished calling generateResultsPageContent() from showResults");
         
         const totalScore = (answers.Knowledge.reduce((a,b)=>a+b,0)||0) + (answers.Skills.reduce((a,b)=>a+b,0)||0) + (answers.Attitudes.reduce((a,b)=>a+b,0)||0);
         const maxScore = (competenciesData.length || 0) * 3 * 5;
@@ -546,7 +528,6 @@
         }
         updateQRCodeURL(encodedData);
         
-        // Re-apply static end screen texts that might have been missed if showResults was called before applyTranslations completed fully for end screen
         setText('end-screen-title', t('endScreen.title'));
         setText('qr-code-title', t('endScreen.qrCodeSectionTitle'));
         setText('qr-code-instruction', t('endScreen.qrCodeInstruction'));
@@ -576,10 +557,8 @@
     }
 
     function decodeAndLoadResults() {
-        // console.log("decodeAndLoadResults CALLED");
         const data = new URLSearchParams(window.location.search).get('data');
         if (data) {
-            // console.log("Data found in URL, attempting to process.");
             const parts = data.split('-');
             if (parts.length === 3 && competenciesData && competenciesData.length > 0) {
                 const [knowledgeStr, skillsStr, attitudesStr] = parts;
@@ -590,15 +569,12 @@
                 while (answers.Knowledge.length < numCompetencies) answers.Knowledge.push(0);
                 while (answers.Skills.length < numCompetencies) answers.Skills.push(0);
                 while (answers.Attitudes.length < numCompetencies) answers.Attitudes.push(0);
-                // console.log("Successfully decoded URL data, calling showResults() from decodeAndLoadResults");
                 showResults();
             } else if (!competenciesData || competenciesData.length === 0) {
                  console.warn("Attempted to decode results but competenciesData not ready. URL data ignored for now.");
             } else {
                 console.warn("Decoded data from URL is malformed.");
             }
-        } else {
-            //  console.log("No data in URL for decodeAndLoadResults.");
         }
     }
 
@@ -614,12 +590,7 @@
     }
 
     function generateResultsPageContent() {
-        // console.log("generateResultsPageContent() CALLED");
-        if (!competenciesData || competenciesData.length === 0) {
-            console.error("Cannot generate results content, competenciesData is empty or null.");
-            return;
-        }
-        // console.log("Answers at start of generateResultsPageContent:", JSON.parse(JSON.stringify(answers)));
+        if (!competenciesData || competenciesData.length === 0) { return; }
         const competencyScores = competenciesData.map((comp, i) => {
             const knowledgeScore = answers.Knowledge[i] || 0;
             const skillsScore = answers.Skills[i] || 0;
@@ -629,17 +600,11 @@
         });
         const sortedDesc = [...competencyScores].sort((a, b) => b.total - a.total);
         const sortedAsc = [...competencyScores].sort((a, b) => a.total - b.total);
-        
         const topCompetencies = sortedDesc.slice(0, 3);
         const bottomCompetencies = sortedAsc.slice(0, 3);
-
-        // console.log("Top competencies for strengths:", JSON.parse(JSON.stringify(topCompetencies)));
         generateStrengths(topCompetencies); 
-        // console.log("Bottom competencies for growth:", JSON.parse(JSON.stringify(bottomCompetencies)));
         generateGrowthAreas(bottomCompetencies);
-        // console.log("Generating Radar Chart from generateResultsPageContent");
         generateRadarChart();
-        // console.log("Bottom competencies for SMART:", JSON.parse(JSON.stringify(bottomCompetencies)));
         generateSmartObjectives(bottomCompetencies);
     }
 
@@ -674,7 +639,6 @@
     }
 
     function generateStrengths(topCompetencies) {
-        // console.log("--- Strength Generation --- (Inside generateStrengths) CALLED with topCompetencies:", JSON.parse(JSON.stringify(topCompetencies)));
         if (!strengthsContainer) { console.error("strengthsContainer is null"); return; }
         strengthsContainer.innerHTML = '';
         topCompetencies.forEach(comp => {
@@ -683,8 +647,6 @@
             const strengthLabel = t('endScreen.strongestDimensionLabel');
             const translatedDimensionName = t(`endScreen.radarChartLegend${strongestDimension}`);
             const feedbackText = getFeedbackForCompetency(comp.key, strongestDimension);
-            // console.log("Strength Debug - HTML Segment to be added:", `...${translatedDimensionName}...`);
-
             strengthsContainer.innerHTML += `
                 <div class="strength-item card">
                     <h4>${competencyName}</h4>
@@ -703,8 +665,6 @@
             const growthLabel = t('endScreen.growthAreaLabel');
             const translatedDimensionName = t(`endScreen.radarChartLegend${weakestDimension}`);
             const feedbackText = getGrowthFeedbackForCompetency(comp.key, weakestDimension);
-            // console.log("Growth Debug - HTML Segment to be added:", `...${translatedDimensionName}...`);
-
             growthAreasContainer.innerHTML += `
                 <div class="growth-item card">
                     <h4>${competencyName}</h4>
@@ -739,8 +699,6 @@
                         ${chosenResources.map(r => `<li><a href="${r.URL}" target="_blank" style="text-decoration:none; color:#0f777b;"><strong>${r.title}</strong>: ${r.description}</a></li>`).join('')}
                     </ul>`;
             }
-            // console.log("SMART Debug - HTML Segment to be added:", `...${translatedDimensionNameForSMART}...`);
-
             smartObjectivesContainer.innerHTML += `
                 <div class="smart-item card">
                     <h4>${competencyName}</h4>
@@ -770,7 +728,7 @@
         });
     }
     
-    function addEventListenersToDOM() { // Renamed from addEventListenersToButtons for clarity
+    function addEventListenersToDOM() { 
         if (restartButton) {
             restartButton.addEventListener("click", () => {
                 currentIndex = 0;
@@ -793,7 +751,7 @@
                 applyTranslations(); 
             });
         } else {
-            console.error("Restart button not found when trying to add listener.");
+            // console.error("Restart button not found when trying to add listener.");
         }
 
         if (startButton) {
@@ -812,10 +770,10 @@
                 }
             });
         } else {
-            console.error("Start button not found when trying to add listener.");
+            // console.error("Start button not found when trying to add listener.");
         }
 
-        if (langSelectorElement) {
+        if (langSelectorElement) { // langSelectorElement is assigned in assignDOMelements
             langSelectorElement.addEventListener('change', async (event) => {
                 const newLang = event.target.value;
                 // console.log(`Language dropdown changed to: ${newLang}.`);
@@ -861,8 +819,8 @@
     
     async function initializeApp() {
         console.log("initializeApp CALLED");
-        assignDOMelements(); // Assign global DOM element vars first
-        addEventListenersToDOM(); // THEN add listeners to them
+        assignDOMelements(); 
+        addEventListenersToDOM(); // Call this AFTER assignDOMelements
 
         const preferredLang = localStorage.getItem('selectedUserLanguage') || navigator.language || navigator.userLanguage || 'en';
         await loadTranslations(preferredLang); 
