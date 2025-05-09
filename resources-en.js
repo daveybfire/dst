@@ -1210,4 +1210,4 @@ window.customResources = [
   },
 ];
 
-console.log("resources-es.js executed, window.customResources set for Spanish.");
+console.log("resources-es.js executed, window.customResources set for English.");
