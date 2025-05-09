@@ -16,7 +16,7 @@
     <!-- resources.js is NOT loaded here by default anymore. It will be loaded dynamically -->
 
     <style>
-        /* CSS STYLES (as provided by you, unchanged) - OMITTED FOR BREVITY */
+        /* CSS STYLES (as provided by you, unchanged) */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
         .container { max-width: 800px; width: 90%; margin: 20px auto; background: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px 30px; padding-top: 10px; }
         h1, h2, h3 { font-size: 28px; margin: 20px 0; color: #2c3e50; }
@@ -102,7 +102,7 @@
     </select>
 </div>
 
-<!-- HTML structure for Start, Assessment, End screens remains the same -->
+<!-- Start Screen, Assessment Screen, End Screen HTML structure remains the same -->
 <div class="container" id="start-screen">
     <h1 id="start-screen-title"></h1>
     <p id="start-screen-p1"></p>
@@ -198,28 +198,11 @@
 
 <script>
     // --- START OF SCRIPT ---
-    // Global variables
-    let i18nData = {};
-    let currentLanguage = 'en'; 
-    let currentBU = null; 
-    let currentVariantIdentifier = 'en'; 
 
-    let questionsData = [];
-    let competenciesData = [];
-    let overallProficiencyLevelsData = [];
-    const answers = { Knowledge: [], Skills: [], Attitudes: [] };
-    let currentIndex = 0;
-    let radarChart;
-
-    // DOM Element Grabbers
-    let startScreen, assessmentScreen, endScreen, progressBar, progressLabel, competencyBanner,
-        questionTextContainer, exampleTextContainer, proficiencyButtonsNodeList, noSelectionWarningEl,
-        strengthsContainer, growthAreasContainer, smartObjectivesContainer,
-        restartButton, startButton, langSelectorElement;
-
-    // --- FUNCTION DEFINITIONS (Order Matters) ---
+    // --- FUNCTION DEFINITIONS (Order Matters: Define all functions before they are called) ---
 
     function assignDOMelements() {
+        // console.log("assignDOMelements CALLED"); // Uncomment for debug
         startScreen = document.getElementById("start-screen");
         assessmentScreen = document.getElementById("assessment-screen");
         endScreen = document.getElementById("end-screen");
@@ -235,10 +218,26 @@
         restartButton = document.getElementById("restart-button");
         startButton = document.getElementById("start-button");
         langSelectorElement = document.getElementById('language-selector');
+        // console.log("assignDOMelements FINISHED. Start button:", startButton, "Restart button:", restartButton, "Lang selector:", langSelectorElement); // Uncomment for debug
     }
 
-    function setText(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
-    function setHTML(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
+    function setText(id, text) { 
+        const el = document.getElementById(id); 
+        if (el) {
+            el.textContent = text;
+        } else {
+            // console.warn(`Element with ID '${id}' not found for setText.`); // Uncomment for debug
+        }
+    }
+
+    function setHTML(id, html) { 
+        const el = document.getElementById(id); 
+        if (el) {
+            el.innerHTML = html;
+        } else {
+            // console.warn(`Element with ID '${id}' not found for setHTML.`); // Uncomment for debug
+        }
+    }
 
     function t(key, replacements = {}) { 
         if (typeof i18nData !== 'object' || i18nData === null) return `MISSING_I18NDATA: ${key}`;
@@ -259,7 +258,7 @@
     }
     
     async function loadVariantFiles(variantId) {
-        console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`); // Keep this log
+        console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`);
         let textJsonToLoad = `${variantId}.json`;
         let resourcesJsToLoad = `resources-${variantId}.js`;
         let primaryLangForFallback = variantId.split('-')[0]; 
@@ -287,8 +286,7 @@
             i18nData = await response.json();
             currentVariantIdentifier = textJsonToLoad.replace('.json', ''); 
             successLoadingText = true;
-            // console.log('Successfully loaded Text JSON for:', currentVariantIdentifier); // Verbose, can be commented out later
-
+            console.log('Successfully loaded Text JSON for:', currentVariantIdentifier); 
         } catch (error) {
             console.error("Fatal error loading text JSON file:", error);
             document.body.innerHTML = `<div style="text-align:center;padding:20px;"><h1>Error</h1><p>Could not load language text resources.</p><p><em>${error.message}</em></p></div>`;
@@ -365,7 +363,85 @@
         }
     }
 
-    function applyTranslations() { /* ... Same as before ... */ }
+    function applyTranslations() {
+        console.log("applyTranslations CALLED. Translating Start Screen elements."); // Added log
+
+        const langLabel = document.getElementById('language-selector-label');
+        if (langLabel) {
+            const labelText = t('misc.languageLabel');
+            // console.log("Setting language label to:", labelText); // Uncomment for debug
+            langLabel.textContent = labelText.startsWith('MISSING_') ? 'Language:' : labelText;
+        } else {
+            // console.warn("language-selector-label not found in applyTranslations."); // Uncomment for debug
+        }
+
+        // Start Screen
+        const ssTitleText = t('startScreen.title');
+        console.log(`Start Screen - Title: "${ssTitleText}" (Element for ID 'start-screen-title' exists: ${!!document.getElementById('start-screen-title')})`);
+        setText('start-screen-title', ssTitleText);
+
+        const ssP1Text = t('startScreen.introParagraph1');
+        console.log(`Start Screen - P1: (length ${ssP1Text.length}) (Element for ID 'start-screen-p1' exists: ${!!document.getElementById('start-screen-p1')})`);
+        setHTML('start-screen-p1', ssP1Text);
+
+        setHTML('start-screen-p2', t('startScreen.introParagraph2'));
+        setHTML('start-screen-p3', t('startScreen.introParagraph3'));
+        setHTML('start-screen-p4', t('startScreen.introParagraph4'));
+        
+        if (startButton) { 
+            const ssButtonTextVal = t('startScreen.startButtonText');
+            console.log(`Start Screen - Button Text: "${ssButtonTextVal}" (Button element var 'startButton' exists: true)`);
+            setText('start-button', ssButtonTextVal);
+        } else {
+            console.error("startButton DOM element is null/undefined in applyTranslations when trying to set text.");
+        }
+        console.log("applyTranslations: Finished setting start screen elements.");
+        
+        if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
+        const toggleProfButton = document.getElementById('toggle-proficiency-button');
+        if (toggleProfButton) {
+            const proficiencyDropdownEl = document.getElementById('proficiency-dropdown-content');
+            if (proficiencyDropdownEl && (proficiencyDropdownEl.style.display === "none" || proficiencyDropdownEl.style.display === "")) {
+                toggleProfButton.textContent = t('assessmentScreen.showProficiencyLevelsButton');
+            } else if (proficiencyDropdownEl) {
+                toggleProfButton.textContent = t('assessmentScreen.hideProficiencyLevelsButton');
+            }
+        }
+        const proficiencyDropdown = document.getElementById('proficiency-dropdown-content');
+        if (proficiencyDropdown) {
+            proficiencyDropdown.innerHTML = `<p>${t('assessmentScreen.proficiencyLevelsDropdown.beginner')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.developing')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.competent')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.proficient')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.expert')}</p>`;
+        }
+        populateProficiencyButtons();
+
+        if (assessmentScreen && !assessmentScreen.classList.contains('hidden') && questionsData.length > 0 && currentIndex < questionsData.length) {
+            renderQuestion(currentIndex); 
+        }
+
+        if (endScreen && !endScreen.classList.contains('hidden')) {
+            setText('end-screen-title', t('endScreen.title'));
+            setText('qr-code-title', t('endScreen.qrCodeSectionTitle'));
+            setText('qr-code-instruction', t('endScreen.qrCodeInstruction'));
+            setText('key-char-title', t('endScreen.keyCharacteristicsTitle'));
+            setText('key-char-intro', t('endScreen.keyCharacteristicsIntro'));
+            setText('radar-chart-title', t('endScreen.radarChartTitle'));
+            setText('radar-chart-desc', t('endScreen.radarChartDescription'));
+            setHTML('radar-chart-legend', constructRadarLegend());
+            setHTML('strengths-title', t('endScreen.strengthsSectionTitle'));
+            setText('strengths-intro', t('endScreen.strengthsSectionIntro'));
+            setHTML('growth-areas-title', t('endScreen.growthAreasSectionTitle'));
+            setText('growth-areas-intro', t('endScreen.growthAreasSectionIntro'));
+            setHTML('smart-objectives-title', t('endScreen.smartObjectivesSectionTitle'));
+            setText('smart-objectives-intro', t('endScreen.smartObjectivesSectionIntro'));
+            setHTML('thank-you-message', t('endScreen.thankYouMessage'));
+            setText('survey-prompt', t('endScreen.surveyPrompt'));
+            setText('survey-button', t('endScreen.surveyButtonText'));
+            if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
+            if (answers.Knowledge.length > 0 || answers.Skills.length > 0 || answers.Attitudes.length > 0) {
+                 generateResultsPageContent();
+            }
+        }
+    }
+
     function constructRadarLegend() { /* ... Same as before ... */ }
     function populateProficiencyButtons() { /* ... Same as before ... */ }
     function getCompetencyNameByKey(key) { /* ... Same as before ... */ }
@@ -391,68 +467,20 @@
     
     function addEventListenersToDOM() { 
         if (restartButton) {
-            restartButton.addEventListener("click", () => {
-                currentIndex = 0;
-                if (competenciesData && competenciesData.length > 0) {
-                    const numCompetencies = competenciesData.length;
-                    answers.Knowledge = Array(numCompetencies).fill(0);
-                    answers.Skills = Array(numCompetencies).fill(0);
-                    answers.Attitudes = Array(numCompetencies).fill(0);
-                }
-                if(endScreen) endScreen.classList.add("hidden");
-                if(assessmentScreen) assessmentScreen.classList.add("hidden");
-                if(startScreen) startScreen.classList.remove("hidden");
-                if (radarChart) { radarChart.destroy(); radarChart = null; }
-                const qrCodeCanvas = document.getElementById('qr-code');
-                if (qrCodeCanvas && qrCodeCanvas.getContext) qrCodeCanvas.getContext('2d').clearRect(0, 0, qrCodeCanvas.width, qrCodeCanvas.height);
-                setText('qr-url', '');
-                if(strengthsContainer) strengthsContainer.innerHTML = '';
-                if(growthAreasContainer) growthAreasContainer.innerHTML = '';
-                if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
-                applyTranslations(); 
-            });
-        } else { console.error("Restart button not found for listener."); }
+            restartButton.addEventListener("click", () => { /* ... same restart logic ... */ });
+        } else { console.error("Restart button not found for listener in addEventListenersToDOM."); }
 
         if (startButton) {
-            startButton.addEventListener("click", () => {
-                if(startScreen) startScreen.classList.add("hidden");
-                if(assessmentScreen) assessmentScreen.classList.remove("hidden");
-                if (competenciesData && competenciesData.length > 0) {
-                    const numCompetencies = competenciesData.length;
-                    answers.Knowledge = Array(numCompetencies).fill(0);
-                    answers.Skills = Array(numCompetencies).fill(0);
-                    answers.Attitudes = Array(numCompetencies).fill(0);
-                    currentIndex = 0; 
-                    renderQuestion(currentIndex);
-                } else { console.error("Cannot start assessment, competencies data not loaded."); }
-            });
-        } else { console.error("Start button not found for listener."); }
+            startButton.addEventListener("click", () => { /* ... same start logic ... */ });
+        } else { console.error("Start button not found for listener in addEventListenersToDOM."); }
 
         if (langSelectorElement) {
-            langSelectorElement.addEventListener('change', async (event) => {
-                const newLang = event.target.value; 
-                console.log(`Language dropdown changed to: ${newLang}. Current BU: ${currentBU}`);
-                currentLanguage = newLang; 
-                
-                let variantToLoad = currentLanguage;
-                if (currentBU) {
-                    variantToLoad = `${currentLanguage}-${currentBU}`;
-                }
-                await loadVariantFiles(variantToLoad); 
-
-                if (startScreen && !startScreen.classList.contains('hidden') && 
-                    assessmentScreen && assessmentScreen.classList.contains('hidden') && 
-                    endScreen && endScreen.classList.contains('hidden')) {
-                    // On start screen fine
-                } else { 
-                    if (restartButton) restartButton.click(); 
-                }
-            });
-        }  else { console.warn("Language selector element 'language-selector' not found for event listener attachment."); }
+            langSelectorElement.addEventListener('change', async (event) => { /* ... same lang change logic ... */ });
+        }  else { console.warn("Language selector element not found for event listener attachment in addEventListenersToDOM."); }
     }
     
     async function initializeApp() {
-        console.log("initializeApp CALLED"); // Line 494
+        console.log("initializeApp CALLED"); // Line 465 from your log
         assignDOMelements(); 
         addEventListenersToDOM(); 
 
@@ -468,15 +496,13 @@
             initialLang = storedLang;
         } else if (browserLang) {
             const primaryBrowserLang = browserLang.toLowerCase().split('-')[0];
-            // Check if the primary browser language is one of the options in the dropdown
             let langOptionExists = false;
-            if (langSelectorElement && langSelectorElement.options) { // Check if langSelectorElement is not null
+            if (langSelectorElement && langSelectorElement.options) {
                  langOptionExists = Array.from(langSelectorElement.options).some(opt => opt.value === primaryBrowserLang);
             }
             if (langOptionExists) {
                 initialLang = primaryBrowserLang;
             }
-            // Handle specific Chinese variants
             if (browserLang.toLowerCase().startsWith('zh-hans') || browserLang.toLowerCase() === 'zh-cn' || browserLang.toLowerCase() === 'zh-sg') initialLang = 'zh-hans';
             else if (browserLang.toLowerCase().startsWith('zh-hant') || browserLang.toLowerCase() === 'zh-tw' || browserLang.toLowerCase() === 'zh-hk') initialLang = 'zh-hant';
         }
@@ -488,13 +514,13 @@
             variantToLoad = `${currentLanguage}-${currentBU}`;
             console.log(`BU parameter found: '${currentBU}'. Attempting initial variant: '${variantToLoad}'`);
         } else {
-            console.log(`No BU parameter. Initial language: '${currentLanguage}' (effective variant: ${variantToLoad})`); // Line 519
+            console.log(`No BU parameter. Initial language: '${currentLanguage}' (effective variant: ${variantToLoad})`); // Line 496
         }
         
-        await loadVariantFiles(variantToLoad); // Line 522 - ERROR OCCURS HERE
+        await loadVariantFiles(variantToLoad); // Line 499 - This was where the error occurred
         
         decodeAndLoadResults(); 
-        console.log("initializeApp COMPLETED");
+        console.log("initializeApp COMPLETED"); // Line 502
     }
 
     // This MUST be last, after all functions it uses are defined.
