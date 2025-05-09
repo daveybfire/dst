@@ -16,403 +16,66 @@
     <script src="resources.js"></script>
 
     <style>
-        /* CSS STYLES ARE UNCHANGED - OMITTED FOR BREVITY */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f0f2f5;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            width: 90%;
-            margin: 20px auto;
-            background: #fff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px 30px;
-            padding-top: 10px; /* Reduce padding at the top */
-        }
-        h1, h2, h3 {
-            font-size: 28px;
-            margin: 20px 0;
-            color: #2c3e50;
-        }
-        h4 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        p {
-            margin: 10px 0 20px;
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-        }
-        .progress-bar-container {
-            width: 100%;
-            background: #e0e0e0;
-            border-radius: 10px;
-            height: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-            position: relative;
-        }
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #0f777b, #4caf50);
-            width: 0;
-            transition: width 0.4s ease;
-        }
-        .progress-label {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            top: 0;
-            font-size: 14px;
-            color: #000;
-            line-height: 20px;
-        }
-        .competency-banner {
-            font-weight: bold;
-            background: #0f777b; /* green */
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-            font-size: 20px;
-        }
-        .question-container {
-            background: #e0f7fa; /* light green */
-            border: 2px solid #0f777b;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            min-height: 120px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .question-container h2 { /* Will become #question-text-container */
-            font-size: 24px; /* From existing #question-text style */
-            font-weight: bold; /* From existing #question-text style */
-            color: #333; /* From existing #question-text style */
-            margin: 0; /* From existing #question-text style */
-            line-height: 1.5; /* From existing #question-text style */
-        }
-        .example { /* Will become #example-text-container */
-            font-style: italic; /* From existing #example-text style */
-            color: #555; /* From existing #example-text style */
-            font-size: 16px; /* From existing #example-text style */
-            margin-top: 15px; /* From existing #example-text style */
-        }
-        .proficiency-buttons {
-            margin: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-        .proficiency-button {
-            background: #e0e0e0;
-            border: none;
-            padding: 12px 10px;
-            margin: 0 5px;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.1s ease;
-            flex: 1;
-            text-align: center;
-            white-space: nowrap;
-        }
-        .proficiency-button:hover {
-            background: #d5d5d5;
-        }
-        .proficiency-button.selected {
-            background: #4caf50;
-            color: white;
-            transform: scale(1.05);
-        }
-        .no-selection-warning {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-            display: none;
-        }
-        .button {
-            padding: 12px 25px;
-            margin: 20px 0;
-            background: #0f777b;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background 0.3s ease;
-        }
-        .button:hover {
-            background: #0a5e60;
-        }
-        .button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        .hidden {
-            display: none;
-        }
-        .summary-header {
-            background: #e0f7fa;
-            border: 1px solid #0f777b;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .summary-header p {
-            font-size: 18px;
-            color: #2c3e50;
-            margin: 10px 0;
-        }
-        .summary-header p span {
-            font-weight: bold;
-        }
-        .key-characteristics {
-            text-align: left;
-            margin: 10px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border-left: 4px solid #4caf50;
-            border-radius: 5px;
-        }
-        .key-characteristics ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .key-characteristics li {
-            margin-bottom: 10px;
-            font-size: 16px;
-            position: relative;
-            padding-left: 25px;
-        }
-        .key-characteristics li::before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: #4caf50;
-            font-size: 18px;
-        }
-        .personalised-feedback {
-            font-size: 16px;
-            font-style: italic;
-            color: #555;
-            background: #fff;
-            padding: 15px 20px;
-            border-left: 4px solid #ff9800;
-            margin: 20px 0;
-            border-radius: 5px;
-            text-align: left;
-        }
-        #competencyRadarChart {
-            max-width: 100%;
-            height: auto;
-        }
-        .chart-container {
-            margin: 30px 0;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .card h4 {
-            margin: 0 0 15px;
-            color: #2c3e50;
-        }
-        .strengths .card {
-            border-left: 4px solid #4caf50;
-        }
-        .growth-areas .card {
-            border-left: 4px solid #f44336;
-        }
-        .smart-objectives .card {
-            border-left: 4px solid #ff9800;
-        }
-        .section-title { /* Applies to h3 in results sections */
-            font-size: 24px;
-            margin-top: 40px;
-            color: #2c3e50;
-            text-align: left;
-            padding-bottom: 10px;
-        }
-        .icon { /* Retained for icons in section titles */
-            font-size: 24px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        .thank-you {
-            background: #e0f7fa;
-            border: 1px solid #0f777b;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-            font-size: 18px;
-            color: #2c3e50;
-        }
-        .thank-you p { /* specifically for survey prompt */
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .thank-you a {
-            color: #ffffff;
-            background-color: #0f777b;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .thank-you a:hover {
-            background-color: #0a5e60;
-        }
-        @media (max-width: 600px) {
-            .proficiency-button {
-                flex: 1 1 100%;
-                margin: 5px 0;
-            }
-            .container {
-                padding: 15px 20px;
-            }
-        }
-
-        .strengths {
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-        }
-        .growth-areas {
-            background: #ffebee;
-            border: 2px solid #f44336;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-        }
-        .smart-objectives {
-            background: #fff3e0;
-            border: 2px solid #ff9800;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px 0;
-        }
-        .strengths .section-title, /* Selector for h3 */
-        .growth-areas .section-title,
-        .smart-objectives .section-title {
-            background: rgba(0, 0, 0, 0.05);
-            padding: 10px 15px;
-            border-radius: 5px;
-            margin: -20px -20px 20px -20px; /* Adjust to new h3 location */
-        }
-        .strengths .card,
-        .growth-areas .card,
-        .smart-objectives .card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-        }
-
-        /* Toggle buttons for simple/advanced results - NOT YET IMPLEMENTED IN JS */
-        .toggle-buttons {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .toggle-button {
-            background: #e0e0e0;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-        .toggle-button.active {
-            background: #0f777b;
-            color: #fff;
-        }
-        .toggle-button:hover {
-            background: #0a5e60;
-        }
-
-        .dropdown .button { /* For Show/Hide Proficiency button */
-            background: #0f777b;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background 0.3s ease;
-        }
-        .dropdown .button:hover {
-            background: #0a5e60;
-        }
-
-        .dropdown-content {
-            display: none;
-            padding: 15px;
-            margin-top: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-            color: #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        /* New styles for question text and example based on JSON structure */
-        #question-text-container {
-            font-size: 18px; /* Existing #question-text style */
-            font-weight: bold; /* Existing #question-text style */
-            color: #2c3e50; /* Existing #question-text style */
-            line-height: 1.6; /* Existing #question-text style */
-            margin-bottom: 10px; /* Existing #question-text style */
-            text-align: center; /* Existing #question-text style */
-        }
-        #example-text-container {
-            font-size: 16px; /* Existing #example-text style */
-            font-style: italic; /* Existing #example-text style */
-            color: #555; /* Existing #example-text style */
-            line-height: 1.4; /* Existing #example-text style */
-            margin-top: 5px; /* Existing #example-text style */
-            margin-bottom: 0; /* Existing #example-text style */
-            text-align: center; /* Existing #example-text style */
-        }
-
-
-        .chart-description {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            text-align: center;
-        }
-
-        .qr-url {
-            font-size: 12px;
-            color: #e0e0e0; /* Lightened the color as requested */
-            margin-top: 10px;
-            word-wrap: break-word;
-        }
+        /* CSS STYLES (as provided by you, unchanged) */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
+        .container { max-width: 800px; width: 90%; margin: 20px auto; background: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px 30px; padding-top: 10px; }
+        h1, h2, h3 { font-size: 28px; margin: 20px 0; color: #2c3e50; }
+        h4 { font-size: 22px; margin-bottom: 10px; color: #2c3e50; }
+        p { margin: 10px 0 20px; font-size: 16px; color: #555; line-height: 1.6; }
+        .progress-bar-container { width: 100%; background: #e0e0e0; border-radius: 10px; height: 20px; margin: 20px 0; overflow: hidden; position: relative; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, #0f777b, #4caf50); width: 0; transition: width 0.4s ease; }
+        .progress-label { position: absolute; width: 100%; text-align: center; top: 0; font-size: 14px; color: #000; line-height: 20px; }
+        .competency-banner { font-weight: bold; background: #0f777b; color: #fff; padding: 15px; border-radius: 5px; margin: 20px 0; font-size: 20px; }
+        .question-container { background: #e0f7fa; border: 2px solid #0f777b; border-radius: 10px; padding: 15px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); min-height: 120px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .question-container h2 { font-size: 24px; font-weight: bold; color: #333; margin: 0; line-height: 1.5; }
+        .example { font-style: italic; color: #555; font-size: 16px; margin-top: 15px; }
+        .proficiency-buttons { margin: 20px 0; display: flex; justify-content: space-between; flex-wrap: nowrap; }
+        .proficiency-button { background: #e0e0e0; border: none; padding: 12px 10px; margin: 0 5px; border-radius: 5px; font-size: 14px; cursor: pointer; transition: background 0.3s ease, transform 0.1s ease; flex: 1; text-align: center; white-space: nowrap; }
+        .proficiency-button:hover { background: #d5d5d5; }
+        .proficiency-button.selected { background: #4caf50; color: white; transform: scale(1.05); }
+        .no-selection-warning { color: red; font-size: 14px; margin-top: 10px; display: none; }
+        .button { padding: 12px 25px; margin: 20px 0; background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
+        .button:hover { background: #0a5e60; }
+        .button:disabled { background: #ccc; cursor: not-allowed; }
+        .hidden { display: none; }
+        .summary-header { background: #e0f7fa; border: 1px solid #0f777b; border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; }
+        .summary-header p { font-size: 18px; color: #2c3e50; margin: 10px 0; }
+        .summary-header p span { font-weight: bold; }
+        .key-characteristics { text-align: left; margin: 10px 0; padding: 10px; background: #f9f9f9; border-left: 4px solid #4caf50; border-radius: 5px; }
+        .key-characteristics ul { list-style: none; padding-left: 0; }
+        .key-characteristics li { margin-bottom: 10px; font-size: 16px; position: relative; padding-left: 25px; }
+        .key-characteristics li::before { content: "✔"; position: absolute; left: 0; color: #4caf50; font-size: 18px; }
+        .personalised-feedback { font-size: 16px; font-style: italic; color: #555; background: #fff; padding: 15px 20px; border-left: 4px solid #ff9800; margin: 20px 0; border-radius: 5px; text-align: left; }
+        #competencyRadarChart { max-width: 100%; height: auto; }
+        .chart-container { margin: 30px 0; }
+        .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin: 20px 0; text-align: left; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .card h4 { margin: 0 0 15px; color: #2c3e50; }
+        .strengths .card { border-left: 4px solid #4caf50; }
+        .growth-areas .card { border-left: 4px solid #f44336; }
+        .smart-objectives .card { border-left: 4px solid #ff9800; }
+        .section-title { font-size: 24px; margin-top: 40px; color: #2c3e50; text-align: left; padding-bottom: 10px; }
+        .icon { font-size: 24px; vertical-align: middle; margin-right: 10px; }
+        .thank-you { background: #e0f7fa; border: 1px solid #0f777b; border-radius: 10px; padding: 20px; margin: 30px 0; font-size: 18px; color: #2c3e50; }
+        .thank-you p { font-size: 18px; font-weight: bold; }
+        .thank-you a { color: #ffffff; background-color: #0f777b; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 16px; }
+        .thank-you a:hover { background-color: #0a5e60; }
+        @media (max-width: 600px) { .proficiency-button { flex: 1 1 100%; margin: 5px 0; } .container { padding: 15px 20px; } }
+        .strengths { background: #e8f5e9; border: 2px solid #4caf50; border-radius: 10px; padding: 20px; margin: 30px 0; }
+        .growth-areas { background: #ffebee; border: 2px solid #f44336; border-radius: 10px; padding: 20px; margin: 30px 0; }
+        .smart-objectives { background: #fff3e0; border: 2px solid #ff9800; border-radius: 10px; padding: 20px; margin: 30px 0; }
+        .strengths .section-title, .growth-areas .section-title, .smart-objectives .section-title { background: rgba(0,0,0,0.05); padding: 10px 15px; border-radius: 5px; margin: -20px -20px 20px -20px; }
+        .strengths .card, .growth-areas .card, .smart-objectives .card { background: #fff; border-radius: 8px; padding: 15px; margin: 15px 0; }
+        .toggle-buttons { display: flex; justify-content: center; margin: 20px 0; }
+        .toggle-button { background: #e0e0e0; border: none; padding: 10px 20px; margin: 0 5px; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background 0.3s ease, color 0.3s ease; }
+        .toggle-button.active { background: #0f777b; color: #fff; }
+        .toggle-button:hover { background: #0a5e60; }
+        .dropdown .button { background: #0f777b; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px; transition: background 0.3s ease; }
+        .dropdown .button:hover { background: #0a5e60; }
+        .dropdown-content { display: none; padding: 15px; margin-top: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #333; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        #question-text-container { font-size: 18px; font-weight: bold; color: #2c3e50; line-height: 1.6; margin-bottom: 10px; text-align: center; }
+        #example-text-container { font-size: 16px; font-style: italic; color: #555; line-height: 1.4; margin-top: 5px; margin-bottom: 0; text-align: center; }
+        .chart-description { font-size: 16px; color: #555; margin-bottom: 20px; line-height: 1.5; text-align: center; }
+        .qr-url { font-size: 12px; color: #e0e0e0; margin-top: 10px; word-wrap: break-word; }
     </style>
 </head>
 <body>
@@ -436,8 +99,8 @@
         <div class="progress-label" id="progress-label">0%</div>
     </div>
     <div class="question-container">
-        <h2 id="question-text-container"></h2> <!-- Renamed from #question-text -->
-        <p class="example" id="example-text-container"></p> <!-- Renamed from #example-text -->
+        <h2 id="question-text-container"></h2>
+        <p class="example" id="example-text-container"></p>
     </div>
     <div class="proficiency-buttons">
         <!-- Buttons will be populated by JS -->
@@ -510,7 +173,7 @@
     <div style="text-align: center;">
         <button class="button" id="restart-button" type="button"></button>
         <div style="text-align: center; margin-top: 10px;">
-            <p id="qr-url" class="qr-url"></p>
+            <p id="qr-url" class="qr-.qr-url"></p> <!-- Minor typo here, should be class="qr-url" not class="qr-.qr-url" -->
         </div>
     </div>
 </div>
@@ -554,28 +217,31 @@
     }
 
     async function loadTranslations(lang = 'en') {
+        console.log(`loadTranslations CALLED for lang: ${lang}`);
         try {
             const response = await fetch(`${lang}.json?v=${new Date().getTime()}`);
             if (!response.ok) {
                 console.error(`Could not load ${lang}.json. Status: ${response.status}`);
                 if (lang !== 'en') {
+                    console.log('Falling back to English...');
                     return loadTranslations('en');
                 }
-                throw new Error(`Failed to load ${lang}.json`);
+                throw new Error(`Failed to load ${lang}.json. Status: ${response.status}`);
             }
             i18nData = await response.json();
-            console.log('Loaded i18nData:', JSON.parse(JSON.stringify(i18nData))); // Deep copy for logging
+            console.log('Loaded i18nData:', JSON.parse(JSON.stringify(i18nData)));
             currentLang = lang;
             document.documentElement.lang = currentLang;
             questionsData = i18nData.questions || [];
             competenciesData = i18nData.competencyList || [];
             overallProficiencyLevelsData = i18nData.overallProficiencyLevels || [];
             
-            if (competenciesData.length > 0) { // Ensure competencies are loaded before initializing answers
+            if (competenciesData && competenciesData.length > 0) {
                 const numCompetencies = competenciesData.length;
                 answers.Knowledge = Array(numCompetencies).fill(0);
                 answers.Skills = Array(numCompetencies).fill(0);
                 answers.Attitudes = Array(numCompetencies).fill(0);
+                console.log("Answers arrays initialized in loadTranslations. Length:", numCompetencies);
             } else {
                 console.error("Competencies data is empty after loading translations. Cannot initialize answers array.");
             }
@@ -584,15 +250,12 @@
             console.log(`${lang.toUpperCase()} translations loaded.`);
         } catch (error) {
             console.error("Error loading translation file:", error);
-            document.body.innerHTML = `<div style="padding: 20px; text-align: center; font-family: sans-serif;">
-                                          <h1>Error</h1>
-                                          <p>Could not load required resources. Please try again later or contact support.</p>
-                                          <p><em>Details: ${error.message}</em></p>
-                                       </div>`;
+            document.body.innerHTML = `<div style="padding: 20px; text-align: center; font-family: sans-serif;"><h1>Error</h1><p>Could not load required resources. Please try again later or contact support.</p><p><em>Details: ${error.message}</em></p></div>`;
         }
     }
 
     function applyTranslations() {
+        console.log("applyTranslations CALLED");
         document.title = t('appTitle');
         setText('start-screen-title', t('startScreen.title'));
         setHTML('start-screen-p1', t('startScreen.introParagraph1'));
@@ -636,7 +299,6 @@
     }
 
     function constructRadarLegend() {
-        // Added checks for misc keys
         const andConj = t('misc.andConjunction');
         const lowerThanConj = t('misc.areLowerThanConjunction');
         return `${t('endScreen.radarChartLegendIntro')}
@@ -694,13 +356,15 @@
     let radarChart;
 
     function getCompetencyNameByKey(key) {
+        if (!competenciesData) return `NO_COMP_DATA_FOR_KEY: ${key}`;
         const competency = competenciesData.find(c => c.key === key);
         return competency ? competency.name : `MISSING_COMP_NAME: ${key}`;
     }
 
     function renderQuestion(index) {
+        console.log(`renderQuestion CALLED for index: ${index}`);
         if (!questionsData || questionsData.length === 0 || index >= questionsData.length) {
-            console.error("Questions data issue or index out of bounds.", questionsData, index);
+            console.error("Questions data issue or index out of bounds in renderQuestion.", { qDataLength: questionsData?.length, index });
             return;
         }
         const question = questionsData[index];
@@ -711,7 +375,7 @@
         questionTextContainer.textContent = t(`questionTexts.${question.questionKey}`);
         exampleTextContainer.textContent = `${examplePrefixText.startsWith("MISSING_") ? "Example: " : examplePrefixText}${t(`questionTexts.${question.exampleKey}`)}`;
 
-        const progressPercentage = Math.round(((index + 1) / questionsData.length) * 100); // Corrected progress
+        const progressPercentage = Math.round(((index + 1) / questionsData.length) * 100);
         progressBar.style.width = `${progressPercentage}%`;
         progressLabel.textContent = `${progressPercentage}${t('assessmentScreen.progressLabelSuffix')}`;
         proficiencyButtons.forEach(button => button.classList.remove("selected"));
@@ -720,11 +384,15 @@
     }
 
     function attachEventListeners() {
+        console.log("attachEventListeners CALLED");
         proficiencyButtons.forEach(button => {
-            const newButton = button.cloneNode(true);
-            button.parentNode.replaceChild(newButton, button);
+            const newButton = button.cloneNode(true); // Recreate to remove old listeners
+            if (button.parentNode) {
+                button.parentNode.replaceChild(newButton, button);
+            }
         });
-        proficiencyButtons = document.querySelectorAll(".proficiency-button");
+        proficiencyButtons = document.querySelectorAll(".proficiency-button"); // Re-select new buttons
+        
         proficiencyButtons.forEach(button => {
             button.onclick = () => {
                 if(noSelectionWarningEl) noSelectionWarningEl.style.display = 'none';
@@ -740,13 +408,14 @@
                 if (answers[currentQuestion.type] && competencyIndex < answers[currentQuestion.type].length) {
                      answers[currentQuestion.type][competencyIndex] = selectedValue;
                 } else {
-                    console.error(`Answer type ${currentQuestion.type} or index ${competencyIndex} out of bounds. Answers array length for type: ${answers[currentQuestion.type]?.length}`);
+                    console.error(`Answer type ${currentQuestion.type} or index ${competencyIndex} out of bounds. Answers array for type:`, answers[currentQuestion.type]);
                 }
 
                 if (currentIndex < questionsData.length - 1) {
                     currentIndex++;
                     renderQuestion(currentIndex);
                 } else {
+                    console.log("Last question answered, calling showResults()");
                     showResults();
                 }
             };
@@ -754,11 +423,12 @@
     }
 
     function showResults() {
+        console.log("showResults() function CALLED");
         progressBar.style.width = "100%";
         progressLabel.textContent = `100${t('assessmentScreen.progressLabelSuffix')}`;
-        assessmentScreen.classList.add("hidden");
-        startScreen.classList.add("hidden");
-        endScreen.classList.remove("hidden");
+        if(assessmentScreen) assessmentScreen.classList.add("hidden");
+        if(startScreen) startScreen.classList.add("hidden");
+        if(endScreen) endScreen.classList.remove("hidden");
 
         const today = new Date();
         const currentDay = String(today.getDate()).padStart(2, '0');
@@ -767,8 +437,10 @@
         const formattedCurrentDate = `${currentDay}/${currentMonth}/${currentYear}`;
         setText('current-date-advanced', formattedCurrentDate);
 
+        console.log("Attempting to call generateResultsPageContent() from showResults");
         generateResultsPageContent();
-
+        console.log("Finished calling generateResultsPageContent() from showResults");
+        
         const totalScore = (answers.Knowledge.reduce((a, b) => a + b, 0) || 0) +
                            (answers.Skills.reduce((a, b) => a + b, 0) || 0) +
                            (answers.Attitudes.reduce((a, b) => a + b, 0) || 0) ;
@@ -804,10 +476,12 @@
     }
 
     function decodeAndLoadResults() {
+        console.log("decodeAndLoadResults CALLED");
         const data = new URLSearchParams(window.location.search).get('data');
         if (data) {
+            console.log("Data found in URL, attempting to process.");
             const parts = data.split('-');
-            if (parts.length === 3 && competenciesData.length > 0) { // Ensure competenciesData is ready
+            if (parts.length === 3 && competenciesData && competenciesData.length > 0) {
                 const [knowledgeStr, skillsStr, attitudesStr] = parts;
                 const numCompetencies = competenciesData.length;
                 answers.Knowledge = knowledgeStr.split('').map(Number).slice(0, numCompetencies);
@@ -816,12 +490,15 @@
                 while (answers.Knowledge.length < numCompetencies) answers.Knowledge.push(0);
                 while (answers.Skills.length < numCompetencies) answers.Skills.push(0);
                 while (answers.Attitudes.length < numCompetencies) answers.Attitudes.push(0);
+                console.log("Successfully decoded URL data, calling showResults() from decodeAndLoadResults");
                 showResults();
-            } else if (competenciesData.length === 0) {
-                 console.warn("Attempted to decode results before competenciesData was loaded. Will retry or ignore.");
+            } else if (!competenciesData || competenciesData.length === 0) {
+                 console.warn("Attempted to decode results but competenciesData not ready. URL data ignored for now.");
             } else {
                 console.warn("Decoded data from URL is malformed.");
             }
+        } else {
+             console.log("No data in URL for decodeAndLoadResults.");
         }
     }
 
@@ -837,8 +514,12 @@
     }
 
     function generateResultsPageContent() {
-        if (competenciesData.length === 0) {
-            console.error("Cannot generate results content, competenciesData is empty.");
+        console.log("generateResultsPageContent() CALLED");
+        console.log("competenciesData at start of generateResultsPageContent:", JSON.parse(JSON.stringify(competenciesData)));
+        console.log("Answers at start of generateResultsPageContent:", JSON.parse(JSON.stringify(answers)));
+
+        if (!competenciesData || competenciesData.length === 0) {
+            console.error("Cannot generate results content, competenciesData is empty or null.");
             return;
         }
         const competencyScores = competenciesData.map((comp, i) => {
@@ -850,10 +531,21 @@
         });
         const sortedDesc = [...competencyScores].sort((a, b) => b.total - a.total);
         const sortedAsc = [...competencyScores].sort((a, b) => a.total - b.total);
-        generateStrengths(sortedDesc.slice(0, 3));
-        generateGrowthAreas(sortedAsc.slice(0, 3));
+        
+        const topCompetencies = sortedDesc.slice(0, 3);
+        const bottomCompetencies = sortedAsc.slice(0, 3);
+
+        console.log("Top competencies for strengths:", JSON.parse(JSON.stringify(topCompetencies)));
+        generateStrengths(topCompetencies); 
+
+        console.log("Bottom competencies for growth:", JSON.parse(JSON.stringify(bottomCompetencies)));
+        generateGrowthAreas(bottomCompetencies);
+
+        console.log("Generating Radar Chart from generateResultsPageContent");
         generateRadarChart();
-        generateSmartObjectives(sortedAsc.slice(0, 3));
+
+        console.log("Bottom competencies for SMART:", JSON.parse(JSON.stringify(bottomCompetencies)));
+        generateSmartObjectives(bottomCompetencies);
     }
 
     function getStrongestDimension(comp) {
@@ -887,70 +579,92 @@
     }
 
     function generateStrengths(topCompetencies) {
+        console.log("--- Strength Generation --- (Inside generateStrengths) CALLED with topCompetencies:", JSON.parse(JSON.stringify(topCompetencies)));
+        if (!strengthsContainer) { console.error("strengthsContainer is null"); return; }
         strengthsContainer.innerHTML = '';
         topCompetencies.forEach(comp => {
             const strongestDimension = getStrongestDimension(comp);
+            const competencyName = comp.name;
+            const strengthLabel = t('endScreen.strongestDimensionLabel');
             
-            // --- START DEBUG LOGS for Strengths ---
-            console.log("--- Strength Generation ---");
-            console.log("Competency Object (comp):", JSON.parse(JSON.stringify(comp)));
-            console.log("Raw Strongest Dimension:", strongestDimension);
+            console.log("Strength Debug - Comp:", competencyName, "Raw Strongest Dim:", strongestDimension);
             const lookupKey = `endScreen.radarChartLegend${strongestDimension}`;
-            console.log("Constructed Lookup Key for Dimension Name:", lookupKey);
+            console.log("Strength Debug - Lookup Key:", lookupKey);
+            
             const translatedDimensionName = t(lookupKey);
-            console.log("Translated Dimension Name:", translatedDimensionName);
-            // --- END DEBUG LOGS ---
+            console.log("Strength Debug - Translated Dim Name for HTML:", translatedDimensionName, "(Type:", typeof translatedDimensionName + ")");
 
-            const feedback = getFeedbackForCompetency(comp.key, strongestDimension);
-            strengthsContainer.innerHTML += `
+            const feedbackText = getFeedbackForCompetency(comp.key, strongestDimension);
+
+            const htmlSegment = `
                 <div class="strength-item card">
-                    <h4>${comp.name}</h4>
-                    <p><strong>${t('endScreen.strongestDimensionLabel')}</strong> ${translatedDimensionName}</p>
-                    <p>${feedback}</p>
+                    <h4>${competencyName}</h4>
+                    <p><strong>${strengthLabel}</strong> ${translatedDimensionName}</p>
+                    <p>${feedbackText}</p>
                 </div>`;
+            
+            console.log("Strength Debug - HTML Segment to be added:", htmlSegment);
+
+            try {
+                strengthsContainer.innerHTML += htmlSegment;
+            } catch (e) {
+                console.error("Error during innerHTML update for strengths:", e, "Segment was:", htmlSegment);
+            }
         });
     }
 
     function generateGrowthAreas(bottomCompetencies) {
+        console.log("--- Growth Area Generation --- (Inside generateGrowthAreas) CALLED with bottomCompetencies:", JSON.parse(JSON.stringify(bottomCompetencies)));
+        if (!growthAreasContainer) { console.error("growthAreasContainer is null"); return; }
         growthAreasContainer.innerHTML = '';
         bottomCompetencies.forEach(comp => {
             const weakestDimension = getWeakestDimension(comp);
+            const competencyName = comp.name;
+            const growthLabel = t('endScreen.growthAreaLabel');
 
-             // --- START DEBUG LOGS for Growth ---
-            console.log("--- Growth Area Generation ---");
-            console.log("Competency Object (comp):", JSON.parse(JSON.stringify(comp)));
-            console.log("Raw Weakest Dimension:", weakestDimension);
+            console.log("Growth Debug - Comp:", competencyName, "Raw Weakest Dim:", weakestDimension);
             const lookupKey = `endScreen.radarChartLegend${weakestDimension}`;
-            console.log("Constructed Lookup Key for Dimension Name:", lookupKey);
-            const translatedDimensionName = t(lookupKey);
-            console.log("Translated Dimension Name:", translatedDimensionName);
-            // --- END DEBUG LOGS ---
+            console.log("Growth Debug - Lookup Key:", lookupKey);
 
-            const feedback = getGrowthFeedbackForCompetency(comp.key, weakestDimension);
-            growthAreasContainer.innerHTML += `
+            const translatedDimensionName = t(lookupKey);
+            console.log("Growth Debug - Translated Dim Name for HTML:", translatedDimensionName, "(Type:", typeof translatedDimensionName + ")");
+            
+            const feedbackText = getGrowthFeedbackForCompetency(comp.key, weakestDimension);
+
+            const htmlSegment = `
                 <div class="growth-item card">
-                    <h4>${comp.name}</h4>
-                    <p><strong>${t('endScreen.growthAreaLabel')}</strong> ${translatedDimensionName}</p>
-                    <p>${feedback}</p>
+                    <h4>${competencyName}</h4>
+                    <p><strong>${growthLabel}</strong> ${translatedDimensionName}</p>
+                    <p>${feedbackText}</p>
                 </div>`;
+
+            console.log("Growth Debug - HTML Segment to be added:", htmlSegment);
+            
+            try {
+                growthAreasContainer.innerHTML += htmlSegment;
+            } catch (e) {
+                console.error("Error during innerHTML update for growth areas:", e, "Segment was:", htmlSegment);
+            }
         });
     }
 
     function generateSmartObjectives(bottomCompetencies) {
+        console.log("--- SMART Objective Generation --- (Inside generateSmartObjectives) CALLED with bottomCompetencies:", JSON.parse(JSON.stringify(bottomCompetencies)));
+        if (!smartObjectivesContainer) { console.error("smartObjectivesContainer is null"); return; }
         smartObjectivesContainer.innerHTML = '';
         bottomCompetencies.forEach(comp => {
             const weakestDimension = getWeakestDimension(comp);
+            const competencyName = comp.name;
+            const growthLabel = t('endScreen.growthAreaLabel'); // Re-using for consistency if needed, or make a new one
+            const smartObjectiveLabel = t('endScreen.smartObjectiveLabel');
 
-            // --- START DEBUG LOGS for SMART ---
-            console.log("--- SMART Objective Generation ---");
-            console.log("Competency Object (comp):", JSON.parse(JSON.stringify(comp)));
-            console.log("Raw Weakest Dimension for SMART:", weakestDimension);
+            console.log("SMART Debug - Comp:", competencyName, "Raw Weakest Dim:", weakestDimension);
             const dimensionNameLookupKey = `endScreen.radarChartLegend${weakestDimension}`;
-            console.log("Constructed Lookup Key for Dimension Name (SMART):", dimensionNameLookupKey);
-            const translatedDimensionNameForSMART = t(dimensionNameLookupKey);
-            console.log("Translated Dimension Name (SMART):", translatedDimensionNameForSMART);
-            // --- END DEBUG LOGS ---
+            console.log("SMART Debug - Lookup Key for Dim Name:", dimensionNameLookupKey);
 
+            const translatedDimensionNameForSMART = t(dimensionNameLookupKey);
+            console.log("SMART Debug - Translated Dim Name for HTML:", translatedDimensionNameForSMART, "(Type:", typeof translatedDimensionNameForSMART + ")");
+            
             const smartObjectiveText = getSmartObjective(comp.key, weakestDimension);
             const userLevel = comp[`${weakestDimension.toLowerCase()}Score`];
             let levelsToShow = userLevel ? (userLevel === 1 ? [1,2,3] : (userLevel === 5 ? [3,4,5] : [userLevel-1, userLevel, userLevel+1].filter(l=>l>=1 && l<=5))) : [1,2,3];
@@ -965,13 +679,22 @@
                         ${chosenResources.map(r => `<li><a href="${r.URL}" target="_blank" style="text-decoration:none; color:#0f777b;"><strong>${r.title}</strong>: ${r.description}</a></li>`).join('')}
                     </ul>`;
             }
-            smartObjectivesContainer.innerHTML += `
+
+            const htmlSegment = `
                 <div class="smart-item card">
-                    <h4>${comp.name}</h4>
-                    <p><strong>${t('endScreen.growthAreaLabel')}</strong> ${translatedDimensionNameForSMART}</p>
-                    <p><strong>${t('endScreen.smartObjectiveLabel')}</strong> ${smartObjectiveText}</p>
+                    <h4>${competencyName}</h4>
+                    <p><strong>${growthLabel}</strong> ${translatedDimensionNameForSMART}</p>
+                    <p><strong>${smartObjectiveLabel}</strong> ${smartObjectiveText}</p>
                     ${resourcesHTML}
                 </div>`;
+            
+            console.log("SMART Debug - HTML Segment to be added:", htmlSegment);
+
+            try {
+                smartObjectivesContainer.innerHTML += htmlSegment;
+            } catch (e) {
+                console.error("Error during innerHTML update for SMART objectives:", e, "Segment was:", htmlSegment);
+            }
         });
     }
 
@@ -1016,7 +739,7 @@
     startButton.addEventListener("click", () => {
         startScreen.classList.add("hidden");
         assessmentScreen.classList.remove("hidden");
-        if (competenciesData.length > 0) { // Ensure answers arrays are sized correctly before starting
+        if (competenciesData.length > 0) {
             const numCompetencies = competenciesData.length;
             answers.Knowledge = Array(numCompetencies).fill(0);
             answers.Skills = Array(numCompetencies).fill(0);
@@ -1024,7 +747,6 @@
             renderQuestion(currentIndex);
         } else {
             console.error("Cannot start assessment, competencies data not loaded.");
-            // Potentially show an error to user or prevent assessment start
         }
     });
 
@@ -1053,8 +775,10 @@
     }
 
     window.onload = async () => {
+        console.log("window.onload CALLED");
         await loadTranslations('en');
-        decodeAndLoadResults(); // This should now run after i18nData and competenciesData are populated
+        decodeAndLoadResults();
+        console.log("window.onload COMPLETED");
     };
 
 </script>
