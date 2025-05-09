@@ -1,4 +1,4 @@
-const resources = [
+window.customResources = [
   {
     competency: "Digital Information Literacy",
     level: "knowledge",
@@ -1210,4 +1210,4 @@ const resources = [
   },
 ];
 
-window.resources = resources;
+console.log("resources-es.js executed, window.customResources set for Spanish.");
