@@ -267,7 +267,7 @@
     }
     
     async function loadVariantFiles(variantId) {
-        // console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`);
+        console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`);
         let textJsonToLoad = `${variantId}.json`;
         let resourcesJsToLoad = `resources-${variantId}.js`;
         let primaryLangForFallback = variantId.split('-')[0]; 
@@ -278,12 +278,12 @@
             let response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
             if (!response.ok) {
                 if (variantId !== primaryLangForFallback && primaryLangForFallback) {
-                    // console.warn(`Could not load ${textJsonToLoad}. Attempting primary language fallback: ${primaryLangForFallback}.json`);
+                    console.warn(`Could not load ${textJsonToLoad}. Attempting primary language fallback: ${primaryLangForFallback}.json`);
                     textJsonToLoad = `${primaryLangForFallback}.json`;
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
                 }
                 if (!response.ok) { 
-                    // console.warn(`Could not load ${textJsonToLoad}. Falling back to en.json for text.`);
+                    console.warn(`Could not load ${textJsonToLoad}. Falling back to en.json for text.`);
                     if (textJsonToLoad.startsWith('en') && variantId !== 'en' && primaryLangForFallback !== 'en') {}
                     else if (textJsonToLoad === 'en.json' || textJsonToLoad === 'en') { throw new Error('CRITICAL: Failed to load en.json for text.'); }
                     
@@ -295,7 +295,7 @@
             i18nData = await response.json();
             currentVariantIdentifier = textJsonToLoad.replace('.json', ''); 
             successLoadingText = true;
-            // console.log('Successfully loaded Text JSON for:', currentVariantIdentifier); 
+            console.log('Successfully loaded Text JSON for:', currentVariantIdentifier); 
         } catch (error) {
             console.error("Fatal error loading text JSON file:", error);
             document.body.innerHTML = `<div style="text-align:center;padding:20px;"><h1>Error</h1><p>Could not load language text resources.</p><p><em>${error.message}</em></p></div>`;
@@ -324,13 +324,13 @@
             if (variantId !== primaryLangForFallback && primaryLangForFallback) {
                 triedPrimary = true;
                 try {
-                    // console.log(`Attempting fallback for resources: resources-${primaryLangForFallback}.js`);
+                    console.log(`Attempting fallback for resources: resources-${primaryLangForFallback}.js`);
                     await loadScript(`resources-${primaryLangForFallback}.js`);
-                } catch (error2) { /* Fall through */ }
+                } catch (error2) { /* Fall through to English if primary fails */ }
             }
             if (!successLoadingResources && (primaryLangForFallback !== 'en' || !triedPrimary ) && variantId !== 'en' ) {
                  try {
-                    // console.log(`Attempting fallback for resources: resources-en.js`);
+                    console.log(`Attempting fallback for resources: resources-en.js`);
                     await loadScript('resources-en.js');
                  } catch (error3) {
                     console.error("CRITICAL: Failed to load resources-en.js as final fallback for resources.");
@@ -339,7 +339,10 @@
                  console.error(`CRITICAL: Failed to load resources-en.js (or primary was en).`);
             }
         }
-        if (!successLoadingResources) window.customResources = [];
+        if (!successLoadingResources) {
+            console.warn(`No resource script loaded successfully for variant '${variantId}'. window.customResources will be empty.`);
+            window.customResources = []; 
+        }
         
         document.documentElement.lang = i18nData.lang || currentVariantIdentifier.split('-')[0];
         document.title = t('appTitle');
@@ -389,12 +392,23 @@
 
         const ssP1El = document.getElementById('start-screen-p1');
         const ssP1Text = t('startScreen.introParagraph1');
-        console.log(` - Start Screen P1: (Element found: ${!!ssP1El}) Text: "${ssP1Text.substring(0,30)}..."`);
+        console.log(` - Start Screen P1: (Element found: ${!!ssP1El})`); // Removed text preview for brevity
         if (ssP1El) setHTML('start-screen-p1', ssP1Text); else console.error("start-screen-p1 element NOT FOUND in applyTranslations");
         
-        setHTML('start-screen-p2', t('startScreen.introParagraph2'));
-        setHTML('start-screen-p3', t('startScreen.introParagraph3'));
-        setHTML('start-screen-p4', t('startScreen.introParagraph4'));
+        const ssP2El = document.getElementById('start-screen-p2');
+        const ssP2Text = t('startScreen.introParagraph2');
+        console.log(` - Start Screen P2: (Element found: ${!!ssP2El})`);
+        if (ssP2El) setHTML('start-screen-p2', ssP2Text); else console.error("start-screen-p2 element NOT FOUND in applyTranslations");
+
+        const ssP3El = document.getElementById('start-screen-p3');
+        const ssP3Text = t('startScreen.introParagraph3');
+        console.log(` - Start Screen P3: (Element found: ${!!ssP3El})`);
+        if (ssP3El) setHTML('start-screen-p3', ssP3Text); else console.error("start-screen-p3 element NOT FOUND in applyTranslations");
+
+        const ssP4El = document.getElementById('start-screen-p4');
+        const ssP4Text = t('startScreen.introParagraph4');
+        console.log(` - Start Screen P4: (Element found: ${!!ssP4El})`);
+        if (ssP4El) setHTML('start-screen-p4', ssP4Text); else console.error("start-screen-p4 element NOT FOUND in applyTranslations");
         
         if (startButton) { 
             const ssButtonTextVal = t('startScreen.startButtonText');
@@ -405,8 +419,7 @@
         }
         console.log("applyTranslations: Finished setting start screen elements.");
         
- if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
-        
+        if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
         const toggleProfButton = document.getElementById('toggle-proficiency-button');
         if (toggleProfButton) { 
             const proficiencyDropdownEl = document.getElementById('proficiency-dropdown-content');
@@ -416,36 +429,47 @@
                 toggleProfButton.textContent = t('assessmentScreen.hideProficiencyLevelsButton');
             }
         }
-
         const proficiencyDropdown = document.getElementById('proficiency-dropdown-content');
         if (proficiencyDropdown) { 
             proficiencyDropdown.innerHTML = `<p>${t('assessmentScreen.proficiencyLevelsDropdown.beginner')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.developing')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.competent')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.proficient')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.expert')}</p>`;
         }
-        
-        populateProficiencyButtons(); // This re-creates proficiency buttons with translated text
+        populateProficiencyButtons();
 
-        // Re-render current question if on assessment screen
         if (assessmentScreen && !assessmentScreen.classList.contains('hidden') && questionsData.length > 0 && currentIndex < questionsData.length) {
             renderQuestion(currentIndex); 
         }
 
-        // Re-translate static parts of end screen if it's visible, and re-generate dynamic results
         if (endScreen && !endScreen.classList.contains('hidden')) { 
-            // ... (all end screen setText/setHTML calls for static titles, intros etc.) ...
             setText('end-screen-title', t('endScreen.title'));
-            // ... (many more like this) ...
-            if (answers.Knowledge.length > 0 || answers.Skills.length > 0 || answers.Attitudes.length > 0) { // Check if results were previously generated
-                 generateResultsPageContent(); // This will re-generate strengths, growth, smart objectives with new lang
+            setText('qr-code-title', t('endScreen.qrCodeSectionTitle'));
+            setText('qr-code-instruction', t('endScreen.qrCodeInstruction'));
+            setText('key-char-title', t('endScreen.keyCharacteristicsTitle'));
+            setText('key-char-intro', t('endScreen.keyCharacteristicsIntro'));
+            setText('radar-chart-title', t('endScreen.radarChartTitle'));
+            setText('radar-chart-desc', t('endScreen.radarChartDescription'));
+            setHTML('radar-chart-legend', constructRadarLegend());
+            setHTML('strengths-title', t('endScreen.strengthsSectionTitle'));
+            setText('strengths-intro', t('endScreen.strengthsSectionIntro'));
+            setHTML('growth-areas-title', t('endScreen.growthAreasSectionTitle'));
+            setText('growth-areas-intro', t('endScreen.growthAreasSectionIntro'));
+            setHTML('smart-objectives-title', t('endScreen.smartObjectivesSectionTitle'));
+            setText('smart-objectives-intro', t('endScreen.smartObjectivesSectionIntro'));
+            setHTML('thank-you-message', t('endScreen.thankYouMessage'));
+            setText('survey-prompt', t('endScreen.surveyPrompt'));
+            setText('survey-button', t('endScreen.surveyButtonText'));
+            if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
+            if (answers.Knowledge.length > 0 || answers.Skills.length > 0 || answers.Attitudes.length > 0) {
+                 generateResultsPageContent();
             }
         }
     }
 
-    function constructRadarLegend() { /* ...Full function ... */ 
+    function constructRadarLegend() { 
         const andConj = t('misc.andConjunction');
         const lowerThanConj = t('misc.areLowerThanConjunction');
         return `${t('endScreen.radarChartLegendIntro')}<span style="color: #ff6384; font-weight: bold;">${t('endScreen.radarChartLegendKnowledge')}</span>, <span style="color: #36a2eb; font-weight: bold;">${t('endScreen.radarChartLegendSkills')}</span>, ${andConj.startsWith('MISSING_') ? 'and' : andConj} <span style="color: #4bc0c0; font-weight: bold;">${t('endScreen.radarChartLegendAttitudes')}</span>${t('endScreen.radarChartLegendExplanation')}<span style="color: #36a2eb; font-weight: bold;">${t('endScreen.radarChartLegendSkillsExample')}</span> ${lowerThanConj.startsWith('MISSING_') ? 'are lower than' : lowerThanConj} <span style="color: #ff6384; font-weight: bold;">${t('endScreen.radarChartLegendKnowledgeExample')}</span>${t('endScreen.radarChartLegendExplanationSuffix')}`;
     }
-    function populateProficiencyButtons() { /* ...Full function ... */ 
+    function populateProficiencyButtons() { 
         const container = document.querySelector('#assessment-screen .proficiency-buttons');
         if (!container) return;
         container.innerHTML = '';
@@ -459,12 +483,12 @@
         }
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button"); 
     }
-    function getCompetencyNameByKey(key) { /* ...Full function ... */ 
+    function getCompetencyNameByKey(key) { 
         if (!competenciesData) return `NO_COMP_DATA_FOR_KEY: ${key}`;
         const competency = competenciesData.find(c => c.key === key);
         return competency ? competency.name : `MISSING_COMP_NAME: ${key}`;
     }
-    function renderQuestion(index) { /* ...Full function ... */ 
+    function renderQuestion(index) { 
         if (!questionsData || questionsData.length === 0 || index >= questionsData.length) {return;}
         const question = questionsData[index];
         const competencyName = getCompetencyNameByKey(question.competencyKey);
@@ -480,7 +504,7 @@
         if(noSelectionWarningEl) noSelectionWarningEl.style.display = 'none';
         attachEventListeners();
     }
-    function attachEventListeners() { /* ...Full function ... */ 
+    function attachEventListeners() { 
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button"); 
         if (!proficiencyButtonsNodeList) return;
         proficiencyButtonsNodeList.forEach(button => {
@@ -507,7 +531,7 @@
             };
         });
     }
-    function showResults() { /* ...Full function ... */ 
+    function showResults() { 
         if(progressBar) progressBar.style.width = "100%";
         if(progressLabel) progressLabel.textContent = `100${t('assessmentScreen.progressLabelSuffix')}`;
         if(assessmentScreen) assessmentScreen.classList.add("hidden");
@@ -556,11 +580,11 @@
         setText('survey-button', t('endScreen.surveyButtonText'));
         if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
     }
-    function encodeResponses() { /* ...Full function ... */ 
+    function encodeResponses() { 
         const numCompetencies = competenciesData.length || 0;
         return `${(answers.Knowledge||[]).slice(0,numCompetencies).join('')}-${(answers.Skills||[]).slice(0,numCompetencies).join('')}-${(answers.Attitudes||[]).slice(0,numCompetencies).join('')}`;
     }
-    function decodeAndLoadResults() { /* ...Full function ... */ 
+    function decodeAndLoadResults() { 
         const data = new URLSearchParams(window.location.search).get('data');
         if (data) {
             const parts = data.split('-');
@@ -579,7 +603,7 @@
             } else { console.warn("URL Data: malformed."); }
         }
     }
-    function displayKeyCharacteristics(characteristics) { /* ...Full function ... */ 
+    function displayKeyCharacteristics(characteristics) { 
         const listEl = document.getElementById('key-characteristics-advanced');
         if(!listEl) return;
         listEl.innerHTML = '';
@@ -589,7 +613,7 @@
             listEl.appendChild(li);
         });
     }
-    function generateResultsPageContent() { /* ...Full function ... */ 
+    function generateResultsPageContent() { 
         if (!competenciesData || competenciesData.length === 0) { return; }
         const competencyScores = competenciesData.map((comp, i) => ({
             key: comp.key, name: comp.name, 
@@ -603,13 +627,13 @@
         generateRadarChart();
         generateSmartObjectives(sortedAsc.slice(0, 3));
     }
-    function getStrongestDimension(comp) { /* ...Full function ... */ return ["Knowledge","Skills","Attitudes"].sort((a,b)=>(comp[`${b.toLowerCase()}Score`])-(comp[`${a.toLowerCase()}Score`]))[0]; }
-    function getWeakestDimension(comp) { /* ...Full function ... */ return ["Knowledge","Skills","Attitudes"].sort((a,b)=>(comp[`${a.toLowerCase()}Score`])-(comp[`${b.toLowerCase()}Score`]))[0]; }
+    function getStrongestDimension(comp) { return ["Knowledge","Skills","Attitudes"].sort((a,b)=>(comp[`${b.toLowerCase()}Score`])-(comp[`${a.toLowerCase()}Score`]))[0]; }
+    function getWeakestDimension(comp) { return ["Knowledge","Skills","Attitudes"].sort((a,b)=>(comp[`${a.toLowerCase()}Score`])-(comp[`${b.toLowerCase()}Score`]))[0]; }
     function getFeedbackForCompetency(competencyKey, dimension) { return t(`feedbackStrengths.${competencyKey}.${dimension}`); }
     function getGrowthFeedbackForCompetency(competencyKey, dimension) { return t(`feedbackGrowth.${competencyKey}.${dimension}`); }
     function getSmartObjective(competencyKey, dimension) { return t(`smartObjectives.${competencyKey}.${dimension}`); }
 
-    function generateStrengths(topCompetencies) { /* ...Full function with logs ... */ 
+    function generateStrengths(topCompetencies) { 
         if (!strengthsContainer) { console.error("strengthsContainer is null"); return; }
         strengthsContainer.innerHTML = '';
         topCompetencies.forEach(comp => {
@@ -621,7 +645,7 @@
             strengthsContainer.innerHTML += `<div class="strength-item card"><h4>${competencyName}</h4><p><strong>${strengthLabel}</strong> ${translatedDimensionName}</p><p>${feedbackText}</p></div>`;
         });
     }
-    function generateGrowthAreas(bottomCompetencies) { /* ...Full function with logs ... */ 
+    function generateGrowthAreas(bottomCompetencies) { 
         if (!growthAreasContainer) { console.error("growthAreasContainer is null"); return; }
         growthAreasContainer.innerHTML = '';
         bottomCompetencies.forEach(comp => {
@@ -633,28 +657,38 @@
             growthAreasContainer.innerHTML += `<div class="growth-item card"><h4>${competencyName}</h4><p><strong>${growthLabel}</strong> ${translatedDimensionName}</p><p>${feedbackText}</p></div>`;
         });
     }
-    function generateSmartObjectives(bottomCompetencies) { /* ...Full function with logs and using window.customResources ... */ 
-        if (!smartObjectivesContainer) return;
+    function generateSmartObjectives(bottomCompetencies) { 
+        if (!smartObjectivesContainer) { console.error("smartObjectivesContainer is null"); return; }
         smartObjectivesContainer.innerHTML = '';
         bottomCompetencies.forEach(comp => {
             const weakestDimension = getWeakestDimension(comp);
             const competencyNameDisplay = comp.name; 
+            const competencyForResourceLookup = comp.name; 
             const growthLabel = t('endScreen.growthAreaLabel');
             const smartObjectiveLabel = t('endScreen.smartObjectiveLabel');
             const translatedDimensionNameForSMART = t(`endScreen.radarChartLegend${weakestDimension}`);
             const smartObjectiveText = getSmartObjective(comp.key, weakestDimension);
             const userLevel = comp[`${weakestDimension.toLowerCase()}Score`];
             let levelsToShow = userLevel ? (userLevel === 1 ? [1,2,3] : (userLevel === 5 ? [3,4,5] : [userLevel-1, userLevel, userLevel+1].filter(l=>l>=1 && l<=5))) : [1,2,3];
-            const competencyForResourceLookup = comp.name; 
+            
+            console.log(`SMART Objectives - Competency: "${competencyForResourceLookup}", Weakest Dim: "${weakestDimension.toLowerCase()}", User Level: ${userLevel}`);
+            console.log("SMART Objectives - Window.customResources:", JSON.parse(JSON.stringify(window.customResources || [])));
 
             const filteredResources = (window.customResources || []).filter(r => {
+                console.log(`Filtering resource: (Res Comp: "${r.competency}", Res Lvl: "${r.level}") vs (Lookup Comp: "${competencyForResourceLookup}", Lookup Lvl: "${weakestDimension.toLowerCase()}")`);
                 return r.competency === competencyForResourceLookup && r.level === weakestDimension.toLowerCase();
             });
+            console.log(`SMART Objectives - Filtered Resources (for ${competencyForResourceLookup} / ${weakestDimension.toLowerCase()}):`, JSON.parse(JSON.stringify(filteredResources)));
+
             const chosenResources = filteredResources.filter(r => levelsToShow.includes(r.rating)).slice(0, 3);
+            console.log(`SMART Objectives - Chosen Resources (after rating filter for levels ${levelsToShow.join(',')} ):`, JSON.parse(JSON.stringify(chosenResources)));
+            
             let resourcesHTML = '';
             if (chosenResources.length > 0) {
                 resourcesHTML = `<h5>${t('endScreen.recommendedResourcesLabel')}</h5><ul style="list-style:none; padding:0; margin:10px 0;">
                         ${chosenResources.map(r => `<li><a href="${r.URL}" target="_blank" style="text-decoration:none; color:#0f777b;"><strong>${r.title}</strong>: ${r.description}</a></li>`).join('')}</ul>`;
+            } else {
+                console.log(`No chosen resources to display for ${competencyNameDisplay} - ${weakestDimension}`);
             }
             smartObjectivesContainer.innerHTML += `<div class="smart-item card"><h4>${competencyNameDisplay}</h4><p><strong>${growthLabel}</strong> ${translatedDimensionNameForSMART}</p><p><strong>${smartObjectiveLabel}</strong> ${smartObjectiveText}</p>${resourcesHTML}</div>`;
         });
@@ -798,7 +832,7 @@
         if (currentBU) {
             variantToLoad = `${currentLanguage}-${currentBU}`;
         } else {
-            console.log(`No BU parameter. Initial language: '${currentLanguage}' (effective variant: ${variantToLoad})`);
+            // console.log(`No BU parameter. Initial language: '${currentLanguage}' (effective variant: ${variantToLoad})`);
         }
         
         await loadVariantFiles(variantToLoad); 
