@@ -1,6 +1,6 @@
 window.customResources = [
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "knowledge",
     title: "Evaluating Sources",
     description: "Harvard University's guide on assessing the reliability and accuracy of various information sources.",
@@ -8,7 +8,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "knowledge",
     title: "How to Know if a Source Is Credible",
     description: "Purdue University Global's comprehensive checklist to help evaluate the credibility of academic sources.",
@@ -16,7 +16,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "knowledge",
     title: "Evaluating Web Sources",
     description: "Harvard University's guidelines for critically assessing the credibility of online information.",
@@ -24,7 +24,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "knowledge",
     title: "How to Improve Accuracy in the Workplace",
     description: "Discusses strategies to enhance accuracy in professional settings, emphasising its impact on business success.",
@@ -32,7 +32,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "knowledge",
     title: "Why Attention to Detail is Important in the Workplace",
     description: "Explores the significance of meticulousness in work tasks and its effect on overall performance and quality.",
@@ -40,7 +40,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "skills",
     title: "Best Practices To Keep Your Shared Files Organised",
     description: "Provides strategies for structuring shared files, including building a well-planned folder hierarchy and implementing consistent naming conventions.",
@@ -48,7 +48,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "skills",
     title: "11 Ideas for How to Organise Digital Files",
     description: "Offers methods for organising digital files efficiently, such as sorting by name, date, project, or department, to enhance retrieval and management.",
@@ -56,7 +56,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "skills",
     title: "Guide to Creating Effective File and Folder Naming Conventions",
     description: "Discusses the importance of consistent and meaningful file and folder naming conventions for organisational efficiency and improved searchability.",
@@ -64,7 +64,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "skills",
     title: "How to Share Information with Team Members Effectively",
     description: "Explores various methods for effective information sharing within teams, including the use of communication platforms and fostering a culture of open access.",
@@ -72,7 +72,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "skills",
     title: "Best Practices for File Naming and Organising",
     description: "Provides guidelines on naming and organising files to indicate their contents and specify relationships to other files, enhancing clarity and accessibility.",
@@ -80,7 +80,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "attitudes",
     title: "Fact-Checking: The Importance of Verifying Information in Today's Digital Age",
     description: "Discusses the necessity of fact-checking to ensure the accuracy of information shared, highlighting the ethical and legal implications of disseminating false data.",
@@ -88,7 +88,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "attitudes",
     title: "9 Approaches to Fact-Checking and Verification",
     description: "Provides strategies for verifying information, including consulting credible sources and corroborating key facts, to maintain accuracy in data sharing.",
@@ -96,7 +96,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "attitudes",
     title: "What is Data Accuracy? Definition, Importance, and Best Practices",
     description: "Explores the concept of data accuracy, its significance in business operations, and practices to ensure data integrity and reliability.",
@@ -104,7 +104,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "attitudes",
     title: "Understanding Data Quality: Accuracy, Reliability, and Consistency",
     description: "Examines the dimensions of data quality, emphasising the critical role of accuracy and reliability in effective decision-making.",
@@ -112,7 +112,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Information Literacy",
+    competency: "findingInfo",
     level: "attitudes",
     title: "Why High-Quality and Relevant Data Is Essential in Today's Business Landscape",
     description: "Highlights the importance of accurate and relevant data in driving informed business decisions and maintaining operational efficiency.",
@@ -121,7 +121,7 @@ window.customResources = [
   },
 
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "knowledge",
     title: "A Guide to Choosing the Right Communication Tool",
     description: "Explains how to select the best digital tool for various communication needs, from emails to instant messaging and video conferencing.",
@@ -129,7 +129,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "knowledge",
     title: "Effective Communication in the Workplace",
     description: "Discusses the importance of clear and respectful communication in professional settings, emphasising active listening and empathy.",
@@ -137,7 +137,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "knowledge",
     title: "Communication Escalation: When and How to Act",
     description: "Provides guidance on recognising situations requiring escalation and offers best practices for effective communication with supervisors and stakeholders.",
@@ -145,7 +145,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "knowledge",
     title: "Digital Tools for Professional Communication",
     description: "Covers various digital communication tools, their strengths, and when to use them for optimal communication in different professional scenarios.",
@@ -153,7 +153,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "knowledge",
     title: "Mastering Workplace Communication Strategies",
     description: "Offers advanced strategies for managing professional communication, including escalation protocols and resolving workplace conflicts diplomatically.",
@@ -161,7 +161,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "skills",
     title: "28 Power User Tips for Microsoft Teams",
     description: "Offers advanced tips for effectively utilising Microsoft Teams, including organising teams and channels, managing notifications, and integrating with other tools.",
@@ -169,7 +169,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "skills",
     title: "10 Keys to Effective Business Writing",
     description: "Provides guidelines for writing clear, concise, and respectful business messages, emphasising the importance of clarity and brevity in professional communication.",
@@ -177,7 +177,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "skills",
     title: "6 Tips for How to Communicate Clearly in Business",
     description: "Discusses strategies for clear and concise business communication, including focusing on the audience, organising thoughts, and avoiding jargon.",
@@ -185,7 +185,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "skills",
     title: "How to Use Microsoft Teams Effectively",
     description: "Explores best practices for using Microsoft Teams, such as organising channels, managing notifications, and integrating with other Microsoft 365 apps.",
@@ -193,7 +193,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "skills",
     title: "6 Steps to Keeping Your Emails Short and to the Point",
     description: "Offers practical advice on writing concise emails, including focusing on key points, using bullet points, and avoiding unnecessary information.",
@@ -201,7 +201,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "attitudes",
     title: "Why Collaboration is Better Than Competition",
     description: "Discusses the importance of collaboration in creating innovative solutions and achieving collective success.",
@@ -209,7 +209,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "attitudes",
     title: "Why Collaboration in the Workplace is Important",
     description: "Explores how collaboration leads to better decision-making, problem-solving, and a more supportive team environment.",
@@ -217,7 +217,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "attitudes",
     title: "Fostering Teamwork: 5 Tips for Building Collaboration in Your Organisation",
     description: "Provides tips on how to create a collaborative work culture, including setting clear goals and fostering mutual respect.",
@@ -225,7 +225,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "attitudes",
     title: "The Power of Professionalism: Why It Matters",
     description: "Explores the importance of professionalism in workplace communication, including maintaining respect and effective interaction.",
@@ -233,7 +233,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Communication and Collaboration",
+    competency: "communication",
     level: "attitudes",
     title: "Professionalism in the Workplace: A Guide for Employees",
     description: "Provides a comprehensive guide on how to maintain professionalism, including clear communication and respectful behaviour.",
@@ -242,7 +242,7 @@ window.customResources = [
   },
 
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "knowledge",
     title: "Privacy & Data Protection",
     description: "Policies & Documentation, Training and Awareness Material",
@@ -250,7 +250,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "knowledge",
     title: "How to Recognise and Avoid Phishing Scams",
     description: "Tips on spotting phishing emails and text messages, and advice on reporting them to help combat scammers.",
@@ -258,7 +258,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "knowledge",
     title: "How to Handle Sensitive Information or Records Securely",
     description: "Best practices for managing sensitive data, including classification, storage, and secure sharing protocols.",
@@ -266,7 +266,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "knowledge",
     title: "How to Protect Sensitive Data: Your Risks and Responsibilities",
     description: "Discusses the importance of securing sensitive data and outlines responsibilities for organisations and individuals.",
@@ -274,7 +274,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "knowledge",
     title: "9 Best Practices to Manage Sensitive Data Carefully",
     description: "Provides strategies for handling sensitive data, including encryption, backups, and access controls.",
@@ -282,7 +282,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "skills",
     title: "Cyber Ready",
     description: "If you suspect a Cyber Security incident (e.g. a potential data leak), you can become a Cyber Hero by reporting the incident. How do you do that? All information about how to report a potential security incident can be found on this page.",
@@ -290,7 +290,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "skills",
     title: "The Top 5 Cybersecurity Threats and How to Defend Against Them",
     description: "Discusses prevalent cybersecurity threats like ransomware and phishing, with strategies for defence.",
@@ -298,7 +298,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "skills",
     title: "Phishing and How to Prevent It",
     description: "Explains phishing attacks and shares prevention techniques and best practices.",
@@ -306,7 +306,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "skills",
     title: "How to Handle Sensitive Data Securely",
     description: "Offers strategies for securely handling sensitive data, from encryption to secure sharing.",
@@ -314,7 +314,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "skills",
     title: "How to Recognise and Avoid Phishing Scams",
     description: "A comprehensive guide on recognising phishing scams and how to protect against them.",
@@ -322,7 +322,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "attitudes",
     title: "The Business of Cybersecurity Ownership",
     description: "Discusses the importance of taking ownership of cybersecurity across an organisation and how every employee plays a role in protecting assets.",
@@ -330,7 +330,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "attitudes",
     title: "Creating a Culture of Security Awareness",
     description: "Explores strategies for instilling a culture of vigilance and proactive cybersecurity among employees.",
@@ -338,7 +338,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "attitudes",
     title: "Building a Cybersecurity Conscious Organisation",
     description: "Provides best practices for organisations to take ownership of cybersecurity by empowering all employees to protect company data.",
@@ -346,7 +346,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "attitudes",
     title: "The Role of Cybersecurity Training in Vigilance",
     description: "Explains how continuous training and awareness programmes can help employees stay vigilant and spot potential cybersecurity threats.",
@@ -354,7 +354,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Cybersecurity and Data Protection",
+    competency: "onlineSafety",
     level: "attitudes",
     title: "Keeping Employees Vigilant Against Cyber Threats",
     description: "Focuses on maintaining employee vigilance against cybersecurity threats through engagement and simulation exercises.",
@@ -363,7 +363,7 @@ window.customResources = [
   },
 
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "knowledge",
     title: "The Importance of Data Usage Policies in Organisations",
     description: "Introduces the concept of data usage policies and their role in safeguarding company data, with a focus on basic practices.",
@@ -371,7 +371,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "knowledge",
     title: "How Ethical Considerations in Digital Interactions Affect Your Business",
     description: "Explains ethical considerations in digital interactions, emphasising privacy and transparency in communication.",
@@ -379,7 +379,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "knowledge",
     title: "Data Protection Best Practices for Organisations",
     description: "Discusses best practices for data protection, focusing on the basics of securing data and ensuring compliance with industry standards.",
@@ -387,7 +387,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "knowledge",
     title: "Digital Ethics and Responsibility in the Workplace",
     description: "Provides an overview of digital ethics, focusing on responsibility and integrity in digital business environments.",
@@ -395,7 +395,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "knowledge",
     title: "Navigating Compliance with Data Protection Regulations",
     description: "An in-depth look at compliance with data protection regulations like GDPR, providing strategies for organisations to meet legal and ethical standards.",
@@ -403,7 +403,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "skills",
     title: "Best Ethical Practices in Technology",
     description: "Provides guidance on the ethical practices for using digital tools, including privacy, transparency, and responsible behaviour.",
@@ -411,7 +411,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "skills",
     title: "Reporting Unethical Behaviour in the Workplace",
     description: "Discusses the steps to recognise and report unethical behaviour, including the use of company-established reporting channels.",
@@ -419,7 +419,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "skills",
     title: "What to Do if You Suspect Unethical Activity at Work",
     description: "Offers advice on how to report unethical actions at work and outlines protections for whistleblowers.",
@@ -427,7 +427,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "skills",
     title: "How to Implement Compliance Processes in Your Company",
     description: "Explains how employees can effectively implement company compliance processes and monitor adherence to legal and ethical standards.",
@@ -435,7 +435,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "skills",
     title: "The Importance of Company Compliance Programmes",
     description: "Focuses on the importance of adhering to company compliance programmes and the role of employees in supporting these processes.",
@@ -443,7 +443,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "attitudes",
     title: "What Is Confidentiality and Why Is It Important?",
     description: "A beginner-friendly explanation of confidentiality, why it matters in the workplace, and the basics of safeguarding sensitive information.",
@@ -451,7 +451,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "attitudes",
     title: "The Basics of Ethical Conduct in Digital Spaces",
     description: "An introductory guide to understanding digital ethics, including how to use tools responsibly and demonstrate integrity.",
@@ -459,7 +459,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "attitudes",
     title: "How to Protect Sensitive Information at Work",
     description: "Offers fundamental steps for protecting sensitive data in the workplace, including encryption and limiting access.",
@@ -467,7 +467,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "attitudes",
     title: "Understanding Digital Ethics and Responsibility",
     description: "Explains the importance of integrity and ethical behaviour in digital activities, with practical examples.",
@@ -475,7 +475,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Ethics and Compliance",
+    competency: "digitalResponsibility",
     level: "attitudes",
     title: "Building a Culture of Integrity and Accountability",
     description: "In-depth guidance on fostering a workplace culture focused on integrity, responsibility, and ethical conduct in digital practices.",
@@ -484,7 +484,7 @@ window.customResources = [
   },
 
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "knowledge",
     title: "How Screen Time Affects Your Health",
     description: "Explains how excessive screen time can negatively impact mental and physical health, with tips for reducing screen use.",
@@ -492,7 +492,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "knowledge",
     title: "What Excessive Screen Time Does to Your Brain",
     description: "Discusses the cognitive and physical effects of prolonged screen exposure and provides advice on mitigating its impacts.",
@@ -500,7 +500,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "knowledge",
     title: "The Digital Footprint and Its Environmental Impact",
     description: "Focuses on the environmental footprint of digital activities, such as energy consumption in data centres and e-waste.",
@@ -508,7 +508,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "knowledge",
     title: "The Digital Footprint: How Technology Impacts the Environment",
     description: "Discusses how digital activities contribute to environmental degradation and ways to minimise impact, including reducing e-waste.",
@@ -516,7 +516,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "knowledge",
     title: "How to Maintain a Balance Between Technology Use and Well-being",
     description: "Provides strategies for maintaining a healthy balance between work, technology use, and personal life, including the importance of digital detox.",
@@ -524,7 +524,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "skills",
     title: "Managing Screen Time for a Balanced Life",
     description: "Offers tips on how to manage screen time, including setting boundaries and taking regular breaks to reduce screen exposure and improve well-being.",
@@ -532,7 +532,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "skills",
     title: "How to Manage Screen Time and Prevent Overload",
     description: "Discusses strategies for managing screen time effectively, including using the 20-20-20 rule and incorporating physical activity.",
@@ -540,7 +540,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "skills",
     title: "7 Tips for Managing Digital Workload",
     description: "Provides practical strategies for balancing digital workload, setting priorities, and managing screen time to avoid overload.",
@@ -548,7 +548,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "skills",
     title: "How to Minimise E-Waste in the Digital Age",
     description: "Offers advice on reducing e-waste, such as extending the life of devices and using certified e-waste recyclers.",
@@ -556,7 +556,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "skills",
     title: "How to Reduce E-Waste and Choose Sustainable Devices",
     description: "Focuses on choosing energy-efficient and environmentally friendly devices, as well as recycling e-waste responsibly.",
@@ -564,7 +564,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "attitudes",
     title: "How to Develop a Healthier Relationship with Technology",
     description: "Discusses how to set boundaries with technology, incorporate regular breaks, and engage in physical activity to maintain a healthy relationship with tech.",
@@ -572,7 +572,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "attitudes",
     title: "The Importance of Setting Boundaries with Technology",
     description: "Explains the importance of setting boundaries and prioritising time away from screens to foster a healthy balance between technology and personal life.",
@@ -580,7 +580,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "attitudes",
     title: "The 7 Golden Rules for a Sustainable Digital Workplace",
     description: "Offers practical steps for making digital practices more sustainable, including extending device lifespan and reducing energy consumption.",
@@ -588,7 +588,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "attitudes",
     title: "How to Reduce E-Waste and Encourage Sustainable Digital Practices",
     description: "Focuses on how to reduce e-waste, repair devices, and adopt eco-friendly digital practices for sustainability.",
@@ -596,7 +596,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Well-being and Sustainability",
+    competency: "wellbeing",
     level: "attitudes",
     title: "Choosing Energy-Efficient Digital Tools and Devices",
     description: "Discusses the importance of selecting energy-efficient devices and promoting sustainable digital habits.",
@@ -605,7 +605,7 @@ window.customResources = [
   },
 
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "knowledge",
     title: "Digital Tools 101: A Beginner's Guide",
     description: "Introduces the basic features and purposes of common workplace digital tools like email and spreadsheets.",
@@ -613,7 +613,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "knowledge",
     title: "Understanding the Basics of Digital Tools",
     description: "Explains the core functions of widely used tools such as Microsoft Office and Google Workspace.",
@@ -621,7 +621,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "knowledge",
     title: "How to Use Technology to Improve Efficiency",
     description: "Provides insights into optimising workflows using tools like project management software and automation.",
@@ -629,7 +629,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "knowledge",
     title: "When to Seek Help with Digital Tools",
     description: "Highlights scenarios where seeking assistance can enhance the use of complex digital tools effectively.",
@@ -637,7 +637,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "knowledge",
     title: "Expert Strategies for Digital Tool Optimisation",
     description: "Provides expert-level advice on integrating multiple digital tools and customising workflows for peak efficiency.",
@@ -645,7 +645,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "skills",
     title: "Beginner's Guide to Digital Tools and AI Features",
     description: "Introduces essential digital tools and simple AI applications for newcomers.",
@@ -653,7 +653,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "skills",
     title: "Learn AI Fundamentals with Google AI Essentials",
     description: "Offers foundational knowledge and practical exercises for understanding and applying AI features in common tools.",
@@ -661,7 +661,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "skills",
     title: "Common Software Problems and How You Can Fix Them",
     description: "Identifies frequent software issues and offers practical solutions to help users maintain productivity and confidence.",
@@ -669,7 +669,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "skills",
     title: "The Ultimate Guide to Troubleshooting Software Issues: Key Techniques",
     description: "Offers comprehensive techniques for diagnosing and resolving advanced software problems, empowering users to troubleshoot effectively.",
@@ -677,7 +677,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "skills",
     title: "Advanced Features in Digital Tools: Expert Techniques",
     description: "Focuses on using advanced functionalities in digital tools and AI to optimise workflows and achieve maximum productivity.",
@@ -685,7 +685,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "attitudes",
     title: "Getting Started with Digital Tools: A Beginner's Guide",
     description: "Provides an introduction to basic digital tools and the mindset needed for learning new technologies like Microsoft Copilot.",
@@ -693,7 +693,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "attitudes",
     title: "Encouraging a Culture of Digital Learning",
     description: "Offers practical steps to motivate colleagues to improve their digital skills and adopt new features gradually.",
@@ -701,7 +701,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "attitudes",
     title: "How to Promote Digital Literacy at Your Organisation",
     description: "Discusses strategies for promoting digital literacy among employees, including fostering openness to learning and sharing knowledge.",
@@ -709,7 +709,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "attitudes",
     title: "Digital Upskilling Strategies for Transformative Success",
     description: "Explores advanced strategies to help employees adopt new digital tools and features effectively while fostering a collaborative culture.",
@@ -717,7 +717,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "AI and Digital Tools",
+    competency: "aiTools",
     level: "attitudes",
     title: "Unlocking Copilot Adoption: Strategies for Successful Tech Integration",
     description: "Focuses on expert strategies for integrating advanced tools like Microsoft Copilot, including training and team enablement.",
@@ -726,7 +726,7 @@ window.customResources = [
   },
 
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "knowledge",
     title: "Continuous Learning in the Digital Age",
     description: "Explores the necessity of lifelong learning for personal and professional growth in a rapidly changing digital environment.",
@@ -734,7 +734,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "knowledge",
     title: "Why Adaptability is the New Digital Transformation",
     description: "Discusses how adaptability has become crucial for successful digital transformation, emphasising the need for flexibility in organisational strategies.",
@@ -742,7 +742,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "knowledge",
     title: "The Importance of Continuous Learning in the Digital Age",
     description: "Highlights the significance of ongoing skill development to remain relevant and competitive in today's fast-paced digital world.",
@@ -750,7 +750,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "knowledge",
     title: "Future Proof: Solving the Adaptability Paradox for the Long Term",
     description: "Examines the role of adaptability in long-term success, offering insights into building resilience and flexibility in the face of continuous change.",
@@ -758,7 +758,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "knowledge",
     title: "Learning in the Digital Age",
     description: "Provides strategies for fostering a culture of continuous learning within organisations, leveraging digital tools and platforms.",
@@ -766,7 +766,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "skills",
     title: "How to Be Flexible in the Workplace",
     description: "In this article, we explain what it means to be flexible, how it can benefit you, and how you can achieve it",
@@ -774,7 +774,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "skills",
     title: "How to Acquire New Skills in 10 Steps",
     description: "Outlines clear, beginner-friendly steps to help employees acquire and apply new skills effectively.",
@@ -782,7 +782,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "skills",
     title: "How To Apply Knowledge And Skills At Work: 5 Simple Ways",
     description: "Explains practical ways to implement newly learned skills into day-to-day work tasks.",
@@ -790,7 +790,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "skills",
     title: "13 Practical Ways To Help Employees Adapt To New Technology",
     description: "Provides strategies for adapting to new processes, including understanding their purpose and seeking feedback to improve implementation.",
@@ -798,7 +798,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "skills",
     title: "8 Strategies To Help Employees Adapt to New Technology in the Workplace",
     description: "Focuses on advanced strategies like involving employees in change decisions and offering structured training for maximum adaptability.",
@@ -806,7 +806,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "attitudes",
     title: "Embracing Change: The Power of a Positive Attitude",
     description: "Discusses the importance of adopting a positive mindset toward change and offers strategies to turn potential obstacles into opportunities for growth.",
@@ -814,7 +814,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "attitudes",
     title: "14 Ways to Embrace and Accept Change in Your Life",
     description: "Provides practical tips for accepting and embracing change, including determining the value of change and easing into it to make transitions more manageable.",
@@ -822,7 +822,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "attitudes",
     title: "8 'Be-Attitudes' to Embrace Change and Increase Adaptability",
     description: "Offers attitudes to adopt for better adaptability, such as being flexible and viewing change as an opportunity for improvement.",
@@ -830,7 +830,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "attitudes",
     title: "Cultivate a Learning Culture Within Your Organisation",
     description: "Explores strategies to promote risk-taking, transparency, and continuous learning within teams, encouraging a culture where growth is valued.",
@@ -838,7 +838,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Adaptability and Continuous Learning",
+    competency: "learningAdapting",
     level: "attitudes",
     title: "20 Ways Managers Can Create a Culture of Continuous Learning",
     description: "Provides innovative ideas and strategies for managers to implement and sustain a culture of continuous learning, empowering employees to learn enthusiastically.",
@@ -847,7 +847,7 @@ window.customResources = [
   },
 
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "knowledge",
     title: "Methods of Data Collection",
     description: "Provides an overview of various data collection methods, including surveys, interviews, and observations, essential for gathering accurate information.",
@@ -855,7 +855,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "knowledge",
     title: "Data Interpretation: Basic Concepts, Process and Types Explained",
     description: "Explains the fundamentals of data interpretation, detailing processes and types to help in understanding and analysing collected data effectively.",
@@ -863,7 +863,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "knowledge",
     title: "Data Collection",
     description: "Discusses systematic data collection processes, offering definitions, methods, and examples to ensure accurate and ethical data gathering.",
@@ -871,7 +871,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "knowledge",
     title: "Exploring 12 of the Best Data Visualisation Tools in 2023",
     description: "Reviews various data visualisation tools, highlighting their features and suitability for different analytical needs, aiding in informed tool selection.",
@@ -879,7 +879,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "knowledge",
     title: "The Best Data Visualisation Tools Of 2024",
     description: "Evaluates top data visualisation tools, discussing their pros and cons to assist in choosing the right tool for data analysis and presentation.",
@@ -887,7 +887,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "skills",
     title: "Data Visualization: How to Transform Analytics Data into Actionable Insights",
     description: "Explores methods to convert complex analytics data into clear, actionable insights using visualisation techniques, enhancing comprehension and decision-making.",
@@ -895,7 +895,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "skills",
     title: "Turning Data Into Actionable Insights: A Step-By-Step Guide",
     description: "Provides a comprehensive guide on interpreting data to extract actionable insights, emphasising the importance of visualisation in presenting findings effectively.",
@@ -903,7 +903,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "skills",
     title: "How to Turn Insights Into Actionable Visuals with Data Visualization",
     description: "Discusses the process of creating impactful data visualisations that convey insights clearly, aiding in better decision-making and communication.",
@@ -911,7 +911,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "skills",
     title: "Visualizing Success: Advanced Data Visualization Techniques for Business Insights",
     description: "Delves into sophisticated data visualisation techniques and tools that help businesses interpret data effectively and derive actionable insights.",
@@ -919,7 +919,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "skills",
     title: "Data Visualization Techniques to Turn Complex Data Sets into Clear Insights",
     description: "Examines various data visualisation methods to simplify complex data sets, enabling the extraction of clear, actionable insights for informed decision-making.",
@@ -927,7 +927,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "attitudes",
     title: "Understanding Data Quality: Accuracy, Reliability, and Consistency",
     description: "Explores the critical aspects of data quality, emphasising the importance of accuracy and attention to detail in data analysis.",
@@ -935,7 +935,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "attitudes",
     title: "Attention to Detail: 25 Performance Review Phrases Examples",
     description: "Provides examples highlighting the significance of meticulousness in professional settings, particularly in data-related tasks.",
@@ -943,7 +943,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "attitudes",
     title: "Three Ways You Can Build A Data-Driven Culture",
     description: "Offers strategies to foster a data-centric environment within teams, promoting informed decision-making.",
@@ -951,7 +951,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "attitudes",
     title: "The Keys To Fostering A Data-Driven Culture",
     description: "Discusses essential elements for cultivating a data-driven culture, including leadership commitment and data literacy.",
@@ -959,7 +959,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Data Literacy and Analytics",
+    competency: "dataWork",
     level: "attitudes",
     title: "Ten Steps To Creating A Data-Driven Culture",
     description: "Provides a comprehensive guide to embedding data-driven practices within an organisation, ensuring data integrity and effective utilisation.",
@@ -968,7 +968,7 @@ window.customResources = [
   },
 
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "knowledge",
     title: "Basic Troubleshooting Techniques",
     description: "Provides fundamental troubleshooting steps for common computer issues, including restarting devices and checking connections.",
@@ -976,7 +976,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "knowledge",
     title: "How to Solve the 10 Most Common Tech Support Problems Yourself",
     description: "Offers solutions to frequent technical problems, such as software errors and connectivity issues, empowering users to resolve them independently.",
@@ -984,7 +984,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "knowledge",
     title: "Managing IT Escalations: Three Essential Tips",
     description: "Discusses effective escalation management in IT support, emphasising the importance of clear procedures and collaboration among support teams.",
@@ -992,7 +992,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "knowledge",
     title: "The Importance of an Information Technology Escalation Process",
     description: "Highlights the necessity of a well-defined escalation process in IT, detailing steps to assign priority levels and delegate responsibilities for efficient issue resolution.",
@@ -1000,7 +1000,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "knowledge",
     title: "Ticket Escalation Process: Steps, Best Practices, and Key Tips",
     description: "Provides a comprehensive guide on ticket escalation in IT service management, outlining procedures to ensure timely and efficient handling of complex issues.",
@@ -1008,7 +1008,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "skills",
     title: "Basic Troubleshooting Techniques",
     description: "Offers fundamental strategies for identifying and resolving common computer problems, emphasising the importance of systematic approaches.",
@@ -1016,7 +1016,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "skills",
     title: "How to Solve the 10 Most Common Tech Support Problems Yourself",
     description: "Provides solutions to frequent technical issues, empowering individuals to address problems independently and efficiently.",
@@ -1024,7 +1024,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "skills",
     title: "4 Steps to Troubleshooting (Almost) Any IT Issue",
     description: "Outlines a logical, step-by-step process for diagnosing and resolving IT problems, applicable to a wide range of technical challenges.",
@@ -1032,15 +1032,15 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "skills",
-    title: "Troubleshooting Made Simple: Tips for Tech Problem-Solving",
+    title: "Troubleshooting Made Simple: Tips for Tech problemSolving",
     description: "Discusses practical techniques for effective troubleshooting, including clear communication and systematic problem-solving methods.",
     URL: "https://www.allskilled.com/post/troubleshooting-made-simple-tips-for-tech-problem-solving",
     rating: 4,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "skills",
     title: "How to Provide Meaningful Support to Coworkers and Build a Collaborative Environment",
     description: "Explores ways to assist colleagues with technical challenges, fostering a supportive and collaborative workplace culture.",
@@ -1048,7 +1048,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "attitudes",
     title: "Don't Panic: Eight Strategies For Staying Calm When Your Technology Breaks",
     description: "Offers practical advice on maintaining composure during technical difficulties, emphasising the importance of calm leadership in resolving issues effectively.",
@@ -1056,7 +1056,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "attitudes",
     title: "Experiencing Technical Difficulties? 14 Ways To Maintain Command Of A Virtual Room",
     description: "Provides strategies to remain composed and authoritative during virtual meetings facing technical challenges, ensuring effective communication and problem-solving.",
@@ -1064,7 +1064,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "attitudes",
     title: "Four Ways to Keep Teams Calm and Focused During a Crisis",
     description: "Discusses methods to maintain team composure and focus during crises, highlighting the role of leadership in fostering a calm and methodical problem-solving environment.",
@@ -1072,15 +1072,15 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "attitudes",
-    title: "7 Tips to Help Your Team with Problem-Solving",
+    title: "7 Tips to Help Your Team with problemSolving",
     description: "Offers guidance on encouraging methodical problem-solving within teams, including promoting ownership and collaborative approaches to challenges.",
     URL: "https://www.optimistperformance.com/captains-blog/news/7-tips-to-help-your-team-with-problem-solving-by-optimist-performance/",
     rating: 4,
   },
   {
-    competency: "Digital Problem Solving",
+    competency: "problemSolving",
     level: "attitudes",
     title: "How to Promote Effective Problem Solving Strategies in Your Team",
     description: "Explores strategies to enhance problem-solving skills within teams, emphasising the importance of diverse perspectives and structured approaches to finding solutions.",
@@ -1089,7 +1089,7 @@ window.customResources = [
   },
 
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "knowledge",
     title: "Top 10 Easy-to-Use Creative Work Tools to Be More Productive",
     description: "Highlights user-friendly creative tools designed to boost productivity, detailing their features and applications.",
@@ -1097,7 +1097,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "knowledge",
     title: "Digital Workflow Solutions: All You Need To Know!",
     description: "Explores how digital workflow solutions streamline processes, enhance efficiency, and foster innovation within organisations.",
@@ -1105,7 +1105,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "knowledge",
     title: "How to Implement Digital Workflows",
     description: "Provides a comprehensive guide on adopting digital workflows, including selecting appropriate tools and recognising opportunities for process innovation.",
@@ -1113,7 +1113,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "knowledge",
     title: "Digital Workflows Explained",
     description: "Delves into the concept of digital workflows, discussing their benefits and how they can be leveraged to enhance organisational efficiency and innovation.",
@@ -1121,7 +1121,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "knowledge",
     title: "What is a Digital Workflow? How to Automate It?",
     description: "Examines the automation of digital workflows, offering insights into tools and strategies that drive innovation and improve operational efficiency.",
@@ -1129,7 +1129,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "skills",
     title: "7 Idea Generation Methods for Out-of-the-Box Thinking",
     description: "Explores various techniques to stimulate creative thinking within teams, including mind mapping and brainstorming, to foster innovation.",
@@ -1137,7 +1137,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "skills",
     title: "10 Strategies of Encouraging Innovation in the Workplace",
     description: "Provides practical approaches to cultivate an innovative culture, such as encouraging diverse perspectives and allocating time for creative projects.",
@@ -1145,7 +1145,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "skills",
     title: "16 Smart Ways to Ensure Team Members Adopt and Use New Tech Tools",
     description: "Offers strategies to facilitate the adoption of new technologies within teams, emphasising the importance of clear communication and training.",
@@ -1153,7 +1153,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "skills",
     title: "Generating Ideas: A Process for Breakthrough Innovation",
     description: "Discusses structured processes for idea generation, highlighting the significance of diverse teams and solo brainstorming in fostering innovation.",
@@ -1161,7 +1161,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "skills",
     title: "Mastering Idea Generation: A Comprehensive Guide to 30 Techniques",
     description: "Provides an extensive overview of idea management tools and techniques to boost creativity and streamline the innovation process within organisations.",
@@ -1169,7 +1169,7 @@ window.customResources = [
     rating: 5,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "attitudes",
     title: "Thinking of Innovation as an Everyday Habit",
     description: "Discusses integrating innovation into daily routines, emphasising the importance of creative thinking and experimentation in regular tasks.",
@@ -1177,7 +1177,7 @@ window.customResources = [
     rating: 1,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "attitudes",
     title: "How to Be Innovative: Unlocking Creativity in Everyday Tasks",
     description: "Provides strategies for fostering innovation in routine activities, encouraging a mindset that seeks improvement and creative solutions.",
@@ -1185,7 +1185,7 @@ window.customResources = [
     rating: 2,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "attitudes",
     title: "7 Tips on How to Create a Culture of Continual Experimentation and Learning",
     description: "Offers practical advice on establishing a culture that promotes ongoing experimentation and learning within teams.",
@@ -1193,7 +1193,7 @@ window.customResources = [
     rating: 3,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "attitudes",
     title: "How to Create a Continuous Improvement Culture: Strategies and Examples",
     description: "Explores methods to embed continuous improvement into organisational culture, highlighting the role of leadership and employee engagement.",
@@ -1201,7 +1201,7 @@ window.customResources = [
     rating: 4,
   },
   {
-    competency: "Digital Creativity and Innovation",
+    competency: "creativity",
     level: "attitudes",
     title: "The Importance of Creativity in the Workplace",
     description: "Examines the significance of fostering creativity at work and its impact on innovation and problem-solving.",
@@ -1210,4 +1210,4 @@ window.customResources = [
   },
 ];
 
-console.log("resources-es.js executed, window.customResources set for Spanish.");
+console.log("resources-es.js executed. window.customResources (length):", (window.customResources || []).length);
