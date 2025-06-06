@@ -147,8 +147,8 @@
   "q_onlineSafety_k_example": "Knowing when a password is strong or a message looks risky.",
   "q_onlineSafety_s_text": "I follow steps to keep files and devices secure.",
   "q_onlineSafety_s_example": "Logging out of shared tablets and saving files securely.",
-  "q_onlineSafety_a_text": "I avoid sharing sensitive information without a reason.",
-  "q_onlineSafety_a_example": "Being cautious about posting or sending private information.",
+  "q_onlineSafety_a_text": "I think carefully about what kind of personal or team data I share with digital tools.",
+  "q_onlineSafety_a_example": "Avoiding typing sensitive details into smart tools or websites.",
 
   "q_dataWork_k_text": "I know how to read basic data, like reports or figures.",
   "q_dataWork_k_example": "Understanding how to read a simple sales or stock report.",
@@ -182,8 +182,8 @@
   "q_findingInfo_k_example": "Knowing which system to check for stock or HR policies.",
   "q_findingInfo_s_text": "I store and organise digital information clearly.",
   "q_findingInfo_s_example": "Saving files in the right folder with clear names.",
-  "q_findingInfo_a_text": "I check that information is correct before I share it.",
-  "q_findingInfo_a_example": "Double-checking figures or messages before passing them on.",
+  "q_findingInfo_a_text": "I know that digital tools and search results can be biased or unfair.",
+  "q_findingInfo_a_example": "Noticing when tools give unbalanced, inaccurate, or one-sided answers.",
 
   "q_problemSolving_k_text": "I notice when something isn’t working with my tech.",
   "q_problemSolving_k_example": "Realising when a till, screen, or system isn’t responding.",
