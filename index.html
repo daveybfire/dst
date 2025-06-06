@@ -476,9 +476,6 @@
         if (competencyBanner) competencyBanner.textContent = `${t('assessmentScreen.competencyBannerPrefix')}${competencyName}`;
         if (questionTextContainer) questionTextContainer.textContent = t(`questionTexts.${question.questionKey}`);
         if (exampleTextContainer) exampleTextContainer.textContent = `${examplePrefixText.startsWith("MISSING_") ? "Example: " : examplePrefixText}${t(`questionTexts.${question.exampleKey}`)}`;
-        const progressPercentage = Math.round(((index + 1) / questionsData.length) * 100);
-        if (progressBar) progressBar.style.width = `${progressPercentage}%`;
-        if (progressLabel) progressLabel.textContent = `${progressPercentage}${t('assessmentScreen.progressLabelSuffix')}`;
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button");
         if (proficiencyButtonsNodeList) proficiencyButtonsNodeList.forEach(button => button.classList.remove("selected"));
         if(noSelectionWarningEl) noSelectionWarningEl.style.display = 'none';
@@ -504,6 +501,12 @@
                 if (answers[currentQuestion.type] && competencyIndex < answers[currentQuestion.type].length) {
                      answers[currentQuestion.type][competencyIndex] = selectedValue;
                 } else { console.error(`Answer type ${currentQuestion.type} or index ${competencyIndex} out of bounds.`); }
+
+                const completedQuestions = currentIndex + 1;
+                const progressPercentage = Math.round((completedQuestions / questionsData.length) * 100);
+                if (progressBar) progressBar.style.width = `${progressPercentage}%`;
+                if (progressLabel) progressLabel.textContent = `${progressPercentage}${t('assessmentScreen.progressLabelSuffix')}`;
+                
                 if (currentIndex < questionsData.length - 1) {
                     currentIndex++;
                     renderQuestion(currentIndex);
@@ -743,6 +746,10 @@
                 console.log("Start button CLICKED!"); 
                 if(startScreen) startScreen.classList.add("hidden");
                 if(assessmentScreen) assessmentScreen.classList.remove("hidden");
+                
+                if (progressBar) progressBar.style.width = '0%';
+                if (progressLabel) progressLabel.textContent = `0${t('assessmentScreen.progressLabelSuffix')}`;
+
                 if (competenciesData && competenciesData.length > 0) {
                     const numCompetencies = competenciesData.length;
                     answers.Knowledge = Array(numCompetencies).fill(0);
