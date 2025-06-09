@@ -1,0 +1,364 @@
+{
+  "lang": "lt",
+  "langName": "Lietuvių",
+  "appTitle": "Skaitmeninių įgūdžių vertinimas",
+  "startScreen": {
+    "title": "Skaitmeninių įgūdžių vertinimas",
+    "introParagraph1": "Ši trumpa savianalizė padės apgalvoti savo skaitmeninius įgūdžius ir nustatyti sritis, kurias verta tobulinti. Tai ne testas — tik paprastas būdas suprasti, kur tau sekasi gerai ir kur gali prireikti papildomo palaikymo.",
+    "introParagraph2": "Pamatysi keletą trumpų teiginių su pavyzdžiais. Kiekvienam iš jų pasirink variantą, kuris geriausiai atspindi tavo dabartinį lygį.",
+    "introParagraph3": "<strong>Vertinimas anoniminis ir trunka vos kelias minutes.</strong>",
+    "introParagraph4": "Būk atviras, skirk laiko ir pradėkime!",
+    "startButtonText": "Tęsti"
+  },
+  "assessmentScreen": {
+    "competencyBannerPrefix": "Kompetencija: ",
+    "progressLabelSuffix": "%",
+    "noSelectionWarning": "Norėdami tęsti, pasirinkite vieną atsakymą.",
+    "showProficiencyLevelsButton": "Rodyti lygius",
+    "hideProficiencyLevelsButton": "Slėpti lygius",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>Pradedantysis:</strong> Turiu mažai arba visai neturiu patirties šioje srityje ir remiuosi kitų pagalba.",
+      "developing": "<strong>Tobulėjantis:</strong> Galiu tai atlikti su šiokia tokia pagalba ir stengiuosi dirbti nuosekliai.",
+      "competent": "<strong>Įgudęs:</strong> Šią užduotį atlieku savarankiškai ir patikimai savo darbe.",
+      "proficient": "<strong>Pažengęs:</strong> Atlieku tai gerai savarankiškai ir prireikus galiu padėti ar patarti kitiems.",
+      "expert": "<strong>Ekspertas:</strong> Nuolat dirbu aukštu lygiu ir mentoruoju ar nukreipiu kitus šioje srityje."
+    }
+  },
+  "endScreen": {
+    "title": "Vertinimas baigtas",
+    "qrCodeSectionTitle": "Tavo QR kodas",
+    "qrCodeInstruction": "Skenuok šį QR kodą, kad išsaugotum ir vėliau peržiūrėtum rezultatus.",
+    "keyCharacteristicsTitle": "Pagrindinės savybės:",
+    "keyCharacteristicsIntro": "Toliau pateikiamos pagrindinės savybės, apibūdinančios tavo lygį. Jos paryškina stipriąsias puses ir padeda suprasti, kur esi geriausias.",
+    "radarChartTitle": "Tavo kompetencijų radaras",
+    "radarChartDescription": "Naudok šią diagramą, kad greitai pamatytum stipriąsias puses ir tobulintinas sritis skirtingose kompetencijose.",
+    "radarChartLegendIntro": "Diagrama rodo tavo balus visose kompetencijose trijose srityse: ",
+    "radarChartLegendKnowledge": "Žinios",
+    "radarChartLegendSkills": "Įgūdžiai",
+    "radarChartLegendAttitudes": "Požiūris",
+    "radarChartLegendExplanation": ". Kiekviena spalvota linija reiškia vieną sritį. Idealiu atveju linijos sutampa, rodydamos subalansuotą tobulėjimą. Jei matai skirtumų — pavyzdžiui, viena linija žemesnė — tai rodo, kur turėtum sutelkti pastangas. Jei ",
+    "radarChartLegendSkillsExample": "Įgūdžiai",
+    "radarChartLegendKnowledgeExample": "Žinios",
+    "radarChartLegendExplanationSuffix": " tam tikroje kompetencijoje atsilieka, verta dirbti ties tuo, kad <i>pritaikytum</i> turimas žinias.",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>Tavosios 3 stiprybės",
+    "strengthsSectionIntro": "Pagal vertinimą tai trys tavo didžiausios stiprybės. Koncentruodamasis į jas geriau išnaudosiu esamus įgūdžius. Peržiūrėk ir kitas sritis, kuriose taip pat pasirodei gerai.",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Tobulintinos sritys",
+    "growthAreasSectionIntro": "Šios trys sritys turi didžiausią tobulėjimo potencialą. Tobulindamas jas pagerinsi bendrą kompetenciją. Gali būti ir kitų sričių, kurias verta patyrinėti.",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>SMART tikslai",
+    "smartObjectivesSectionIntro": "Toliau pateikiami siūlomi SMART tikslai pagal tavo tobulintinas sritis. Pritaikyk juos savo terminams ir konkrečioms aplinkybėms.",
+    "thankYouMessage": "Puikus darbas! Tęsk ir toliau ugdydamas savo skaitmeninius įgūdžius.",
+    "surveyPrompt": "Tavo nuomonė mums svarbi! Skirk minutę mūsų apklausai.",
+    "surveyButtonText": "Užpildyti apklausą",
+    "restartButtonText": "Pradėti iš naujo",
+    "strongestDimensionLabel": "Stipriausia dimensija:",
+    "growthAreaLabel": "Tobulintina sritis:",
+    "smartObjectiveLabel": "SMART tikslas:",
+    "recommendedResourcesLabel": "Rekomenduojami ištekliai:"
+  },
+  "proficiencyLabels": {
+    "1": "Pradedantysis",
+    "2": "Tobulėjantis",
+    "3": "Įgudęs",
+    "4": "Pažengęs",
+    "5": "Ekspertas"
+  },
+  "overallProficiencyLevels": [
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+  "proficiencyTexts": {
+    "proficiency_beginner_name": "Pradedantysis",
+    "proficiency_beginner_char1": "Turi pagrindinį supratimą apie skaitmeninius įrankius ir sąvokas.",
+    "proficiency_beginner_char2": "Užduotims atlikti reikia vadovavimo ir priežiūros.",
+    "proficiency_beginner_char3": "Gali kilti sunkumų sprendžiant problemas ar šalinant triktis.",
+    "proficiency_beginner_char4": "Reikia pagalbos naudojant nepažįstamus įrankius ar technologijas.",
+    "proficiency_beginner_feedback": "Šiame lygyje tema gali atrodyti nauja ar sudėtinga — tai normalu. Turėdamas tinkamus įrankius ir palaikymą gali daug pasiekti. Nedvejodamas prašyk išteklių ar pagalbos.",
+    "proficiency_developing_name": "Tobulėjantis",
+    "proficiency_developing_char1": "Rodo didėjantį supratimą apie skaitmeninius įrankius ir metodus.",
+    "proficiency_developing_char2": "Rutinos užduotis atlieka su nežymia priežiūra.",
+    "proficiency_developing_char3": "Pradeda savarankiškai spręsti dažnas problemas.",
+    "proficiency_developing_char4": "Sudėtingoms užduotims ar naujoms technologijoms reikalinga pagalba.",
+    "proficiency_developing_feedback": "Jau tyrinėji šią sritį, bet vis dar gali prireikti vadovavimo ar mokymų. Stiprink pasitikėjimą ir naudokis turimais ištekliais, kad galėtum toliau tobulėti.",
+    "proficiency_competent_name": "Įgudęs",
+    "proficiency_competent_char1": "Turi tvirtų žinių apie skaitmeninius įrankius ir metodus.",
+    "proficiency_competent_char2": "Dirba savarankiškai su minimaliu vadovavimu.",
+    "proficiency_competent_char3": "Pasitiki įvairiais skaitmeniniais įrankiais užduotims atlikti.",
+    "proficiency_competent_char4": "Efektyviai sprendžia dažnas problemas.",
+    "proficiency_competent_char5": "Labai sudėtingoms ar naujoms užduotims gali prireikti pagalbos.",
+    "proficiency_competent_feedback": "Stabiliai tobulėji ir gali dirbti su maža pagalba. Pasitikrink, ar turi viską, ko reikia tolimesnei pažangai, ir užpildyk spragas, kad taptum dar labiau savarankiškas.",
+    "proficiency_proficient_name": "Pažengęs",
+    "proficiency_proficient_char1": "Puikiai valdo skaitmeninius įrankius ir pažangias technikas.",
+    "proficiency_proficient_char2": "Dirba savarankiškai ir efektyviai.",
+    "proficiency_proficient_char3": "Sprendžia sudėtingas problemas ir siūlo inovatyvius sprendimus.",
+    "proficiency_proficient_char4": "Dažnai padeda kitiems skaitmeniniuose uždaviniuose ir iššūkiuose.",
+    "proficiency_proficient_char5": "Nuolat ieško ir taiko naujas technologijas.",
+    "proficiency_proficient_feedback": "Sėkmingai susitvarkai su dauguma situacijų. Jei matai, kad kitiems trūksta išteklių, pasidalyk savo žiniomis ar nukreipk juos į naudingą medžiagą.",
+    "proficiency_expert_name": "Ekspertas",
+    "proficiency_expert_char1": "Pripažintas skaitmeninių įrankių ir technologijų autoritetas.",
+    "proficiency_expert_char2": "Vadovauja skaitmeninių inovacijų iniciatyvoms.",
+    "proficiency_expert_char3": "Kuria naujus sprendimus ir optimizuoja procesus.",
+    "proficiency_expert_char4": "Mentoruoja kitus ir plačiai dalijasi patirtimi.",
+    "proficiency_expert_char5": "Lenkia rinkos tendencijas ir diegia geriausias praktikas.",
+    "proficiency_expert_feedback": "Būdamas ekspertu, įkvepi pasitikėjimą. Gali padėti tiems, kurie susiduria su kliūtimis, siūlydamas mentorystę, dalydamasis ištekliais ar skatindamas įtraukią skaitmeninę aplinką."
+  },
+  "competencyList": [
+    { "key": "learningAdapting", "name": "Mokymasis ir prisitaikymas" },
+    { "key": "aiTools", "name": "DI ir skaitmeniniai įrankiai" },
+    { "key": "onlineSafety", "name": "Saugumas internete" },
+    { "key": "dataWork", "name": "Darbas su duomenimis" },
+    { "key": "communication", "name": "Komunikacija" },
+    { "key": "creativity", "name": "Kūrybiškumas ir inovacijos" },
+    { "key": "digitalResponsibility", "name": "Skaitmeninė atsakomybė" },
+    { "key": "findingInfo", "name": "Informacijos paieška" },
+    { "key": "problemSolving", "name": "Problemų sprendimas" },
+    { "key": "wellbeing", "name": "Gerovė ir tvarumas" }
+  ],
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" }, { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" }, { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" }, { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" }, { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" }, { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" }, { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" }, { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" }, { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" }, { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" }, { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" }, { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" }, { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" }, { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" }, { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" }, { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" }, { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" }, { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" }, { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" }, { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" }, { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+  ],
+  "questionTexts": {
+    "q_learningAdapting_k_text": "Suprantu, kokia vertinga yra naujų technologijų mokymosi nauda.",
+    "q_learningAdapting_k_example": "Žinau, kad naujų įrankių išmanymas padeda išlikti aktualiam.",
+    "q_learningAdapting_s_text": "Skiriu laiko, kad tobulinčiau savo skaitmeninius įgūdžius.",
+    "q_learningAdapting_s_example": "Praktikuojuosi su naujais įrankiais, pavyzdžiui, naudoju DI idėjoms ar santraukoms tikrinti.",
+    "q_learningAdapting_a_text": "Greitai prisitaikau, kai darbo vietoje keičiasi technologijos.",
+    "q_learningAdapting_a_example": "Be delsos perimu naujas sistemas ar atnaujinimus.",
+
+    "q_aiTools_k_text": "Suprantu, kaip DI įrankiai gali padėti mano darbui.",
+    "q_aiTools_k_example": "Žinau, ką DI gali ir ko negali, pavyzdžiui, siūlyti turinį ar pagreitinti užduotis.",
+    "q_aiTools_s_text": "Savarankiškai išsprendžiu dažnas technines problemas.",
+    "q_aiTools_s_example": "Šalinu įrenginio klaidas ar padedu kolegai paleisti ekraną iš naujo.",
+    "q_aiTools_a_text": "Išbandau DI funkcijas ar naujinius darbo gerinimui.",
+    "q_aiTools_a_example": "Naudoju DI įrankius (pokalbių ar vaizdų generatorius), kad taupyčiau laiką ar atlikčiau užduotis.",
+
+    "q_onlineSafety_k_text": "Žinau, kaip apsaugoti savo įrenginius ir duomenis.",
+    "q_onlineSafety_k_example": "Atskirti stiprų slaptažodį ar įtartiną žinutę.",
+    "q_onlineSafety_s_text": "Laikausi veiksmų failų ir įrenginių saugumui užtikrinti.",
+    "q_onlineSafety_s_example": "Atsijungiu nuo bendrų planšečių ir saugiai išsaugoju failus.",
+    "q_onlineSafety_a_text": "Apgalvoju, kokius asmeninius ar komandos duomenis dalinuosi naudodamasis skaitmeniniais įrankiais.",
+    "q_onlineSafety_a_example": "Vengiu įvesti jautrią informaciją į išmaniuosius įrankius ar svetaines.",
+
+    "q_dataWork_k_text": "Žinau, kaip skaityti pagrindinius duomenis, pvz., ataskaitas ar skaičius.",
+    "q_dataWork_k_example": "Suprasti paprastą pardavimų ar atsargų ataskaitą.",
+    "q_dataWork_s_text": "Analizuoju duomenis, kad pagerinčiau savo darbą.",
+    "q_dataWork_s_example": "Pastebiu tendencijas skaičiuose ir atitinkamai koreguoju planavimą.",
+    "q_dataWork_a_text": "Atpažįstu naudingus modelius duomenyse, su kuriais dirbu.",
+    "q_dataWork_a_example": "Nustatau pardavimų pikas ar populiarias prekes.",
+
+    "q_communication_k_text": "Žinau, kaip aiškiai komunikuoti naudodamasis skaitmeniniais įrankiais.",
+    "q_communication_k_example": "Žinau, kaip suformatuoti aiškų el. laišką ar grupės žinutę.",
+    "q_communication_s_text": "Glaudžiai bendradarbiauju su kitais per skaitmeninius įrankius.",
+    "q_communication_s_example": "Kartu redaguojame dokumentus ar planuojame pamainas internete.",
+    "q_communication_a_text": "Bendrauju pagarbiai, aiškiai ir įtraukiamai.",
+    "q_communication_a_example": "Siunčiu mandagias žinutes ir išvengiu nesusipratimų grupės pokalbiuose.",
+
+    "q_creativity_k_text": "Žinau, kaip skaitmeniniai įrankiai gali pagerinti užduotis.",
+    "q_creativity_k_example": "Suprantu, kad skaitmeniniai spartieji būdai gali paspartinti darbą.",
+    "q_creativity_s_text": "Palaikau naujas idėjas, gerinančias komandos rezultatus.",
+    "q_creativity_s_example": "Padedu kurti geresnius būdus komandos darbui organizuoti ar dalintis juo.",
+    "q_creativity_a_text": "Dalinuosi naujais įrankiais ar idėjomis su komanda.",
+    "q_creativity_a_example": "Pristatydamas programas ar funkcijas, kurios gali padėti komandai dirbti efektyviau.",
+
+    "q_digitalResponsibility_k_text": "Žinau mūsų taisykles atsakingam skaitmeninių įrankių naudojimui.",
+    "q_digitalResponsibility_k_example": "Pirmiausia pasitikrinu, jei nesu tikras, ar galima naudoti DI įrankį.",
+    "q_digitalResponsibility_s_text": "Laikausi įmonės gairių dirbdamas su skaitmeninėmis sistemomis.",
+    "q_digitalResponsibility_s_example": "Vykdau instrukcijas ir tikrinu DI rezultatus dėl klaidų ar šališkumo.",
+    "q_digitalResponsibility_a_text": "Svarstau, kaip mano skaitmeniniai veiksmai veikia kitus.",
+    "q_digitalResponsibility_a_example": "Vengiu įrašų, galinčių pakenkti klientų pasitikėjimui ar pažeisti taisykles.",
+
+    "q_findingInfo_k_text": "Žinau, kur ieškoti patikimos informacijos.",
+    "q_findingInfo_k_example": "Žinau, kurioje sistemoje patikrinti atsargas ar personalo taisykles.",
+    "q_findingInfo_s_text": "Aiškiai saugau ir organizuoju skaitmeninę informaciją.",
+    "q_findingInfo_s_example": "Išsaugau failus tinkamame aplanke su aiškiais pavadinimais.",
+    "q_findingInfo_a_text": "Žinau, kad skaitmeniniai įrankiai ir paieškos rezultatai gali būti šališki ar netikslūs.",
+    "q_findingInfo_a_example": "Pastebiu, kai įrankiai pateikia neobjektyvius, netikslius ar vienašališkus atsakymus.",
+
+    "q_problemSolving_k_text": "Pastebiu, kai mano technologija neveikia kaip reikia.",
+    "q_problemSolving_k_example": "Atpažįstu, kai kasa, ekranas ar sistema nereaguoja.",
+    "q_problemSolving_s_text": "Savarankiškai išsprendžiu pagrindines technines problemas.",
+    "q_problemSolving_s_example": "Paleidžiu įrenginius iš naujo ar išsprendžiu prisijungimo problemas be IT pagalbos.",
+    "q_problemSolving_a_text": "Naudoju kūrybingus būdus techninėms problemoms spręsti.",
+    "q_problemSolving_a_example": "Išbandau naujus metodus ar sujungiu įrankius klaidoms ištaisyti.",
+
+    "q_wellbeing_k_text": "Pastebiu, kaip skaitmeninis darbas veikia mano sveikatą.",
+    "q_wellbeing_k_example": "Suprantu, kai ekranui skiriamas laikas veikia nuotaiką ar dėmesį.",
+    "q_wellbeing_s_text": "Dienos metu subalansuoju laiką prie ekrano su kitomis užduotimis.",
+    "q_wellbeing_s_example": "Skaitmeninius darbus kaitalioju su veikla gyvai ar judesiu.",
+    "q_wellbeing_a_text": "Skatinu komandoje sveikus skaitmeninius įpročius.",
+    "q_wellbeing_a_example": "Padrąsinu kolegas daryti pertraukėles ar išjungti pranešimus."
+  },
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "Atvirumas naujoms technologijoms padeda išlikti lankstiems ir pasirengusiems pokyčiams. Tyrinėk naujus įrankius ir dalinkis savo patirtimi, kad įkvėptum komandą.",
+      "Skills": "Laiko skyrimas skaitmeninių įgūdžių gerinimui nuolat augina tavo galimybes ir pasitikėjimą naujais iššūkiais. Naudok šią stiprybę, kad parodytum pavyzdį.",
+      "Attitudes": "Greitas prisitaikymas prie technologinių pokyčių mažina trikdžius ir didina kitų pasitikėjimą tavimi. Pasinaudok šiuo privalumu, kad vestum komandą pokyčių metu."
+    },
+    "aiTools": {
+      "Knowledge": "Užtikrintas darbo įrankių valdymas taupo laiką ir leidžia dirbti išmaniau. Pasidalink patarimais su komanda, kad visi dirbtų efektyviau.",
+      "Skills": "Greitai sprendžiamos techninės problemos palaiko sklandų darbą ir rodo tavo patikimumą. Naudok šią stiprybę komandos palaikymui.",
+      "Attitudes": "Naujų funkcijų ar įrankių tyrinėjimas padeda rasti geresnių būdų darbui ir išlaiko smalsumą. Dalinkis atradimais, kad motyvuotum kitus."
+    },
+    "onlineSafety": {
+      "Knowledge": "Žinodamas, kaip apsaugoti duomenis, užtikrini darbo saugumą ir ramybę komandai. Būk pavyzdys kibernetinio saugumo klausimais.",
+      "Skills": "Tokie saugumo įpročiai kaip atsijungimas nuo bendrų įrenginių ir failų apsauga sumažina riziką. Skatink komandą juos taikyti.",
+      "Attitudes": "Jautrių duomenų apsauga didina pasitikėjimą komandoje. Demonstruok atsakingą duomenų valdymą."
+    },
+    "dataWork": {
+      "Knowledge": "Sprendimai, paremti duomenimis, yra tikslesni ir efektyvesni. Dalinkis šia praktika, kad komanda priimtų išmintingesnius sprendimus.",
+      "Skills": "Tendencijų įžvelgimas padeda išspręsti problemas ir gerinti rezultatus. Vesk komandą remdamasis savo analizės gebėjimais.",
+      "Attitudes": "Duomenų modelių matymas stiprina pasitikėjimą ir kritinį mąstymą. Skatink komandą remtis faktais."
+    },
+    "communication": {
+      "Knowledge": "Gebėjimas naudotis komunikacijos įrankiais padeda aiškiai perduoti idėjas ir palaikyti ryšį. Stiprink bendradarbiavimą.",
+      "Skills": "Skaitmeninis bendradarbiavimas užtikrina sklandžius projektus. Naudok įgūdžius projektams vesti ir dalintis sėkme.",
+      "Attitudes": "Aiški, pagarbi ir įtrauki komunikacija kuria stiprius santykius bei efektyvią komandą. Išlaikyk šią pozityvią nuostatą."
+    },
+    "creativity": {
+      "Knowledge": "Procesų tobulinimas supaprastina darbus ir padidina našumą. Dalinkis idėjomis, kad komandą įkvėptum inovacijoms.",
+      "Skills": "Kūrybiškų sprendimų palaikymas leidžia projektams išsiskirti ir pasiekti sėkmę. Naudok šią jėgą nuolatiniam augimui.",
+      "Attitudes": "Skatindamas komandą išbandyti naujus įrankius puoselėji kūrybiškumą ir inovacijas. Įkvėpk naujų perspektyvų."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Skaitmeninių įrankių taisyklių laikymasis kuria pasitikėjimą. Nustatyk aukštus standartus ir vadovauk komandai.",
+      "Skills": "Veiksmų derinimas su įmonės gairėmis palaiko sklandų darbą. Būk atsakingas jautriose užduotyse.",
+      "Attitudes": "Sąžiningas ir atsakingas elgesys skaitmeninėje erdvėje skatina bendradarbiavimą. Rodyk pavyzdį šia nuostata."
+    },
+    "findingInfo": {
+      "Knowledge": "Patikimos informacijos radimas užtikrina pagrįstus sprendimus. Vadovauk kitus naudodamasis šia geba.",
+      "Skills": "Informacijos organizavimas palengvina paiešką ir gerina komunikaciją. Kurk efektyvesnę darbo aplinką.",
+      "Attitudes": "Tikrinant informacijos tikslumą palaikomi aukšti standartai ir pasitikėjimas. Skatink kokybę."
+    },
+    "problemSolving": {
+      "Knowledge": "Greitas techninių problemų atpažinimas palaiko projektus pagal planą. Pasidalyk šiuo gebėjimu su komanda.",
+      "Skills": "Sprendžiant paprastas problemas didėja produktyvumas. Dalinkis savo procesu, kad kiti mokytųsi.",
+      "Attitudes": "Kūrybingas technologijų naudojimas daro darbą įdomų ir naujovišką. Dalinkis idėjomis ir įveik kliūtis."
+    },
+    "wellbeing": {
+      "Knowledge": "Supratimas apie skaitmeninio darbo poveikį sveikatai padeda sukurti subalansuotą aplinką. Skatink gerovę.",
+      "Skills": "Ekrano ir ne ekrano užduočių balansavimas mažina stresą ir didina produktyvumą. Tobulink darbo procesus.",
+      "Attitudes": "Sveikų skaitmeninių įpročių skatinimas gerina laiko valdymą ir savijautą. Rodyk pavyzdį."
+    }
+  },
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "Naujos žinios padės lengviau suprasti ir prisitaikyti prie naujų užduočių. Pasinaudok mokymais ir ištekliais.",
+      "Skills": "Skaitmeninių įgūdžių tobulinimas suteiks daugiau pasitikėjimo sudėtinguose darbuose. Užsibrėžk mažus tikslus pažangai sekti.",
+      "Attitudes": "Proaktyvus požiūris į pokyčius didins pasitikėjimą netikėtose situacijose. Prašyk grįžtamojo ryšio ir tobulėk."
+    },
+    "aiTools": {
+      "Knowledge": "Gilesnės DI žinios padės taupyti laiką ir dirbti išmaniau. Pasidomėk internetiniais ištekliais.",
+      "Skills": "Praktika su įrenginiais ir programėlėmis gerina problemų sprendimą. Išbandyk retai naudojamas funkcijas.",
+      "Attitudes": "Organizuota ištyra leidžia pamatyti, kas veikia geriausiai. Užsirašyk naudingas funkcijas ir pasidalyk su komanda."
+    },
+    "onlineSafety": {
+      "Knowledge": "Pažinęs įprastus pavojus, pvz., sukčiavimą, lengviau jų išvengsi. Pasigilink į rizikos ženklus.",
+      "Skills": "Tvirti slaptažodžiai ar dviejų faktorių autentifikavimas suteikia papildomą apsaugą. Įdiek juos ir pajusk skirtumą.",
+      "Attitudes": "Rizikų, pvz., duomenų nutekėjimo, suvokimas saugo komandą. Pasidalyk gerąja praktika."
+    },
+    "dataWork": {
+      "Knowledge": "Mokymasis interpretuoti duomenis suteiks daugiau užtikrintumo juos naudojant. Pradėk nuo paprasto įrankio, pvz., Excel.",
+      "Skills": "Duomenų analizės technikų taikymas atskleidžia vertingas įžvalgas. Išbandyk naujus įrankius didesniam poveikiui.",
+      "Attitudes": "Smalsumas duomenims aštrina analitinį mąstymą. Dalinkis įžvalgomis, kad sprendimai būtų išmintingesni."
+    },
+    "communication": {
+      "Knowledge": "Nauji komunikacijos įrankiai palengvina komandinį darbą. Išbandyk platformas ir rask tinkamiausią.",
+      "Skills": "Nauji bendradarbiavimo būdai stiprina komandos ryšį. Įtrauk bendrus darbo erdvių įrankius.",
+      "Attitudes": "Kultūrinio jautrumo gerinimas daro bendravimą labiau įtraukiantį. Mokykis iš komandos grįžtamojo ryšio."
+    },
+    "creativity": {
+      "Knowledge": "Kūrybiški problemų sprendimo metodai įkvepia naujoms idėjoms. Tyrinėkite skaitmeninius įrankius.",
+      "Skills": "Darbas su programomis ir įrankiais didina kūrybiškumą. Organiz uok idėjų generavimo sesijas.",
+      "Attitudes": "Struktūruotas požiūris į inovacijas padeda paversti idėjas realybe. Tobulink planus su komanda."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Gilesnės atitikties žinios suteikia pasitikėjimo kebliose situacijose. Analizuok realius pavyzdžius.",
+      "Skills": "Sprendimų priėmimo praktika sudėtingose situacijose stiprina lyderystę. Simuliuok scenarijus.",
+      "Attitudes": "Proaktyvus požiūris į etinius klausimus kuria pasitikėjimą. Skatink diskusijas komandoje."
+    },
+    "findingInfo": {
+      "Knowledge": "Kritiškai vertindamas šaltinius dirbsi tiksliau. Išmok pažangios paieškos technikų.",
+      "Skills": "Naujos programos ir funkcijos supaprastins darbą. Tobulink saugojimo ir dalijimosi procesus.",
+      "Attitudes": "Kritiška laikysena skaitmeniniam turiniui augins patikimumą. Dalinkis gerąja patirtimi."
+    },
+    "problemSolving": {
+      "Knowledge": "Platesnės trikčių šalinimo žinios leis greičiau įveikti iššūkius. Analizuok ankstesnes problemas.",
+      "Skills": "Trikčių šalinimo technikų praktika didina pasitikėjimą sudėtinguose atvejuose. Atrask naujas funkcijas.",
+      "Attitudes": "Užsispyrimas sprendžiant sunkias problemas didina efektyvumą. Dalinkis sprendimais su komanda."
+    },
+    "wellbeing": {
+      "Knowledge": "Skaitmeninės gerovės strategijų mokymasis padeda palaikyti pusiausvyrą. Atrask tvarias praktikas.",
+      "Skills": "Praktinių patarimų dalijimasis apie sveikus įpročius įkvepia komandą. Skatink mažus pokyčius, pvz., pertraukas.",
+      "Attitudes": "Tvarių praktikų, pvz., el. atliekų mažinimo, taikymas suteikia vertės kasdien. Pradėk nuo vieno žingsnio ir pasidalyk rezultatais."
+    }
+  },
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "Per artimiausius tris mėnesius užsiregistruoti į kursą apie mano srities naujas technologijas.",
+      "Skills": "Tris mėnesius kiekvieną savaitę skirti bent dvi valandas skaitmeniniams įgūdžiams tobulinti.",
+      "Attitudes": "Šį ketvirtį su pozityviu požiūriu priimti bent vieną naują technologinį pokytį."
+    },
+    "aiTools": {
+      "Knowledge": "Šį mėnesį išmokti naują funkciją viename iš darbo įrankių, kad padidėčiau efektyvumą.",
+      "Skills": "Du mėnesius kiekvieną savaitę savarankiškai išspręsti bent vieną techninę problemą.",
+      "Attitudes": "Iki mėnesio pabaigos išbandyti naują su darbu susijusią technologiją ar įrankį."
+    },
+    "onlineSafety": {
+      "Knowledge": "Per ateinantį ketvirtį dalyvauti kibernetinio saugumo seminare.",
+      "Skills": "Šią savaitę peržiūrėti ir atnaujinti visus slaptažodžius.",
+      "Attitudes": "Vieną mėnesį tapti įpročiu iš karto atsijungti nuo bendrų įrenginių."
+    },
+    "dataWork": {
+      "Knowledge": "Šį mėnesį išmokti skaityti pagrindines mano vaidmeniui svarbias ataskaitas.",
+      "Skills": "Per du mėnesius panaudoti duomenų analizės įrankį vieno proceso gerinimui.",
+      "Attitudes": "Du mėnesius reguliariai ieškoti modelių mano naudojamuose duomenyse."
+    },
+    "communication": {
+      "Knowledge": "Per mėnesį įvaldyti naują komunikacijos įrankį (pvz., Teams).",
+      "Skills": "Per kitą ketvirtį dalyvauti projekte, kuriame naudojami skaitmeniniai bendradarbiavimo įrankiai.",
+      "Attitudes": "Iki ketvirčio pabaigos paprašyti grįžtamojo ryšio apie savo bendravimo stilių."
+    },
+    "creativity": {
+      "Knowledge": "Šį mėnesį ištirti skaitmeninius įrankius, galinčius pagerinti komandos darbo srautą.",
+      "Skills": "Per du mėnesius sukurti ir pristatyti inovatyvų sprendimą dabartiniam komandos iššūkiui.",
+      "Attitudes": "Tris mėnesius skatinti kolegas dalintis ir bandyti naujas idėjas."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Iki kitos savaitės pabaigos perskaityti įmonės skaitmeninės etikos politiką.",
+      "Skills": "Per dvi savaites peržiūrėti naujausius projektus atitikties požiūriu ir prireikus juos pakoreguoti.",
+      "Attitudes": "Tris mėnesius prieš kiekvieną naują skaitmeninę užduotį apgalvoti etinius aspektus."
+    },
+    "findingInfo": {
+      "Knowledge": "Per tris mėnesius baigti internetinį kursą apie efektyvią informacijos paiešką.",
+      "Skills": "Per dvi savaites įdiegti naują failų organizavimo sistemą.",
+      "Attitudes": "Vieną mėnesį sistemingai tikrinti svarbios informacijos tikslumą prieš ja dalijantis."
+    },
+    "problemSolving": {
+      "Knowledge": "Šį mėnesį susipažinti su dažniausiomis techninėmis problemomis ir jų sprendimais.",
+      "Skills": "Tris mėnesius stengtis savarankiškai spręsti smulkias technines problemas prieš kreipiantis pagalbos.",
+      "Attitudes": "Per ateinantį ketvirtį generuoti kūrybiškus sprendimus skaitmeniniams iššūkiams."
+    },
+    "wellbeing": {
+      "Knowledge": "Šį mėnesį ištirti geriausią skaitmeninės gerovės praktiką.",
+      "Skills": "Vieną mėnesį kas valandą daryti trumpas pertraukėles, kad subalansuotum ekrano ir ne ekrano užduotis.",
+      "Attitudes": "Kito komandos susitikimo metu paskatinti pasidalyti patarimais, kaip valdyti skaitmeninę apkrovą."
+    }
+  },
+  "misc": {
+    "examplePrefix": "Pavyzdys: ",
+    "andConjunction": "ir",
+    "areLowerThanConjunction": "yra mažesni nei",
+    "languageLabel": "Kalba:"
+  }
+}
