@@ -1,0 +1,364 @@
+{
+  "lang": "hu",
+  "langName": "Magyar",
+  "appTitle": "Digitális készségek felmérése",
+  "startScreen": {
+    "title": "Digitális készségek felmérése",
+    "introParagraph1": "Ez a gyors önértékelés segít felmérni a digitális készségeidet, és megmutatja, hol tudsz fejlődni. Nem teszt — csak egy egyszerű módja annak, hogy lásd, miben vagy erős, és hol lehet szükséged támogatásra.",
+    "introParagraph2": "Rövid állításokat látsz példákkal. Mindegyiknél válaszd ki azt a lehetőséget, amelyik legjobban illik a jelenlegi szintedhez.",
+    "introParagraph3": "<strong>Névtelen, és csak néhány percet vesz igénybe.</strong>",
+    "introParagraph4": "Légy őszinte, szánj rá időt, és kezdjünk hozzá!",
+    "startButtonText": "Folytatás"
+  },
+  "assessmentScreen": {
+    "competencyBannerPrefix": "Kompetencia: ",
+    "progressLabelSuffix": "%",
+    "noSelectionWarning": "A folytatáshoz válassz ki egy lehetőséget.",
+    "showProficiencyLevelsButton": "Szintleírások megjelenítése",
+    "hideProficiencyLevelsButton": "Szintleírások elrejtése",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>Kezdő:</strong> Kevés vagy semmilyen tapasztalatom nincs ezen a területen, mások útmutatására támaszkodom.",
+      "developing": "<strong>Fejlődő:</strong> Némi segítséggel el tudom végezni, és dolgozom a következetességemen.",
+      "competent": "<strong>Gyakorlott:</strong> Önállóan és megbízhatóan elvégzem a feladatot a szerepkörömben.",
+      "proficient": "<strong>Haladó:</strong> Magabiztosan, önállóan dolgozom, és szükség esetén támogatom vagy tanácsot adok másoknak.",
+      "expert": "<strong>Szakértő:</strong> Következetesen magas szinten teljesítek, és mentorálok vagy vezetek másokat, hogy fejlődjenek."
+    }
+  },
+  "endScreen": {
+    "title": "Felmérés befejezve",
+    "qrCodeSectionTitle": "QR-kódod",
+    "qrCodeInstruction": "Olvasd be a QR-kódot, hogy elmentsd, és később újra megnézhesd az eredményeidet.",
+    "keyCharacteristicsTitle": "Kulcsjellemzők:",
+    "keyCharacteristicsIntro": "Az alábbi jellemzők mutatják a szintjeidet. Kiemelik az erősségeidet, és segítenek megérteni, miben vagy igazán jó.",
+    "radarChartTitle": "Kompetenciaradarod",
+    "radarChartDescription": "Ezzel a diagrammal gyorsan átláthatod az erősségeidet és a fejlődési lehetőségeidet a különböző kompetenciákban.",
+    "radarChartLegendIntro": "A diagram az összes kompetenciában elért pontszámaidat három területen mutatja: ",
+    "radarChartLegendKnowledge": "Tudás",
+    "radarChartLegendSkills": "Készségek",
+    "radarChartLegendAttitudes": "Hozzáállás",
+    "radarChartLegendExplanation": ". Minden színes vonal egy területet jelöl. Ideális esetben a vonalak fedik egymást, ami kiegyensúlyozott fejlődést jelent. Ha eltérést látsz — például ha egy vonal alacsonyabb —, az jelzi, hová érdemes összpontosítanod. Ha ",
+    "radarChartLegendSkillsExample": "Készségek",
+    "radarChartLegendKnowledgeExample": "Tudás",
+    "radarChartLegendExplanationSuffix": " marad el egy kompetenciában, érdemes <i>alkalmazni</i> a tudásodat.",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>A három legerősebb területed",
+    "strengthsSectionIntro": "Az önértékelés alapján ez a három legkiemelkedőbb erősséged. Ha ezekre építesz, jobban hasznosíthatod a meglévő készségeidet. Nézd meg a többi jó teljesítményt is.",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Fejlődési területek",
+    "growthAreasSectionIntro": "Ez a három terület kínálja a legnagyobb fejlődési lehetőséget. E kompetenciák fejlesztése javíthatja az általános szinted. Felfedezhetsz további területeket is.",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>SMART célok",
+    "smartObjectivesSectionIntro": "Az alábbi SMART céljavaslatok a fejlődési területeidhez illeszkednek. Szabd személyre őket saját határidőkkel és részletekkel.",
+    "thankYouMessage": "Szép munka! Fejleszd tovább digitális készségeidet.",
+    "surveyPrompt": "Számít a véleményed! Kérjük, töltsd ki rövid kérdőívünket.",
+    "surveyButtonText": "Kérdőív kitöltése",
+    "restartButtonText": "Újrakezdés",
+    "strongestDimensionLabel": "Legerősebb dimenzió:",
+    "growthAreaLabel": "Fejlődési terület:",
+    "smartObjectiveLabel": "SMART cél:",
+    "recommendedResourcesLabel": "Ajánlott források:"
+  },
+  "proficiencyLabels": {
+    "1": "Kezdő",
+    "2": "Fejlődő",
+    "3": "Gyakorlott",
+    "4": "Haladó",
+    "5": "Szakértő"
+  },
+  "overallProficiencyLevels": [
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+  "proficiencyTexts": {
+    "proficiency_beginner_name": "Kezdő",
+    "proficiency_beginner_char1": "Alapvető ismeretekkel rendelkezik digitális eszközökről és fogalmakról.",
+    "proficiency_beginner_char2": "Útmutatást és felügyeletet igényel a feladatok elvégzéséhez.",
+    "proficiency_beginner_char3": "Nehézséget okozhat a hibakeresés és problémamegoldás.",
+    "proficiency_beginner_char4": "Támogatásra szorul ismeretlen eszközök vagy technológiák használatakor.",
+    "proficiency_beginner_feedback": "Ezen a szinten a téma ismeretlennek vagy kihívásnak tűnhet, és ez teljesen rendben van. A megfelelő eszközök és támogatás sokat számítanak. Kérj bátran segítséget vagy forrásokat a fejlődéshez.",
+    "proficiency_developing_name": "Fejlődő",
+    "proficiency_developing_char1": "Egyre jobban érti a digitális eszközöket és technikákat.",
+    "proficiency_developing_char2": "Rutinfeladatokat némi felügyelettel el tud végezni.",
+    "proficiency_developing_char3": "Elkezd önállóan megoldani gyakori problémákat.",
+    "proficiency_developing_char4": "Segítségre van szüksége összetett feladatoknál vagy új technológiáknál.",
+    "proficiency_developing_feedback": "Már felfedezed a területet, de még szükséged lehet útmutatásra vagy képzésre. Építsd a magabiztosságodat, és használd ki a rendelkezésre álló forrásokat.",
+    "proficiency_competent_name": "Gyakorlott",
+    "proficiency_competent_char1": "Szilárd ismeretekkel rendelkezik a digitális eszközökről és technikákról.",
+    "proficiency_competent_char2": "Önállóan, minimális felügyelettel dolgozik.",
+    "proficiency_competent_char3": "Magabiztosan használ számos digitális eszközt a feladatokhoz.",
+    "proficiency_competent_char4": "Hatékonyan oldja meg a gyakori problémákat.",
+    "proficiency_competent_char5": "Nagyon összetett vagy új feladatoknál még igényelhet segítséget.",
+    "proficiency_competent_feedback": "Folyamatosan fejlődsz, és kevés támogatással is boldogulsz. Ellenőrizd, hogy minden rendelkezésre áll-e a továbblépéshez, és zárd be az esetleges hiányosságokat.",
+    "proficiency_proficient_name": "Haladó",
+    "proficiency_proficient_char1": "Magas szintű jártassággal bír digitális eszközökben és haladó technikákban.",
+    "proficiency_proficient_char2": "Önállóan és hatékonyan dolgozik.",
+    "proficiency_proficient_char3": "Összetett problémákat old meg, és innovatív megoldásokat kínál.",
+    "proficiency_proficient_char4": "Gyakran segít másoknak digitális feladatokban.",
+    "proficiency_proficient_char5": "Folyamatosan keresi az új technológiákat és alkalmazza őket.",
+    "proficiency_proficient_feedback": "Ezen a szinten a legtöbb helyzetet sikerrel kezeled. Ha látod, hogy másoknak hiányoznak erőforrások, oszd meg a tudásodat vagy irányítsd őket hasznos forrásokhoz.",
+    "proficiency_expert_name": "Szakértő",
+    "proficiency_expert_char1": "Elismert szaktekintély a digitális eszközök és technológiák terén.",
+    "proficiency_expert_char2": "Digitális innovációs kezdeményezéseket vezet.",
+    "proficiency_expert_char3": "Új megoldásokat fejleszt és optimalizálja a folyamatokat.",
+    "proficiency_expert_char4": "Mentorál másokat, és széles körben megosztja a szakértelmét.",
+    "proficiency_expert_char5": "Megelőzi az iparági trendeket, és bevezeti a bevált gyakorlatokat.",
+    "proficiency_expert_feedback": "Szakértőként ösztönző a magabiztosságod. Segíthetsz másoknak mentorálással, források megosztásával vagy a befogadó digitális környezet előmozdításával."
+  },
+  "competencyList": [
+    { "key": "learningAdapting", "name": "Tanulás és alkalmazkodás" },
+    { "key": "aiTools", "name": "MI és digitális eszközök" },
+    { "key": "onlineSafety", "name": "Online biztonság" },
+    { "key": "dataWork", "name": "Adatkezelés" },
+    { "key": "communication", "name": "Kommunikáció" },
+    { "key": "creativity", "name": "Kreativitás és innováció" },
+    { "key": "digitalResponsibility", "name": "Digitális felelősség" },
+    { "key": "findingInfo", "name": "Információkeresés" },
+    { "key": "problemSolving", "name": "Problémamegoldás" },
+    { "key": "wellbeing", "name": "Jóllét és fenntarthatóság" }
+  ],
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" }, { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" }, { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" }, { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" }, { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" }, { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" }, { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" }, { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" }, { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" }, { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" }, { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" }, { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" }, { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" }, { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" }, { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" }, { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" }, { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" }, { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" }, { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" }, { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" }, { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+  ],
+  "questionTexts": {
+    "q_learningAdapting_k_text": "Értem, mennyire értékes új technológiákat tanulni.",
+    "q_learningAdapting_k_example": "Tudom, hogy az új eszközök elsajátítása segít naprakész maradni.",
+    "q_learningAdapting_s_text": "Időt szánok digitális készségeim fejlesztésére.",
+    "q_learningAdapting_s_example": "Új eszközökkel gyakorlok, például MI-t használok ötletek vagy összefoglalók tesztelésére.",
+    "q_learningAdapting_a_text": "Gyorsan alkalmazkodom, ha változik a technológia a munkahelyen.",
+    "q_learningAdapting_a_example": "Késlekedés nélkül átveszem az új rendszereket vagy frissítéseket.",
+
+    "q_aiTools_k_text": "Értem, hogyan segíthetnek a MI-eszközök a munkámban.",
+    "q_aiTools_k_example": "Tudom, mire képes a MI, például tartalmat javasolni vagy feladatokat gyorsítani.",
+    "q_aiTools_s_text": "Önállóan megoldom a gyakori technikai hibákat.",
+    "q_aiTools_s_example": "Kisebb eszközhibákat javítok, vagy segítek egy kollégának újraindítani a kijelzőt.",
+    "q_aiTools_a_text": "Kipróbálok MI-funkciókat vagy frissítéseket a munka javítása érdekében.",
+    "q_aiTools_a_example": "MI-eszközöket (csevegők, kép­generátorok) használok időmegtakarításra vagy feladat­megoldásra.",
+
+    "q_onlineSafety_k_text": "Tudom, hogyan tartsam biztonságban eszközeimet és adataimat.",
+    "q_onlineSafety_k_example": "Felismerek egy erős jelszót vagy egy gyanús üzenetet.",
+    "q_onlineSafety_s_text": "Követem a lépéseket a fájlok és eszközök védelmére.",
+    "q_onlineSafety_s_example": "Kijelentkezem a megosztott tabletekről, és biztonságosan mentem a fájlokat.",
+    "q_onlineSafety_a_text": "Átgondolom, milyen személyes vagy csapat­adatokat osztok meg digitális eszközökkel.",
+    "q_onlineSafety_a_example": "Kerülöm, hogy érzékeny adatokat írjak be okos eszközökbe vagy weboldalakra.",
+
+    "q_dataWork_k_text": "Tudom, hogyan olvassak alapvető adatokat, például jelentéseket vagy számokat.",
+    "q_dataWork_k_example": "Megértek egy egyszerű értékesítési vagy készletjelentést.",
+    "q_dataWork_s_text": "Elemzem az adatokat, hogy javítsam a munkámat.",
+    "q_dataWork_s_example": "Trendeket azonosítok a számokban, és ennek megfelelően tervezek.",
+    "q_dataWork_a_text": "Észreveszem a hasznos mintákat a használt adatokban.",
+    "q_dataWork_a_example": "Felismerem a csúcsidőket vagy népszerű termékeket.",
+
+    "q_communication_k_text": "Tudom, hogyan kommunikáljak érthetően digitális eszközökkel.",
+    "q_communication_k_example": "Tisztában vagyok vele, hogyan alakítsak ki egy áttekinthető e-mailt vagy csoport­üzenetet.",
+    "q_communication_s_text": "Jól dolgozom másokkal digitális eszközökön keresztül.",
+    "q_communication_s_example": "Közösen szerkesztünk dokumentumokat, vagy online beosztást készítünk.",
+    "q_communication_a_text": "Tiszteletteljesen, világosan és befogadóan kommunikálok.",
+    "q_communication_a_example": "Udvarias üzeneteket küldök, és elkerülöm a félreértéseket csoportos csevegésekben.",
+
+    "q_creativity_k_text": "Tudom, hogyan segíthetnek a digitális eszközök a feladatok fejlesztésében.",
+    "q_creativity_k_example": "Értem, hogy a digitális gyorsbillentyűk felgyorsíthatják a munkát.",
+    "q_creativity_s_text": "Támogatom az új ötleteket, amelyek javítják a csapat teljesítményét.",
+    "q_creativity_s_example": "Közreműködöm jobb módszerek kidolgozásában a csapatmunka szervezésére vagy megosztására.",
+    "q_creativity_a_text": "Megosztok új eszközöket vagy ötleteket a csapatommal.",
+    "q_creativity_a_example": "Olyan alkalmazásokat vagy funkciókat mutatok be, amelyek segíthetik a hatékonyabb munkát.",
+
+    "q_digitalResponsibility_k_text": "Ismerem a digitális eszközök felelős használatára vonatkozó szabályainkat.",
+    "q_digitalResponsibility_k_example": "Először ellenőrzöm, ha nem vagyok biztos abban, használhatok-e egy MI-eszközt.",
+    "q_digitalResponsibility_s_text": "Követem a vállalati irányelveket a digitális rendszerek használatakor.",
+    "q_digitalResponsibility_s_example": "Betartom az útmutatót, és ellenőrzöm a MI kimeneteket hibák vagy torzítások után.",
+    "q_digitalResponsibility_a_text": "Átgondolom, hogyan hatnak digitális tetteim másokra.",
+    "q_digitalResponsibility_a_example": "Kerülöm a posztokat, amelyek ronthatják az ügyfél­bizalmat vagy megszeghetik a szabályokat.",
+
+    "q_findingInfo_k_text": "Tudom, hol keressek megbízható információkat.",
+    "q_findingInfo_k_example": "Tudom, melyik rendszerben találom a készletet vagy HR-szabályzatokat.",
+    "q_findingInfo_s_text": "Átláthatóan tárolom és rendszerezem a digitális információkat.",
+    "q_findingInfo_s_example": "A fájlokat a megfelelő mappába mentem, érthető nevekkel.",
+    "q_findingInfo_a_text": "Tisztában vagyok vele, hogy a digitális eszközök és keresési eredmények elfogultak vagy pontatlanok lehetnek.",
+    "q_findingInfo_a_example": "Észreveszem, ha az eszközök egyoldalú, pontatlan vagy kiegyensúlyozatlan válaszokat adnak.",
+
+    "q_problemSolving_k_text": "Észreveszem, ha valami nem működik a technológiámmal.",
+    "q_problemSolving_k_example": "Felmérem, ha egy pénztár, képernyő vagy rendszer nem reagál.",
+    "q_problemSolving_s_text": "Segítség nélkül megoldom az alapvető technikai problémákat.",
+    "q_problemSolving_s_example": "Újraindítom az eszközöket, vagy megoldom a bejelentkezési problémákat IT segítség nélkül.",
+    "q_problemSolving_a_text": "Kreatív módon oldom meg a technikai kihívásokat.",
+    "q_problemSolving_a_example": "Új módszereket próbálok ki, vagy eszközöket kombinálok a problémák megoldására.",
+
+    "q_wellbeing_k_text": "Figyelem, hogyan hat a digitális munka az egészségemre.",
+    "q_wellbeing_k_example": "Felismérem, ha a képernyőidő befolyásolja a hangulatom vagy a fókuszom.",
+    "q_wellbeing_s_text": "Kiegyensúlyozom a képernyőidőt más feladatokkal a nap során.",
+    "q_wellbeing_s_example": "Digitális feladatokat váltogatok személyes munkával vagy mozgással.",
+    "q_wellbeing_a_text": "Egészséges digitális szokásokat népszerűsítek a csapatban.",
+    "q_wellbeing_a_example": "Bátorítom a csapattársakat a szünetekre, vagy az értesítések kikapcsolására."
+  },
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "Az új technológiákra való nyitottság rugalmasan tart és felkészít a változásokra. Fedezz fel új eszközöket, és oszd meg tapasztalataidat a csapattal.",
+      "Skills": "Időt szánva a készségeid fejlesztésére folyamatosan növeled a tudásod, és magabiztosabban vállalsz új feladatokat. Mutass példát másoknak is.",
+      "Attitudes": "A gyors alkalmazkodás csökkenti a fennakadásokat, és növeli a körülötted lévők bizalmát. Használd ezt a képességedet, hogy irányt mutass."
+    },
+    "aiTools": {
+      "Knowledge": "A munkaeszközökben való jártasság időt takarít meg és hatékonyabbá tesz. Oszd meg a tippjeidet, hogy a csapat is profitáljon.",
+      "Skills": "A technikai problémák gyors megoldása gördülékennyé teszi a folyamatokat, és megbízhatóságot sugall. Segíts vele a csapatnak is.",
+      "Attitudes": "Új eszközök vagy funkciók felfedezése jobb munkamódszerekhez vezet, és fenntartja a kíváncsiságodat. Buzdíts másokat is erre."
+    },
+    "onlineSafety": {
+      "Knowledge": "Adataid védelme biztonságot ad, és megnyugtatja a csapatot. Légy példakép a jó gyakorlatokban.",
+      "Skills": "Biztonsági rutinok, például a kijelentkezés vagy a fájl­védelem csökkentik a kockázatot. Bátorítsd a csapatot ezek átvételére.",
+      "Attitudes": "Az érzékeny adatok védelme bizalmat épít. Mutass felelős adatkezelési példát."
+    },
+    "dataWork": {
+      "Knowledge": "Az adatok alapján hozott döntések hatékonyabbak. Oszd meg ezt a szemléletet, hogy még jobb stratégiák szülessenek.",
+      "Skills": "A minták felismerése segít megoldani a problémákat és javítani az eredményeket. Vezesd ebben a csapatot.",
+      "Attitudes": "Az adat­alapú gondolkodás erősíti a kritikai szemléletet. Segíts a csapatnak bizonyítékokra építeni."
+    },
+    "communication": {
+      "Knowledge": "A kommunikációs eszközök magabiztos használata segít az ötletek világos átadásában. Erősítsd így az együttműködést.",
+      "Skills": "A digitális együttműködés zökkenőmentes projekteket eredményez. Használd ezt a készséget a közös sikerért.",
+      "Attitudes": "A tiszteletteljes, világos és befogadó kommunikáció erős kapcsolatokat épít. Őrizd meg ezt a pozitív hozzáállást."
+    },
+    "creativity": {
+      "Knowledge": "A munkafolyamatok fejlesztése egyszerűsíti a feladatokat és növeli a hatékonyságot. Oszd meg az ötleteidet a csapattal.",
+      "Skills": "Az innovatív megoldások támogatása kiemeli a csapat teljesítményét. Használd ezt a képességet a folyamatos fejlődésre.",
+      "Attitudes": "Az új eszközök kipróbálásának ösztönzése kreativitást és innovációt hoz. Adj lendületet új ötleteknek."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "A szabályok betartása bizalmat épít. Állíts magas mércét, és vezesd a csapatot.",
+      "Skills": "A vállalati irányelvek követése gördülékennyé teszi a munkát. Légy felelős a kényes feladatokban.",
+      "Attitudes": "A fair és felelős digitális viselkedés elősegíti az együttműködést. Légy te a mérce."
+    },
+    "findingInfo": {
+      "Knowledge": "A megbízható információ megtalálása megalapozott döntéseket eredményez. Segíts ezzel másoknak is.",
+      "Skills": "A jó rendszerezés könnyű visszakeresést és jobb kommunikációt biztosít. Teremts hatékony környezetet.",
+      "Attitudes": "Az információ pontosságának ellenőrzése magas színvonalat tart. Bátorítsd a minőségre fókuszálást."
+    },
+    "problemSolving": {
+      "Knowledge": "A technikai problémák gyors felismerése minimalizálja az állásidőt. Támogasd ezzel a csapatot.",
+      "Skills": "Az egyszerű problémák megoldása növeli a termelékenységet. Oszd meg a módszeredet.",
+      "Attitudes": "A kreatív megoldások izgalmassá és innovatívvá teszik a munkát. Oszd meg az ötleteket, és győzd le az akadályokat."
+    },
+    "wellbeing": {
+      "Knowledge": "A digitális munka hatásainak ismerete kiegyensúlyozott környezetet teremt. Használd ezt a tudást a jóllét érdekében.",
+      "Skills": "A képernyős és offline feladatok kiegyensúlyozása csökkenti a stresszt. Fejlessz jobb munkafolyamatokat.",
+      "Attitudes": "Az egészséges digitális szokások támogatása javítja az időbeosztást és a jóllétet. Mutass jó példát."
+    }
+  },
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "Új ismeretek elsajátítása megkönnyíti a feladatok megértését és az alkalmazkodást. Keress tananyagokat vagy képzéseket.",
+      "Skills": "Digitális készségeid fejlesztése magabiztosabbá tesz a bonyolult feladatoknál. Tűzz ki kis célokat a haladás mérésére.",
+      "Attitudes": "A proaktív hozzáállás növeli az önbizalmat a váratlan helyzetekben. Kérj visszajelzést, és igazítsd a munkádat."
+    },
+    "aiTools": {
+      "Knowledge": "A MI mélyebb megismerése segít időt spórolni és hatékonyabban dolgozni. Nézz utána online forrásoknak.",
+      "Skills": "Az eszközök és alkalmazások gyakorlása fejleszti a hibaelhárítást. Próbálj ki ritkán használt funkciókat.",
+      "Attitudes": "A szervezett felfedezés segít kiszűrni, mi működik a legjobban. Jegyezd fel a hasznos funkciókat, és oszd meg."
+    },
+    "onlineSafety": {
+      "Knowledge": "A gyakori kockázatok, például az adathalászat felismerése megóv a problémáktól. Tudj meg többet a jelekről és a válaszokról.",
+      "Skills": "Az erős jelszavak és a kétfaktoros hitelesítés extra védelmet nyújtanak. Állítsd be és tapasztald meg a különbséget.",
+      "Attitudes": "A veszélyek tudatosítása, például az adat­szivárgás, biztonságban tartja a csapatot. Oszd meg a jó gyakorlatokat."
+    },
+    "dataWork": {
+      "Knowledge": "Az adatok értelmezésének megtanulása növeli a magabiztosságodat. Kezdd egy egyszerű eszközzel, például az Excellel.",
+      "Skills": "Az elemzési technikák gyakorlása hasznos felismerésekhez vezet. Próbálj ki új eszközöket a nagyobb hatásért.",
+      "Attitudes": "A kíváncsiság az adatok iránt élesíti az elemzőkészségeidet. Oszd meg az észrevételeidet a jobb döntésekért."
+    },
+    "communication": {
+      "Knowledge": "Az új kommunikációs eszközök megtanulása egyszerűsíti a csapatmunkát. Fedezd fel a platformokat, és találd meg a megfelelőt.",
+      "Skills": "Az új együttműködési módok gyakorlása erősíti a csapatszellemet. Próbálj ki közös munkaterületeket.",
+      "Attitudes": "A kulturális érzékenység növelése befogadóbbá teszi a kommunikációt. Tanulj a visszajelzésekből."
+    },
+    "creativity": {
+      "Knowledge": "A kreatív problémamegoldás új ötleteket szül. Használj digitális eszközöket a felfedezéshez.",
+      "Skills": "Az eszközök és szoftverek gyakorlása fejleszti a kreativitást. Szervezz brainstormingokat vagy prototípuskészítést.",
+      "Attitudes": "Az innováció strukturált megközelítése megvalósíthatóbbá teszi az ötleteket. Dolgozz a csapattal a tervek finomításán."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "A megfelelőségi szabályok mélyebb ismerete magabiztosságot ad. Tanulmányozz valós példákat.",
+      "Skills": "A döntéshozatal gyakorlása összetett helyzetekben erősíti a vezetői képességeket. Szimulálj helyzeteket.",
+      "Attitudes": "Az etikai dilemmák proaktív kezelése bizalmat épít. Indíts beszélgetést a csapattal."
+    },
+    "findingInfo": {
+      "Knowledge": "A digitális források kritikus értékelése pontosabb munkát eredményez. Gazdagítsd a keresési technikáidat.",
+      "Skills": "Új szoftverek és funkciók kipróbálása egyszerűsíti a munkát. Javíts a tárolási és megosztási folyamatokon.",
+      "Attitudes": "A kritikus szemlélet növeli a megbízhatóságot. Oszd meg a bevált módszereket a csapattal."
+    },
+    "problemSolving": {
+      "Knowledge": "A hibaelhárítási ismeretek bővítése gyorsabb megoldásokat hoz. Elemezd a korábbi problémákat a mintákért.",
+      "Skills": "A hibaelhárítási technikák gyakorlása magabiztossá tesz a bonyolult problémákban. Tanulj új funkciókat.",
+      "Attitudes": "A kitartás a nehéz problémákban hatékonyabbá tesz. Oszd meg a megoldásaidat."
+    },
+    "wellbeing": {
+      "Knowledge": "A digitális jóllét stratégiáinak megismerése segít egyensúlyban maradni. Fedezz fel fenntartható gyakorlatokat.",
+      "Skills": "A hasznos tippek megosztása egyensúlyt teremt a csapatban. Bátoríts apró változtatásokat, például a rendszeres szüneteket.",
+      "Attitudes": "A fenntartható gyakorlatok, például az e-hulladék csökkentése, értéket ad a mindennapokhoz. Kezdd egy változtatással, és oszd meg a hatását."
+    }
+  },
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "A következő három hónapban beiratkozom egy, a szakterületem új technológiáit bemutató kurzusra.",
+      "Skills": "Legalább heti két órát szánok a digitális készségeim fejlesztésére három hónapon át.",
+      "Attitudes": "Pozitívan fogadok legalább egy új technológiai változást ebben a negyedévben."
+    },
+    "aiTools": {
+      "Knowledge": "Ebben a hónapban megtanulok egy új funkciót valamelyik munkaeszközömben a hatékonyság növelésére.",
+      "Skills": "Két hónapon át minden héten önállóan megoldok legalább egy technikai problémát.",
+      "Attitudes": "A hónap végéig kipróbálok egy új munkámhoz kapcsolódó technológiát vagy eszközt."
+    },
+    "onlineSafety": {
+      "Knowledge": "A következő negyedévben részt veszek egy kiberbiztonsági workshopon.",
+      "Skills": "Ezen a héten átnézem és frissítem az összes jelszavamat.",
+      "Attitudes": "Egy hónapon át szokássá teszem, hogy azonnal kijelentkezek a megosztott eszközökről."
+    },
+    "dataWork": {
+      "Knowledge": "Ebben a hónapban megtanulom értelmezni a szerepkörömre vonatkozó alapvető jelentéseket.",
+      "Skills": "Két hónapon belül adat­elemző eszközt használok egy munkafolyamat javítására.",
+      "Attitudes": "Két hónapon át rendszeresen keresek mintákat a munkámhoz kapcsolódó adatokban."
+    },
+    "communication": {
+      "Knowledge": "Egy hónapon belül megismerkedem egy új kommunikációs eszközzel (pl. Teams).",
+      "Skills": "A következő negyedévben részt veszek egy digitális együttműködést igénylő projektben.",
+      "Attitudes": "A negyedév végéig visszajelzést kérek a kommunikációs stílusomról."
+    },
+    "creativity": {
+      "Knowledge": "Ebben a hónapban kutatok digitális eszközöket, amelyek javíthatják a csapat munkafolyamatait.",
+      "Skills": "Két hónapon belül kidolgozok és bemutatok egy innovatív megoldást egy aktuális csapat­kihívásra.",
+      "Attitudes": "Három hónapon át ösztönzöm a kollégákat új ötletek megosztására és kipróbálására."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Jövő hét végéig elolvasom a vállalat digitális etikai irányelveit.",
+      "Skills": "Két héten belül átnézem a legutóbbi projektjeimet megfelelőség szempontjából, és szükség szerint módosítom őket.",
+      "Attitudes": "Három hónapon át minden új digitális feladat előtt átgondolom az etikai szempontokat."
+    },
+    "findingInfo": {
+      "Knowledge": "Három hónapon belül elvégzek egy online tanfolyamot a hatékony információkeresésről.",
+      "Skills": "Két héten belül bevezetek egy új fájl­rendszerezési módszert a hatékonyabb kereséshez.",
+      "Attitudes": "Egy hónapon át kialakítom azt a szokást, hogy a megosztás előtt kétszer ellenőrzöm a fontos információk pontosságát."
+    },
+    "problemSolving": {
+      "Knowledge": "Ebben a hónapban megismerem a gyakori technikai problémákat és megoldásaikat.",
+      "Skills": "Három hónapon át megpróbálom önállóan megoldani a kisebb technikai problémákat, mielőtt segítséget kérnék.",
+      "Attitudes": "A következő negyedévben kreatív megoldásokat ötletelek a digitális kihívásokra."
+    },
+    "wellbeing": {
+      "Knowledge": "Ebben a hónapban utánanézek a digitális jóllét legjobb gyakorlati módszereinek.",
+      "Skills": "Egy hónapon át minden órában rövid szünetet tartok, hogy kiegyensúlyozzam a digitális és nem digitális feladatokat.",
+      "Attitudes": "A következő csapat­találkozón arra bátorítom a csapattagokat, hogy osszanak meg tippeket a digitális terhelés kezelésére."
+    }
+  },
+  "misc": {
+    "examplePrefix": "Példa: ",
+    "andConjunction": "és",
+    "areLowerThanConjunction": "alacsonyabb, mint",
+    "languageLabel": "Nyelv:"
+  }
+}
