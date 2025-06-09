@@ -1,0 +1,364 @@
+{
+  "lang": "sk",
+  "langName": "Slovenčina",
+  "appTitle": "Hodnotenie digitálnych zručností",
+  "startScreen": {
+    "title": "Hodnotenie digitálnych zručností",
+    "introParagraph1": "Toto rýchle sebahodnotenie ti pomôže zamyslieť sa nad tvojimi digitálnymi zručnosťami a určiť oblasti na zlepšenie. Nie je to test — iba jednoduchý spôsob, ako zistiť, v čom vynikáš a kde môžeš potrebovať podporu.",
+    "introParagraph2": "Uvidíš sériu krátkych tvrdení s príkladmi. Pri každom si zvoľ možnosť, ktorá najlepšie vystihuje tvoju aktuálnu úroveň.",
+    "introParagraph3": "<strong>Je anonymné a zaberie len pár minút.</strong>",
+    "introParagraph4": "Buď úprimný, nechaj si čas a poďme na to!",
+    "startButtonText": "Pokračovať"
+  },
+  "assessmentScreen": {
+    "competencyBannerPrefix": "Kompetencia: ",
+    "progressLabelSuffix": "%",
+    "noSelectionWarning": "Na pokračovanie vyber možnosť.",
+    "showProficiencyLevelsButton": "Zobraziť úrovne znalostí",
+    "hideProficiencyLevelsButton": "Skryť úrovne znalostí",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>Začiatočník:</strong> Mám malé alebo žiadne skúsenosti a spolieham sa na pomoc iných.",
+      "developing": "<strong>Rozvíjajúci sa:</strong> Dokážem to s podporou a pracujem na dôslednosti.",
+      "competent": "<strong>Kompetentný:</strong> Úlohu zvládam samostatne a spoľahlivo.",
+      "proficient": "<strong>Pokročilý:</strong> Pracujem veľmi dobre samostatne a viem poradiť alebo podporiť ostatných.",
+      "expert": "<strong>Expert:</strong> Dosahujem trvalo vysoký výkon a mentorujem či vediem iných v tejto oblasti."
+    }
+  },
+  "endScreen": {
+    "title": "Hodnotenie dokončené",
+    "qrCodeSectionTitle": "Tvoj QR kód",
+    "qrCodeInstruction": "Naskenuj tento QR kód a ulož si výsledky, aby si sa k nim mohol neskôr vrátiť.",
+    "keyCharacteristicsTitle": "Kľúčové charakteristiky:",
+    "keyCharacteristicsIntro": "Nižšie nájdeš hlavné charakteristiky tvojej úrovne. Vyzdvihujú tvoje silné stránky a pomáhajú ti pochopiť, kde vynikáš.",
+    "radarChartTitle": "Radar tvojich kompetencií",
+    "radarChartDescription": "Pomocou tohto grafu rýchlo spoznáš svoje silné stránky a oblasti na rast v rôznych kompetenciách.",
+    "radarChartLegendIntro": "Graf zobrazuje tvoje skóre v troch oblastiach: ",
+    "radarChartLegendKnowledge": "Znalosti",
+    "radarChartLegendSkills": "Zručnosti",
+    "radarChartLegendAttitudes": "Postoje",
+    "radarChartLegendExplanation": ". Každá farebná čiara predstavuje jednu oblasť. Ideálne sa čiary prekrývajú, čo znamená vyvážený rozvoj. Ak spozoruješ rozdiely — napríklad jedna čiara je nižšia — naznačuje to, kde sa zamerať. Ak ",
+    "radarChartLegendSkillsExample": "Zručnosti",
+    "radarChartLegendKnowledgeExample": "Znalosti",
+    "radarChartLegendExplanationSuffix": " v nejakej kompetencii zaostávajú, pracuj na tom, aby si <i>uplatnil</i> to, čo vieš.",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>Tvoje 3 hlavné silné stránky",
+    "strengthsSectionIntro": "Podľa hodnotenia sú toto tri tvoje najsilnejšie oblasti. Zameraj sa na ne, aby si naplno využil svoje schopnosti. Môžeš sa pozrieť aj na ďalšie oblasti, v ktorých si obstál dobre.",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Oblasti rastu",
+    "growthAreasSectionIntro": "Tieto tri oblasti majú najväčší potenciál zlepšenia. Ich rozvoj ti pomôže zvýšiť celkovú úroveň. Môžu existovať aj ďalšie oblasti na preskúmanie.",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>SMART ciele",
+    "smartObjectivesSectionIntro": "Tu sú navrhnuté SMART ciele podľa tvojich oblastí rastu. Uprav si ich pridaním vlastných termínov a detailov.",
+    "thankYouMessage": "Výborne! Pokračuj v rozvíjaní svojich digitálnych zručností.",
+    "surveyPrompt": "Záleží nám na tvojej spätnej väzbe! Vyplň prosím náš dotazník.",
+    "surveyButtonText": "Vyplniť dotazník",
+    "restartButtonText": "Reštartovať",
+    "strongestDimensionLabel": "Najsilnejšia dimenzia:",
+    "growthAreaLabel": "Oblasť rastu:",
+    "smartObjectiveLabel": "SMART cieľ:",
+    "recommendedResourcesLabel": "Odporúčané zdroje:"
+  },
+  "proficiencyLabels": {
+    "1": "Začiatočník",
+    "2": "Rozvíjajúci sa",
+    "3": "Kompetentný",
+    "4": "Pokročilý",
+    "5": "Expert"
+  },
+  "overallProficiencyLevels": [
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+  "proficiencyTexts": {
+    "proficiency_beginner_name": "Začiatočník",
+    "proficiency_beginner_char1": "Má základné porozumenie digitálnych nástrojov a pojmov.",
+    "proficiency_beginner_char2": "Na dokončenie úloh potrebuje vedenie a dohľad.",
+    "proficiency_beginner_char3": "Môže mať ťažkosti s riešením problémov a odstraňovaním porúch.",
+    "proficiency_beginner_char4": "Pri neznámych nástrojoch alebo technológiách potrebuje podporu.",
+    "proficiency_beginner_feedback": "Na tomto stupni sa môže oblasť zdať cudzia alebo náročná — je to úplne v poriadku. S vhodnými nástrojmi a podporou môžeš výrazne pokročiť. Neváhaj požiadať o zdroje alebo pomoc.",
+    "proficiency_developing_name": "Rozvíjajúci sa",
+    "proficiency_developing_char1": "Prejavuje rastúce porozumenie digitálnym nástrojom a technikám.",
+    "proficiency_developing_char2": "Rutinné úlohy zvláda s menším dohľadom.",
+    "proficiency_developing_char3": "Začína samostatne riešiť bežné problémy.",
+    "proficiency_developing_char4": "Pri komplexnejších úlohách alebo nových technológiách potrebuje pomoc.",
+    "proficiency_developing_feedback": "Oblasť už skúmaš, no ešte môžeš potrebovať vedenie či školenie. Buduj si sebadôveru a využívaj dostupné zdroje na ďalší rast.",
+    "proficiency_competent_name": "Kompetentný",
+    "proficiency_competent_char1": "Má pevné znalosti digitálnych nástrojov a techník.",
+    "proficiency_competent_char2": "Pracuje samostatne s minimálnym dohľadom.",
+    "proficiency_competent_char3": "Sebavedomo používa rôzne digitálne nástroje na splnenie úloh.",
+    "proficiency_competent_char4": "Efektívne odstraňuje bežné problémy.",
+    "proficiency_competent_char5": "Pri veľmi komplexných alebo neznámych úlohách môže potrebovať podporu.",
+    "proficiency_competent_feedback": "Postupuješ stabilne a zvládaš úlohy s malou pomocou. Uisti sa, že máš všetko potrebné na ďalší rozvoj, a vyplň prípadné medzery, aby si bol ešte samostatnejší.",
+    "proficiency_proficient_name": "Pokročilý",
+    "proficiency_proficient_char1": "Prejavuje vysokú zručnosť v digitálnych nástrojoch a pokročilých technikách.",
+    "proficiency_proficient_char2": "Pracuje samostatne a efektívne.",
+    "proficiency_proficient_char3": "Rieši zložité problémy a ponúka inovatívne riešenia.",
+    "proficiency_proficient_char4": "Často pomáha kolegom s digitálnymi úlohami a výzvami.",
+    "proficiency_proficient_char5": "Neustále sa učí a prijíma nové technológie.",
+    "proficiency_proficient_feedback": "Väčšinu situácií zvládaš úspešne. Ak si všimneš, že iným chýbajú zdroje, podeľ sa o svoje vedomosti alebo ich nasmeruj na užitočné materiály.",
+    "proficiency_expert_name": "Expert",
+    "proficiency_expert_char1": "Je uznávanou autoritou v oblasti digitálnych nástrojov a technológií.",
+    "proficiency_expert_char2": "Vedie iniciatívy digitálnej inovácie.",
+    "proficiency_expert_char3": "Vytvára nové riešenia a optimalizuje existujúce procesy.",
+    "proficiency_expert_char4": "Mentoruje ostatných a šíri expertízu.",
+    "proficiency_expert_char5": "Predbieha trendy v odvetví a zavádza osvedčené postupy.",
+    "proficiency_expert_feedback": "Ako expert inšpiruješ dôveru. Môžeš podporiť tých, ktorí čelia prekážkam, mentorovaním, zdieľaním zdrojov alebo budovaním inkluzívneho digitálneho prostredia."
+  },
+  "competencyList": [
+    { "key": "learningAdapting", "name": "Učenie a prispôsobovanie" },
+    { "key": "aiTools", "name": "AI a digitálne nástroje" },
+    { "key": "onlineSafety", "name": "Online bezpečnosť" },
+    { "key": "dataWork", "name": "Práca s dátami" },
+    { "key": "communication", "name": "Komunikácia" },
+    { "key": "creativity", "name": "Kreativita a inovácie" },
+    { "key": "digitalResponsibility", "name": "Digitálna zodpovednosť" },
+    { "key": "findingInfo", "name": "Vyhľadávanie informácií" },
+    { "key": "problemSolving", "name": "Riešenie problémov" },
+    { "key": "wellbeing", "name": "Blahobyt a udržateľnosť" }
+  ],
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" }, { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" }, { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" }, { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" }, { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" }, { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" }, { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" }, { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" }, { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" }, { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" }, { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" }, { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" }, { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" }, { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" }, { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" }, { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" }, { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" }, { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" }, { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" }, { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" }, { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+  ],
+  "questionTexts": {
+    "q_learningAdapting_k_text": "Chápem hodnotu učenia sa nových technológií.",
+    "q_learningAdapting_k_example": "Viem, že učenie sa nových nástrojov mi pomáha zostať relevantný.",
+    "q_learningAdapting_s_text": "Vyhradzujem si čas na zlepšenie svojich digitálnych zručností.",
+    "q_learningAdapting_s_example": "Trénujem s novými nástrojmi, napríklad používam AI na testovanie nápadov alebo súhrnov.",
+    "q_learningAdapting_a_text": "Rýchlo sa prispôsobím, keď sa technológie v práci zmenia.",
+    "q_learningAdapting_a_example": "Bez veľkého odkladu si osvojím nové systémy či aktualizácie.",
+
+    "q_aiTools_k_text": "Rozumiem, ako môžu nástroje AI podporiť moju prácu.",
+    "q_aiTools_k_example": "Viem, čo AI dokáže a nedokáže, napríklad navrhovať obsah alebo zrýchliť úlohy.",
+    "q_aiTools_s_text": "Bežné technické problémy si riešim sám.",
+    "q_aiTools_s_example": "Odstránim poruchu zariadenia alebo pomôžem kolegovi reštartovať obrazovku.",
+    "q_aiTools_a_text": "Skúšam funkcie AI alebo technologické aktualizácie na zlepšenie práce.",
+    "q_aiTools_a_example": "Využívam AI nástroje (chat alebo generátory obrázkov) na úsporu času alebo riešenie úloh.",
+
+    "q_onlineSafety_k_text": "Viem, ako chrániť svoje zariadenia a dáta.",
+    "q_onlineSafety_k_example": "Rozpoznám silné heslo alebo podozrivú správu.",
+    "q_onlineSafety_s_text": "Riadim sa postupmi na zabezpečenie súborov a zariadení.",
+    "q_onlineSafety_s_example": "Odhlasujem sa z verejných tabletov a bezpečne ukladám súbory.",
+    "q_onlineSafety_a_text": "Rozvážne zdieľam osobné či tímové údaje s digitálnymi nástrojmi.",
+    "q_onlineSafety_a_example": "Vyhýbam sa zadávaniu citlivých údajov do inteligentných nástrojov alebo na webstránky.",
+
+    "q_dataWork_k_text": "Viem čítať základné dáta, napríklad správy alebo čísla.",
+    "q_dataWork_k_example": "Rozumiem jednoduchej správe o predaji alebo skladových zásobách.",
+    "q_dataWork_s_text": "Analyzujem dáta, aby som zlepšil svoju prácu.",
+    "q_dataWork_s_example": "Všímam si trendy v číslach a podľa toho upravujem plánovanie.",
+    "q_dataWork_a_text": "V dátach, s ktorými pracujem, rozpoznávam užitočné vzory.",
+    "q_dataWork_a_example": "Identifikujem špičky predaja alebo obľúbené položky.",
+
+    "q_communication_k_text": "Viem jasne komunikovať pomocou digitálnych nástrojov.",
+    "q_communication_k_example": "Viem správne naformátovať jasný e-mail alebo skupinovú správu.",
+    "q_communication_s_text": "Spolupracujem efektívne s ostatnými pomocou digitálnych nástrojov.",
+    "q_communication_s_example": "Spolu upravujeme dokumenty alebo plánujeme smeny online.",
+    "q_communication_a_text": "Komunikujem s rešpektom, jasne a inkluzívne.",
+    "q_communication_a_example": "Posielam zdvorilé správy a vyhýbam sa nejasnostiam v skupinových chatoch.",
+
+    "q_creativity_k_text": "Viem, ako digitálne nástroje môžu zlepšiť úlohy.",
+    "q_creativity_k_example": "Chápem, že digitálne skratky môžu prácu zrýchliť.",
+    "q_creativity_s_text": "Podporujem nové nápady, ktoré zlepšujú výkon tímu.",
+    "q_creativity_s_example": "Pomáham rozvíjať lepšie spôsoby organizácie alebo zdieľania tímovej práce.",
+    "q_creativity_a_text": "Zdieľam nové nástroje alebo nápady s tímom.",
+    "q_creativity_a_example": "Predstavujem aplikácie či funkcie, ktoré môžu tímu pomôcť pracovať lepšie.",
+
+    "q_digitalResponsibility_k_text": "Poznám naše pravidlá zodpovedného používania digitálnych nástrojov.",
+    "q_digitalResponsibility_k_example": "Ak si nie som istý použiteľnosťou AI nástroja, najskôr si to overím.",
+    "q_digitalResponsibility_s_text": "Riadim sa firemnými usmerneniami pri práci so systémami.",
+    "q_digitalResponsibility_s_example": "Postupujem podľa pokynov a kontrolujem výstupy AI na chyby či zaujatosti.",
+    "q_digitalResponsibility_a_text": "Premýšľam nad tým, ako moje digitálne konanie ovplyvňuje ostatných.",
+    "q_digitalResponsibility_a_example": "Vyhýbam sa príspevkom, ktoré by mohli narušiť dôveru zákazníka alebo porušiť pravidlá.",
+
+    "q_findingInfo_k_text": "Viem, kde hľadať spoľahlivé informácie.",
+    "q_findingInfo_k_example": "Viem, v ktorom systéme nájdem zásoby alebo HR pravidlá.",
+    "q_findingInfo_s_text": "Ukladám a organizujem digitálne informácie prehľadne.",
+    "q_findingInfo_s_example": "Ukladám súbory do správneho priečinka s jasnými názvami.",
+    "q_findingInfo_a_text": "Viem, že digitálne nástroje a výsledky vyhľadávania môžu byť zaujaté alebo nepresné.",
+    "q_findingInfo_a_example": "Spokojne odhalím, keď nástroje poskytujú nevyvážené alebo nepresné odpovede.",
+
+    "q_problemSolving_k_text": "Všimnem si, keď moja technika nefunguje správne.",
+    "q_problemSolving_k_example": "Zistím, keď pokladňa, obrazovka či systém nereaguje.",
+    "q_problemSolving_s_text": "Základné technické problémy riešim bez pomoci.",
+    "q_problemSolving_s_example": "Reštartujem zariadenia alebo vyriešim problémy s prihlásením bez IT.",
+    "q_problemSolving_a_text": "Pri riešení technických problémov využívam kreatívne spôsoby.",
+    "q_problemSolving_a_example": "Skúšam nové metódy alebo kombinujem nástroje na odstránenie chýb.",
+
+    "q_wellbeing_k_text": "Všimnem si, ako digitálna práca ovplyvňuje moje zdravie.",
+    "q_wellbeing_k_example": "Uvedomujem si, keď čas pri obrazovke vplýva na náladu alebo sústredenie.",
+    "q_wellbeing_s_text": "Počas dňa vyvažujem čas pri obrazovke s inými úlohami.",
+    "q_wellbeing_s_example": "Striedam digitálne úlohy s činnosťami v pohybe alebo osobne.",
+    "q_wellbeing_a_text": "Podporujem zdravé digitálne návyky v tíme.",
+    "q_wellbeing_a_example": "Povzbudzujem kolegov k prestávkam a vypínaniu notifikácií."
+  },
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "Otvorenosť novým technológiám ťa udrží flexibilným a pripraveným na zmeny. Pokračuj v objavovaní nástrojov a zdieľaj to, čo sa naučíš, aby si inšpiroval tím.",
+      "Skills": "Vyhradzuješ si čas na rozvoj digitálnych zručností, čo podporuje tvoje napredovanie a sebavedomie pri nových úlohách. Využi to na ukázanie smeru ostatným.",
+      "Attitudes": "Rýchla adaptácia na technologické zmeny znižuje prerušenia a posilňuje dôveru okolia. Použi túto schopnosť na vedenie počas zmien."
+    },
+    "aiTools": {
+      "Knowledge": "Istota pri nástrojoch šetrí čas a zefektívňuje prácu. Zdieľaj tipy a triky so svojím tímom.",
+      "Skills": "Rýchle riešenie technických chýb udržiava prácu plynulú a ukazuje, že sa na teba dá spoľahnúť. Podpor svoj tím, keď sa vyskytne problém.",
+      "Attitudes": "Skúmanie nových funkcií alebo nástrojov prináša lepšie spôsoby práce a udržiava zvedavosť. Zdieľaj objavy, aby si motivoval aj ostatných."
+    },
+    "onlineSafety": {
+      "Knowledge": "Vedieť, ako chrániť dáta, zabezpečuje prácu a upokojuje tím. Buď príkladom.",
+      "Skills": "Návyky ako odhlasovanie zdieľaných zariadení či ochrana súborov znižujú riziká. Inšpiruj tím, aby ich tiež dodržiaval.",
+      "Attitudes": "Chránenie citlivých dát zvyšuje dôveru v tíme. Ukáž zodpovedný prístup k údajom."
+    },
+    "dataWork": {
+      "Knowledge": "Rozhodnutia založené na dátach sú presnejšie. Zdieľaj túto prax, aby tím konal múdrejšie.",
+      "Skills": "Analýza trendov pomáha riešiť problémy a zlepšovať výsledky. Využi svoje zručnosti na vedenie tímu.",
+      "Attitudes": "Všimnúť si vzory v dátach podporuje kritické myslenie. Pomôž tímu robiť rozhodnutia založené na dôkazoch."
+    },
+    "communication": {
+      "Knowledge": "Istota pri komunikačných nástrojoch ti umožňuje jasne vyjadriť myšlienky a udržať spojenie. Podpor spoluprácu.",
+      "Skills": "Digitálna spolupráca zaisťuje plynulé projekty. Použi svoje schopnosti na vedenie projektov a zdieľanie úspechu.",
+      "Attitudes": "Jasná, rešpektujúca a inkluzívna komunikácia buduje silné vzťahy a efektívny tím. Zachovaj tento pozitívny prístup."
+    },
+    "creativity": {
+      "Knowledge": "Hľadanie zlepšení procesov zjednodušuje úlohy a zvyšuje efektivitu. Zdieľaj nápady a podnecuj inovácie.",
+      "Skills": "Podpora inovatívnych riešení zviditeľňuje projekty a prináša úspech. Využi túto schopnosť na neustále zlepšovanie.",
+      "Attitudes": "Povzbudzovanie tímu k skúšaniu nových nástrojov rozvíja kreativitu. Inšpiruj nové pohľady."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Dodržiavanie pravidiel digitálnych nástrojov buduje dôveru. Nastav vysoké štandardy a veď tím.",
+      "Skills": "Zladenie činností s firemnými usmerneniami udržuje procesy plynulé. Buď zodpovedný pri citlivých úlohách.",
+      "Attitudes": "Zodpovedné digitálne správanie podporuje spoluprácu. Daj príklad týmto prístupom."
+    },
+    "findingInfo": {
+      "Knowledge": "Nájsť spoľahlivé informácie zabezpečí informované rozhodnutia. Povedz ostatným, ako na to.",
+      "Skills": "Organizácia informácií uľahčuje prístup a zlepšuje komunikáciu. Vytvor efektívnejšie prostredie.",
+      "Attitudes": "Kontrola presnosti informácií udržiava vysoké štandardy. Podpor kvalitu."
+    },
+    "problemSolving": {
+      "Knowledge": "Rýchle rozpoznanie technických problémov udržuje projekty na ceste. Podeľ sa o túto schopnosť.",
+      "Skills": "Odstránenie drobných chýb zvyšuje produktivitu. Ukáž svoj postup, aby sa ostatní poučili.",
+      "Attitudes": "Kreatívne využitie technológií robí prácu zaujímavou. Zdieľaj nápady a prekonávaj prekážky."
+    },
+    "wellbeing": {
+      "Knowledge": "Vedomie o vplyve digitálnej práce na zdravie prispieva k vyváženému prostrediu. Podpor blaho kolegov.",
+      "Skills": "Vyvažovanie obrazovkových a neobrazovkových úloh znižuje stres a zvyšuje výkonnosť. Zlepšuj procesy.",
+      "Attitudes": "Podpora zdravých digitálnych návykov zvyšuje pohodu. Buď vzorom."
+    }
+  },
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "Získavanie nových poznatkov ti pomôže ľahšie porozumieť a prispôsobiť sa úlohám. Využi školenia a zdroje.",
+      "Skills": "Rozvoj digitálnych zručností ti dodá istotu pri zložitých úlohách. Stanov si malé ciele a sleduj pokrok.",
+      "Attitudes": "Proaktívny prístup k zmene zvyšuje sebadôveru. Vyžiadaj si spätnú väzbu a zlepšuj sa."
+    },
+    "aiTools": {
+      "Knowledge": "Hlbšie porozumenie AI ti môže ušetriť čas a zefektívniť prácu. Preskúmaj online zdroje.",
+      "Skills": "Cvičenie s aplikáciami a zariadeniami zlepšuje riešenie problémov. Skús funkcie, ktoré bežne nepoužívaš.",
+      "Attitudes": "Organizovaný prieskum ti ukáže, čo funguje najlepšie. Zapíš si užitočné funkcie a podeľ sa s tímom."
+    },
+    "onlineSafety": {
+      "Knowledge": "Poznanie bežných rizík ako phishing ti pomôže im predísť. Zisti, na čo si dať pozor a ako reagovať.",
+      "Skills": "Silné heslá či dvojfaktorová autentifikácia zvýšia bezpečnosť. Implementuj ich a sleduj rozdiel.",
+      "Attitudes": "Zvyšovanie povedomia o rizikách, ako je únik dát, chráni tím. Zdieľaj osvedčené postupy."
+    },
+    "dataWork": {
+      "Knowledge": "Nauč sa interpretovať dáta a získaš viac istoty pri ich použití. Začni so základným nástrojom (napr. Excel).",
+      "Skills": "Praktizuj analytické techniky, aby si odhalil cenné poznatky. Použi nové nástroje pre väčší dopad.",
+      "Attitudes": "Zvedavosť voči dátam podporí analytické myslenie. Zdieľaj poznatky pre lepšie rozhodnutia."
+    },
+    "communication": {
+      "Knowledge": "Ovládnutie nových komunikačných nástrojov zjednoduší tímovú prácu. Preskúmaj platformy a vyber si najvhodnejšiu.",
+      "Skills": "Skúšanie nových digitálnych spôsobov spolupráce posilní súdržnosť tímu. Využi spoločné pracovné priestory.",
+      "Attitudes": "Zlepšenie kultúrnej citlivosti robí komunikáciu inkluzívnejšou. Uč sa zo spätnej väzby tímu."
+    },
+    "creativity": {
+      "Knowledge": "Kreatívne metódy riešenia problémov prinášajú nové nápady. Preskúmaj digitálne nástroje.",
+      "Skills": "Práca s rôznymi nástrojmi posilňuje kreativitu. Urob brainstorming alebo prototypovanie.",
+      "Attitudes": "Štruktúrovaný prístup k inováciám robí nápady realizovateľnými. Vylepšuj plány s tímom."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Hlbšie pochopenie compliance ti dodá istotu v zložitých situáciách. Analyzuj reálne príklady.",
+      "Skills": "Cvičenie rozhodovania v náročných scenároch posilní líderstvo. Simuluj situácie na zlepšenie úsudku.",
+      "Attitudes": "Proaktívny prístup k etickým dilemám buduje dôveru. Podnecuj diskusie v tíme."
+    },
+    "findingInfo": {
+      "Knowledge": "Kritické hodnotenie digitálnych zdrojov zvyšuje presnosť práce. Nauč sa pokročilé vyhľadávanie.",
+      "Skills": "Skúšanie nového softvéru či funkcií môže prácu zjednodušiť. Zlepši ukladanie a zdieľanie.",
+      "Attitudes": "Kritický prístup k obsahu zvyšuje dôveryhodnosť. Zdieľaj najlepšie postupy."
+    },
+    "problemSolving": {
+      "Knowledge": "Rozšírené znalosti odstraňovania chýb ti pomôžu riešiť výzvy rýchlejšie. Preskúmaj minulé problémy.",
+      "Skills": "Trénovanie techník odstraňovania chýb zvyšuje istotu pri zložitých situáciách. Objav nové funkcie.",
+      "Attitudes": "Vytrvalosť pri zložitých problémoch zvyšuje efektivitu. Zdieľaj riešenia pre lepšiu spoluprácu."
+    },
+    "wellbeing": {
+      "Knowledge": "Štúdium stratégií digitálnej pohody ti pomôže udržať rovnováhu. Objav udržateľné praktiky.",
+      "Skills": "Zdieľanie praktických rád pre zdravé návyky inšpiruje tím. Povzbudzuj malé zmeny, ako pravidelné prestávky.",
+      "Attitudes": "Udržateľné praktiky, ako znižovanie e-odpadu, prinášajú každodennú hodnotu. Začni jedným krokom a podel sa o výsledok."
+    }
+  },
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "Do troch mesiacov sa prihlásiť na kurz o nových technológiách v mojej oblasti.",
+      "Skills": "Počas nasledujúcich troch mesiacov si každý týždeň vyhradiť aspoň dve hodiny na rozvoj digitálnych zručností.",
+      "Attitudes": "Tento štvrťrok prijať s pozitívnym prístupom aspoň jednu technologickú zmenu na pracovisku."
+    },
+    "aiTools": {
+      "Knowledge": "Tento mesiac sa naučiť novú funkciu v pracovnom nástroji, aby som zvýšil efektivitu.",
+      "Skills": "Nasledujúce dva mesiace každý týždeň samostatne vyriešiť aspoň jeden technický problém.",
+      "Attitudes": "Do konca mesiaca otestovať novú technológiu alebo nástroj súvisiaci s mojou prácou."
+    },
+    "onlineSafety": {
+      "Knowledge": "V nasledujúcom štvrťroku sa zúčastniť workshopu kybernetickej bezpečnosti.",
+      "Skills": "Tento týždeň skontrolovať a aktualizovať všetky heslá.",
+      "Attitudes": "Počas jedného mesiaca si zvyknúť okamžite sa odhlasovať zdieľaných zariadení."
+    },
+    "dataWork": {
+      "Knowledge": "Tento mesiac sa naučiť interpretovať základné správy relevantné pre moju rolu.",
+      "Skills": "Do dvoch mesiacov použiť nástroj analýzy dát na zlepšenie jedného procesu.",
+      "Attitudes": "Nasledujúce dva mesiace pravidelne sledovať vzory v dátach, s ktorými pracujem."
+    },
+    "communication": {
+      "Knowledge": "Za mesiac sa oboznámiť s novým komunikačným nástrojom (napr. Teams).",
+      "Skills": "V ďalšom štvrťroku sa zapojiť do projektu, ktorý využíva digitálne nástroje spolupráce.",
+      "Attitudes": "Do konca štvrťroka požiadať kolegov o spätnú väzbu na môj komunikačný štýl."
+    },
+    "creativity": {
+      "Knowledge": "Tento mesiac preskúmať digitálne nástroje, ktoré môžu zlepšiť pracovný tok tímu.",
+      "Skills": "Do dvoch mesiacov vypracovať a predstaviť inovatívne riešenie aktuálnej tímovej výzvy.",
+      "Attitudes": "Nasledujúce tri mesiace povzbudzovať kolegov, aby zdieľali a skúšali nové nápady."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Do konca budúceho týždňa si prečítať politiku digitálnej etiky spoločnosti.",
+      "Skills": "Do dvoch týždňov preskúmať posledné projekty z hľadiska compliance a upraviť ich, ak treba.",
+      "Attitudes": "Tri mesiace pred každou novou digitálnou úlohou zohľadniť etické aspekty."
+    },
+    "findingInfo": {
+      "Knowledge": "Do troch mesiacov absolvovať online kurz efektívneho vyhľadávania informácií.",
+      "Skills": "Do dvoch týždňov zaviesť nový systém organizácie súborov.",
+      "Attitudes": "Počas jedného mesiaca dôsledne overovať presnosť kľúčových informácií pred ich zdieľaním."
+    },
+    "problemSolving": {
+      "Knowledge": "Tento mesiac sa oboznámiť s najčastejšími technickými problémami a ich riešeniami.",
+      "Skills": "Tri mesiace sa snažiť vyriešiť drobné technické problémy samostatne pred požiadaním o pomoc.",
+      "Attitudes": "V nasledujúcom štvrťroku vymýšľať kreatívne riešenia digitálnych výziev."
+    },
+    "wellbeing": {
+      "Knowledge": "Tento mesiac preskúmať najlepšie praktiky digitálnej pohody.",
+      "Skills": "Počas jedného mesiaca zaradiť krátke prestávky každú hodinu na vyváženie digitálnych a nedigitálnych úloh.",
+      "Attitudes": "Na najbližšom stretnutí tímu vyzvať kolegov, aby sa podelili o tipy na zvládanie digitálnej záťaže."
+    }
+  },
+  "misc": {
+    "examplePrefix": "Príklad: ",
+    "andConjunction": "a",
+    "areLowerThanConjunction": "sú nižšie ako",
+    "languageLabel": "Jazyk:"
+  }
+}
