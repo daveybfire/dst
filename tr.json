@@ -1,0 +1,364 @@
+{
+  "lang": "tr",
+  "langName": "Türkçe",
+  "appTitle": "Dijital Beceri Değerlendirmesi",
+  "startScreen": {
+    "title": "Dijital Beceri Değerlendirmesi",
+    "introParagraph1": "Bu kısa değerlendirme, dijital becerilerini gözden geçirmeni ve geliştirebileceğin alanları belirlemene yardımcı olur. Bu bir test değildir—yalnızca nerede güçlü olduğunu ve nerede desteğe ihtiyaç duyabileceğini anlamanın kolay bir yoludur.",
+    "introParagraph2": "Kısa ifadeler ile örnekler göreceksin. Her biri için mevcut beceri düzeyine en uygun seçeneği seç.",
+    "introParagraph3": "<strong>Anonimdir ve yalnızca birkaç dakikanı alır.</strong>",
+    "introParagraph4": "Samimi ol, acele etme ve başlayalım!",
+    "startButtonText": "Devam"
+  },
+  "assessmentScreen": {
+    "competencyBannerPrefix": "Yetkinlik: ",
+    "progressLabelSuffix": "%",
+    "noSelectionWarning": "Devam etmek için bir seçim yap lütfen.",
+    "showProficiencyLevelsButton": "Düzeyleri Göster",
+    "hideProficiencyLevelsButton": "Düzeyleri Gizle",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>Başlangıç:</strong> Bu alanda çok az ya da hiç deneyimim yok, rehberliğe ihtiyaç duyarım.",
+      "developing": "<strong>Gelişen:</strong> Biraz destekle yapabiliyorum ve tutarlılık geliştiriyorum.",
+      "competent": "<strong>Yetkin:</strong> Bunu rolümde bağımsız ve güvenilir biçimde yaparım.",
+      "proficient": "<strong>İleri:</strong> Bunu iyi biçimde tek başıma yapar, gerektiğinde başkalarını desteklerim.",
+      "expert": "<strong>Uzman:</strong> Bu alanda sürekli üst düzeyde performans gösterir, başkalarına rehberlik ederim."
+    }
+  },
+  "endScreen": {
+    "title": "Değerlendirme Tamamlandı",
+    "qrCodeSectionTitle": "QR Kodun",
+    "qrCodeInstruction": "Sonuçlarını kaydetmek ve daha sonra tekrar görmek için bu QR kodu tara.",
+    "keyCharacteristicsTitle": "Temel Özellikler:",
+    "keyCharacteristicsIntro": "Aşağıdaki özellikler yeterlilik düzeyini tanımlar; güçlü yönlerini vurgular ve nerede öne çıktığını gösterir.",
+    "radarChartTitle": "Yetkinlik Radarın",
+    "radarChartDescription": "Bu grafiği, farklı yetkinliklerdeki güçlü yönlerini ve gelişim alanlarını hızlıca görmek için kullan.",
+    "radarChartLegendIntro": "Grafik tüm yetkinlik puanlarını üç alanda gösterir: ",
+    "radarChartLegendKnowledge": "Bilgi",
+    "radarChartLegendSkills": "Beceri",
+    "radarChartLegendAttitudes": "Tutum",
+    "radarChartLegendExplanation": ". Her renkli çizgi bir alanı temsil eder. İdealde çizgiler örtüşür; bu dengeli gelişim gösterir. Bir çizgi daha düşükse—örneğin ",
+    "radarChartLegendSkillsExample": "Beceri",
+    "radarChartLegendKnowledgeExample": "Bilgi",
+    "radarChartLegendExplanationSuffix": " bir yetkinlikte gerideyse, bildiklerini <i>uygulamaya</i> odaklanabilirsin.",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>En Güçlü 3 Yönün",
+    "strengthsSectionIntro": "Değerlendirme sonuçlarına göre bunlar üç ana güçlü yönün. Bu alanlara odaklanarak mevcut becerilerini en iyi şekilde kullanabilirsin.",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Gelişim Alanları",
+    "growthAreasSectionIntro": "Bu üç alan önemli gelişim fırsatları sunar. Bu yetkinlikleri geliştirmen genel yeterliliğini artırır.",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>SMART Hedefler",
+    "smartObjectivesSectionIntro": "Aşağıdaki önerilen SMART hedefleri kendi tarih ve ayrıntılarınla kişiselleştir.",
+    "thankYouMessage": "Harika! Dijital becerilerini geliştirmeye devam et.",
+    "surveyPrompt": "Görüşlerin bizim için değerli! Lütfen kısa anketimizi doldur.",
+    "surveyButtonText": "Anketi Tamamla",
+    "restartButtonText": "Yeniden Başlat",
+    "strongestDimensionLabel": "En Güçlü Boyut:",
+    "growthAreaLabel": "Gelişim Alanı:",
+    "smartObjectiveLabel": "SMART Hedef:",
+    "recommendedResourcesLabel": "Önerilen Kaynaklar:"
+  },
+  "proficiencyLabels": {
+    "1": "Başlangıç",
+    "2": "Gelişen",
+    "3": "Yetkin",
+    "4": "İleri",
+    "5": "Uzman"
+  },
+  "overallProficiencyLevels": [
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+  "proficiencyTexts": {
+    "proficiency_beginner_name": "Başlangıç",
+    "proficiency_beginner_char1": "Dijital araç ve kavramlara dair temel bir anlayışa sahiptir.",
+    "proficiency_beginner_char2": "Görevleri tamamlamak için rehberlik ve gözetim gerekir.",
+    "proficiency_beginner_char3": "Sorun giderme ve problem çözmede zorlanabilir.",
+    "proficiency_beginner_char4": "Bilinmeyen araç veya teknolojileri kullanırken desteğe ihtiyaç duyar.",
+    "proficiency_beginner_feedback": "Bu düzeyde alan sana yeni veya zor gelebilir—bu normaldir. Doğru araçlar ve destekle hızla gelişebilirsin. Kaynak veya yardım istemekten çekinme.",
+    "proficiency_developing_name": "Gelişen",
+    "proficiency_developing_char1": "Dijital araç ve tekniklere dair artan bir anlayış gösterir.",
+    "proficiency_developing_char2": "Rutin görevleri biraz gözetimle yerine getirir.",
+    "proficiency_developing_char3": "Yaygın sorunları kendi başına çözmeye başlar.",
+    "proficiency_developing_char4": "Karmaşık görevler veya yeni teknolojiler için yardıma ihtiyaç duyar.",
+    "proficiency_developing_feedback": "Alanı keşfetmeye başladın, fakat hâlâ rehberliğe ya da eğitime ihtiyaç duyabilirsin. Güvenini artırmak için mevcut kaynakları kullan.",
+    "proficiency_competent_name": "Yetkin",
+    "proficiency_competent_char1": "Dijital araç ve tekniklerde sağlam bilgi sahibidir.",
+    "proficiency_competent_char2": "Az gözetimle bağımsız çalışır.",
+    "proficiency_competent_char3": "Çeşitli dijital araçları rahatça kullanır.",
+    "proficiency_competent_char4": "Yaygın sorunları etkili biçimde çözer.",
+    "proficiency_competent_char5": "Çok karmaşık veya yeni görevler için destek gerekebilir.",
+    "proficiency_competent_feedback": "İstikrarlı ilerliyorsun ve az destekle görevleri yönetebiliyorsun. Tam bağımsızlık için eksik noktaları kapatmaya odaklan.",
+    "proficiency_proficient_name": "İleri",
+    "proficiency_proficient_char1": "Dijital araçlar ve gelişmiş tekniklerde yüksek yetkinlik sergiler.",
+    "proficiency_proficient_char2": "Bağımsız ve verimli çalışır.",
+    "proficiency_proficient_char3": "Karmaşık problemleri çözer, yenilikçi çözümler sunar.",
+    "proficiency_proficient_char4": "Sıklıkla başkalarına dijital konularda yardımcı olur.",
+    "proficiency_proficient_char5": "Sürekli yeni teknolojileri öğrenir ve uygular.",
+    "proficiency_proficient_feedback": "Çoğu durumu başarıyla yönetiyorsun. Başkalarının kaynak eksikliği olduğunu görürsen bilgini paylaşmaktan çekinme.",
+    "proficiency_expert_name": "Uzman",
+    "proficiency_expert_char1": "Dijital araç ve teknolojilerde tanınan otoritedir.",
+    "proficiency_expert_char2": "Dijital inovasyon girişimlerine liderlik eder.",
+    "proficiency_expert_char3": "Yeni çözümler geliştirir ve mevcut süreçleri iyileştirir.",
+    "proficiency_expert_char4": "Başkalarına mentorluk eder ve uzmanlığını paylaşır.",
+    "proficiency_expert_char5": "Sektör trendlerinin önünde gider, en iyi uygulamaları hayata geçirir.",
+    "proficiency_expert_feedback": "Bir uzmansın ve özgüvenin ilham verici. Mentorluk, kaynak paylaşımı veya kapsayıcı bir dijital ortam oluşturarak başkalarına destek ol."
+  },
+  "competencyList": [
+    { "key": "learningAdapting", "name": "Öğrenme ve Uyum Sağlama" },
+    { "key": "aiTools", "name": "Yapay Zekâ ve Dijital Araçlar" },
+    { "key": "onlineSafety", "name": "Çevrim İçi Güvenlik" },
+    { "key": "dataWork", "name": "Veri ile Çalışma" },
+    { "key": "communication", "name": "İletişim" },
+    { "key": "creativity", "name": "Yaratıcılık ve İnovasyon" },
+    { "key": "digitalResponsibility", "name": "Dijital Sorumluluk" },
+    { "key": "findingInfo", "name": "Bilgi Bulma" },
+    { "key": "problemSolving", "name": "Problem Çözme" },
+    { "key": "wellbeing", "name": "İyi Oluş ve Sürdürülebilirlik" }
+  ],
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" }, { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" }, { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" }, { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" }, { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" }, { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" }, { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" }, { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" }, { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" }, { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" }, { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" }, { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" }, { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" }, { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" }, { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" }, { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" }, { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" }, { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" }, { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" }, { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" }, { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+  ],
+  "questionTexts": {
+    "q_learningAdapting_k_text": "Yeni teknolojiler öğrenmenin değerini anlıyorum.",
+    "q_learningAdapting_k_example": "Yeni araçlar öğrenmenin beni güncel tuttuğunu bilmek.",
+    "q_learningAdapting_s_text": "Dijital becerilerimi geliştirmek için zaman ayırırım.",
+    "q_learningAdapting_s_example": "AI kullanarak fikirleri veya özetleri denemek gibi yeni araçlarla pratik yapmak.",
+    "q_learningAdapting_a_text": "İş yerinde teknoloji değiştiğinde hızla uyum sağlarım.",
+    "q_learningAdapting_a_example": "Yeni sistemleri veya güncellemeleri gecikmeden öğrenmek.",
+
+    "q_aiTools_k_text": "AI araçlarının işimi nasıl destekleyebileceğini anlıyorum.",
+    "q_aiTools_k_example": "AI'nın öneriler yapma veya işleri hızlandırma gibi yapabileceklerini ve yapamayacaklarını bilmek.",
+    "q_aiTools_s_text": "Yaygın teknik sorunları kendi başıma çözerim.",
+    "q_aiTools_s_example": "Cihaz arızalarını gidermek veya bir ekip arkadaşının ekranını yeniden başlatmasına yardım etmek.",
+    "q_aiTools_a_text": "Çalışmamı iyileştirmek için AI özelliklerini veya güncellemelerini denerim.",
+    "q_aiTools_a_example": "Zaman kazanmak veya görevleri tamamlamak için sohbet ya da görsel üretici AI araçları kullanmak.",
+
+    "q_onlineSafety_k_text": "Cihazlarımı ve verilerimi nasıl güvende tutacağımı biliyorum.",
+    "q_onlineSafety_k_example": "Güçlü bir şifreyi veya riskli görünen bir mesajı fark etmek.",
+    "q_onlineSafety_s_text": "Dosya ve cihaz güvenliği için adımları uygularım.",
+    "q_onlineSafety_s_example": "Paylaşılan tabletlerden çıkış yapmak ve dosyaları güvenli bir şekilde kaydetmek.",
+    "q_onlineSafety_a_text": "Dijital araçlarla paylaştığım kişisel veya ekip verilerini dikkatlice düşünürüm.",
+    "q_onlineSafety_a_example": "Akıllı araçlara veya web sitelerine hassas bilgileri yazmaktan kaçınmak.",
+
+    "q_dataWork_k_text": "Rapor veya rakam gibi temel verileri okuyabilirim.",
+    "q_dataWork_k_example": "Basit bir satış veya stok raporunu anlamak.",
+    "q_dataWork_s_text": "İşimi geliştirmek için verileri analiz ederim.",
+    "q_dataWork_s_example": "Rakamlar arasındaki eğilimleri fark ederek görev planımı ayarlamak.",
+    "q_dataWork_a_text": "Kullandığım verilerde faydalı desenleri fark ederim.",
+    "q_dataWork_a_example": "Yoğun satış dönemlerini veya popüler ürünleri tanımak.",
+
+    "q_communication_k_text": "Dijital araçlarla nasıl net iletişim kuracağımı biliyorum.",
+    "q_communication_k_example": "Net bir e-posta veya grup mesajının nasıl biçimlendirileceğini bilmek.",
+    "q_communication_s_text": "Dijital araçlarla başkalarıyla iyi çalışırım.",
+    "q_communication_s_example": "Belgeleri birlikte düzenlemek veya vardiyaları çevrim içi planlamak.",
+    "q_communication_a_text": "Saygılı, net ve kapsayıcı bir şekilde iletişim kurarım.",
+    "q_communication_a_example": "Nazik mesajlar göndermek ve grup sohbetlerinde karışıklığı önlemek.",
+
+    "q_creativity_k_text": "Dijital araçların görevleri nasıl iyileştirebileceğini biliyorum.",
+    "q_creativity_k_example": "Dijital kısayolların işi hızlandırabileceğini anlamak.",
+    "q_creativity_s_text": "Takım performansını artıran yeni fikirleri desteklerim.",
+    "q_creativity_s_example": "Takım çalışmasını düzenleme veya paylaşma yollarını geliştirmeye yardımcı olmak.",
+    "q_creativity_a_text": "Takımımla yeni araç veya fikirleri paylaşırım.",
+    "q_creativity_a_example": "Takımın daha verimli çalışmasına yardımcı olabilecek uygulama veya özellikler tanıtmak.",
+
+    "q_digitalResponsibility_k_text": "Dijital araçları sorumlu kullanma kurallarımızı biliyorum.",
+    "q_digitalResponsibility_k_example": "Bir AI aracını kullanıp kullanamayacağımdan emin değilsem önce kontrol etmek.",
+    "q_digitalResponsibility_s_text": "Dijital sistemleri kullanırken şirket yönergelerine uyarım.",
+    "q_digitalResponsibility_s_example": "Şirket yönergelerine uymak ve AI çıktılarını hata veya önyargı açısından kontrol etmek.",
+    "q_digitalResponsibility_a_text": "Dijital eylemlerimin başkalarını nasıl etkilediğini düşünürüm.",
+    "q_digitalResponsibility_a_example": "Müşteri güvenini zedeleyebilecek veya kuralları ihlal edebilecek paylaşımlardan kaçınmak.",
+
+    "q_findingInfo_k_text": "Güvenilir bilgiye nereden bakacağımı biliyorum.",
+    "q_findingInfo_k_example": "Stok veya İK politikaları için hangi sisteme bakılacağını bilmek.",
+    "q_findingInfo_s_text": "Dijital bilgiyi net bir şekilde saklar ve düzenlerim.",
+    "q_findingInfo_s_example": "Dosyaları doğru klasöre, açık isimlerle kaydetmek.",
+    "q_findingInfo_a_text": "Dijital araçların ve arama sonuçlarının taraflı veya adaletsiz olabileceğini biliyorum.",
+    "q_findingInfo_a_example": "Araçların dengesiz, yanlış veya tek taraflı yanıtlar verdiğini fark etmek.",
+
+    "q_problemSolving_k_text": "Teknolojimde bir şeyin çalışmadığını fark ederim.",
+    "q_problemSolving_k_example": "Kasa, ekran veya sistem yanıt vermediğinde bunu görmek.",
+    "q_problemSolving_s_text": "Temel teknik sorunları yardımsız çözerim.",
+    "q_problemSolving_s_example": "Cihazları yeniden başlatmak veya oturum sorunlarını IT desteği almadan çözmek.",
+    "q_problemSolving_a_text": "Teknik problemleri çözmek için yaratıcı yollar kullanırım.",
+    "q_problemSolving_a_example": "Sorunları gidermek için yeni yöntemler denemek veya araçları birleştirmek.",
+
+    "q_wellbeing_k_text": "Dijital çalışmanın sağlığımı nasıl etkilediğini fark ederim.",
+    "q_wellbeing_k_example": "Ekran süresinin ruh hâlini veya odağını etkilediğini görmek.",
+    "q_wellbeing_s_text": "Gün boyunca ekran süresini diğer görevlerle dengelerim.",
+    "q_wellbeing_s_example": "Dijital işleri yüz yüze çalışmalar veya hareketle dengelemek.",
+    "q_wellbeing_a_text": "Takımımda sağlıklı dijital alışkanlıkları teşvik ederim.",
+    "q_wellbeing_a_example": "Takım arkadaşlarını mola vermeye veya bildirimleri kapatmaya teşvik etmek."
+  },
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "Yeni teknoloji öğrenmeye açık olmak seni esnek ve değişime hazır tutar. Araçlar keşfetmeye devam et ve öğrendiklerini ekibinle paylaş.",
+      "Skills": "Dijital becerilerini geliştirmek için zaman ayırmak büyümeni destekler ve yeni görevleri güvenle üstlenmeni sağlar.",
+      "Attitudes": "Teknolojik değişikliklere hızlı uyum sağlamak kesintileri azaltır ve ekip güvenini artırır."
+    },
+    "aiTools": {
+      "Knowledge": "Çalışma araçlarına hâkim olmak zaman kazandırır ve daha verimli çalışmanı sağlar.",
+      "Skills": "Teknik sorunları hızla çözmek iş akışını pürüzsüz tutar ve güvenilir olduğunu gösterir.",
+      "Attitudes": "Yeni araçları keşfetmek daha iyi çalışma yöntemleri bulmana yardım eder ve merakını canlı tutar."
+    },
+    "onlineSafety": {
+      "Knowledge": "Verileri korumayı bilmek işi güvenceye alır ve ekibe güven verir.",
+      "Skills": "Paylaşılan cihazlardan çıkış yapmak ve dosyaları korumak riskleri azaltır.",
+      "Attitudes": "Hassas verileri korumak ekip içinde güven oluşturur."
+    },
+    "dataWork": {
+      "Knowledge": "Veriye dayalı karar vermek seçimlerini isabetli kılar.",
+      "Skills": "Veri trendlerini görmek sonuçları iyileştirir.",
+      "Attitudes": "Desenleri fark etmek eleştirel düşünceyi güçlendirir."
+    },
+    "communication": {
+      "Knowledge": "İletişim araçlarındaki yetkinlik net fikir paylaşımını sağlar.",
+      "Skills": "Dijital iş birliği projeleri akıcı tutar.",
+      "Attitudes": "Saygılı ve kapsayıcı iletişim güçlü ilişkiler kurar."
+    },
+    "creativity": {
+      "Knowledge": "Süreçleri geliştirme arayışı verimliliği artırır.",
+      "Skills": "Yenilikçi çözümler projeleri öne çıkarır.",
+      "Attitudes": "Yeni araçlar denemeyi teşvik etmek yaratıcılığı besler."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Kurallara uymak güven oluşturur.",
+      "Skills": "Eylemleri yönergelerle uyumlu tutmak işleri sorunsuz kılar.",
+      "Attitudes": "Adil ve sorumlu dijital davranış iş birliklerini güçlendirir."
+    },
+    "findingInfo": {
+      "Knowledge": "Güvenilir bilgi bulmak sağlam kararlar getirir.",
+      "Skills": "Bilgiyi düzenlemek erişimi kolaylaştırır.",
+      "Attitudes": "Bilgiyi doğrulamak kaliteyi korur."
+    },
+    "problemSolving": {
+      "Knowledge": "Sorunları erken görmek projeleri rayında tutar.",
+      "Skills": "Basit hataları çözmek üretkenliği artırır.",
+      "Attitudes": "Teknolojiyi yaratıcı kullanmak yenilik getirir."
+    },
+    "wellbeing": {
+      "Knowledge": "Dijital çalışmanın etkisini bilmek dengeli bir ortam sağlar.",
+      "Skills": "Ekran süresini dengelemek stresi azaltır.",
+      "Attitudes": "Sağlıklı alışkanlıkları teşvik etmek ekip iyiliğini artırır."
+    }
+  },
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "Yeni konular öğrenmek görevleri kavramanı ve uyum sağlamanı kolaylaştırır.",
+      "Skills": "Dijital becerilerini geliştirmek zorlu işleri rahatlatır.",
+      "Attitudes": "Değişime proaktif bakmak güveni artırır."
+    },
+    "aiTools": {
+      "Knowledge": "AI hakkında daha fazla bilgi zaman kazandırır.",
+      "Skills": "Uygulamaları denemek problem çözmeni hızlandırır.",
+      "Attitudes": "Organize keşif en iyi çözümü görmeyi sağlar."
+    },
+    "onlineSafety": {
+      "Knowledge": "Yaygın riskleri bilmek sorunlardan kaçınmanı sağlar.",
+      "Skills": "Güçlü şifreler ekstra koruma sağlar.",
+      "Attitudes": "Risk farkındalığı ekibi güvende tutar."
+    },
+    "dataWork": {
+      "Knowledge": "Veri yorumlamayı öğrenmek özgüven kazandırır.",
+      "Skills": "Analitik teknikleri pratik etmek içgörü üretir.",
+      "Attitudes": "Veriye merak eleştirel düşünceyi güçlendirir."
+    },
+    "communication": {
+      "Knowledge": "Yeni iletişim araçları ekibi yakınlaştırır.",
+      "Skills": "Dijital iş birliği uyumu artırır.",
+      "Attitudes": "Kültürel farkındalık iletişimi kapsayıcı kılar."
+    },
+    "creativity": {
+      "Knowledge": "Yaratıcı yöntemler yeni fikirler doğurur.",
+      "Skills": "Araçlarla pratik yapmak yaratıcılığı artırır.",
+      "Attitudes": "Yapılandırılmış inovasyon fikirleri uygulanabilir kılar."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Uyumluluk bilgisi karmaşık durumlarda güven verir.",
+      "Skills": "Zor karar senaryoları liderliği güçlendirir.",
+      "Attitudes": "Etik sorumluluk güven inşa eder."
+    },
+    "findingInfo": {
+      "Knowledge": "Kaynakları eleştirel değerlendirmek doğruluğu artırır.",
+      "Skills": "Yeni yazılımlar işi kolaylaştırır.",
+      "Attitudes": "Kritik bakış güvenilirliği yükseltir."
+    },
+    "problemSolving": {
+      "Knowledge": "Hata giderme bilgisi sorunları hızla çözer.",
+      "Skills": "Teknikleri pratik etmek güveni artırır.",
+      "Attitudes": "Sebat etmek verimliliği yükseltir."
+    },
+    "wellbeing": {
+      "Knowledge": "Dijital iyilik stratejileri denge sağlar.",
+      "Skills": "Sağlıklı ipuçları paylaşmak ekibi destekler.",
+      "Attitudes": "Sürdürülebilir alışkanlıklar günlük değeri artırır."
+    }
+  },
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "Önümüzdeki üç ay içinde alanımla ilgili yeni teknolojiler üzerine bir kursa kaydolmak.",
+      "Skills": "Üç ay boyunca her hafta en az iki saat dijital beceriler üzerinde çalışmak.",
+      "Attitudes": "Bu çeyrekte iş yerindeki en az bir teknoloji değişikliğini olumlu tutumla benimsemek."
+    },
+    "aiTools": {
+      "Knowledge": "Bu ay bir iş aracındaki yeni özelliği öğrenerek verimliliğimi artırmak.",
+      "Skills": "İki ay boyunca her hafta en az bir teknik sorunu kendi başıma çözmek.",
+      "Attitudes": "Ay sonuna kadar işle ilgili yeni bir teknoloji veya aracı denemek."
+    },
+    "onlineSafety": {
+      "Knowledge": "Önümüzdeki çeyrekte bir siber güvenlik atölyesine katılmak.",
+      "Skills": "Bu hafta tüm şifrelerimi gözden geçirip güncellemek.",
+      "Attitudes": "Bir ay boyunca paylaşılan cihazlardan hemen çıkış yapmayı alışkanlık haline getirmek."
+    },
+    "dataWork": {
+      "Knowledge": "Bu ay rolümle ilgili temel raporları yorumlamayı öğrenmek.",
+      "Skills": "İki ay içinde bir süreci geliştirmek için bir veri analiz aracı kullanmak.",
+      "Attitudes": "İki ay boyunca çalıştığım verilerde düzenli olarak desenler aramak."
+    },
+    "communication": {
+      "Knowledge": "Bir ay içinde yeni bir iletişim aracına (ör. Teams) hâkim olmak.",
+      "Skills": "Önümüzdeki çeyrekte dijital iş birliği araçlarıyla bir projeye katılmak.",
+      "Attitudes": "Çeyrek sonuna kadar iletişim tarzım hakkında ekipten geri bildirim almak."
+    },
+    "creativity": {
+      "Knowledge": "Bu ay ekibin iş akışını iyileştirebilecek dijital araçlar araştırmak.",
+      "Skills": "İki ay içinde ekip sorununun yenilikçi bir çözümünü geliştirmek ve sunmak.",
+      "Attitudes": "Üç ay boyunca ekibi yeni fikirleri paylaşmaya ve denemeye teşvik etmek."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Gelecek hafta sonuna kadar şirketin dijital etik politikasını okumak.",
+      "Skills": "İki hafta içinde son projeleri uyumluluk açısından gözden geçirip gerektiğinde düzeltmek.",
+      "Attitudes": "Üç ay boyunca her yeni dijital görevden önce etik hususları değerlendirmek."
+    },
+    "findingInfo": {
+      "Knowledge": "Önümüzdeki üç ay içinde etkili bilgi arama teknikleri üzerine çevrim içi bir kurs tamamlamak.",
+      "Skills": "İki hafta içinde yeni bir dosya düzenleme sistemi uygulamak.",
+      "Attitudes": "Bir ay boyunca kritik bilgileri paylaşmadan önce doğruluğunu iki kez kontrol etmek."
+    },
+    "problemSolving": {
+      "Knowledge": "Bu ay yaygın teknik sorunlar ve çözümlerini öğrenmek.",
+      "Skills": "Üç ay boyunca küçük teknik sorunları önce kendim çözmeye çalışmak.",
+      "Attitudes": "Önümüzdeki çeyrekte dijital zorluklara yaratıcı çözümler üretmek."
+    },
+    "wellbeing": {
+      "Knowledge": "Bu ay dijital iyilik hâli için en iyi uygulamaları araştırmak.",
+      "Skills": "Bir ay boyunca her saat kısa molalar vererek ekran ve ekran dışı görevleri dengelemek.",
+      "Attitudes": "Bir sonraki ekip toplantısında dijital yükü yönetme ipuçlarını paylaşmaya teşvik etmek."
+    }
+  },
+  "misc": {
+    "examplePrefix": "Örnek: ",
+    "andConjunction": "ve",
+    "areLowerThanConjunction": "daha düşükse",
+    "languageLabel": "Dil:"
+  }
+}
