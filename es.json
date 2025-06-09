@@ -1,55 +1,51 @@
 {
   "lang": "es",
   "langName": "Español",
-  "appTitle": "Evaluación de Habilidades Digitales",
-
+  "appTitle": "Evaluación de habilidades digitales",
   "startScreen": {
-    "title": "Evaluación de Habilidades Digitales",
-    "introParagraph1": "Esta evaluación rápida te ayudará a reflexionar sobre tus habilidades digitales e identificar áreas de mejora. No es un examen: es una forma sencilla de ver en qué destacas y dónde podrías necesitar más apoyo.",
+    "title": "Evaluación de habilidades digitales",
+    "introParagraph1": "Esta evaluación rápida te ayudará a reflexionar sobre tus habilidades digitales e identificar áreas de mejora. No es un examen, sino una forma sencilla de ver en qué destacas y dónde podrías necesitar más apoyo.",
     "introParagraph2": "Verás una serie de frases breves con ejemplos. Para cada una, elige la opción que mejor refleje tu nivel actual.",
     "introParagraph3": "<strong>Es anónima y solo lleva unos minutos.</strong>",
-    "introParagraph4": "Sé sincero, tómate tu tiempo y ¡vamos a empezar!",
+    "introParagraph4": "Sé sincero, tómate tu tiempo y ¡empecemos!",
     "startButtonText": "Continuar"
   },
-
   "assessmentScreen": {
     "competencyBannerPrefix": "Competencia: ",
     "progressLabelSuffix": "%",
     "noSelectionWarning": "Selecciona una opción para continuar.",
     "showProficiencyLevelsButton": "Mostrar niveles de dominio",
     "hideProficiencyLevelsButton": "Ocultar niveles de dominio",
-
     "proficiencyLevelsDropdown": {
-      "beginner": "<strong>Principiante:</strong> Tengo poca o ninguna experiencia en esta área y dependo de la orientación de otros.",
+      "beginner": "<strong>Principiante:</strong> Tengo poca o ninguna experiencia en esta área y dependo de la orientación de otras personas.",
       "developing": "<strong>En desarrollo:</strong> Puedo hacerlo con algo de apoyo y trabajo para ser más constante.",
       "competent": "<strong>Competente:</strong> Puedo hacerlo de forma independiente y fiable en mi puesto.",
-      "proficient": "<strong>Avanzado:</strong> Lo hago bien por mi cuenta y puedo apoyar o asesorar a otros cuando hace falta.",
-      "expert": "<strong>Experto:</strong> Desempeño esto a un nivel alto y acompaño o guío a otros para que mejoren."
+      "proficient": "<strong>Avanzado:</strong> Lo hago bien por mi cuenta y puedo apoyar o asesorar a otras personas cuando hace falta.",
+      "expert": "<strong>Experto:</strong> Realizo esto consistentemente a un nivel alto y guío o mentor a otras personas para mejorar en esta área."
     }
   },
-
   "endScreen": {
     "title": "Evaluación completada",
     "qrCodeSectionTitle": "Tu código QR",
-    "qrCodeInstruction": "Escanea este código QR para guardar y revisar tus resultados más adelante.",
+    "qrCodeInstruction": "Escanea este código QR para guardar y consultar tus resultados más adelante.",
     "keyCharacteristicsTitle": "Características clave:",
-    "keyCharacteristicsIntro": "Aquí tienes las características que definen tu nivel de dominio. Destacan tus puntos fuertes actuales y te ayudan a entender dónde sobresales.",
+    "keyCharacteristicsIntro": "A continuación se muestran las características que definen tu nivel de dominio. Destacan tus puntos fuertes actuales y te ayudan a comprender dónde sobresales.",
     "radarChartTitle": "Tu radar de competencias",
     "radarChartDescription": "Usa este gráfico para detectar rápidamente tus fortalezas y áreas de mejora en las distintas competencias.",
-    "radarChartLegendIntro": "El gráfico muestra tus puntuaciones en tres áreas: ",
-    "radarChartLegendKnowledge": "Conocimientos",
-    "radarChartLegendSkills": "Destrezas",
-    "radarChartLegendAttitudes": "Actitudes",
-    "radarChartLegendExplanation": ". Cada línea de color representa un área. Idealmente, las líneas se solapan, lo que indica un desarrollo equilibrado. Si observas diferencias —por ejemplo, una línea que baja— te señala dónde centrar tus esfuerzos. Si ",
-    "radarChartLegendSkillsExample": "Destrezas",
-    "radarChartLegendKnowledgeExample": "Conocimientos",
-    "radarChartLegendExplanationSuffix": " de una competencia son más bajos, quizá debas trabajar en <i>aplicar</i> lo que sabes.",
+    "radarChartLegendIntro": "Este gráfico visualiza tus puntuaciones en tres áreas: ",
+    "radarChartLegendKnowledge": "Knowledge",
+    "radarChartLegendSkills": "Skills",
+    "radarChartLegendAttitudes": "Attitudes",
+    "radarChartLegendExplanation": ". Cada línea de color representa un área. Idealmente, las líneas se solapan, lo que indica un desarrollo equilibrado. Si observas diferencias—por ejemplo, una línea más baja—te señala dónde centrar tus esfuerzos. Si ",
+    "radarChartLegendSkillsExample": "Skills",
+    "radarChartLegendKnowledgeExample": "Knowledge",
+    "radarChartLegendExplanationSuffix": " en una competencia son más bajos, quizá debas trabajar en <i>aplicar</i> lo que sabes.",
     "strengthsSectionTitle": "<span class=\"icon\">👍</span>Tus 3 fortalezas",
-    "strengthsSectionIntro": "Según tu evaluación, estas son tres de tus mayores fortalezas. Aprovecharlas te ayudará a obtener mejores resultados. Revisa también otras áreas en las que obtuviste buenas puntuaciones.",
+    "strengthsSectionIntro": "Según tu evaluación, estas son tres de tus principales fortalezas. Centrarte en ellas puede ayudarte a aprovechar tus habilidades para obtener mejores resultados. También puedes revisar otras áreas en las que obtuviste buenas puntuaciones.",
     "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Áreas de crecimiento",
-    "growthAreasSectionIntro": "Estas son tres competencias con grandes oportunidades de mejora. Trabajar en ellas puede elevar tu dominio general. Puede haber otras áreas que también quieras explorar.",
+    "growthAreasSectionIntro": "Estas son tres competencias con grandes oportunidades de mejora. Desarrollarlas puede aumentar tu dominio general. Puede haber otras áreas de desarrollo que también quieras explorar.",
     "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>Objetivos SMART",
-    "smartObjectivesSectionIntro": "A continuación tienes objetivos SMART sugeridos basados en tus áreas de crecimiento. Sirven para ayudarte a fijar metas concretas. Personalízalos añadiendo fechas y detalles relevantes para tu situación.",
+    "smartObjectivesSectionIntro": "Aquí tienes algunos objetivos SMART sugeridos basados en tus áreas de crecimiento. Personalízalos añadiendo fechas y detalles relevantes para tu situación.",
     "thankYouMessage": "¡Buen trabajo! Sigue creciendo y mejorando tus habilidades digitales.",
     "surveyPrompt": "¡Tu opinión es importante! Dedica un momento a completar nuestra encuesta.",
     "surveyButtonText": "Responder encuesta",
@@ -59,7 +55,6 @@
     "smartObjectiveLabel": "Objetivo SMART:",
     "recommendedResourcesLabel": "Recursos recomendados:"
   },
-
   "proficiencyLabels": {
     "1": "Principiante",
     "2": "En desarrollo",
@@ -67,68 +62,13 @@
     "4": "Avanzado",
     "5": "Experto"
   },
-
   "overallProficiencyLevels": [
-    {
-      "nameKey": "proficiency_beginner_name",
-      "range": [0, 20],
-      "characteristicsKeys": [
-        "proficiency_beginner_char1",
-        "proficiency_beginner_char2",
-        "proficiency_beginner_char3",
-        "proficiency_beginner_char4"
-      ],
-      "feedbackKey": "proficiency_beginner_feedback"
-    },
-    {
-      "nameKey": "proficiency_developing_name",
-      "range": [21, 40],
-      "characteristicsKeys": [
-        "proficiency_developing_char1",
-        "proficiency_developing_char2",
-        "proficiency_developing_char3",
-        "proficiency_developing_char4"
-      ],
-      "feedbackKey": "proficiency_developing_feedback"
-    },
-    {
-      "nameKey": "proficiency_competent_name",
-      "range": [41, 60],
-      "characteristicsKeys": [
-        "proficiency_competent_char1",
-        "proficiency_competent_char2",
-        "proficiency_competent_char3",
-        "proficiency_competent_char4",
-        "proficiency_competent_char5"
-      ],
-      "feedbackKey": "proficiency_competent_feedback"
-    },
-    {
-      "nameKey": "proficiency_proficient_name",
-      "range": [61, 80],
-      "characteristicsKeys": [
-        "proficiency_proficient_char1",
-        "proficiency_proficient_char2",
-        "proficiency_proficient_char3",
-        "proficiency_proficient_char4",
-        "proficiency_proficient_char5"
-      ],
-      "feedbackKey": "proficiency_proficient_feedback"
-    },
-    {
-      "nameKey": "proficiency_expert_name",
-      "range": [81, 100],
-      "characteristicsKeys": [
-        "proficiency_expert_char1",
-        "proficiency_expert_char2",
-        "proficiency_expert_char3",
-        "proficiency_expert_char4",
-        "proficiency_expert_char5"
-      ],
-      "feedbackKey": "proficiency_expert_feedback"
-    }
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
   ],
-
   "proficiencyTexts": {
     "proficiency_beginner_name": "Principiante",
     "proficiency_beginner_char1": "Tiene un conocimiento básico de las herramientas y conceptos digitales.",
@@ -136,14 +76,12 @@
     "proficiency_beginner_char3": "Puede tener dificultades para resolver problemas o incidencias.",
     "proficiency_beginner_char4": "Requiere apoyo al usar herramientas o tecnologías desconocidas.",
     "proficiency_beginner_feedback": "En este nivel, puede que sientas que el área es nueva o complicada, y está bien. Contar con las herramientas y el apoyo adecuados marca la diferencia. No dudes en pedir recursos o ayuda para avanzar.",
-
     "proficiency_developing_name": "En desarrollo",
     "proficiency_developing_char1": "Demuestra un conocimiento creciente de las herramientas y técnicas digitales.",
     "proficiency_developing_char2": "Puede realizar tareas rutinarias con cierta supervisión.",
     "proficiency_developing_char3": "Comienza a resolver problemas comunes por su cuenta.",
     "proficiency_developing_char4": "Necesita ayuda con tareas complejas o tecnologías nuevas.",
     "proficiency_developing_feedback": "Estás explorando este campo y aún puedes requerir guía o formación. Sigue construyendo confianza y aprovecha los recursos disponibles para avanzar.",
-
     "proficiency_competent_name": "Competente",
     "proficiency_competent_char1": "Muestra un sólido dominio de las herramientas y técnicas digitales.",
     "proficiency_competent_char2": "Trabaja de forma independiente con poca o ninguna supervisión.",
@@ -151,83 +89,69 @@
     "proficiency_competent_char4": "Resuelve problemas comunes con eficacia.",
     "proficiency_competent_char5": "Puede necesitar ayuda en tareas muy complejas o desconocidas.",
     "proficiency_competent_feedback": "Avanzas con buen ritmo y gestionas tu trabajo con poca ayuda. Comprueba si tienes todo lo necesario para seguir creciendo y llena cualquier vacío para ganar autonomía. Practica y desafíate a ti mismo.",
-
     "proficiency_proficient_name": "Avanzado",
     "proficiency_proficient_char1": "Maneja con soltura herramientas y técnicas digitales avanzadas.",
     "proficiency_proficient_char2": "Trabaja de forma independiente y eficiente.",
     "proficiency_proficient_char3": "Resuelve problemas complejos y aporta soluciones innovadoras.",
-    "proficiency_proficient_char4": "Suele ayudar a otros con tareas y retos digitales.",
+    "proficiency_proficient_char4": "Suele ayudar a otras personas con tareas y retos digitales.",
     "proficiency_proficient_char5": "Busca aprender y adoptar nuevas tecnologías continuamente.",
-    "proficiency_proficient_feedback": "En este nivel, rindes bien y afrontas la mayoría de situaciones con éxito. Si ves que otros no cuentan con los recursos que tú tienes, comparte tu conocimiento o señala recursos útiles.",
-
+    "proficiency_proficient_feedback": "En este nivel, rindes bien y afrontas la mayoría de situaciones con éxito. Si ves que otras personas no cuentan con los recursos que tú tienes, comparte tu conocimiento o señala recursos útiles.",
     "proficiency_expert_name": "Experto",
     "proficiency_expert_char1": "Autoridad reconocida en herramientas y tecnologías digitales.",
     "proficiency_expert_char2": "Lidera iniciativas de innovación digital.",
     "proficiency_expert_char3": "Desarrolla soluciones nuevas y optimiza procesos existentes.",
-    "proficiency_expert_char4": "Mentoriza a otros y comparte su experiencia ampliamente.",
+    "proficiency_expert_char4": "Mentoriza a otras personas y comparte su experiencia ampliamente.",
     "proficiency_expert_char5": "Se mantiene a la vanguardia del sector e implementa las mejores prácticas.",
     "proficiency_expert_feedback": "Como experto, tu confianza inspira. Puedes apoyar a quienes se enfrentan a barreras compartiendo recursos, guiando o fomentando un entorno digital inclusivo."
   },
-
   "competencyList": [
-    { "key": "learningAdapting", "name": "Aprendizaje y Adaptación" },
-    { "key": "aiTools", "name": "IA y Herramientas Digitales" },
-    { "key": "onlineSafety", "name": "Seguridad en Línea" },
-    { "key": "dataWork", "name": "Trabajo con Datos" },
+    { "key": "learningAdapting", "name": "Aprendizaje y adaptación" },
+    { "key": "aiTools", "name": "IA y herramientas digitales" },
+    { "key": "onlineSafety", "name": "Seguridad en línea" },
+    { "key": "dataWork", "name": "Trabajo con datos" },
     { "key": "communication", "name": "Comunicación" },
-    { "key": "creativity", "name": "Creatividad e Innovación" },
-    { "key": "digitalResponsibility", "name": "Responsabilidad Digital" },
-    { "key": "findingInfo", "name": "Búsqueda de Información" },
-    { "key": "problemSolving", "name": "Resolución de Problemas" },
-    { "key": "wellbeing", "name": "Bienestar y Sostenibilidad" }
+    { "key": "creativity", "name": "Creatividad e innovación" },
+    { "key": "digitalResponsibility", "name": "Responsabilidad digital" },
+    { "key": "findingInfo", "name": "Búsqueda de información" },
+    { "key": "problemSolving", "name": "Resolución de problemas" },
+    { "key": "wellbeing", "name": "Bienestar y sostenibilidad" }
   ],
-
   "questions": [
-    { "competencyKey": "learningAdapting", "type": "Conocimientos", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" },
-    { "competencyKey": "learningAdapting", "type": "Destrezas", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" },
-    { "competencyKey": "learningAdapting", "type": "Actitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
-
-    { "competencyKey": "aiTools", "type": "Conocimientos", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" },
-    { "competencyKey": "aiTools", "type": "Destrezas", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" },
-    { "competencyKey": "aiTools", "type": "Actitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
-
-    { "competencyKey": "onlineSafety", "type": "Conocimientos", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" },
-    { "competencyKey": "onlineSafety", "type": "Destrezas", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" },
-    { "competencyKey": "onlineSafety", "type": "Actitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
-
-    { "competencyKey": "dataWork", "type": "Conocimientos", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" },
-    { "competencyKey": "dataWork", "type": "Destrezas", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" },
-    { "competencyKey": "dataWork", "type": "Actitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
-
-    { "competencyKey": "communication", "type": "Conocimientos", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" },
-    { "competencyKey": "communication", "type": "Destrezas", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" },
-    { "competencyKey": "communication", "type": "Actitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
-
-    { "competencyKey": "creativity", "type": "Conocimientos", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" },
-    { "competencyKey": "creativity", "type": "Destrezas", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" },
-    { "competencyKey": "creativity", "type": "Actitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
-
-    { "competencyKey": "digitalResponsibility", "type": "Conocimientos", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" },
-    { "competencyKey": "digitalResponsibility", "type": "Destrezas", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" },
-    { "competencyKey": "digitalResponsibility", "type": "Actitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
-
-    { "competencyKey": "findingInfo", "type": "Conocimientos", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" },
-    { "competencyKey": "findingInfo", "type": "Destrezas", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" },
-    { "competencyKey": "findingInfo", "type": "Actitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
-
-    { "competencyKey": "problemSolving", "type": "Conocimientos", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" },
-    { "competencyKey": "problemSolving", "type": "Destrezas", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" },
-    { "competencyKey": "problemSolving", "type": "Actitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
-
-    { "competencyKey": "wellbeing", "type": "Conocimientos", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" },
-    { "competencyKey": "wellbeing", "type": "Destrezas", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" },
-    { "competencyKey": "wellbeing", "type": "Actitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" },
+    { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" },
+    { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" },
+    { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" },
+    { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" },
+    { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" },
+    { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" },
+    { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" },
+    { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" },
+    { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" },
+    { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" },
+    { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" },
+    { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" },
+    { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" },
+    { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" },
+    { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" },
+    { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" },
+    { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" },
+    { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
   ],
-
   "questionTexts": {
     "q_learningAdapting_k_text": "Entiendo el valor de aprender nueva tecnología.",
     "q_learningAdapting_k_example": "Saber que aprender nuevas herramientas me ayuda a mantenerme relevante.",
-    "q_learningAdapting_s_text": "Dedico tiempo para mejorar mis habilidades digitales.",
+    "q_learningAdapting_s_text": "Dedico tiempo a mejorar mis habilidades digitales.",
     "q_learningAdapting_s_example": "Practicar con herramientas nuevas, como usar IA para probar ideas o resúmenes.",
     "q_learningAdapting_a_text": "Me adapto rápido cuando cambia la tecnología en el trabajo.",
     "q_learningAdapting_a_example": "Adoptar nuevos sistemas o actualizaciones sin mucha demora.",
@@ -255,7 +179,7 @@
 
     "q_communication_k_text": "Sé cómo comunicarme con claridad usando herramientas digitales.",
     "q_communication_k_example": "Saber cómo formatear un correo o mensaje grupal claro.",
-    "q_communication_s_text": "Trabajo bien con otros usando herramientas digitales.",
+    "q_communication_s_text": "Trabajo bien con otras personas usando herramientas digitales.",
     "q_communication_s_example": "Coeditar documentos o planificar turnos con compañeros en línea.",
     "q_communication_a_text": "Me comunico de forma respetuosa, clara e inclusiva.",
     "q_communication_a_example": "Usar mensajes amables y evitar confusiones en chats grupales.",
@@ -271,8 +195,8 @@
     "q_digitalResponsibility_k_example": "Consultar primero si no estás seguro de usar una herramienta de IA.",
     "q_digitalResponsibility_s_text": "Sigo las directrices de la empresa al utilizar sistemas digitales.",
     "q_digitalResponsibility_s_example": "Seguir las guías de la empresa y revisar salidas de IA por errores o sesgos.",
-    "q_digitalResponsibility_a_text": "Pienso cómo mis acciones digitales afectan a los demás.",
-    "q_digitalResponsibility_a_example": "Evitar publicaciones que puedan dañar la confianza de los clientes o romper normas.",
+    "q_digitalResponsibility_a_text": "Pienso cómo mis acciones digitales afectan a otras personas.",
+    "q_digitalResponsibility_a_example": "Evitar publicaciones que puedan dañar la confianza de clientes o romper normas.",
 
     "q_findingInfo_k_text": "Sé dónde buscar información fiable.",
     "q_findingInfo_k_example": "Saber en qué sistema consultar stock o políticas de RR. HH.",
@@ -295,113 +219,110 @@
     "q_wellbeing_a_text": "Promuevo hábitos digitales saludables en mi equipo.",
     "q_wellbeing_a_example": "Animar a los compañeros a hacer pausas o silenciar notificaciones."
   },
-
   "feedbackStrengths": {
     "learningAdapting": {
-      "Knowledge": "Estar abierto a aprender nueva tecnología te mantiene flexible y preparado para los cambios. Sigue explorando herramientas y comparte lo que aprendes para inspirar a tu equipo.",
-      "Skills": "Reservar tiempo para mejorar tus habilidades digitales te mantiene en crecimiento y te da confianza para afrontar nuevos retos. Aprovéchalo para asumir responsabilidades y mostrar el camino.",
-      "Attitudes": "Adaptarte rápido a los cambios tecnológicos reduce interrupciones y genera confianza a tu alrededor. Usa esta habilidad para liderar durante los cambios."
+      "Knowledge": "Ser abierto a aprender nueva tecnología te mantiene flexible y preparado para los cambios en el trabajo. Sigue explorando herramientas y comparte lo que aprendes para inspirar a tu equipo.",
+      "Skills": "Dedicar tiempo a mejorar tus habilidades digitales te mantiene en crecimiento y listo para asumir nuevos retos. Usa esto para afrontar responsabilidades con confianza y mostrar el camino.",
+      "Attitudes": "Adaptarte rápidamente a los cambios tecnológicos reduce interrupciones y genera confianza a tu alrededor. Usa esta habilidad para liderar en tiempos de cambio."
     },
     "aiTools": {
-      "Knowledge": "Sentirte seguro con las herramientas de trabajo te ahorra tiempo y te hace más eficiente. Comparte trucos con tu equipo para facilitar el trabajo de todos.",
+      "Knowledge": "Sentirte seguro con las herramientas de trabajo te ahorra tiempo y te ayuda a trabajar de forma más inteligente. Comparte consejos con tu equipo para facilitar el trabajo de todas las personas.",
       "Skills": "Resolver incidencias técnicas rápidamente mantiene todo en marcha y demuestra tu fiabilidad. Usa esta fortaleza para apoyar a tu equipo y fomentar la resolución de problemas.",
-      "Attitudes": "Explorar nuevas funciones o herramientas te ayuda a encontrar formas mejores de trabajar y mantiene viva tu curiosidad. Comparte tus descubrimientos para animar a los demás."
+      "Attitudes": "Explorar nuevas herramientas o funciones te ayuda a encontrar mejores maneras de trabajar y mantiene viva tu curiosidad. Comparte tus descubrimientos para animar a las demás personas."
     },
     "onlineSafety": {
-      "Knowledge": "Saber cómo proteger tus datos resguarda tu trabajo y da tranquilidad al equipo. Usa esta fortaleza para difundir buenas prácticas y predicar con el ejemplo.",
-      "Skills": "Seguir hábitos de seguridad como cerrar sesión y proteger archivos reduce riesgos. Anima a tu equipo a adoptar estas prácticas.",
-      "Attitudes": "Proteger datos sensibles genera confianza. Sé el ejemplo de gestión responsable de la información."
+      "Knowledge": "Saber cómo proteger tus datos salvaguarda tu trabajo y da tranquilidad al equipo. Usa esta fortaleza para concienciar y predicar con el ejemplo.",
+      "Skills": "Seguir hábitos de seguridad, como cerrar sesión en dispositivos compartidos y proteger archivos, reduce riesgos. Anima a tu equipo a adoptar estas prácticas también.",
+      "Attitudes": "Proteger datos sensibles, como información de clientes o del equipo, genera confianza. Sé el ejemplo de gestión responsable de la información."
     },
     "dataWork": {
-      "Knowledge": "Usar informes o datos para decidir hace tus elecciones más efectivas. Comparte esta fortaleza para impulsar estrategias más inteligentes.",
-      "Skills": "Analizar datos para detectar tendencias te ayuda a resolver problemas y mejorar resultados. Guía a tu equipo a tomar decisiones basadas en datos.",
-      "Attitudes": "Detectar patrones en los datos fomenta el pensamiento crítico. Ayuda a tu equipo a tomar decisiones evidenciadas."
+      "Knowledge": "Utilizar informes o datos para tomar decisiones garantiza que tus elecciones sean informadas y eficaces. Comparte esta fortaleza con tu equipo para fomentar estrategias más inteligentes.",
+      "Skills": "Analizar datos para detectar tendencias te ayuda a resolver problemas y mejorar resultados. Usa tus habilidades para guiar al equipo hacia mejores decisiones.",
+      "Attitudes": "Detectar patrones en los datos fomenta la confianza y el pensamiento crítico. Úsalo para ayudar a tu equipo a tomar decisiones basadas en evidencia."
     },
     "communication": {
-      "Knowledge": "Dominar herramientas de comunicación te ayuda a compartir ideas con claridad. Refuerza la colaboración con esta habilidad.",
-      "Skills": "Colaborar con herramientas digitales garantiza proyectos fluidos. Lidera iniciativas y fomenta el éxito compartido.",
-      "Attitudes": "Comunicarte de forma clara, respetuosa e inclusiva fortalece relaciones y mejora el trabajo en equipo. Mantén este ambiente positivo."
+      "Knowledge": "Dominar las herramientas de comunicación te ayuda a compartir ideas con claridad y mantener la conexión. Usa esta habilidad para fortalecer la colaboración y el trabajo en equipo.",
+      "Skills": "Colaborar con herramientas digitales garantiza un trabajo conjunto fluido y proyectos más suaves. Usa tus habilidades para liderar proyectos y fomentar el éxito compartido.",
+      "Attitudes": "Comunicarte de forma clara, respetuosa e inclusiva favorece relaciones más sólidas y mejor trabajo en equipo. Usa esta mentalidad para crear un entorno positivo."
     },
     "creativity": {
-      "Knowledge": "Buscar formas de mejorar procesos simplifica tareas y aumenta la eficiencia. Inspira innovación compartiendo tus ideas.",
-      "Skills": "Crear o impulsar soluciones innovadoras destaca tus proyectos. Guía la mejora continua y motiva a tu equipo.",
-      "Attitudes": "Animar a tu equipo a probar herramientas fomenta la creatividad. Inspira nuevas posibilidades con esta actitud."
+      "Knowledge": "Buscar maneras de mejorar los procesos laborales ayuda a simplificar tareas y aumentar la eficiencia. Comparte tus ideas para inspirar la innovación en otras personas.",
+      "Skills": "Crear o impulsar soluciones innovadoras que mejoren el rendimiento del equipo garantiza que tus proyectos destaquen y tengan éxito. Usa esta fortaleza para impulsar la mejora continua y motivar a tu equipo.",
+      "Attitudes": "Animar a tu equipo a probar nuevas herramientas fomenta la creatividad y una cultura de innovación. Usa esta actitud positiva para inspirar nuevas ideas y posibilidades."
     },
     "digitalResponsibility": {
-      "Knowledge": "Seguir las directrices para las herramientas digitales genera confianza. Usa tu comprensión para guiar a tu equipo.",
-      "Skills": "Alinear tus acciones con las normas respalda la fiabilidad y los flujos de trabajo. Maneja tareas sensibles con responsabilidad.",
-      "Attitudes": "Considerar la equidad y la responsabilidad digital fomenta la colaboración. Marca el ritmo con esta mentalidad."
+      "Knowledge": "Seguir las directrices sobre herramientas digitales genera confianza y da un buen ejemplo. Usa tu comprensión para establecer altos estándares y guiar a tu equipo.",
+      "Skills": "Alinear tus acciones con las normas de la empresa respalda la confianza y un flujo de trabajo sin problemas. Usa esto para manejar tareas sensibles de forma responsable y generar confianza.",
+      "Attitudes": "Considerar la equidad y el comportamiento digital responsable fomenta la responsabilidad y la colaboración. Usa esta mentalidad para marcar el tono en tu equipo."
     },
     "findingInfo": {
-      "Knowledge": "Encontrar información fiable hace que tus decisiones sean sólidas. Guía a otros para mejorar la toma de decisiones.",
-      "Skills": "Organizar información facilita encontrarla y mejora la comunicación. Crea un entorno de trabajo más eficiente.",
-      "Attitudes": "Verificar la exactitud asegura altos estándares y genera confianza. Inspira a otros a centrarse en la calidad."
+      "Knowledge": "Encontrar información fiable garantiza que tus decisiones estén bien fundamentadas. Usa esta habilidad para guiar a otras personas y fomentar decisiones más inteligentes.",
+      "Skills": "Organizar la información facilita encontrarla después y mejora la comunicación. Usa esto para crear un entorno de equipo más eficiente.",
+      "Attitudes": "Comprobar la exactitud de la información asegura altos estándares y genera confianza. Usa esto para inspirar a otras personas a centrarse en la calidad."
     },
     "problemSolving": {
-      "Knowledge": "Identificar incidencias técnicas rápidamente mantiene los proyectos en curso. Apoya a tu equipo en la búsqueda de soluciones.",
-      "Skills": "Resolver problemas simples aumenta la productividad. Comparte tu método para que otros aprendan.",
-      "Attitudes": "Usar la tecnología de forma creativa mantiene el trabajo interesante e innovador. Comparte ideas frescas para superar retos."
+      "Knowledge": "Identificar incidencias técnicas rápidamente mantiene los proyectos en marcha y minimiza los tiempos de inactividad. Usa esto para apoyar a tu equipo y fomentar soluciones.",
+      "Skills": "Resolver problemas técnicos simples aumenta la productividad y mantiene flujos de trabajo fluidos. Comparte tu proceso para ayudar a otras personas a aprender.",
+      "Attitudes": "Encontrar formas creativas de resolver retos tecnológicos mantiene el trabajo interesante e innovador. Usa esta mentalidad para superar obstáculos y compartir ideas frescas."
     },
     "wellbeing": {
-      "Knowledge": "Ser consciente de cómo el trabajo digital afecta a tu salud crea un entorno más equilibrado. Promueve el bienestar hablando de ello.",
-      "Skills": "Equilibrar tareas digitales y no digitales mejora la productividad y reduce el estrés. Muestra el camino hacia flujos de trabajo más sanos.",
-      "Attitudes": "Fomentar hábitos digitales saludables mejora la gestión del tiempo. Lidera con el ejemplo para crear una cultura de bienestar."
+      "Knowledge": "Ser consciente de cómo el trabajo digital afecta a tu salud física y mental apoya un entorno laboral más equilibrado y saludable. Usa esta conciencia para promover el bienestar y el equilibrio en tu equipo.",
+      "Skills": "Equilibrar tareas digitales con trabajo no digital a lo largo del día mejora la productividad y reduce el estrés. Usa esta habilidad para crear mejores flujos de trabajo y fomentar un enfoque equilibrado.",
+      "Attitudes": "Fomentar hábitos digitales saludables en tu equipo mejora la gestión del tiempo y el bienestar. Usa esta actitud positiva para liderar con el ejemplo e inspirar una cultura de bienestar."
     }
   },
-
   "feedbackGrowth": {
     "learningAdapting": {
-      "Knowledge": "Aprender sobre novedades te ayudará a adaptarte a nuevas tareas con facilidad. Busca recursos o formación para profundizar en este tema.",
-      "Skills": "Desarrollar tus habilidades digitales te hará sentir más capaz ante tareas complejas. Define metas pequeñas para seguir tu progreso.",
-      "Attitudes": "Ser proactivo ante el cambio reforzará tu confianza frente a lo inesperado. Pide retroalimentación y ajústala a tu favor."
+      "Knowledge": "Aprender sobre nuevas tecnologías te ayudará a comprender y adaptarte a nuevas tareas con mayor facilidad. Explora recursos o formación para profundizar en este ámbito.",
+      "Skills": "Desarrollar tus habilidades digitales te hará sentir más capaz ante tareas complejas. Establece objetivos pequeños para seguir tu progreso y aprender sobre la marcha.",
+      "Attitudes": "Ser proactivo ante el cambio reforzará tu confianza al afrontar lo inesperado. Busca retroalimentación y úsala para ajustar y mejorar."
     },
     "aiTools": {
-      "Knowledge": "Comprender mejor la IA te ayudará a ahorrar tiempo y trabajar de forma más inteligente. Explora tutoriales en línea.",
-      "Skills": "Practicar con dispositivos y aplicaciones agudizará tu resolución de problemas. Experimenta con funciones que aún no uses.",
-      "Attitudes": "Organizar tu exploración facilitará detectar qué funciona mejor. Toma nota y compártelo con tu equipo."
+      "Knowledge": "Aprender más sobre IA puede ayudarte a entender su potencial para ahorrar tiempo y trabajar de forma más inteligente. Explora tutoriales o recursos en línea para ampliar tus conocimientos.",
+      "Skills": "Practicar con dispositivos y aplicaciones agudizará tu resolución de problemas. Prueba funciones que no utilices a menudo para ganar confianza.",
+      "Attitudes": "Explorar de manera organizada facilitará ver qué funciona mejor. Toma nota de las funciones útiles y compártelas con tu equipo."
     },
     "onlineSafety": {
-      "Knowledge": "Conocer riesgos comunes como el phishing te ayudará a evitarlos. Dedica tiempo a investigar cómo detectarlos.",
-      "Skills": "Usar contraseñas fuertes o la verificación en dos pasos añadirá una capa extra de protección. Actívalas y comprueba la diferencia.",
-      "Attitudes": "Aumentar la consciencia de riesgos como filtraciones de datos protegerá a tu equipo. Comparte una lista de buenas prácticas."
+      "Knowledge": "Aprender sobre riesgos comunes de seguridad, como el phishing, te ayudará a evitarlos. Investiga en qué fijarte y cómo reaccionar.",
+      "Skills": "Usar contraseñas fuertes o la autenticación de dos factores añadirá una capa extra de protección. Configura estas herramientas y observa cómo mejora la seguridad.",
+      "Attitudes": "Crear conciencia sobre riesgos como filtraciones de datos mantendrá seguro a tu equipo. Realiza una breve campaña de concienciación o comparte una lista de buenas prácticas."
     },
     "dataWork": {
-      "Knowledge": "Aprender a interpretar datos te dará confianza al usarlos. Empieza con una herramienta sencilla como Excel.",
-      "Skills": "Practicar técnicas de análisis revelará información útil. Prueba herramientas nuevas para hacer más impacto.",
-      "Attitudes": "Sentir curiosidad por los datos agudiza tu análisis. Comparte tus ideas para decisiones más inteligentes."
+      "Knowledge": "Aprender a interpretar datos te ayudará a sentir más confianza al utilizarlos. Empieza con una herramienta sencilla como Excel para adquirir habilidades.",
+      "Skills": "Practicar técnicas de análisis de datos revelará información útil. Prueba herramientas nuevas para dar más impacto a tus hallazgos.",
+      "Attitudes": "Tener curiosidad por los datos afinará tus habilidades analíticas. Comparte tus conclusiones para fomentar decisiones más inteligentes."
     },
     "communication": {
-      "Knowledge": "Aprender a usar herramientas de comunicación simplificará el trabajo en equipo. Explora plataformas y elige la mejor para ti.",
-      "Skills": "Probar nuevas formas de colaboración digital refuerza la cohesión. Investiga espacios compartidos o herramientas de coordinación.",
-      "Attitudes": "Mejorar la consciencia cultural en tu comunicación hará tus interacciones más inclusivas. Analiza la retroalimentación del equipo."
+      "Knowledge": "Aprender a utilizar herramientas de comunicación puede simplificar el trabajo en equipo. Dedica tiempo a explorar plataformas y ver cuál funciona mejor para ti.",
+      "Skills": "Practicar nuevas maneras de colaborar digitalmente puede fortalecer la cohesión del equipo. Explora espacios de trabajo compartidos o herramientas para agilizar esfuerzos.",
+      "Attitudes": "Mejorar la conciencia cultural en tu comunicación puede hacer tus interacciones más inclusivas. Reflexiona sobre la retroalimentación del equipo para aprender y crecer."
     },
     "creativity": {
-      "Knowledge": "Probar métodos creativos para resolver problemas te inspirará. Experimenta con herramientas digitales y aplicaciones.",
-      "Skills": "Practicar con dispositivos y software agudizará tu creatividad. Organiza sesiones de lluvia de ideas para nuevas perspectivas.",
-      "Attitudes": "Estructurar tu enfoque hará tus ideas más aplicables. Trabaja con tu equipo para pulir los planes digitales."
+      "Knowledge": "Probar métodos creativos de resolución de problemas puede generar nuevas ideas. Utiliza herramientas y aplicaciones digitales para explorar.",
+      "Skills": "Practicar con dispositivos y software afinará tu creatividad. Organiza sesiones de lluvia de ideas o prototipado para obtener perspectivas nuevas.",
+      "Attitudes": "Estructurar tu enfoque de innovación hará tus ideas más accionables. Trabaja con tu equipo para perfeccionar y desarrollar tus planes digitales."
     },
     "digitalResponsibility": {
-      "Knowledge": "Aprender sobre el cumplimiento te dará confianza en situaciones complicadas. Revisa ejemplos reales para aclararte.",
-      "Skills": "Practicar la toma de decisiones en escenarios retadores fortalecerá tu liderazgo. Rolea situaciones reales para mejorar tu criterio.",
-      "Attitudes": "Adoptar una actitud proactiva ante dilemas éticos genera confianza. Inicia debates con tu equipo."
+      "Knowledge": "Aprender más sobre cumplimiento puede ayudarte a sentir más confianza en situaciones complejas. Revisa ejemplos del mundo real para obtener claridad.",
+      "Skills": "Practicar la toma de decisiones en escenarios desafiantes fortalecerá tu liderazgo. Representa situaciones reales para mejorar tu criterio.",
+      "Attitudes": "Adoptar una actitud proactiva ante dilemas éticos puede generar confianza. Inicia debates con tu equipo para explorar estos temas."
     },
     "findingInfo": {
-      "Knowledge": "Aprender a evaluar fuentes digitales hará tu trabajo más preciso. Explora técnicas avanzadas de búsqueda.",
-      "Skills": "Probar software y funciones nuevas simplificará tu trabajo. Describe apps para mejorar cómo guardas y compartes.",
-      "Attitudes": "Ser crítico con el contenido digital aporta fiabilidad. Comparte buenas prácticas para elevar el nivel."
+      "Knowledge": "Aprender a evaluar críticamente las fuentes digitales hará tu trabajo más preciso. Explora técnicas avanzadas de búsqueda.",
+      "Skills": "Probar software y funciones nuevas puede simplificar tu trabajo. Explora aplicaciones para mejorar cómo guardas y compartes información.",
+      "Attitudes": "Adoptar un enfoque crítico hacia el contenido digital aumenta la fiabilidad. Comparte buenas prácticas con tu equipo para subir el nivel."
     },
     "problemSolving": {
-      "Knowledge": "Ampliar tu conocimiento de resolución de problemas te ayudará a actuar más rápido. Examina incidencias pasadas para encontrar patrones.",
-      "Skills": "Practicar técnicas de resolución te dará seguridad en problemas complejos. Aprende funciones que aún no utilices.",
-      "Attitudes": "Ser persistente ante problemas complejos te hace más efectivo. Comparte tus soluciones para mejorar la colaboración."
+      "Knowledge": "Ampliar tus conocimientos de resolución de problemas te ayudará a abordar los retos más rápido. Examina incidencias pasadas para encontrar patrones y construir soluciones.",
+      "Skills": "Practicar técnicas de resolución te dará más confianza en problemas complejos. Aprende funciones que aún no utilices.",
+      "Attitudes": "La persistencia ante problemas complicados te hace más eficaz. Comparte tus soluciones para mejorar la colaboración."
     },
     "wellbeing": {
-      "Knowledge": "Investigar estrategias de bienestar digital te ayudará a mantener el equilibrio. Explora prácticas sostenibles para añadir valor.",
-      "Skills": "Compartir consejos prácticos fomentará el equilibrio en tu equipo. Anima cambios pequeños como hacer pausas frecuentes.",
-      "Attitudes": "Explorar prácticas sostenibles como reducir residuos electrónicos aporta valor. Empieza con un cambio y comparte su impacto."
+      "Knowledge": "Aprender estrategias de bienestar digital puede ayudarte a mantener el equilibrio. Explorar prácticas sostenibles puede añadir valor a tu trabajo diario.",
+      "Skills": "Compartir consejos prácticos de hábitos saludables inspirará equilibrio en tu equipo. Anima a cambios pequeños, como hacer pausas o reducir el tiempo de pantalla.",
+      "Attitudes": "Explorar prácticas sostenibles, como reducir los residuos electrónicos, puede añadir valor a tu día a día. Empieza con un cambio y comparte su impacto con tu equipo."
     }
   },
-
   "smartObjectives": {
     "learningAdapting": {
       "Knowledge": "Inscribirme en un curso sobre tecnologías emergentes de mi sector en los próximos tres meses.",
@@ -410,51 +331,50 @@
     },
     "aiTools": {
       "Knowledge": "Aprender una función nueva de una herramienta de trabajo para aumentar mi eficiencia este mes.",
-      "Skills": "Resolver de forma independiente al menos una incidencia técnica cada semana durante dos meses.",
+      "Skills": "Resolver de forma independiente al menos una incidencia técnica cada semana durante los próximos dos meses.",
       "Attitudes": "Probar una tecnología o herramienta nueva relacionada con mi trabajo antes de fin de mes."
     },
     "onlineSafety": {
-      "Knowledge": "Asistir a un taller de ciberseguridad para proteger dispositivos y datos durante el próximo trimestre.",
+      "Knowledge": "Asistir a un taller de ciberseguridad en el próximo trimestre.",
       "Skills": "Revisar y actualizar todas mis contraseñas esta semana.",
-      "Attitudes": "Acostumbrarme a cerrar sesión en dispositivos compartidos durante el próximo mes."
+      "Attitudes": "Adquirir el hábito de cerrar sesión en dispositivos compartidos durante el próximo mes."
     },
     "dataWork": {
       "Knowledge": "Aprender a interpretar informes básicos relevantes para mi puesto este mes.",
-      "Skills": "Usar una herramienta de análisis de datos para mejorar un proceso de trabajo en dos meses.",
-      "Attitudes": "Buscar patrones en los datos con los que trabajo regularmente durante los próximos dos meses."
+      "Skills": "Usar una herramienta de análisis de datos para mejorar un proceso en los próximos dos meses.",
+      "Attitudes": "Buscar patrones en los datos con los que trabajo regularmente durante los dos próximos meses."
     },
     "communication": {
-      "Knowledge": "Familiarizarme con una herramienta de comunicación (por ejemplo, Teams) en el próximo mes.",
-      "Skills": "Participar en un proyecto colaborativo con herramientas digitales el próximo trimestre.",
-      "Attitudes": "Pedir retroalimentación sobre mi estilo de comunicación antes de que acabe el trimestre."
+      "Knowledge": "Familiarizarme con una herramienta de comunicación (por ejemplo, Teams) el próximo mes.",
+      "Skills": "Participar en un proyecto colaborativo usando herramientas digitales el próximo trimestre.",
+      "Attitudes": "Solicitar retroalimentación sobre mi estilo de comunicación antes de que acabe el trimestre."
     },
     "creativity": {
       "Knowledge": "Investigar herramientas digitales que mejoren el flujo de trabajo del equipo este mes.",
-      "Skills": "Desarrollar y proponer una solución innovadora a un reto del equipo en dos meses.",
-      "Attitudes": "Animar a mis compañeros a compartir y probar ideas nuevas durante los próximos tres meses."
+      "Skills": "Desarrollar y proponer una solución innovadora a un reto del equipo en los próximos dos meses.",
+      "Attitudes": "Animar al equipo a compartir y probar ideas nuevas durante los próximos tres meses."
     },
     "digitalResponsibility": {
-      "Knowledge": "Leer la política de ética digital de la empresa antes de que acabe la próxima semana.",
-      "Skills": "Revisar mis proyectos recientes para garantizar el cumplimiento en dos semanas.",
+      "Knowledge": "Leer la política de ética digital de la empresa antes de que termine la próxima semana.",
+      "Skills": "Revisar mis proyectos recientes para verificar el cumplimiento en las próximas dos semanas.",
       "Attitudes": "Reflexionar sobre consideraciones éticas antes de cada tarea digital durante los próximos tres meses."
     },
     "findingInfo": {
-      "Knowledge": "Completar un curso en línea sobre búsqueda efectiva de información en tres meses.",
-      "Skills": "Implementar un nuevo sistema de organización de archivos en dos semanas.",
-      "Attitudes": "Verificar la exactitud de la información crítica antes de compartirla durante un mes."
+      "Knowledge": "Completar un curso en línea sobre técnicas de búsqueda de información en los próximos tres meses.",
+      "Skills": "Implementar un nuevo sistema de organización de archivos en las próximas dos semanas.",
+      "Attitudes": "Verificar la exactitud de la información crítica antes de compartirla consistentemente durante un mes."
     },
     "problemSolving": {
       "Knowledge": "Familiarizarme con problemas técnicos comunes y sus soluciones este mes.",
-      "Skills": "Intentar resolver problemas técnicos menores por mi cuenta durante tres meses.",
+      "Skills": "Intentar resolver problemas técnicos menores por mi cuenta durante los próximos tres meses.",
       "Attitudes": "Idear soluciones creativas a los retos digitales durante el próximo trimestre."
     },
     "wellbeing": {
       "Knowledge": "Investigar buenas prácticas de bienestar digital este mes.",
-      "Skills": "Tomar descansos cortos cada hora para equilibrar tareas digitales durante un mes.",
-      "Attitudes": "Animar a mi equipo a compartir consejos para gestionar la carga digital en la próxima reunión."
+      "Skills": "Tomar descansos cortos cada hora durante mi jornada para equilibrar tareas digitales y no digitales durante el próximo mes.",
+      "Attitudes": "Animar al equipo a compartir consejos sobre la carga digital en la próxima reunión."
     }
   },
-
   "misc": {
     "examplePrefix": "Ejemplo: ",
     "andConjunction": "y",
