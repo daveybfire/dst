@@ -1,0 +1,375 @@
+{
+  "lang": "nl",
+  "langName": "Nederlands",
+  "appTitle": "Beoordeling digitale vaardigheden",
+  "startScreen": {
+    "title": "Beoordeling digitale vaardigheden",
+    "introParagraph1": "Met deze korte beoordeling reflecteer je op je digitale vaardigheden en zie je waar je kunt verbeteren. Het is geen test — alleen een eenvoudige manier om te ontdekken waar je sterk in bent en waar je extra steun kunt gebruiken.",
+    "introParagraph2": "Je ziet een reeks korte uitspraken met voorbeelden. Kies telkens de optie die het best bij je huidige niveau past.",
+    "introParagraph3": "<strong>Het is anoniem en kost maar een paar minuten.</strong>",
+    "introParagraph4": "Wees eerlijk, neem je tijd en laten we beginnen!",
+    "startButtonText": "Doorgaan"
+  },
+  "assessmentScreen": {
+    "competencyBannerPrefix": "Competentie: ",
+    "progressLabelSuffix": "%",
+    "noSelectionWarning": "Maak een keuze om verder te gaan.",
+    "showProficiencyLevelsButton": "Toon vaardigheidsniveaus",
+    "hideProficiencyLevelsButton": "Verberg vaardigheidsniveaus",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>Beginner:</strong> Ik heb weinig of geen ervaring op dit gebied en vertrouw op anderen voor begeleiding.",
+      "developing": "<strong>In ontwikkeling:</strong> Ik kan dit met wat steun en werk aan meer consistentie.",
+      "competent": "<strong>Bekwaam:</strong> Ik kan dit zelfstandig en betrouwbaar in mijn functie uitvoeren.",
+      "proficient": "<strong>Vaardig:</strong> Ik doe dit goed op eigen kracht en kan anderen ondersteunen of adviseren indien nodig.",
+      "expert": "<strong>Expert:</strong> Ik presteer consequent op hoog niveau en coach of begeleid anderen om hierin te groeien."
+    }
+  },
+  "endScreen": {
+    "title": "Beoordeling voltooid",
+    "qrCodeSectionTitle": "Je QR-code",
+    "qrCodeInstruction": "Scan deze QR-code om je resultaten op te slaan en later opnieuw te bekijken.",
+    "keyCharacteristicsTitle": "Belangrijkste kenmerken:",
+    "keyCharacteristicsIntro": "Hieronder vind je de kenmerken die je vaardigheidsniveau omschrijven. Ze tonen je sterke punten en helpen je te begrijpen waar je uitblinkt.",
+    "radarChartTitle": "Jouw competentieradar",
+    "radarChartDescription": "Gebruik deze grafiek om snel je sterke punten en groeikansen over de verschillende competenties te zien.",
+    "radarChartLegendIntro": "De grafiek toont je scores in drie domeinen: ",
+    "radarChartLegendKnowledge": "Kennis",
+    "radarChartLegendSkills": "Vaardigheden",
+    "radarChartLegendAttitudes": "Houdingen",
+    "radarChartLegendExplanation": ". Elke gekleurde lijn stelt een domein voor. Idealiter overlappen de lijnen elkaar, wat op een evenwichtige ontwikkeling wijst. Zie je verschillen — bijvoorbeeld een lijn die lager ligt — dan wijst dat op een focuspunt. Als ",
+    "radarChartLegendSkillsExample": "Vaardigheden",
+    "radarChartLegendKnowledgeExample": "Kennis",
+    "radarChartLegendExplanationSuffix": " in een competentie lager is, kun je werken aan het <i>toepassen</i> van wat je weet.",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>Je 3 grootste sterke punten",
+    "strengthsSectionIntro": "Volgens de beoordeling zijn dit drie van je sterkste punten. Door je hierop te richten kun je je bestaande vaardigheden optimaal benutten. Bekijk gerust ook andere gebieden waar je goed presteerde.",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Groeigebieden",
+    "growthAreasSectionIntro": "Dit zijn drie gebieden met veel groeipotentieel. Verbetering hierin kan je algehele vaardigheid versterken. Er kunnen nog meer ontwikkelpunten zijn die je wilt verkennen.",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>SMART-doelen",
+    "smartObjectivesSectionIntro": "Hieronder staan voorgestelde SMART-doelen op basis van je groeigebieden. Maak ze persoonlijk door eigen data en details toe te voegen.",
+    "thankYouMessage": "Goed gedaan! Blijf groeien en verfijn je digitale vaardigheden.",
+    "surveyPrompt": "We waarderen je feedback! Neem even de tijd voor onze enquête.",
+    "surveyButtonText": "Enquête invullen",
+    "restartButtonText": "Opnieuw starten",
+    "strongestDimensionLabel": "Sterkste dimensie:",
+    "growthAreaLabel": "Groeigebied:",
+    "smartObjectiveLabel": "SMART-doel:",
+    "recommendedResourcesLabel": "Aanbevolen bronnen:"
+  },
+  "proficiencyLabels": {
+    "1": "Beginner",
+    "2": "In ontwikkeling",
+    "3": "Bekwaam",
+    "4": "Vaardig",
+    "5": "Expert"
+  },
+  "overallProficiencyLevels": [
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+  "proficiencyTexts": {
+    "proficiency_beginner_name": "Beginner",
+    "proficiency_beginner_char1": "Heeft een basaal begrip van digitale tools en concepten.",
+    "proficiency_beginner_char2": "Heeft begeleiding en toezicht nodig om taken uit te voeren.",
+    "proficiency_beginner_char3": "Vindt foutopsporing en probleemoplossing lastig.",
+    "proficiency_beginner_char4": "Heeft ondersteuning nodig bij onbekende tools of technologieën.",
+    "proficiency_beginner_feedback": "Op dit niveau kan het gebied nieuw of uitdagend aanvoelen, en dat is prima. De juiste tools en steun maken het verschil. Vraag gerust om hulp of bronnen om verder te groeien.",
+    "proficiency_developing_name": "In ontwikkeling",
+    "proficiency_developing_char1": "Toont een groeiend begrip van digitale tools en technieken.",
+    "proficiency_developing_char2": "Kan routinetaken uitvoeren met wat toezicht.",
+    "proficiency_developing_char3": "Begint veelvoorkomende problemen zelfstandig op te lossen.",
+    "proficiency_developing_char4": "Heeft hulp nodig bij complexe taken of nieuwe technologieën.",
+    "proficiency_developing_feedback": "Je verkent dit gebied en hebt mogelijk nog begeleiding of training nodig. Blijf vertrouwen opbouwen en gebruik beschikbare bronnen om verder te groeien.",
+    "proficiency_competent_name": "Bekwaam",
+    "proficiency_competent_char1": "Toont een solide begrip van digitale tools en technieken.",
+    "proficiency_competent_char2": "Werkt zelfstandig met weinig of geen toezicht.",
+    "proficiency_competent_char3": "Gebruikt een breed scala aan digitale hulpmiddelen om taken af te ronden.",
+    "proficiency_competent_char4": "Lost veelvoorkomende problemen effectief op.",
+    "proficiency_competent_char5": "Kan nog hulp nodig hebben bij zeer complexe of onbekende taken.",
+    "proficiency_competent_feedback": "Je maakt gestaag vorderingen en redt je met weinig hulp. Controleer of je alles hebt om verder te groeien en vul eventuele gaten op voor meer zelfstandigheid.",
+    "proficiency_proficient_name": "Vaardig",
+    "proficiency_proficient_char1": "Beheerst digitale tools en geavanceerde technieken uitstekend.",
+    "proficiency_proficient_char2": "Werkt zelfstandig en efficiënt.",
+    "proficiency_proficient_char3": "Lost complexe problemen op en biedt innovatieve oplossingen.",
+    "proficiency_proficient_char4": "Helpt vaak anderen met digitale taken en uitdagingen.",
+    "proficiency_proficient_char5": "Zoekt continu naar nieuwe technologieën om te leren en toe te passen.",
+    "proficiency_proficient_feedback": "Op dit niveau presteer je goed in de meeste situaties. Zie je dat anderen middelen missen? Deel je kennis of wijs ze op nuttige bronnen.",
+    "proficiency_expert_name": "Expert",
+    "proficiency_expert_char1": "Erkend autoriteit op het gebied van digitale tools en technologieën.",
+    "proficiency_expert_char2": "Leidt initiatieven voor digitale innovatie.",
+    "proficiency_expert_char3": "Ontwikkelt nieuwe oplossingen en optimaliseert processen.",
+    "proficiency_expert_char4": "Mentort anderen en deelt expertise breed.",
+    "proficiency_expert_char5": "Blijft voorop lopen in de sector en past best practices toe.",
+    "proficiency_expert_feedback": "Als expert inspireer je met je vertrouwen. Je kunt anderen ondersteunen door te mentoreren, bronnen te delen of bij te dragen aan een inclusieve digitale omgeving."
+  },
+  "competencyList": [
+    { "key": "learningAdapting", "name": "Leren en aanpassen" },
+    { "key": "aiTools", "name": "AI en digitale tools" },
+    { "key": "onlineSafety", "name": "Online veiligheid" },
+    { "key": "dataWork", "name": "Werken met data" },
+    { "key": "communication", "name": "Communicatie" },
+    { "key": "creativity", "name": "Creativiteit en innovatie" },
+    { "key": "digitalResponsibility", "name": "Digitale verantwoordelijkheid" },
+    { "key": "findingInfo", "name": "Informatie zoeken" },
+    { "key": "problemSolving", "name": "Problemen oplossen" },
+    { "key": "wellbeing", "name": "Welzijn en duurzaamheid" }
+  ],
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" },
+    { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" },
+    { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" },
+    { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" },
+    { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" },
+    { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" },
+    { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" },
+    { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" },
+    { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" },
+    { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" },
+    { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" },
+    { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" },
+    { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" },
+    { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" },
+    { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" },
+    { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" },
+    { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" },
+    { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" },
+    { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+  ],
+  "questionTexts": {
+    "q_learningAdapting_k_text": "Ik begrijp het belang van nieuwe technologie leren.",
+    "q_learningAdapting_k_example": "Weten dat nieuwe tools leren me relevant houdt.",
+    "q_learningAdapting_s_text": "Ik plan tijd in om mijn digitale vaardigheden te verbeteren.",
+    "q_learningAdapting_s_example": "Oefenen met nieuwe tools, zoals AI gebruiken om ideeën of samenvattingen te testen.",
+    "q_learningAdapting_a_text": "Ik pas me snel aan wanneer de technologie op het werk verandert.",
+    "q_learningAdapting_a_example": "Nieuwe systemen of updates snel oppakken.",
+    "q_aiTools_k_text": "Ik begrijp hoe AI-tools mijn werk kunnen ondersteunen.",
+    "q_aiTools_k_example": "Weten wat AI wel en niet kan, zoals inhoud voorstellen of taken versnellen.",
+    "q_aiTools_s_text": "Ik los veelvoorkomende technische problemen zelf op.",
+    "q_aiTools_s_example": "Apparaatstoringen oplossen of een collega helpen een scherm te herstarten.",
+    "q_aiTools_a_text": "Ik probeer AI-functies of updates om mijn werk te verbeteren.",
+    "q_aiTools_a_example": "AI-tools (chat of afbeeldingsgeneratoren) gebruiken om tijd te besparen of taken op te lossen.",
+    "q_onlineSafety_k_text": "Ik weet hoe ik mijn apparaten en gegevens veilig houd.",
+    "q_onlineSafety_k_example": "Inzien wanneer een wachtwoord sterk is of een bericht verdacht lijkt.",
+    "q_onlineSafety_s_text": "Ik volg stappen om bestanden en apparaten te beveiligen.",
+    "q_onlineSafety_s_example": "Uitloggen op gedeelde tablets en bestanden veilig opslaan.",
+    "q_onlineSafety_a_text": "Ik denk goed na over welke persoonlijke of teamgegevens ik deel met digitale tools.",
+    "q_onlineSafety_a_example": "Voorkomen dat ik gevoelige details in slimme tools of websites invoer.",
+    "q_dataWork_k_text": "Ik weet hoe ik basisgegevens lees, zoals rapporten of cijfers.",
+    "q_dataWork_k_example": "Begrijpen van een eenvoudig verkoop- of voorraadrapport.",
+    "q_dataWork_s_text": "Ik analyseer gegevens om mijn werk te verbeteren.",
+    "q_dataWork_s_example": "Trends herkennen in cijfers om mijn planning bij te stellen.",
+    "q_dataWork_a_text": "Ik zie nuttige patronen in de data die ik gebruik.",
+    "q_dataWork_a_example": "Piektijden in verkoop of populaire items herkennen.",
+    "q_communication_k_text": "Ik weet hoe ik duidelijk communiceer met digitale tools.",
+    "q_communication_k_example": "Weten hoe je een duidelijke e-mail of groepsbericht opstelt.",
+    "q_communication_s_text": "Ik werk goed samen met anderen via digitale tools.",
+    "q_communication_s_example": "Documenten samen bewerken of roosters plannen met teamgenoten online.",
+    "q_communication_a_text": "Ik communiceer respectvol, duidelijk en inclusief.",
+    "q_communication_a_example": "Beleefde berichten sturen en verwarring in groepschats voorkomen.",
+    "q_creativity_k_text": "Ik weet hoe digitale tools taken kunnen verbeteren.",
+    "q_creativity_k_example": "Begrijpen dat digitale snelkoppelingen werk versnellen.",
+    "q_creativity_s_text": "Ik steun nieuwe ideeën die de teamprestatie verbeteren.",
+    "q_creativity_s_example": "Helpen betere manieren te ontwikkelen om teamwerk te organiseren of te delen.",
+    "q_creativity_a_text": "Ik deel nieuwe tools of ideeën met mijn team.",
+    "q_creativity_a_example": "Apps of functies introduceren die het team kunnen helpen beter te werken.",
+    "q_digitalResponsibility_k_text": "Ik ken onze regels voor verantwoord gebruik van digitale tools.",
+    "q_digitalResponsibility_k_example": "Eerst checken als je niet zeker weet of je een AI-tool mag gebruiken.",
+    "q_digitalResponsibility_s_text": "Ik volg bedrijfsrichtlijnen bij het gebruik van digitale systemen.",
+    "q_digitalResponsibility_s_example": "Bedrijfsgidsen volgen en AI-uitvoer controleren op fouten of bias.",
+    "q_digitalResponsibility_a_text": "Ik denk na over hoe mijn digitale acties anderen beïnvloeden.",
+    "q_digitalResponsibility_a_example": "Posts vermijden die klantvertrouwen kunnen schaden of regels breken.",
+    "q_findingInfo_k_text": "Ik weet waar ik betrouwbare informatie kan vinden.",
+    "q_findingInfo_k_example": "Weten welk systeem je gebruikt voor voorraad of HR-beleid.",
+    "q_findingInfo_s_text": "Ik bewaar en organiseer digitale info op een duidelijke manier.",
+    "q_findingInfo_s_example": "Bestanden opslaan in de juiste map met duidelijke namen.",
+    "q_findingInfo_a_text": "Ik weet dat digitale tools en zoekresultaten bevooroordeeld of oneerlijk kunnen zijn.",
+    "q_findingInfo_a_example": "Opmerken wanneer tools ongebalanceerde, onjuiste of eenzijdige antwoorden geven.",
+    "q_problemSolving_k_text": "Ik merk wanneer iets niet werkt met mijn technologie.",
+    "q_problemSolving_k_example": "Doorhebben wanneer een kassa, scherm of systeem niet reageert.",
+    "q_problemSolving_s_text": "Ik los basis technische problemen op zonder hulp.",
+    "q_problemSolving_s_example": "Apparaten herstarten of inlogproblemen oplossen zonder IT te bellen.",
+    "q_problemSolving_a_text": "Ik gebruik creatieve manieren om technische problemen op te lossen.",
+    "q_problemSolving_a_example": "Nieuwe methoden proberen of tools combineren om issues te verhelpen.",
+    "q_wellbeing_k_text": "Ik merk hoe digitaal werk mijn gezondheid beïnvloedt.",
+    "q_wellbeing_k_example": "Herkennen wanneer schermtijd invloed heeft op mijn stemming of focus.",
+    "q_wellbeing_s_text": "Ik balanceer schermtijd met andere taken gedurende de dag.",
+    "q_wellbeing_s_example": "Digitale taken afwisselen met persoonlijk werk of beweging.",
+    "q_wellbeing_a_text": "Ik bevorder gezonde digitale gewoonten in mijn team.",
+    "q_wellbeing_a_example": "Collega’s aanmoedigen om pauzes te nemen of meldingen uit te zetten."
+  },
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "Openstaan voor nieuwe technologie helpt je flexibel te blijven en klaar voor veranderingen. Blijf tools verkennen en deel wat je leert om je team te inspireren.",
+      "Skills": "Tijd vrijmaken om je digitale vaardigheden te verbeteren zorgt voor groei en bereidt je voor op nieuwe uitdagingen. Gebruik dit om verantwoordelijkheden met vertrouwen aan te pakken en anderen de weg te wijzen.",
+      "Attitudes": "Je snel aanpassen aan technologische wijzigingen vermindert verstoringen en bouwt vertrouwen om je heen. Zet deze vaardigheid in om richting te geven in tijden van verandering."
+    },
+    "aiTools": {
+      "Knowledge": "Vertrouwd zijn met werktuigen bespaart tijd en maakt werken slimmer. Deel tips en trucs met je team om ieders werk gemakkelijker te maken.",
+      "Skills": "Technische problemen snel oplossen houdt alles draaiend en toont je betrouwbaarheid. Gebruik deze kracht om je team te ondersteunen en probleemoplossen te stimuleren.",
+      "Attitudes": "Nieuwe tools of functies verkennen helpt je betere werkwijzen te vinden en prikkelt je nieuwsgierigheid. Deel je ontdekkingen om anderen te motiveren."
+    },
+    "onlineSafety": {
+      "Knowledge": "Weten hoe je data veilig houdt beschermt je werk en stelt je team gerust. Gebruik dit om bewustzijn te vergroten en het goede voorbeeld te geven.",
+      "Skills": "Veiligheidsgewoonten zoals uitloggen op gedeelde apparaten en bestanden beveiligen verkleinen risico’s. Moedig je team aan dezelfde gewoonten aan te nemen.",
+      "Attitudes": "Het beschermen van gevoelige gegevens bouwt vertrouwen op binnen het team. Wees een voorbeeld van verantwoord databeheer."
+    },
+    "dataWork": {
+      "Knowledge": "Beslissen op basis van data zorgt voor onderbouwde en effectieve keuzes. Deel dit met je team voor slimmere strategieën.",
+      "Skills": "Trends herkennen in data helpt problemen oplossen en resultaten verbeteren. Leid je team naar betere beslissingen.",
+      "Attitudes": "Patronen zien in data vergroot vertrouwen en stimuleert kritisch denken. Help je team beslissingen te nemen op basis van bewijs."
+    },
+    "communication": {
+      "Knowledge": "Zelfverzekerd met communicatietools omgaan helpt ideeën duidelijk delen en verbonden blijven. Gebruik dit om samenwerking te versterken.",
+      "Skills": "Samenwerken via digitale tools zorgt voor soepele projecten. Zet je vaardigheden in om projecten te leiden en collectief succes te stimuleren.",
+      "Attitudes": "Duidelijk, respectvol en inclusief communiceren bevordert sterke relaties en beter teamwork. Houd deze positieve houding vast."
+    },
+    "creativity": {
+      "Knowledge": "Werkwijzen verbeteren vereenvoudigt taken en verhoogt efficiëntie. Deel je ideeën om innovatie te stimuleren.",
+      "Skills": "Innovatieve oplossingen creëren of ondersteunen doet teamresultaten opvallen en slagen. Gebruik deze kracht voor voortdurende verbetering.",
+      "Attitudes": "Het team aanmoedigen nieuwe tools te proberen bevordert creativiteit en een cultuur van vernieuwing. Inspireer frisse ideeën met deze positieve instelling."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Richtlijnen voor digitale tools volgen bouwt vertrouwen en geeft het goede voorbeeld. Stel hoge standaarden en begeleid je team.",
+      "Skills": "Zorgen dat je acties de bedrijfsrichtlijnen volgen ondersteunt vertrouwen en soepele processen. Handel verantwoordelijk bij gevoelige taken.",
+      "Attitudes": "Rekening houden met eerlijkheid en verantwoord digitaal gedrag bevordert samenwerking. Geef het goede voorbeeld met deze mentaliteit."
+    },
+    "findingInfo": {
+      "Knowledge": "Betrouwbare informatie vinden verzekert goed onderbouwde besluiten. Gebruik dit om anderen te begeleiden.",
+      "Skills": "Informatie organiseren maakt terugvinden eenvoudig en verbetert communicatie. Creëer een efficiëntere teamomgeving.",
+      "Attitudes": "Nauwkeurigheid controleren handhaaft hoge normen en versterkt vertrouwen. Inspireer anderen om kwaliteit centraal te zetten."
+    },
+    "problemSolving": {
+      "Knowledge": "Technische problemen snel herkennen houdt projecten op schema en minimaliseert downtime. Ondersteun je team met deze vaardigheid.",
+      "Skills": "Eenvoudige technische problemen oplossen verhoogt productiviteit en houdt processen soepel. Deel je aanpak zodat anderen leren.",
+      "Attitudes": "Creatief technologie inzetten om uitdagingen op te lossen houdt het werk interessant en innovatief. Deel frisse ideeën en overwin obstakels."
+    },
+    "wellbeing": {
+      "Knowledge": "Bewust zijn van de impact van digitaal werk op gezondheid bevordert een evenwichtige werkomgeving. Gebruik dit bewustzijn om welzijn te stimuleren.",
+      "Skills": "Digitale en niet-digitale taken balanceren vergroot productiviteit en verlaagt stress. Ontwikkel betere werkstromen met deze vaardigheid.",
+      "Attitudes": "Gezonde digitale gewoonten in het team stimuleren verbetert timemanagement en welzijn. Leid met goed voorbeeld en inspireer een wellnesscultuur."
+    }
+  },
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "Nieuwe dingen leren helpt je taken sneller begrijpen en aanpassen. Verken bronnen of training om je kennis te verdiepen.",
+      "Skills": "Je digitale vaardigheden ontwikkelen maakt lastige taken beheersbaarder. Stel kleine doelen om je vooruitgang te volgen.",
+      "Attitudes": "Proactief omgaan met verandering verhoogt je vertrouwen bij het onverwachte. Vraag feedback en gebruik die om te verbeteren."
+    },
+    "aiTools": {
+      "Knowledge": "Meer leren over AI laat zien hoe je tijd bespaart en slimmer werkt. Verken online tutorials of bronnen.",
+      "Skills": "Oefenen met apparaten en apps scherpt je probleemoplossing aan. Experimenteer met functies die je zelden gebruikt.",
+      "Attitudes": "Georganiseerd verkennen maakt zichtbaar wat het beste werkt. Noteer nuttige functies en deel ze met je team."
+    },
+    "onlineSafety": {
+      "Knowledge": "Inzicht in veelvoorkomende risico’s zoals phishing helpt problemen voorkomen. Zoek uit waar je op moet letten en hoe te reageren.",
+      "Skills": "Sterke wachtwoorden of twee-factor-authenticatie bieden extra bescherming. Stel dit in en ervaar het verschil.",
+      "Attitudes": "Bewustwording creëren voor risico’s zoals datalekken houdt het team veilig. Start een korte bewustwordingsactie of deel een checklist."
+    },
+    "dataWork": {
+      "Knowledge": "Leren data interpreteren geeft je meer vertrouwen in het gebruik ervan. Begin met een eenvoudige tool zoals Excel.",
+      "Skills": "Analyse-technieken oefenen onthult nuttige inzichten. Probeer nieuwe tools voor meer impact.",
+      "Attitudes": "Nieuwsgierig zijn naar data verscherpt je analysevaardigheden. Deel inzichten voor slimmere besluitvorming."
+    },
+    "communication": {
+      "Knowledge": "Communicatietools leren gebruiken vereenvoudigt teamwork. Verken platforms en kies wat voor jou werkt.",
+      "Skills": "Nieuwe vormen van digitale samenwerking oefenen versterkt teamcohesie. Zoek gedeelde werkruimten of tools om het werk te stroomlijnen.",
+      "Attitudes": "Culturele gevoeligheid in communicatie vergroten maakt interacties inclusiever. Leer van teamfeedback om te groeien."
+    },
+    "creativity": {
+      "Knowledge": "Creatieve probleemoplossing proberen kan nieuwe ideeën opwekken. Gebruik digitale tools en apps voor verkenning.",
+      "Skills": "Met tools en software oefenen scherpt je creativiteit aan. Organiseer brainstorms of prototypesessies voor frisse perspectieven.",
+      "Attitudes": "Een gestructureerde aanpak van innovatie maakt ideeën uitvoerbaarder. Werk met je team om plannen te verfijnen."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Meer leren over compliance geeft vertrouwen in lastige situaties. Bekijk praktijkvoorbeelden voor helderheid.",
+      "Skills": "Besluitvorming oefenen in uitdagende scenario’s versterkt leiderschap. Speel situaties na voor beter oordeel.",
+      "Attitudes": "Een proactieve houding tegenover ethische dilemma’s bouwt vertrouwen. Start gesprekken met je team over deze kwesties."
+    },
+    "findingInfo": {
+      "Knowledge": "Digitale bronnen kritisch beoordelen maakt je werk nauwkeuriger. Verken geavanceerde zoektechnieken.",
+      "Skills": "Nieuwe software en functies proberen kan je werk vereenvoudigen. Verbeter opslag en delen van info.",
+      "Attitudes": "Een kritische blik op digitale content verhoogt betrouwbaarheid. Deel best practices om de standaard te verhogen."
+    },
+    "problemSolving": {
+      "Knowledge": "Je troubleshooting-kennis vergroten helpt uitdagingen sneller aan te pakken. Analyseer eerdere issues voor patronen.",
+      "Skills": "Troubleshooting-technieken oefenen geeft vertrouwen bij complexe problemen. Leer functies die je nog niet gebruikt.",
+      "Attitudes": "Volharding bij moeilijke problemen maakt je effectiever. Deel je oplossingen om teamwerk te verbeteren."
+    },
+    "wellbeing": {
+      "Knowledge": "Leren over digitale welzijnsstrategieën helpt balans houden. Verken duurzame praktijken voor extra waarde.",
+      "Skills": "Praktische tips voor gezonde gewoonten delen inspireert balans in het team. Moedig kleine veranderingen aan, zoals pauzes nemen.",
+      "Attitudes": "Duurzame praktijken zoals e-afval verminderen kan dagelijks waarde toevoegen. Begin met één verandering en deel het resultaat."
+    }
+  },
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "Inschrijven voor een cursus over opkomende technologieën in mijn vakgebied binnen drie maanden.",
+      "Skills": "Minstens twee uur per week besteden aan mijn digitale vaardigheden gedurende drie maanden.",
+      "Attitudes": "Minstens één nieuwe technologische verandering dit kwartaal met een positieve houding omarmen."
+    },
+    "aiTools": {
+      "Knowledge": "Een nieuwe functie leren in een van mijn werktools om mijn efficiëntie te verhogen deze maand.",
+      "Skills": "Elke week zelfstandig minstens één technisch probleem oplossen gedurende twee maanden.",
+      "Attitudes": "Een nieuwe technologie of tool die bij mijn werk past uitproberen voor het einde van de maand."
+    },
+    "onlineSafety": {
+      "Knowledge": "Een cybersecurity-workshop volgen in het komende kwartaal.",
+      "Skills": "Al mijn wachtwoorden deze week herzien en bijwerken.",
+      "Attitudes": "Gewoonte maken van direct uitloggen op gedeelde apparaten gedurende de komende maand."
+    },
+    "dataWork": {
+      "Knowledge": "Leren eenvoudige rapporten te interpreteren die relevant zijn voor mijn rol deze maand.",
+      "Skills": "Een data-analyse-tool gebruiken om een werkproces te verbeteren binnen twee maanden.",
+      "Attitudes": "Regelmatig patronen zoeken in de data waarmee ik werk gedurende twee maanden."
+    },
+    "communication": {
+      "Knowledge": "Vertrouwd raken met een nieuwe communicatietool (bijv. Teams) binnen een maand.",
+      "Skills": "Deelnemen aan een samenwerkingsproject met digitale tools in het volgende kwartaal.",
+      "Attitudes": "Feedback vragen op mijn communicatiestijl vóór het einde van dit kwartaal."
+    },
+    "creativity": {
+      "Knowledge": "Digitale tools onderzoeken die de workflow van het team verbeteren deze maand.",
+      "Skills": "Een innovatieve oplossing voor een huidig teamprobleem ontwikkelen en voorstellen binnen twee maanden.",
+      "Attitudes": "Collega’s aanmoedigen nieuwe ideeën te delen en te testen gedurende drie maanden."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Het digitale ethiekbeleid van het bedrijf lezen voor het einde van volgende week.",
+      "Skills": "Mijn recente projecten controleren op naleving en zo nodig aanpassen binnen twee weken.",
+      "Attitudes": "Voor elke nieuwe digitale taak drie maanden lang ethische overwegingen maken."
+    },
+    "findingInfo": {
+      "Knowledge": "Een online cursus effectief informatie zoeken afronden binnen drie maanden.",
+      "Skills": "Een nieuw bestandsorganisatie-systeem implementeren binnen twee weken.",
+      "Attitudes": "Consistent de nauwkeurigheid van cruciale info dubbelchecken voor delen gedurende één maand."
+    },
+    "problemSolving": {
+      "Knowledge": "Me vertrouwd maken met veelvoorkomende technische problemen en oplossingen deze maand.",
+      "Skills": "Proberen kleine technische problemen zelfstandig op te lossen gedurende drie maanden.",
+      "Attitudes": "Creatieve oplossingen brainstormen voor digitale uitdagingen in het komende kwartaal."
+    },
+    "wellbeing": {
+      "Knowledge": "Beste praktijken voor digitaal welzijn onderzoeken deze maand.",
+      "Skills": "Korte pauzes elk uur opnemen om digitale en niet-digitale taken te balanceren gedurende een maand.",
+      "Attitudes": "Mijn team aanmoedigen tips te delen over digitale werkbelasting op de volgende meeting."
+    }
+  },
+  "misc": {
+    "examplePrefix": "Voorbeeld: ",
+    "andConjunction": "en",
+    "areLowerThanConjunction": "zijn lager dan",
+    "languageLabel": "Taal:"
+  }
+}
