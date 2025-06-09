@@ -1,0 +1,364 @@
+{
+  "lang": "id",
+  "langName": "Bahasa Indonesia",
+  "appTitle": "Penilaian Keterampilan Digital",
+  "startScreen": {
+    "title": "Penilaian Keterampilan Digital",
+    "introParagraph1": "Penilaian singkat ini membantu kamu merefleksikan keterampilan digital dan menemukan area yang bisa ditingkatkan. Ini bukan ujian—hanya cara sederhana untuk memahami di mana kamu sudah kuat dan di mana mungkin butuh dukungan.",
+    "introParagraph2": "Kamu akan melihat serangkaian pernyataan singkat dengan contoh. Pilih opsi yang paling sesuai dengan tingkat kemampuanmu saat ini.",
+    "introParagraph3": "<strong>Penilaian ini anonim dan hanya memerlukan beberapa menit.</strong>",
+    "introParagraph4": "Jawablah dengan jujur, luangkan waktumu, dan mari mulai!",
+    "startButtonText": "Lanjut"
+  },
+  "assessmentScreen": {
+    "competencyBannerPrefix": "Kompetensi: ",
+    "progressLabelSuffix": "%",
+    "noSelectionWarning": "Silakan pilih satu opsi untuk melanjutkan.",
+    "showProficiencyLevelsButton": "Tampilkan Tingkat Kemahiran",
+    "hideProficiencyLevelsButton": "Sembunyikan Tingkat Kemahiran",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>Pemula:</strong> Saya punya sedikit atau tidak ada pengalaman di area ini dan bergantung pada bimbingan orang lain.",
+      "developing": "<strong>Berkembang:</strong> Saya dapat melakukannya dengan sedikit dukungan dan sedang berlatih agar lebih konsisten.",
+      "competent": "<strong>Kompeten:</strong> Saya dapat melakukannya secara mandiri dan andal dalam peran saya.",
+      "proficient": "<strong>Mahir:</strong> Saya melakukannya dengan baik secara mandiri dan dapat membantu atau memberi saran kepada orang lain saat diperlukan.",
+      "expert": "<strong>Ahli:</strong> Saya secara konsisten tampil pada tingkat tinggi dan membimbing orang lain untuk berkembang di area ini."
+    }
+  },
+  "endScreen": {
+    "title": "Penilaian Selesai",
+    "qrCodeSectionTitle": "Kode QR Kamu",
+    "qrCodeInstruction": "Pindai kode QR ini untuk menandai dan meninjau hasilmu nanti.",
+    "keyCharacteristicsTitle": "Karakteristik Kunci:",
+    "keyCharacteristicsIntro": "Berikut karakteristik utama yang menggambarkan tingkat kemahiranmu. Ini menyoroti kekuatanmu dan membantu memahami di mana kamu unggul.",
+    "radarChartTitle": "Radar Kompetensi Kamu",
+    "radarChartDescription": "Gunakan grafik ini untuk melihat dengan cepat kekuatan dan area pengembangan di berbagai kompetensi.",
+    "radarChartLegendIntro": "Grafik ini menampilkan skor pada tiga area: ",
+    "radarChartLegendKnowledge": "Pengetahuan",
+    "radarChartLegendSkills": "Keterampilan",
+    "radarChartLegendAttitudes": "Sikap",
+    "radarChartLegendExplanation": ". Setiap garis berwarna mewakili satu area. Idealnya garis-garis saling tumpang tindih, menunjukkan perkembangan seimbang. Jika ada garis yang lebih rendah—misalnya ",
+    "radarChartLegendSkillsExample": "Keterampilan",
+    "radarChartLegendKnowledgeExample": "Pengetahuan",
+    "radarChartLegendExplanationSuffix": " pada suatu kompetensi—kamu bisa lebih fokus <i>menerapkan</i> apa yang sudah kamu ketahui.",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>3 Kekuatan Teratas Kamu",
+    "strengthsSectionIntro": "Berdasarkan penilaian, berikut tiga kekuatan utamamu. Memaksimalkan area ini membantu hasil yang lebih baik. Jelajahi juga area lain dengan skor bagus.",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>Area Pertumbuhan",
+    "growthAreasSectionIntro": "Ini tiga area dengan peluang pertumbuhan besar. Meningkatkan kompetensi ini akan memperkuat keseluruhan kemampuanmu.",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>Tujuan SMART",
+    "smartObjectivesSectionIntro": "Berikut tujuan SMART yang disarankan. Personalisasikan dengan menambahkan tanggal target dan detailmu sendiri.",
+    "thankYouMessage": "Kerja bagus! Terus kembangkan keterampilan digitalmu.",
+    "surveyPrompt": "Kami menghargai umpan balikmu! Silakan isi survei singkat kami.",
+    "surveyButtonText": "Isi Survei",
+    "restartButtonText": "Mulai Ulang",
+    "strongestDimensionLabel": "Dimensi Terkuat:",
+    "growthAreaLabel": "Area Pertumbuhan:",
+    "smartObjectiveLabel": "Tujuan SMART:",
+    "recommendedResourcesLabel": "Sumber Daya Rekomendasi:"
+  },
+  "proficiencyLabels": {
+    "1": "Pemula",
+    "2": "Berkembang",
+    "3": "Kompeten",
+    "4": "Mahir",
+    "5": "Ahli"
+  },
+  "overallProficiencyLevels": [
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+  "proficiencyTexts": {
+    "proficiency_beginner_name": "Pemula",
+    "proficiency_beginner_char1": "Memiliki pemahaman dasar tentang alat dan konsep digital.",
+    "proficiency_beginner_char2": "Membutuhkan arahan dan supervisi untuk menyelesaikan tugas.",
+    "proficiency_beginner_char3": "Sering kesulitan dalam troubleshooting dan pemecahan masalah.",
+    "proficiency_beginner_char4": "Memerlukan dukungan saat memakai alat atau teknologi yang belum dikenal.",
+    "proficiency_beginner_feedback": "Pada tahap ini wajar bila terasa asing atau menantang. Akses ke alat dan dukungan yang tepat akan sangat membantu. Jangan ragu meminta sumber daya atau bantuan.",
+    "proficiency_developing_name": "Berkembang",
+    "proficiency_developing_char1": "Menunjukkan pemahaman yang terus meningkat tentang alat dan teknik digital.",
+    "proficiency_developing_char2": "Dapat menyelesaikan tugas rutin dengan sedikit supervisi.",
+    "proficiency_developing_char3": "Mulai memecahkan masalah umum secara mandiri.",
+    "proficiency_developing_char4": "Masih memerlukan bantuan untuk tugas kompleks atau teknologi baru.",
+    "proficiency_developing_feedback": "Kamu mulai mengeksplor area ini namun masih butuh panduan. Manfaatkan sumber daya yang ada untuk membangun kepercayaan diri dan kemampuan.",
+    "proficiency_competent_name": "Kompeten",
+    "proficiency_competent_char1": "Memiliki pemahaman kuat tentang alat dan teknik digital.",
+    "proficiency_competent_char2": "Bekerja mandiri dengan sedikit atau tanpa supervisi.",
+    "proficiency_competent_char3": "Nyaman memakai beragam alat digital untuk menyelesaikan tugas.",
+    "proficiency_competent_char4": "Mampu memecahkan masalah umum secara efektif.",
+    "proficiency_competent_char5": "Mungkin masih membutuhkan bantuan untuk tugas sangat kompleks atau asing.",
+    "proficiency_competent_feedback": "Kemajuanmu stabil dan kamu bisa mengelola pekerjaan dengan dukungan minimal. Lengkapi sumber daya yang kurang agar makin mandiri.",
+    "proficiency_proficient_name": "Mahir",
+    "proficiency_proficient_char1": "Menampilkan kemahiran tinggi dalam alat dan teknik digital tingkat lanjut.",
+    "proficiency_proficient_char2": "Bekerja mandiri dan efisien.",
+    "proficiency_proficient_char3": "Memecahkan masalah kompleks dan menawarkan solusi inovatif.",
+    "proficiency_proficient_char4": "Sering membantu orang lain dalam tugas digital.",
+    "proficiency_proficient_char5": "Terus belajar dan menerapkan teknologi baru.",
+    "proficiency_proficient_feedback": "Kamu sudah unggul di kebanyakan situasi. Jika rekan lain kekurangan sumber daya, bagikan pengetahuan atau arahkan mereka ke materi yang bermanfaat.",
+    "proficiency_expert_name": "Ahli",
+    "proficiency_expert_char1": "Otoritas yang diakui dalam alat dan teknologi digital.",
+    "proficiency_expert_char2": "Memimpin inisiatif inovasi digital.",
+    "proficiency_expert_char3": "Mengembangkan solusi baru dan mengoptimalkan proses yang ada.",
+    "proficiency_expert_char4": "Membimbing orang lain dan berbagi keahlian secara luas.",
+    "proficiency_expert_char5": "Selalu selangkah di depan tren industri dan menerapkan praktik terbaik.",
+    "proficiency_expert_feedback": "Sebagai ahli, kepercayaan dirimu menginspirasi. Dukung orang lain melalui mentoring, berbagi sumber, atau menciptakan lingkungan digital yang inklusif."
+  },
+  "competencyList": [
+    { "key": "learningAdapting", "name": "Belajar & Beradaptasi" },
+    { "key": "aiTools", "name": "AI & Alat Digital" },
+    { "key": "onlineSafety", "name": "Keamanan Online" },
+    { "key": "dataWork", "name": "Bekerja dengan Data" },
+    { "key": "communication", "name": "Komunikasi" },
+    { "key": "creativity", "name": "Kreativitas & Inovasi" },
+    { "key": "digitalResponsibility", "name": "Tanggung Jawab Digital" },
+    { "key": "findingInfo", "name": "Menemukan Informasi" },
+    { "key": "problemSolving", "name": "Pemecahan Masalah" },
+    { "key": "wellbeing", "name": "Kesejahteraan & Keberlanjutan" }
+  ],
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" }, { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" }, { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" }, { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" }, { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" }, { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" }, { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" }, { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" }, { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" }, { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" }, { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" }, { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" }, { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" }, { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" }, { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" }, { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" }, { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" }, { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" }, { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" }, { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" }, { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+  ],
+  "questionTexts": {
+    "q_learningAdapting_k_text": "Saya memahami nilai mempelajari teknologi baru.",
+    "q_learningAdapting_k_example": "Menyadari bahwa mempelajari alat baru membuat saya tetap relevan.",
+    "q_learningAdapting_s_text": "Saya menyisihkan waktu untuk meningkatkan keterampilan digital saya.",
+    "q_learningAdapting_s_example": "Berlatih dengan alat baru, seperti menggunakan AI untuk menguji ide atau merangkum.",
+    "q_learningAdapting_a_text": "Saya cepat beradaptasi ketika teknologi di tempat kerja berubah.",
+    "q_learningAdapting_a_example": "Menguasai sistem atau pembaruan baru tanpa banyak penundaan.",
+
+    "q_aiTools_k_text": "Saya memahami bagaimana alat AI dapat mendukung pekerjaan saya.",
+    "q_aiTools_k_example": "Tahu apa yang bisa dan tidak bisa dilakukan AI, misalnya memberi saran konten atau mempercepat tugas.",
+    "q_aiTools_s_text": "Saya memperbaiki masalah teknis umum sendiri.",
+    "q_aiTools_s_example": "Mengatasi gangguan perangkat atau membantu rekan menyalakan ulang layar.",
+    "q_aiTools_a_text": "Saya mencoba fitur AI atau pembaruan teknologi untuk meningkatkan pekerjaan.",
+    "q_aiTools_a_example": "Menggunakan AI (chatbot atau generator gambar) untuk menghemat waktu atau menyelesaikan tugas.",
+
+    "q_onlineSafety_k_text": "Saya tahu cara menjaga perangkat dan data tetap aman.",
+    "q_onlineSafety_k_example": "Mengenali kata sandi kuat atau pesan mencurigakan.",
+    "q_onlineSafety_s_text": "Saya mengikuti langkah-langkah menjaga keamanan file dan perangkat.",
+    "q_onlineSafety_s_example": "Keluar dari tablet bersama dan menyimpan file secara aman.",
+    "q_onlineSafety_a_text": "Saya mempertimbangkan dengan cermat data pribadi atau tim apa yang dibagikan ke alat digital.",
+    "q_onlineSafety_a_example": "Menghindari memasukkan data sensitif ke alat cerdas atau situs web.",
+
+    "q_dataWork_k_text": "Saya tahu cara membaca data dasar seperti laporan atau angka.",
+    "q_dataWork_k_example": "Memahami laporan penjualan atau stok sederhana.",
+    "q_dataWork_s_text": "Saya menganalisis data untuk meningkatkan cara saya bekerja.",
+    "q_dataWork_s_example": "Melihat tren angka untuk menyesuaikan rencana tugas.",
+    "q_dataWork_a_text": "Saya melihat pola bermanfaat dalam data yang saya gunakan.",
+    "q_dataWork_a_example": "Mengenali jam penjualan puncak atau produk populer.",
+
+    "q_communication_k_text": "Saya tahu cara berkomunikasi jelas menggunakan alat digital.",
+    "q_communication_k_example": "Mengerti cara menulis email atau pesan grup yang jelas.",
+    "q_communication_s_text": "Saya bekerja dengan baik bersama orang lain menggunakan alat digital.",
+    "q_communication_s_example": "Mengedit dokumen bersama atau menjadwalkan shift secara daring.",
+    "q_communication_a_text": "Saya berkomunikasi dengan sopan, jelas, dan inklusif.",
+    "q_communication_a_example": "Mengirim pesan ramah dan menghindari kebingungan di chat grup.",
+
+    "q_creativity_k_text": "Saya tahu bagaimana alat digital dapat meningkatkan tugas.",
+    "q_creativity_k_example": "Memahami bahwa pintasan digital dapat mempercepat pekerjaan.",
+    "q_creativity_s_text": "Saya mendukung ide baru yang meningkatkan performa tim.",
+    "q_creativity_s_example": "Membantu membuat cara lebih baik mengatur atau berbagi pekerjaan tim.",
+    "q_creativity_a_text": "Saya berbagi alat atau ide baru dengan tim.",
+    "q_creativity_a_example": "Memperkenalkan aplikasi atau fitur yang dapat membantu tim bekerja lebih baik.",
+
+    "q_digitalResponsibility_k_text": "Saya tahu aturan menggunakan alat digital secara bertanggung jawab.",
+    "q_digitalResponsibility_k_example": "Memeriksa dulu jika ragu bolehkah menggunakan alat AI.",
+    "q_digitalResponsibility_s_text": "Saya mengikuti panduan perusahaan saat menggunakan sistem digital.",
+    "q_digitalResponsibility_s_example": "Mengikuti panduan dan memeriksa output AI dari kesalahan atau bias.",
+    "q_digitalResponsibility_a_text": "Saya memikirkan dampak tindakan digital saya pada orang lain.",
+    "q_digitalResponsibility_a_example": "Menghindari unggahan yang bisa merusak kepercayaan pelanggan atau melanggar aturan.",
+
+    "q_findingInfo_k_text": "Saya tahu ke mana mencari informasi tepercaya.",
+    "q_findingInfo_k_example": "Mengetahui sistem mana untuk mengecek stok atau kebijakan HR.",
+    "q_findingInfo_s_text": "Saya menyimpan dan menata informasi digital dengan jelas.",
+    "q_findingInfo_s_example": "Menyimpan file di folder yang tepat dengan nama jelas.",
+    "q_findingInfo_a_text": "Saya tahu alat digital dan hasil pencarian bisa bias atau tidak adil.",
+    "q_findingInfo_a_example": "Menyadari saat alat memberikan jawaban yang tidak seimbang atau tidak akurat.",
+
+    "q_problemSolving_k_text": "Saya menyadari ketika teknologi saya tidak berfungsi.",
+    "q_problemSolving_k_example": "Melihat saat kasir, layar, atau sistem tidak merespons.",
+    "q_problemSolving_s_text": "Saya memperbaiki masalah teknis dasar tanpa bantuan.",
+    "q_problemSolving_s_example": "Menyalakan ulang perangkat atau menyelesaikan masalah login tanpa IT.",
+    "q_problemSolving_a_text": "Saya menggunakan cara kreatif untuk memecahkan masalah teknis.",
+    "q_problemSolving_a_example": "Mencoba metode baru atau menggabungkan alat untuk memperbaiki masalah.",
+
+    "q_wellbeing_k_text": "Saya menyadari bagaimana kerja digital memengaruhi kesehatan saya.",
+    "q_wellbeing_k_example": "Mengetahui saat waktu layar memengaruhi suasana hati atau fokus.",
+    "q_wellbeing_s_text": "Saya menyeimbangkan waktu layar dengan tugas lain sepanjang hari.",
+    "q_wellbeing_s_example": "Mencampur tugas digital dengan kerja tatap muka atau bergerak.",
+    "q_wellbeing_a_text": "Saya mendorong kebiasaan digital sehat di tim.",
+    "q_wellbeing_a_example": "Mengajak rekan untuk istirahat atau mematikan notifikasi."
+  },
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "Rasa ingin tahu terhadap teknologi baru membuatmu fleksibel dan siap berubah. Terus eksplorasi dan bagikan pembelajaranmu untuk menginspirasi tim.",
+      "Skills": "Menyediakan waktu khusus untuk belajar keterampilan digital membantumu tumbuh dan menghadapi tantangan dengan percaya diri.",
+      "Attitudes": "Beradaptasi cepat dengan perubahan teknologi kerja mengurangi gangguan dan membangun kepercayaan rekan. Gunakan kemampuan ini untuk memimpin saat perubahan."
+    },
+    "aiTools": {
+      "Knowledge": "Menguasai alat kerja menghemat waktu dan membuat pekerjaan lebih cerdas. Bagikan tips agar seluruh tim terbantu.",
+      "Skills": "Cepat menyelesaikan masalah teknis menjaga alur kerja lancar dan menunjukkan bahwa kamu dapat diandalkan.",
+      "Attitudes": "Mengeksplorasi fitur baru membantumu menemukan cara kerja lebih baik dan memelihara rasa ingin tahu."
+    },
+    "onlineSafety": {
+      "Knowledge": "Mengetahui cara menjaga data aman melindungi pekerjaan dan menenangkan tim.",
+      "Skills": "Kebiasaan seperti keluar dari perangkat bersama dan melindungi file menurunkan risiko.",
+      "Attitudes": "Melindungi data sensitif membangun kepercayaan di antara rekan."
+    },
+    "dataWork": {
+      "Knowledge": "Menggunakan laporan dan data untuk keputusan memastikan pilihanmu tepat.",
+      "Skills": "Menganalisis tren membantu memecahkan masalah dan meningkatkan hasil.",
+      "Attitudes": "Melihat pola data menumbuhkan pemikiran kritis dalam tim."
+    },
+    "communication": {
+      "Knowledge": "Percaya diri memakai alat komunikasi membantu menyampaikan ide dengan jelas.",
+      "Skills": "Kolaborasi digital membuat proyek lebih mulus.",
+      "Attitudes": "Komunikasi yang jelas, hormat, dan inklusif memperkuat hubungan tim."
+    },
+    "creativity": {
+      "Knowledge": "Mencari cara baru menyederhanakan tugas dan meningkatkan efisiensi.",
+      "Skills": "Solusi inovatif membuat proyek menonjol.",
+      "Attitudes": "Mendorong penggunaan alat baru memupuk budaya kreatif."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Mematuhi pedoman digital meningkatkan kepercayaan.",
+      "Skills": "Menjaga tindakan sesuai panduan memastikan alur kerja lancar.",
+      "Attitudes": "Perilaku digital yang adil dan bertanggung jawab memperkuat kolaborasi."
+    },
+    "findingInfo": {
+      "Knowledge": "Menemukan informasi tepercaya membuat keputusan lebih akurat.",
+      "Skills": "Menata informasi memudahkan pencarian kembali.",
+      "Attitudes": "Memverifikasi informasi menegakkan standar tinggi."
+    },
+    "problemSolving": {
+      "Knowledge": "Mengenali masalah teknis lebih awal menjaga proyek tetap berjalan.",
+      "Skills": "Memperbaiki kesalahan sederhana meningkatkan produktivitas.",
+      "Attitudes": "Menggunakan teknologi secara kreatif membawa solusi segar."
+    },
+    "wellbeing": {
+      "Knowledge": "Menyadari dampak digital pada kesehatan membantu menjaga keseimbangan.",
+      "Skills": "Menyeimbangkan tugas digital dan non-digital mengurangi stres.",
+      "Attitudes": "Mendorong kebiasaan sehat meningkatkan kesejahteraan tim."
+    }
+  },
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "Belajar hal baru membantumu memahami dan menyesuaikan tugas dengan lebih mudah.",
+      "Skills": "Mengasah keterampilan digital membuat tugas sulit terasa lebih ringan.",
+      "Attitudes": "Bersikap proaktif terhadap perubahan meningkatkan kepercayaan diri."
+    },
+    "aiTools": {
+      "Knowledge": "Menambah wawasan AI dapat menghemat waktu dan bekerja lebih cerdas.",
+      "Skills": "Berlatih dengan aplikasi dan perangkat mempercepat penyelesaian masalah.",
+      "Attitudes": "Eksplorasi terstruktur membantu menemukan cara paling efektif."
+    },
+    "onlineSafety": {
+      "Knowledge": "Mempelajari risiko keamanan umum seperti phishing membantumu menghindari masalah.",
+      "Skills": "Menggunakan kata sandi kuat dan autentikasi ganda memberi lapisan perlindungan tambahan.",
+      "Attitudes": "Meningkatkan kesadaran risiko menjaga tim tetap aman."
+    },
+    "dataWork": {
+      "Knowledge": "Memahami cara membaca data meningkatkan rasa percaya diri.",
+      "Skills": "Latihan analisis data membuka wawasan berguna.",
+      "Attitudes": "Rasa ingin tahu pada data memperkuat pemikiran analitis."
+    },
+    "communication": {
+      "Knowledge": "Memahami alat komunikasi baru memudahkan kerja tim.",
+      "Skills": "Mencoba cara kolaborasi digital baru mempererat kekompakan.",
+      "Attitudes": "Meningkatkan sensitivitas budaya membuat komunikasi lebih inklusif."
+    },
+    "creativity": {
+      "Knowledge": "Metode pemecahan masalah kreatif memicu ide baru.",
+      "Skills": "Berlatih dengan perangkat lunak memperkaya kreativitas.",
+      "Attitudes": "Pendekatan terstruktur memastikan ide terlaksana."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Menambah pemahaman kepatuhan menumbuhkan kepercayaan diri.",
+      "Skills": "Simulasi skenario sulit memperkuat kepemimpinan.",
+      "Attitudes": "Sikap proaktif terhadap dilema etika membangun kepercayaan."
+    },
+    "findingInfo": {
+      "Knowledge": "Menilai sumber secara kritis meningkatkan akurasi kerja.",
+      "Skills": "Mencoba perangkat lunak baru dapat menyederhanakan pekerjaan.",
+      "Attitudes": "Sikap kritis terhadap konten meningkatkan keandalan."
+    },
+    "problemSolving": {
+      "Knowledge": "Memperluas pengetahuan troubleshooting mempercepat penyelesaian masalah.",
+      "Skills": "Latihan rutin meningkatkan kepercayaan diri di situasi kompleks.",
+      "Attitudes": "Ketekunan dalam masalah sulit menambah efektivitas."
+    },
+    "wellbeing": {
+      "Knowledge": "Belajar strategi kesehatan digital membantu menjaga keseimbangan.",
+      "Skills": "Berbagi tips sederhana mendorong kebiasaan sehat tim.",
+      "Attitudes": "Praktik berkelanjutan menambah nilai pada pekerjaan harian."
+    }
+  },
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "Mendaftar kursus teknologi baru di bidang saya dalam tiga bulan ke depan.",
+      "Skills": "Selama tiga bulan ke depan, sisihkan setidaknya dua jam per minggu untuk belajar keterampilan digital.",
+      "Attitudes": "Pada kuartal ini, sambut setidaknya satu perubahan teknologi kerja dengan sikap positif."
+    },
+    "aiTools": {
+      "Knowledge": "Bulan ini, pelajari satu fitur baru di alat kerja guna meningkatkan efisiensi.",
+      "Skills": "Selama dua bulan, selesaikan sendiri minimal satu masalah teknis setiap minggu.",
+      "Attitudes": "Sebelum akhir bulan, coba satu teknologi atau alat baru terkait pekerjaan."
+    },
+    "onlineSafety": {
+      "Knowledge": "Menghadiri lokakarya keamanan siber pada kuartal berikutnya.",
+      "Skills": "Minggu ini, perbarui semua kata sandi agar memenuhi standar keamanan.",
+      "Attitudes": "Selama sebulan, biasakan langsung keluar dari perangkat bersama."
+    },
+    "dataWork": {
+      "Knowledge": "Bulan ini, pelajari cara membaca laporan dasar yang relevan dengan peran saya.",
+      "Skills": "Dalam dua bulan, gunakan alat analisis data untuk meningkatkan satu proses kerja.",
+      "Attitudes": "Selama dua bulan, rutin mencari pola dalam data yang saya gunakan."
+    },
+    "communication": {
+      "Knowledge": "Menguasai alat komunikasi baru (mis. Teams) dalam satu bulan.",
+      "Skills": "Kuartal berikutnya, ikut proyek kolaboratif menggunakan alat digital.",
+      "Attitudes": "Sebelum kuartal berakhir, minta umpan balik rekan tentang gaya komunikasi saya."
+    },
+    "creativity": {
+      "Knowledge": "Bulan ini, riset alat digital yang bisa memperbaiki alur kerja tim.",
+      "Skills": "Dalam dua bulan, kembangkan dan ajukan solusi inovatif untuk tantangan tim.",
+      "Attitudes": "Tiga bulan ke depan, dorong rekan untuk berbagi dan mencoba ide baru di rapat mingguan."
+    },
+    "digitalResponsibility": {
+      "Knowledge": "Membaca kebijakan etika digital perusahaan sebelum akhir minggu depan.",
+      "Skills": "Dalam dua minggu, tinjau proyek terkini demi kepatuhan dan lakukan perbaikan bila perlu.",
+      "Attitudes": "Selama tiga bulan, pertimbangkan aspek etika sebelum memulai tugas digital baru."
+    },
+    "findingInfo": {
+      "Knowledge": "Menyelesaikan kursus daring tentang teknik pencarian informasi efektif dalam tiga bulan.",
+      "Skills": "Dalam dua minggu, terapkan sistem pengelolaan file baru agar pencarian lebih efisien.",
+      "Attitudes": "Sebulan ke depan, biasakan memeriksa ulang semua informasi penting sebelum dibagikan."
+    },
+    "problemSolving": {
+      "Knowledge": "Bulan ini, pelajari masalah teknis umum dan solusinya.",
+      "Skills": "Selama tiga bulan, usahakan menyelesaikan masalah teknis kecil sendiri sebelum meminta bantuan.",
+      "Attitudes": "Kuartal depan, brainstorming solusi kreatif untuk setiap tantangan digital."
+    },
+    "wellbeing": {
+      "Knowledge": "Bulan ini, riset praktik terbaik kesehatan digital untuk meningkatkan kesejahteraan kerja.",
+      "Skills": "Selama sebulan, ambil istirahat singkat setiap jam untuk menyeimbangkan tugas layar.",
+      "Attitudes": "Di pertemuan tim berikutnya, dorong rekan berbagi tips mengelola beban kerja digital."
+    }
+  },
+  "misc": {
+    "examplePrefix": "Contoh: ",
+    "andConjunction": "dan",
+    "areLowerThanConjunction": "lebih rendah dari",
+    "languageLabel": "Bahasa:"
+  }
+}
