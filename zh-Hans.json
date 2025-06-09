@@ -1,0 +1,364 @@
+{
+  "lang": "zh-Hans",
+  "langName": "简体中文",
+  "appTitle": "数字技能评估",
+  "startScreen": {
+    "title": "数字技能评估",
+    "introParagraph1": "此快速评估将帮助你反思自己的数字技能，并找出可以提升的领域。这不是考试——只是了解自己优势和潜在支持点的简单方式。",
+    "introParagraph2": "你将看到一系列简短陈述和示例。请为每条陈述选择最符合你当前水平的选项。",
+    "introParagraph3": "<strong>评估匿名，仅需几分钟。</strong>",
+    "introParagraph4": "保持真实，慢慢来，我们开始吧！",
+    "startButtonText": "继续"
+  },
+  "assessmentScreen": {
+    "competencyBannerPrefix": "能力：",
+    "progressLabelSuffix": "%",
+    "noSelectionWarning": "请选择一个选项后再继续。",
+    "showProficiencyLevelsButton": "显示水平说明",
+    "hideProficiencyLevelsButton": "隐藏水平说明",
+    "proficiencyLevelsDropdown": {
+      "beginner": "<strong>初学者：</strong> 我在此方面几乎没有经验，需要他人指导。",
+      "developing": "<strong>在提升：</strong> 在一定支持下可以完成，正努力保持一致性。",
+      "competent": "<strong>胜任：</strong> 能在岗位中独立、可靠地完成。",
+      "proficient": "<strong>熟练：</strong> 能出色独立完成，并在需要时支持或建议他人。",
+      "expert": "<strong>专家：</strong> 始终保持高水平表现，并指导他人提升。"
+    }
+  },
+  "endScreen": {
+    "title": "评估完成",
+    "qrCodeSectionTitle": "你的二维码",
+    "qrCodeInstruction": "扫描二维码，收藏并稍后再次查看结果。",
+    "keyCharacteristicsTitle": "关键特征：",
+    "keyCharacteristicsIntro": "以下特征描述了你的熟练水平，突出你的优势，帮助你了解自己擅长的方面。",
+    "radarChartTitle": "你的能力雷达图",
+    "radarChartDescription": "通过此图可快速查看不同能力维度中的优势和待提升区域。",
+    "radarChartLegendIntro": "图表按三个维度展示你的得分：",
+    "radarChartLegendKnowledge": "知识",
+    "radarChartLegendSkills": "技能",
+    "radarChartLegendAttitudes": "态度",
+    "radarChartLegendExplanation": "。每条彩线代表一个维度。理想状态下，几条线应重叠，说明发展均衡。若某条线较低，则提示你可重点提升。例如，若",
+    "radarChartLegendSkillsExample": "技能",
+    "radarChartLegendKnowledgeExample": "知识",
+    "radarChartLegendExplanationSuffix": "在某能力中偏低，可多练习<i>运用</i>已学内容。",
+    "strengthsSectionTitle": "<span class=\"icon\">👍</span>你的三大优势",
+    "strengthsSectionIntro": "根据评估结果，以下是你的三项主要优势。专注这些领域可帮助你更好地发挥现有技能，也可查看其他表现良好的方面。",
+    "growthAreasSectionTitle": "<span class=\"icon\">🌱</span>成长领域",
+    "growthAreasSectionIntro": "下面三项是具有显著提升空间的能力。改进这些领域可提升你的整体水平，还可探索其他潜在改进点。",
+    "smartObjectivesSectionTitle": "<span class=\"icon\">🎯</span>SMART 目标",
+    "smartObjectivesSectionIntro": "根据成长领域，这里提供了一些 SMART 目标建议。请根据自身情况添加时间节点及具体细节。",
+    "thankYouMessage": "干得好！继续提升你的数字技能吧。",
+    "surveyPrompt": "我们重视你的反馈！请花几分钟完成问卷。",
+    "surveyButtonText": "填写问卷",
+    "restartButtonText": "重新开始",
+    "strongestDimensionLabel": "最强维度：",
+    "growthAreaLabel": "成长领域：",
+    "smartObjectiveLabel": "SMART 目标：",
+    "recommendedResourcesLabel": "推荐资源："
+  },
+  "proficiencyLabels": {
+    "1": "初学者",
+    "2": "在提升",
+    "3": "胜任",
+    "4": "熟练",
+    "5": "专家"
+  },
+  "overallProficiencyLevels": [
+    { "nameKey": "proficiency_beginner_name", "range": [0, 20], "characteristicsKeys": ["proficiency_beginner_char1", "proficiency_beginner_char2", "proficiency_beginner_char3", "proficiency_beginner_char4"], "feedbackKey": "proficiency_beginner_feedback" },
+    { "nameKey": "proficiency_developing_name", "range": [21, 40], "characteristicsKeys": ["proficiency_developing_char1", "proficiency_developing_char2", "proficiency_developing_char3", "proficiency_developing_char4"], "feedbackKey": "proficiency_developing_feedback" },
+    { "nameKey": "proficiency_competent_name", "range": [41, 60], "characteristicsKeys": ["proficiency_competent_char1", "proficiency_competent_char2", "proficiency_competent_char3", "proficiency_competent_char4", "proficiency_competent_char5"], "feedbackKey": "proficiency_competent_feedback" },
+    { "nameKey": "proficiency_proficient_name", "range": [61, 80], "characteristicsKeys": ["proficiency_proficient_char1", "proficiency_proficient_char2", "proficiency_proficient_char3", "proficiency_proficient_char4", "proficiency_proficient_char5"], "feedbackKey": "proficiency_proficient_feedback" },
+    { "nameKey": "proficiency_expert_name", "range": [81, 100], "characteristicsKeys": ["proficiency_expert_char1", "proficiency_expert_char2", "proficiency_expert_char3", "proficiency_expert_char4", "proficiency_expert_char5"], "feedbackKey": "proficiency_expert_feedback" }
+  ],
+  "proficiencyTexts": {
+    "proficiency_beginner_name": "初学者",
+    "proficiency_beginner_char1": "对数字工具和概念只有基本了解。",
+    "proficiency_beginner_char2": "完成任务需他人指导和监督。",
+    "proficiency_beginner_char3": "在故障排查和问题解决上可能遇到困难。",
+    "proficiency_beginner_char4": "使用不熟悉的工具或技术时需要支持。",
+    "proficiency_beginner_feedback": "此阶段你可能感到不熟悉或有挑战，这很正常。利用合适的工具和支持能显著提升。请大胆寻求资源与帮助。",
+    "proficiency_developing_name": "在提升",
+    "proficiency_developing_char1": "展现出对数字工具和技术日益增长的理解。",
+    "proficiency_developing_char2": "在少量监督下可完成常规任务。",
+    "proficiency_developing_char3": "开始独立解决常见问题。",
+    "proficiency_developing_char4": "面对复杂任务或新技术仍需帮助。",
+    "proficiency_developing_feedback": "你已开始探索该领域，但仍可能需要指导或培训。利用可用资源，逐步增强信心与能力。",
+    "proficiency_competent_name": "胜任",
+    "proficiency_competent_char1": "对数字工具和技术有扎实的理解。",
+    "proficiency_competent_char2": "能在最少监督下独立工作。",
+    "proficiency_competent_char3": "熟练运用多种数字工具完成任务。",
+    "proficiency_competent_char4": "能有效排查常见问题。",
+    "proficiency_competent_char5": "处理极为复杂或陌生任务时仍可能需要支持。",
+    "proficiency_competent_feedback": "你进步稳定，可在少量支持下胜任工作。检查所需资源是否齐备，弥补空缺，进一步提升独立性。",
+    "proficiency_proficient_name": "熟练",
+    "proficiency_proficient_char1": "在数字工具和高级技术方面表现出高水平熟练度。",
+    "proficiency_proficient_char2": "工作独立高效。",
+    "proficiency_proficient_char3": "能解决复杂问题并提供创新方案。",
+    "proficiency_proficient_char4": "经常在数字任务上帮助他人。",
+    "proficiency_proficient_char5": "持续学习并采纳新技术。",
+    "proficiency_proficient_feedback": "你已能成功应对大多数情境。如发现他人缺乏资源，可分享知识或推荐有用资料。",
+    "proficiency_expert_name": "专家",
+    "proficiency_expert_char1": "在数字工具和技术领域的公认权威。",
+    "proficiency_expert_char2": "领导数字创新项目。",
+    "proficiency_expert_char3": "开发新方案并优化现有流程。",
+    "proficiency_expert_char4": "指导他人并广泛分享专业知识。",
+    "proficiency_expert_char5": "走在行业趋势前沿，实施最佳实践。",
+    "proficiency_expert_feedback": "作为专家，你的自信令人鼓舞。通过导师制、资源共享或营造包容的数字环境来帮助他人。"
+  },
+  "competencyList": [
+    { "key": "learningAdapting", "name": "学习与适应" },
+    { "key": "aiTools", "name": "AI 与数字工具" },
+    { "key": "onlineSafety", "name": "在线安全" },
+    { "key": "dataWork", "name": "数据运用" },
+    { "key": "communication", "name": "沟通" },
+    { "key": "creativity", "name": "创意与创新" },
+    { "key": "digitalResponsibility", "name": "数字责任" },
+    { "key": "findingInfo", "name": "信息查找" },
+    { "key": "problemSolving", "name": "问题解决" },
+    { "key": "wellbeing", "name": "健康与可持续" }
+  ],
+  "questions": [
+    { "competencyKey": "learningAdapting", "type": "Knowledge", "questionKey": "q_learningAdapting_k_text", "exampleKey": "q_learningAdapting_k_example" }, { "competencyKey": "learningAdapting", "type": "Skills", "questionKey": "q_learningAdapting_s_text", "exampleKey": "q_learningAdapting_s_example" }, { "competencyKey": "learningAdapting", "type": "Attitudes", "questionKey": "q_learningAdapting_a_text", "exampleKey": "q_learningAdapting_a_example" },
+    { "competencyKey": "aiTools", "type": "Knowledge", "questionKey": "q_aiTools_k_text", "exampleKey": "q_aiTools_k_example" }, { "competencyKey": "aiTools", "type": "Skills", "questionKey": "q_aiTools_s_text", "exampleKey": "q_aiTools_s_example" }, { "competencyKey": "aiTools", "type": "Attitudes", "questionKey": "q_aiTools_a_text", "exampleKey": "q_aiTools_a_example" },
+    { "competencyKey": "onlineSafety", "type": "Knowledge", "questionKey": "q_onlineSafety_k_text", "exampleKey": "q_onlineSafety_k_example" }, { "competencyKey": "onlineSafety", "type": "Skills", "questionKey": "q_onlineSafety_s_text", "exampleKey": "q_onlineSafety_s_example" }, { "competencyKey": "onlineSafety", "type": "Attitudes", "questionKey": "q_onlineSafety_a_text", "exampleKey": "q_onlineSafety_a_example" },
+    { "competencyKey": "dataWork", "type": "Knowledge", "questionKey": "q_dataWork_k_text", "exampleKey": "q_dataWork_k_example" }, { "competencyKey": "dataWork", "type": "Skills", "questionKey": "q_dataWork_s_text", "exampleKey": "q_dataWork_s_example" }, { "competencyKey": "dataWork", "type": "Attitudes", "questionKey": "q_dataWork_a_text", "exampleKey": "q_dataWork_a_example" },
+    { "competencyKey": "communication", "type": "Knowledge", "questionKey": "q_communication_k_text", "exampleKey": "q_communication_k_example" }, { "competencyKey": "communication", "type": "Skills", "questionKey": "q_communication_s_text", "exampleKey": "q_communication_s_example" }, { "competencyKey": "communication", "type": "Attitudes", "questionKey": "q_communication_a_text", "exampleKey": "q_communication_a_example" },
+    { "competencyKey": "creativity", "type": "Knowledge", "questionKey": "q_creativity_k_text", "exampleKey": "q_creativity_k_example" }, { "competencyKey": "creativity", "type": "Skills", "questionKey": "q_creativity_s_text", "exampleKey": "q_creativity_s_example" }, { "competencyKey": "creativity", "type": "Attitudes", "questionKey": "q_creativity_a_text", "exampleKey": "q_creativity_a_example" },
+    { "competencyKey": "digitalResponsibility", "type": "Knowledge", "questionKey": "q_digitalResponsibility_k_text", "exampleKey": "q_digitalResponsibility_k_example" }, { "competencyKey": "digitalResponsibility", "type": "Skills", "questionKey": "q_digitalResponsibility_s_text", "exampleKey": "q_digitalResponsibility_s_example" }, { "competencyKey": "digitalResponsibility", "type": "Attitudes", "questionKey": "q_digitalResponsibility_a_text", "exampleKey": "q_digitalResponsibility_a_example" },
+    { "competencyKey": "findingInfo", "type": "Knowledge", "questionKey": "q_findingInfo_k_text", "exampleKey": "q_findingInfo_k_example" }, { "competencyKey": "findingInfo", "type": "Skills", "questionKey": "q_findingInfo_s_text", "exampleKey": "q_findingInfo_s_example" }, { "competencyKey": "findingInfo", "type": "Attitudes", "questionKey": "q_findingInfo_a_text", "exampleKey": "q_findingInfo_a_example" },
+    { "competencyKey": "problemSolving", "type": "Knowledge", "questionKey": "q_problemSolving_k_text", "exampleKey": "q_problemSolving_k_example" }, { "competencyKey": "problemSolving", "type": "Skills", "questionKey": "q_problemSolving_s_text", "exampleKey": "q_problemSolving_s_example" }, { "competencyKey": "problemSolving", "type": "Attitudes", "questionKey": "q_problemSolving_a_text", "exampleKey": "q_problemSolving_a_example" },
+    { "competencyKey": "wellbeing", "type": "Knowledge", "questionKey": "q_wellbeing_k_text", "exampleKey": "q_wellbeing_k_example" }, { "competencyKey": "wellbeing", "type": "Skills", "questionKey": "q_wellbeing_s_text", "exampleKey": "q_wellbeing_s_example" }, { "competencyKey": "wellbeing", "type": "Attitudes", "questionKey": "q_wellbeing_a_text", "exampleKey": "q_wellbeing_a_example" }
+  ],
+  "questionTexts": {
+    "q_learningAdapting_k_text": "我理解学习新技术的价值。",
+    "q_learningAdapting_k_example": "知道学习新工具有助于我保持竞争力。",
+    "q_learningAdapting_s_text": "我专门安排时间提升自己的数字技能。",
+    "q_learningAdapting_s_example": "尝试使用新工具，例如用 AI 测试想法或生成摘要。",
+    "q_learningAdapting_a_text": "当工作中的技术发生变化时，我能迅速适应。",
+    "q_learningAdapting_a_example": "几乎不拖延地上手新系统或更新。",
+
+    "q_aiTools_k_text": "我了解 AI 工具如何支持我的工作。",
+    "q_aiTools_k_example": "知道 AI 能做什么，不能做什么，如内容建议或加速任务。",
+    "q_aiTools_s_text": "我能自行排除常见技术问题。",
+    "q_aiTools_s_example": "解决设备故障，或帮助同事重启屏幕。",
+    "q_aiTools_a_text": "我愿意尝试 AI 功能或技术更新来改进工作。",
+    "q_aiTools_a_example": "使用 AI 聊天或图像生成器来节省时间或完成任务。",
+
+    "q_onlineSafety_k_text": "我知道如何保护设备和数据安全。",
+    "q_onlineSafety_k_example": "识别强密码或可疑消息。",
+    "q_onlineSafety_s_text": "我遵循步骤确保文件和设备安全。",
+    "q_onlineSafety_s_example": "退出共享平板账户并安全保存文件。",
+    "q_onlineSafety_a_text": "我会仔细考虑在数字工具中分享何种个人或团队数据。",
+    "q_onlineSafety_a_example": "避免将敏感信息输入智能工具或网站。",
+
+    "q_dataWork_k_text": "我知道如何阅读基础数据，如报告或数字。",
+    "q_dataWork_k_example": "看懂简单的销售或库存报告。",
+    "q_dataWork_s_text": "我分析数据以改进工作方式。",
+    "q_dataWork_s_example": "根据数据趋势调整任务计划。",
+    "q_dataWork_a_text": "我能发现所用数据中的有用模式。",
+    "q_dataWork_a_example": "识别销量高峰或热门商品。",
+
+    "q_communication_k_text": "我知道如何用数字工具清晰沟通。",
+    "q_communication_k_example": "了解如何编写清晰的邮件或群消息。",
+    "q_communication_s_text": "我能通过数字工具与他人高效协作。",
+    "q_communication_s_example": "在线共同编辑文档或排班计划。",
+    "q_communication_a_text": "我沟通时尊重、清晰且包容。",
+    "q_communication_a_example": "发送礼貌消息并避免群聊混淆。",
+
+    "q_creativity_k_text": "我知道数字工具如何帮助改进任务。",
+    "q_creativity_k_example": "理解数字快捷方式能让工作更高效。",
+    "q_creativity_s_text": "我支持能提升团队表现的新想法。",
+    "q_creativity_s_example": "帮助开发更好的团队协作或分享方式。",
+    "q_creativity_a_text": "我会向团队分享新工具或想法。",
+    "q_creativity_a_example": "介绍可提升团队效率的应用或功能。",
+
+    "q_digitalResponsibility_k_text": "我了解我们负责任使用数字工具的规则。",
+    "q_digitalResponsibility_k_example": "若不确定是否可用 AI 工具，会先确认。",
+    "q_digitalResponsibility_s_text": "我在使用数字系统时遵守公司指引。",
+    "q_digitalResponsibility_s_example": "遵循指引并检查 AI 输出是否有错误或偏见。",
+    "q_digitalResponsibility_a_text": "我考虑自己的数字行为对他人的影响。",
+    "q_digitalResponsibility_a_example": "避免发布可能损害客户信任或违规的内容。",
+
+    "q_findingInfo_k_text": "我知道去哪里寻找可靠信息。",
+    "q_findingInfo_k_example": "了解查询库存或人事政策的对应系统。",
+    "q_findingInfo_s_text": "我会清晰地存储和整理数字信息。",
+    "q_findingInfo_s_example": "将文件存入正确文件夹并使用清晰文件名。",
+    "q_findingInfo_a_text": "我知道数字工具和搜索结果可能存在偏见或不公。",
+    "q_findingInfo_a_example": "注意到工具给出不平衡、不准确或片面的答案。",
+
+    "q_problemSolving_k_text": "我能察觉技术出现故障。",
+    "q_problemSolving_k_example": "发现收银机、屏幕或系统无响应。",
+    "q_problemSolving_s_text": "我能独立解决基础技术问题。",
+    "q_problemSolving_s_example": "重启设备或自行解决登录问题。",
+    "q_problemSolving_a_text": "我用创造性方式解决技术问题。",
+    "q_problemSolving_a_example": "尝试新方法或组合工具来修复故障。",
+
+    "q_wellbeing_k_text": "我注意到数字工作对健康的影响。",
+    "q_wellbeing_k_example": "意识到长时间用屏幕影响情绪或专注。",
+    "q_wellbeing_s_text": "我在一天中平衡屏幕时间与其他任务。",
+    "q_wellbeing_s_example": "将数字任务与面对面工作或运动交替进行。",
+    "q_wellbeing_a_text": "我在团队中推广健康的数字习惯。",
+    "q_wellbeing_a_example": "鼓励队友休息或关闭通知。"
+  },
+  "feedbackStrengths": {
+    "learningAdapting": {
+      "Knowledge": "对新技术保持好奇让你更灵活，并随时准备应对变化。继续探索工具并分享所学，以激励团队。",
+      "Skills": "腾出时间提升数字技能使你不断成长，并自信地承担新任务。用这一优势来引领他人。",
+      "Attitudes": "快速适应技术变化可减少干扰，提升同事信任。借助这一能力在变革时期作出表率。"
+    },
+    "aiTools": {
+      "Knowledge": "熟悉工作工具可节省时间、提高效率。与团队分享技巧，让人人工作更轻松。",
+      "Skills": "迅速解决技术问题保持流程顺畅，并展示你的可靠性。用这一优势支持团队。",
+      "Attitudes": "探索新功能和工具能让你找到更好的工作方法，并保持好奇心。分享发现，鼓励他人尝试。"
+    },
+    "onlineSafety": {
+      "Knowledge": "了解如何保护数据可确保工作安全，并让团队安心。以身作则，树立好榜样。",
+      "Skills": "退出共享设备、保护文件等安全习惯能降低风险。鼓励团队养成同样习惯。",
+      "Attitudes": "保护敏感数据能在团队内建立信任。展示负责任的数据管理方式。"
+    },
+    "dataWork": {
+      "Knowledge": "借助报告或数据做决策可使选择更明智、更有效。分享此优势，推动团队采取更聪明的策略。",
+      "Skills": "通过分析数据发现趋势有助于解决问题、改善结果。运用技能引导团队做出更好决策。",
+      "Attitudes": "发现数据中的模式可增强信心、激发批判性思维。帮助团队基于证据做决策。"
+    },
+    "communication": {
+      "Knowledge": "熟练使用沟通工具能清晰分享想法并保持联系。用此技能加强协作。",
+      "Skills": "通过数字工具协作可确保项目顺畅。运用技能带领项目并促进共同成功。",
+      "Attitudes": "清晰、尊重、包容的沟通可促进团队关系并提升协作氛围。保持积极态度。"
+    },
+    "creativity": {
+      "Knowledge": "寻找改进流程的方法可简化任务并提高效率。分享想法以激发创新。",
+      "Skills": "创造或支持创新解决方案可让项目脱颖而出、获得成功。用这一力量推动持续改进。",
+      "Attitudes": "鼓励团队尝试新工具可培养创造力与创新文化。用积极心态启发新思路。"
+    },
+    "digitalResponsibility": {
+      "Knowledge": "遵守数字工具规则能建立信任。用你的理解树立高标准并指导团队。",
+      "Skills": "确保行为符合公司指南可保持流程顺畅。用这一能力负责地处理敏感任务。",
+      "Attitudes": "考虑公平和数字责任可提升协作。以此心态树立团队行为基准。"
+    },
+    "findingInfo": {
+      "Knowledge": "找到可靠信息可确保决策清晰、准确。用这一技能指导他人。",
+      "Skills": "整理信息便于之后查找，也能提升沟通效率。创造更高效的团队环境。",
+      "Attitudes": "核对信息准确性可保持高标准并建立信任。激励他人关注质量。"
+    },
+    "problemSolving": {
+      "Knowledge": "快速识别技术问题可保持项目进度，减少停机时间。用此能力支持团队并鼓励解决方案。",
+      "Skills": "解决简单技术问题可提高生产力。分享你的流程帮助他人学习。",
+      "Attitudes": "用技术创造性地解决挑战会让工作更有趣、更具创新性。分享灵感，突破障碍。"
+    },
+    "wellbeing": {
+      "Knowledge": "意识到数字工作对身心的影响可建立更健康的工作环境。用此知识促进团队福祉。",
+      "Skills": "在一天中平衡数字与非数字任务可提升效率并减少压力。用此能力改进流程、推广平衡。",
+      "Attitudes": "推广健康的数字习惯有助于时间管理和整体幸福。以身作则，营造积极氛围。"
+    }
+  },
+  "feedbackGrowth": {
+    "learningAdapting": {
+      "Knowledge": "学习新内容能让你更轻松理解并适应任务。利用课程与资源深入掌握该领域。",
+      "Skills": "提升数字技能将使你在复杂任务中更有把握。设定小目标并跟踪进度。",
+      "Attitudes": "积极面对变化可增强应对突发情况的信心。收集反馈并持续改进。"
+    },
+    "aiTools": {
+      "Knowledge": "深入了解 AI 可帮助你节省时间、提升效率。查找在线教程拓展知识。",
+      "Skills": "多练习设备和应用能提高解决问题的速度。尝试不常用的功能以建立信心。",
+      "Attitudes": "有组织地探索能让你更清楚地看到最佳做法。记录有用功能并分享给团队。"
+    },
+    "onlineSafety": {
+      "Knowledge": "了解常见安全风险（如钓鱼邮件）可帮助你避免问题。花时间研究危害及应对方法。",
+      "Skills": "使用强密码或双因素认证可为系统再加一层防护。启用并体验安全提升。",
+      "Attitudes": "提高对数据泄露等风险的意识能保护团队安全。开展小型宣传或分享最佳实践。"
+    },
+    "dataWork": {
+      "Knowledge": "学习解读数据可增强信心。可从 Excel 等简单工具开始。",
+      "Skills": "练习数据分析技巧能挖掘更多洞见。尝试新工具，让结果更有影响力。",
+      "Attitudes": "对数据保持好奇能强化分析思维。分享见解，推动明智决策。"
+    },
+    "communication": {
+      "Knowledge": "掌握新沟通工具能简化团队协作。探索不同平台，找到最适合自己的。",
+      "Skills": "尝试新的数字协作方式能增强团队凝聚力。利用共享工作空间提升效率。",
+      "Attitudes": "提高文化敏感度可使沟通更具包容性。通过团队反馈持续学习。"
+    },
+    "creativity": {
+      "Knowledge": "尝试创造性的问题解决方法能激发新想法。使用数字工具探索创意。",
+      "Skills": "多练习应用与软件能增强创造力。进行头脑风暴或原型制作。",
+      "Attitudes": "对创新采取结构化方法可让创意更易落地。与团队一起完善数字方案。"
+    },
+    "digitalResponsibility": {
+      "Knowledge": "深入了解合规性能让你在棘手情境中更自信。查看真实案例获得启发。",
+      "Skills": "在挑战场景中练习决策可强化领导力。通过角色扮演提升判断力。",
+      "Attitudes": "主动面对道德难题可建立信任。与团队开展讨论，探索解决方案。"
+    },
+    "findingInfo": {
+      "Knowledge": "学会批判性评估数字来源能提高工作准确性。掌握高级搜索技巧。",
+      "Skills": "尝试新软件或功能能简化工作流程。改进信息存储与共享方式。",
+      "Attitudes": "对数字内容保持批判态度可提高可靠性。分享最佳实践，提升团队标准。"
+    },
+    "problemSolving": {
+      "Knowledge": "扩展故障排查知识能更快解决挑战。回顾旧问题寻找规律。",
+      "Skills": "练习排查技巧能让你在复杂问题前更自信。了解新功能，拓展方法。",
+      "Attitudes": "在解决棘手问题时保持韧性能提升效率。分享解决方案，增强合作。"
+    },
+    "wellbeing": {
+      "Knowledge": "了解数字健康策略能帮助你保持平衡。探索可持续做法带来更多价值。",
+      "Skills": "分享健康习惯小贴士可激励团队形成平衡。鼓励简单改变，如定时休息。",
+      "Attitudes": "采用可持续做法（如减少电子垃圾）能为日常工作增值。从一个改变开始，并与团队分享成果。"
+    }
+  },
+  "smartObjectives": {
+    "learningAdapting": {
+      "Knowledge": "在未来三个月内报名参加本领域新兴技术课程。",
+      "Skills": "接下来三个月中，每周至少抽出两小时提升数字技能。",
+      "Attitudes": "本季度积极接受并实践至少一项工作中的技术变更。"
+    },
+    "aiTools": {
+      "Knowledge": "本月学习一个工作工具的新功能，以提升效率。",
+      "Skills": "未来两个月内，每周独立解决至少一个技术问题。",
+      "Attitudes": "在月底前尝试一项与工作相关的新技术或工具。"
+    },
+    "onlineSafety": {
+      "Knowledge": "在下个季度参加一次网络安全培训。",
+      "Skills": "本周检查并更新所有密码以满足安全标准。",
+      "Attitudes": "在接下来的一个月内养成退出共享设备的习惯。"
+    },
+    "dataWork": {
+      "Knowledge": "本月学会解读与角色相关的基础报告。",
+      "Skills": "在两个月内使用数据分析工具改进一个工作流程。",
+      "Attitudes": "在未来两个月定期观察工作数据中的趋势。"
+    },
+    "communication": {
+      "Knowledge": "在一个月内熟悉新的沟通工具（如 Teams），提升团队沟通。",
+      "Skills": "下一季度参与使用数字工具的协作项目，提升协作技能。",
+      "Attitudes": "在本季度结束前邀请同事就我的沟通方式提供反馈。"
+    },
+    "creativity": {
+      "Knowledge": "本月研究可改进团队流程的数字工具。",
+      "Skills": "在两个月内制定并展示一个创新解决方案，解决团队当前挑战。",
+      "Attitudes": "在接下来的三个月里鼓励同事在周会上分享并尝试新想法。"
+    },
+    "digitalResponsibility": {
+      "Knowledge": "在下周末前阅读全文旗下公司的数字伦理政策。",
+      "Skills": "在两周内审查并调整近期项目以确保合规。",
+      "Attitudes": "在三个月内，在启动每个新的数字任务前主动思考伦理因素。"
+    },
+    "findingInfo": {
+      "Knowledge": "在未来三个月内完成信息检索技巧线上课程。",
+      "Skills": "在两周内实施新的文件整理系统，提高检索效率。",
+      "Attitudes": "在接下来一个月中，分享任何重要信息前先做二次准确性核查。"
+    },
+    "problemSolving": {
+      "Knowledge": "本月熟悉常见技术问题及其解决方案。",
+      "Skills": "在三个月内，尝试先自行解决小型技术问题，再寻求帮助。",
+      "Attitudes": "在下个季度为所有数字挑战提出创造性方案。"
+    },
+    "wellbeing": {
+      "Knowledge": "本月研究数字健康最佳实践，改善工作健康。",
+      "Skills": "在一个月内实行每小时短休息，平衡数字与非数字任务。",
+      "Attitudes": "在下一次团队会议上鼓励大家分享管理数字工作量的心得。"
+    }
+  },
+  "misc": {
+    "examplePrefix": "示例：",
+    "andConjunction": "和",
+    "areLowerThanConjunction": "低于",
+    "languageLabel": "语言："
+  }
+}
