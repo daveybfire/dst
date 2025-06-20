@@ -1,185 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Digital Skills Assessment Results</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- No QRCode.js needed for team page unless you generate a team summary QR -->
+// ... (keep existing parts of the script: i18nData, competenciesData, etc.) ...
 
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
-        .container { max-width: 800px; width: 90%; margin: 20px auto; background: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px 30px; padding-top: 10px; }
-        h1, h2, h3 { font-size: 28px; margin: 20px 0; color: #2c3e50; }
-        h4 { font-size: 22px; margin-bottom: 10px; color: #2c3e50; }
-        p { margin: 10px 0 20px; font-size: 16px; color: #555; line-height: 1.6; }
-        textarea { width: 98%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: monospace; font-size: 14px; }
-        .button { padding: 12px 25px; margin: 10px 0; background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
-        .button:hover { background: #0a5e60; }
-        .button:disabled { background: #ccc; cursor: not-allowed; }
-        .hidden { display: none !important; }
-        #competencyRadarChart { max-width: 100%; height: auto; }
-        .chart-container { margin: 30px 0; }
-        .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin: 20px 0; text-align: left; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-        .card h4 { margin: 0 0 15px; color: #2c3e50; }
-        .strengths .card { border-left: 4px solid #4caf50; }
-        .growth-areas .card { border-left: 4px solid #f44336; }
-        .section-title { font-size: 24px; margin-top: 40px; color: #2c3e50; text-align: left; padding-bottom: 10px; }
-        .icon { font-size: 24px; vertical-align: middle; margin-right: 10px; }
-        .strengths { background: #e8f5e9; border: 2px solid #4caf50; border-radius: 10px; padding: 20px; margin: 30px 0; }
-        .growth-areas { background: #ffebee; border: 2px solid #f44336; border-radius: 10px; padding: 20px; margin: 30px 0; }
-        .strengths .section-title, .growth-areas .section-title { background: rgba(0,0,0,0.05); padding: 10px 15px; border-radius: 5px; margin: -20px -20px 20px -20px; }
-        .strengths .card, .growth-areas .card { background: #fff; border-radius: 8px; padding: 15px; margin: 15px 0; }
-        .chart-description { font-size: 16px; color: #555; margin-bottom: 20px; line-height: 1.5; text-align: center; }
+    let teamProcessedParticipantCount = 0; // This will now also be set when parsing from URL
+    let rawInputDataStringsForEmail = []; 
+    // ... (other global variables)
 
-        @media (max-width: 600px) {
-            .container { padding: 15px 20px; }
-            h1, h2, h3 { font-size: 24px; }
-            h4 { font-size: 20px; }
-            p { font-size: 15px; }
-            .button { font-size: 16px; padding: 10px 20px;}
-        }
-    </style>
-</head>
-<body>
+    // ... (assignDOMelements, t, constructRadarLegend, initializeTeamPage - no changes needed here for this specific request) ...
 
-<div class="container" id="team-data-input-screen">
-    <h1>Team Digital Skills Assessment - Aggregator</h1>
-    <p>Paste participant data strings below (one per line).<br>Format: <code>KNOWLEDGSCORES-SKILLSSCORES-ATTITUDESSCORES</code><br>
-       Example: <code>1234512345-1122334455-5544332211</code> (assuming 10 competencies)
-    </p>
-    <textarea id="team-data-strings" rows="15" placeholder="e.g.
-1111111111-2222222222-3333333333
-5432154321-5555555555-4444444444"></textarea>
-    <button class="button" id="process-team-data-button">Process Team Data</button>
-    <p id="participant-count-info" style="font-style: italic; color: #333;"></p>
-    <p id="processing-errors" style="color: red; white-space: pre-wrap;"></p>
-</div>
-
-<div class="container hidden" id="team-results-screen"> <!-- Was 'end-screen' -->
-    <h2 id="team-results-title">Team Assessment Results</h2>
-     <div id="team-summary-info" style="text-align:center; margin-bottom:20px;">
-        <p><strong>Number of Participants Processed:</strong> <span id="num-participants-processed">0</span></p>
-        <p><strong>Average Team Score (Overall):</strong> <span id="team-average-percentage">N/A</span>%</p>
-    </div>
-    <div class="chart-container">
-        <h3 id="radar-chart-title">Team Competency Radar</h3>
-        <p class="chart-description" id="radar-chart-desc">This chart visualises the team's average scores across all competencies in three areas.</p>
-        <canvas id="competencyRadarChart"></canvas>
-        <p id="radar-chart-legend" style="font-size:0.9em; text-align:center; margin-top:10px;"></p>
-    </div>
-    <div class="strengths">
-        <h3 class="section-title" id="strengths-title"><span class="icon">🏆</span>Team's Top Areas</h3>
-        <p id="strengths-intro">These are the areas where the team, on average, scored highest.</p>
-        <div id="team-strengths"></div>
-    </div>
-    <div class="growth-areas">
-        <h3 class="section-title" id="growth-areas-title"><span class="icon">📈</span>Team's Key Growth Opportunities</h3>
-        <p id="growth-areas-intro">These are areas where the team, on average, has the most room for development.</p>
-        <div id="team-growth-areas"></div>
-    </div>
-    <div style="text-align: center; margin-top:30px;">
-        <button class="button" id="process-new-data-button">Process New Team Data</button>
-    </div>
-</div>
-
-<script>
-    let i18nData = {}; // For labels from en.json
-    let competenciesData = [];
-    // These keys MUST match the 'key' field in your competencyList in en.json and be in the same order.
-    const COMPETENCY_KEYS_IN_ORDER = [
-        "learningAdapting", "aiTools", "onlineSafety", "dataWork", 
-        "communication", "creativity", "digitalResponsibility", "findingInfo", 
-        "problemSolving", "wellbeing"
-    ];
-    let teamAverageAnswers = { Knowledge: [], Skills: [], Attitudes: [] };
-    let radarChart;
-
-    // DOM Elements
-    let teamDataInputScreen, teamDataStringsTextarea, processTeamDataButton, participantCountInfo, processingErrorsP;
-    let teamResultsScreen, teamStrengthsContainer, teamGrowthAreasContainer, processNewDataButton;
-
-    function assignDOMelements() {
-        teamDataInputScreen = document.getElementById('team-data-input-screen');
-        teamDataStringsTextarea = document.getElementById('team-data-strings');
-        processTeamDataButton = document.getElementById('process-team-data-button');
-        participantCountInfo = document.getElementById('participant-count-info');
-        processingErrorsP = document.getElementById('processing-errors');
-
-        teamResultsScreen = document.getElementById('team-results-screen');
-        teamStrengthsContainer = document.getElementById('team-strengths');
-        teamGrowthAreasContainer = document.getElementById('team-growth-areas');
-        processNewDataButton = document.getElementById('process-new-data-button');
+    function encodeTeamAverageScoresToString() {
+        // Encodes: K_avg_x10_scores - S_avg_x10_scores - A_avg_x10_scores - ParticipantCount
+        // Each average score (0.0-5.0) is multiplied by 10 (0-50) and padded to 2 digits if needed.
+        const kAvgStr = teamAverageAnswers.Knowledge.map(s => Math.round(s * 10).toString().padStart(2, '0')).join('');
+        const sAvgStr = teamAverageAnswers.Skills.map(s => Math.round(s * 10).toString().padStart(2, '0')).join('');
+        const aAvgStr = teamAverageAnswers.Attitudes.map(s => Math.round(s * 10).toString().padStart(2, '0')).join('');
+        return `${kAvgStr}-${sAvgStr}-${aAvgStr}-${teamProcessedParticipantCount}`; // Add participant count
     }
 
-     function t(key, replacements = {}) { 
-        if (typeof i18nData !== 'object' || i18nData === null) return `[No i18nData: ${key}]`;
-        let textValue = i18nData;
-        const parts = key.split('.');
-        for (let i = 0; i < parts.length; i++) {
-            const part = parts[i];
-            if (textValue && typeof textValue === 'object' && Object.prototype.hasOwnProperty.call(textValue, part)) {
-                textValue = textValue[part];
-            } else { return `[Missing: ${key}]`; }
-        }
-        if (typeof textValue !== 'string') return `[Invalid Type: ${key}]`;
-        let finalText = textValue;
-        for (const placeholder in replacements) {
-            finalText = finalText.replace(new RegExp(`{${placeholder}}`, 'g'), replacements[placeholder]);
-        }
-        return finalText;
-    }
-     function constructRadarLegend() { 
-        const andConj = t('misc.andConjunction');
-        const lowerThanConj = t('misc.areLowerThanConjunction');
-        return `${t('endScreen.radarChartLegendIntro')}<span style="color: #ff6384; font-weight: bold;">${t('endScreen.radarChartLegendKnowledge')}</span>, <span style="color: #36a2eb; font-weight: bold;">${t('endScreen.radarChartLegendSkills')}</span>, ${andConj.startsWith('[Missing:') ? 'and' : andConj} <span style="color: #4bc0c0; font-weight: bold;">${t('endScreen.radarChartLegendAttitudes')}</span>${t('endScreen.radarChartLegendExplanation')}<span style="color: #36a2eb; font-weight: bold;">${t('endScreen.radarChartLegendSkillsExample')}</span> ${lowerThanConj.startsWith('[Missing:') ? 'are lower than' : lowerThanConj} <span style="color: #ff6384; font-weight: bold;">${t('endScreen.radarChartLegendKnowledgeExample')}</span>${t('endScreen.radarChartLegendExplanationSuffix')}`;
-    }
-
-
-    async function initializeTeamPage() {
-        assignDOMelements();
-
-        try {
-            const response = await fetch('en.json?v=' + new Date().getTime()); // Load en.json for labels
-            if (!response.ok) throw new Error("Failed to load en.json for team page labels.");
-            i18nData = await response.json();
-            document.documentElement.lang = i18nData.lang || 'en';
-            document.title = "Team " + t('appTitle');
-            competenciesData = i18nData.competencyList || [];
-
-            if (competenciesData.length !== COMPETENCY_KEYS_IN_ORDER.length) {
-                console.error("CRITICAL MISMATCH: The number of competency keys in COMPETENCY_KEYS_IN_ORDER does not match the length of competencyList from en.json. Please update COMPETENCY_KEYS_IN_ORDER in team-results.html.");
-                processingErrorsP.textContent = "Configuration error: Competency key list mismatch. See console.";
-                if(processTeamDataButton) processTeamDataButton.disabled = true;
-                return;
-            }
-            
-            // Translate static parts of the team input page if needed
-            const h1 = teamDataInputScreen.querySelector('h1');
-            if(h1) h1.textContent = t('appTitle') + " - Team Aggregator";
-            if(processTeamDataButton) processTeamDataButton.textContent = "Process Team Data"; // Or use a t() key
-
-
-        } catch (error) {
-            console.error("Error loading base translations (en.json) for team page:", error);
-            document.body.innerHTML = "<div style='padding:20px;text-align:center;'><h1>Error</h1><p>Could not load essential data (en.json) for the team results page. Please ensure en.json is accessible.</p></div>";
+    function parseAndDisplayTeamAvgData(teamAvgDataString) {
+        const parts = teamAvgDataString.split('-');
+        // Expect 4 parts: K_scores, S_scores, A_scores, ParticipantCount
+        if (parts.length !== 4) {
+            console.error("Malformed teamAvgData string in URL (expected 4 parts):", teamAvgDataString);
+            if (processingErrorsP) processingErrorsP.textContent = "Error: Invalid team average data link (format error).";
+            if (teamDataInputScreen) teamDataInputScreen.classList.remove('hidden');
             return;
         }
+        const [kAvgStr, sAvgStr, aAvgStr, countStr] = parts;
 
-        if (processTeamDataButton) {
-            processTeamDataButton.onclick = decodeAndProcessTeamData;
+        const numCompetencies = COMPETENCY_KEYS_IN_ORDER.length;
+        let expectedKAvgStrLength = numCompetencies * 2; // Each score (0-50) takes 2 digits
+
+        try {
+            if (kAvgStr.length !== expectedKAvgStrLength || 
+                sAvgStr.length !== expectedKAvgStrLength || 
+                aAvgStr.length !== expectedKAvgStrLength) {
+                throw new Error("Length of encoded average score strings does not match expected length based on number of competencies.");
+            }
+
+            teamAverageAnswers.Knowledge = [];
+            for (let i = 0; i < kAvgStr.length; i += 2) {
+                 teamAverageAnswers.Knowledge.push(parseInt(kAvgStr.substring(i, i + 2)) / 10);
+            }
+            teamAverageAnswers.Skills = [];
+            for (let i = 0; i < sAvgStr.length; i += 2) {
+                 teamAverageAnswers.Skills.push(parseInt(sAvgStr.substring(i, i + 2)) / 10);
+            }
+            teamAverageAnswers.Attitudes = [];
+            for (let i = 0; i < aAvgStr.length; i += 2) {
+                 teamAverageAnswers.Attitudes.push(parseInt(aAvgStr.substring(i, i + 2)) / 10);
+            }
+            
+            teamProcessedParticipantCount = parseInt(countStr);
+            if (isNaN(teamProcessedParticipantCount) || teamProcessedParticipantCount < 0) {
+                 throw new Error("Invalid participant count in teamAvgData from URL.");
+            }
+
+            // Basic validation that parsed arrays match competency count
+            if (teamAverageAnswers.Knowledge.length !== numCompetencies ||
+                teamAverageAnswers.Skills.length !== numCompetencies ||
+                teamAverageAnswers.Attitudes.length !== numCompetencies) {
+                throw new Error("Parsed average score array lengths do not match number of competencies after processing.");
+            }
+
+        } catch (e) {
+            console.error("Error parsing teamAvgData from URL:", e, teamAvgDataString);
+            if (processingErrorsP) processingErrorsP.textContent = "Error: Corrupted team average data link (parsing error).";
+            if (teamDataInputScreen) teamDataInputScreen.classList.remove('hidden'); // Show input if error
+            return;
         }
-        if (processNewDataButton) {
-            processNewDataButton.onclick = () => {
-                if (teamDataInputScreen) teamDataInputScreen.classList.remove('hidden');
-                if (teamResultsScreen) teamResultsScreen.classList.add('hidden');
-                if (teamDataStringsTextarea) teamDataStringsTextarea.value = '';
-                if (participantCountInfo) participantCountInfo.textContent = '';
-                if (processingErrorsP) processingErrorsP.textContent = '';
-                if (radarChart) radarChart.destroy();
-            };
-        }
-        if (teamResultsScreen) teamResultsScreen.classList.add('hidden');
+        
+        showTeamResults(teamProcessedParticipantCount); // Display the loaded average results
+        if (teamDataInputScreen) teamDataInputScreen.classList.add('hidden');
+        if (participantCountInfo) participantCountInfo.textContent = `Displaying pre-calculated average results for ${teamProcessedParticipantCount} participants from link.`;
+        rawInputDataStringsForEmail = []; // Raw data is not available when loading from avg link
     }
 
     function decodeAndProcessTeamData() {
@@ -188,9 +80,11 @@
             alert("Please paste participant data strings into the textarea.");
             return;
         }
-        processingErrorsP.textContent = ''; // Clear previous errors
+        if(processingErrorsP) processingErrorsP.textContent = ''; 
+        rawInputDataStringsForEmail = []; 
 
         const individualDataStrings = dataStringsInput.split('\n').map(s => s.trim()).filter(s => s && s.includes('-'));
+        rawInputDataStringsForEmail = [...individualDataStrings]; 
         
         if (individualDataStrings.length === 0) {
             alert("No valid data strings found. Make sure each data string is on a new line and contains hyphens.");
@@ -219,22 +113,23 @@
                     sStr.split('').forEach((score, i) => allSkillsScores[i].push(parseInt(score)));
                     aStr.split('').forEach((score, i) => allAttitudesScores[i].push(parseInt(score)));
                 } else {
-                    errorsEncountered.push(`Line ${lineIndex + 1}: Data string "${dataStr}" has incorrect score counts (expected ${numExpectedCompetencies} for K, S, A).`);
+                    errorsEncountered.push(`Line ${lineIndex + 1}: Data string "${dataStr.substring(0,30)}..." has incorrect score counts (expected ${numExpectedCompetencies} per dimension).`);
                 }
             } else {
-                 errorsEncountered.push(`Line ${lineIndex + 1}: Data string "${dataStr}" is not in the format K-S-A.`);
+                 errorsEncountered.push(`Line ${lineIndex + 1}: Data string "${dataStr.substring(0,30)}..." is not in the format K-S-A.`);
             }
         });
 
-        if (errorsEncountered.length > 0) {
-            processingErrorsP.textContent = "Errors found during processing:\n" + errorsEncountered.join("\n");
+        if (errorsEncountered.length > 0 && processingErrorsP) {
+            processingErrorsP.textContent = "Errors found during processing (some data may be ignored):\n" + errorsEncountered.join("\n");
         }
         if (validParticipantCount === 0) {
-            alert("No valid participant data could be processed. Check errors below input box.");
+            alert("No valid participant data could be processed. Check errors below input box if any.");
             return;
         }
+        teamProcessedParticipantCount = validParticipantCount;
 
-        if (participantCountInfo) participantCountInfo.textContent = `Successfully processed data for ${validParticipantCount} participant(s).`;
+        if (participantCountInfo) participantCountInfo.textContent = `Successfully processed data for ${teamProcessedParticipantCount} participant(s).`;
 
         teamAverageAnswers.Knowledge = allKnowledgeScores.map(scoresArr => 
             scoresArr.length > 0 ? parseFloat((scoresArr.reduce((s, c) => s + c, 0) / scoresArr.length).toFixed(1)) : 0
@@ -246,7 +141,7 @@
             scoresArr.length > 0 ? parseFloat((scoresArr.reduce((s, c) => s + c, 0) / scoresArr.length).toFixed(1)) : 0
         );
         
-        showTeamResults(validParticipantCount);
+        showTeamResults(teamProcessedParticipantCount);
     }
 
     function showTeamResults(processedCount) {
@@ -254,26 +149,36 @@
         if (teamResultsScreen) teamResultsScreen.classList.remove('hidden');
 
         const numParticipantsProcessedEl = document.getElementById('num-participants-processed');
-        if (numParticipantsProcessedEl) numParticipantsProcessedEl.textContent = processedCount;
-        
-        // Calculate overall team average percentage
-        const totalAverageSum = teamAverageAnswers.Knowledge.reduce((s,c)=>s+c,0) + 
-                                teamAverageAnswers.Skills.reduce((s,c)=>s+c,0) + 
-                                teamAverageAnswers.Attitudes.reduce((s,c)=>s+c,0);
-        const maxPossibleSumOfAverages = COMPETENCY_KEYS_IN_ORDER.length * 3 * 5; // Max score per dimension is 5
-        const teamAveragePercentage = maxPossibleSumOfAverages > 0 ? Math.round((totalAverageSum / maxPossibleSumOfAverages) * 100 * COMPETENCY_KEYS_IN_ORDER.length) : 0; // This calculation needs review based on how you define "team average %"
-        // Simpler way: average of all individual scores then percentage.
-        // For now, let's average the average scores per competency
-        let sumOfOverallAverages = 0;
-        for(let i=0; i < COMPETENCY_KEYS_IN_ORDER.length; i++){
-            sumOfOverallAverages += (teamAverageAnswers.Knowledge[i] + teamAverageAnswers.Skills[i] + teamAverageAnswers.Attitudes[i]) / 3;
+        if (numParticipantsProcessedEl) {
+            // Use teamProcessedParticipantCount as it's set by both processing and URL parsing
+            numParticipantsProcessedEl.textContent = teamProcessedParticipantCount > 0 ? teamProcessedParticipantCount : "N/A (from link)";
         }
-        const teamOverallAverageScoreOutOf5 = sumOfOverallAverages / COMPETENCY_KEYS_IN_ORDER.length;
+        
+        let sumOfOverallAveragesPerCompetency = 0;
+        for(let i=0; i < COMPETENCY_KEYS_IN_ORDER.length; i++){
+            // Ensure indices are valid for teamAverageAnswers arrays
+            const kAvg = teamAverageAnswers.Knowledge[i] || 0;
+            const sAvg = teamAverageAnswers.Skills[i] || 0;
+            const aAvg = teamAverageAnswers.Attitudes[i] || 0;
+            sumOfOverallAveragesPerCompetency += (kAvg + sAvg + aAvg) / 3;
+        }
+        const teamOverallAverageScoreOutOf5 = COMPETENCY_KEYS_IN_ORDER.length > 0 ? sumOfOverallAveragesPerCompetency / COMPETENCY_KEYS_IN_ORDER.length : 0;
         const teamAveragePercentageDisplay = Math.round((teamOverallAverageScoreOutOf5 / 5) * 100);
-
 
         const teamAveragePercentageEl = document.getElementById('team-average-percentage');
         if(teamAveragePercentageEl) teamAveragePercentageEl.textContent = isNaN(teamAveragePercentageDisplay) ? 'N/A' : teamAveragePercentageDisplay;
+
+        let teamProficiencyRankName = "N/A";
+        if (overallProficiencyLevelsData && overallProficiencyLevelsData.length > 0 && !isNaN(teamAveragePercentageDisplay)) {
+            for (let level of overallProficiencyLevelsData) { 
+                if (teamAveragePercentageDisplay >= level.range[0] && teamAveragePercentageDisplay <= level.range[1]) {
+                    teamProficiencyRankName = t(`proficiencyTexts.${level.nameKey}`);
+                    break;
+                }
+            }
+        }
+        const teamProficiencyRankEl = document.getElementById('team-proficiency-rank');
+        if (teamProficiencyRankEl) teamProficiencyRankEl.textContent = teamProficiencyRankName;
 
 
         if (radarChart) radarChart.destroy();
@@ -297,14 +202,9 @@
                     r: { 
                         angleLines: { display: true, color: 'rgba(0, 0, 0, 0.1)' }, 
                         suggestedMin: 0, suggestedMax: 5, 
-                        pointLabels: { font: { size: 10 } }, // Make competency names smaller if needed
+                        pointLabels: { font: { size: 10 } }, 
                         grid: { color: 'rgba(0, 0, 0, 0.1)'},
-                        ticks: { 
-                            stepSize: 1, // Changed from 0.5 for cleaner look with integer scores
-                            beginAtZero: true, backdropColor: 'transparent',
-                            font: { size: 10 },
-                            // callback: function(value) { return value % 1 === 0 ? value : ''; } // Only show integer ticks
-                        } 
+                        ticks: { stepSize: 1, beginAtZero: true, backdropColor: 'transparent', font: { size: 10 }} 
                     } 
                 },
                 plugins: { legend: { position: 'top', labels: { font: {size: 12}} } }
@@ -313,67 +213,123 @@
 
         const teamResultsTitleEl = document.getElementById('team-results-title');
         if(teamResultsTitleEl) teamResultsTitleEl.textContent = t('appTitle') + " - Team Results";
-        
         const radarChartTitleEl = document.getElementById('radar-chart-title');
         if (radarChartTitleEl) radarChartTitleEl.textContent = "Team " + t('endScreen.radarChartTitle');
-        
         const radarChartDescEl = document.getElementById('radar-chart-desc');
         if (radarChartDescEl) radarChartDescEl.textContent = t('endScreen.radarChartDescription');
-        
         const radarChartLegendEl = document.getElementById('radar-chart-legend');
         if(radarChartLegendEl) radarChartLegendEl.innerHTML = constructRadarLegend();
 
         generateTeamStrengthsAndGrowth();
+        generateTeamToolQRCode();
+        addTeamEmailResultsFeature();
     }
     
+    function generateTeamToolQRCode() {
+        const qrCanvas = document.getElementById('team-tool-qr-code');
+        if (qrCanvas) {
+            const pageUrl = window.location.href.split('?')[0]; 
+            QRCode.toCanvas(qrCanvas, pageUrl, { width: 150, margin: 2 }, function (error) {
+                if (error) console.error("Error generating team tool QR code:", error);
+            });
+        }
+    }
+
+    function addTeamEmailResultsFeature() {
+        if (!teamActionsContainer || !processNewDataButton) return;
+
+        let emailButton = document.getElementById('team-email-results-button');
+        if (!emailButton) {
+            emailButton = document.createElement('button');
+            emailButton.id = 'team-email-results-button';
+            emailButton.classList.add('button', 'button-email');
+            emailButton.style.display = 'block';
+            emailButton.style.marginLeft = 'auto';
+            emailButton.style.marginRight = 'auto';
+            emailButton.style.marginBottom = '10px'; 
+            teamActionsContainer.insertBefore(emailButton, processNewDataButton);
+        }
+        
+        const emailIconHTML = '<span class="icon-email">📧</span>';
+        emailButton.innerHTML = emailIconHTML + (t('endScreen.emailTeamResultsButtonText') || "Email Team Results");
+
+        const newEmailButton = emailButton.cloneNode(true);
+        emailButton.parentNode.replaceChild(newEmailButton, emailButton);
+        emailButton = newEmailButton;
+
+        emailButton.onclick = () => {
+            const recipientEmail = "david.bythell@uk.aswatson.com";
+            const subject = encodeURIComponent(t('endScreen.emailTeamSubject') || "Aggregated Team Digital Skills Results");
+            const emailBodyIntroText = t('endScreen.emailTeamBodyIntro') || "Team Digital Skills Assessment - Aggregated Averages:";
+            
+            const teamAvgDataEncoded = encodeTeamAverageScoresToString(); // Includes participant count now
+            const resultsUrlWithAvg = `${window.location.href.split('?')[0]}?teamAvgData=${teamAvgDataEncoded}`;
+
+            let mailtoBody = `${emailBodyIntroText}\n\n` +
+                               `Participants Processed: ${teamProcessedParticipantCount > 0 ? teamProcessedParticipantCount : 'N/A (viewing shared link)'}\n` +
+                               `Overall Team Average: ${document.getElementById('team-average-percentage')?.textContent || 'N/A'}\n` + // No % sign here, it's already in the element
+                               `Team Proficiency: ${document.getElementById('team-proficiency-rank')?.textContent || 'N/A'}\n\n` +
+                               `Link to view this aggregated report graph: ${resultsUrlWithAvg}\n\n`;
+            
+            if (rawInputDataStringsForEmail && rawInputDataStringsForEmail.length > 0) {
+                mailtoBody += `--- Individual Raw Data Strings (${rawInputDataStringsForEmail.length}) ---\n`;
+                mailtoBody += rawInputDataStringsForEmail.join('\n');
+            } else if (teamProcessedParticipantCount > 0) { // Means loaded from URL, raw data not available from current session
+                mailtoBody += `(Raw individual data strings are not included when emailing from a shared link. This email reflects averages for ${teamProcessedParticipantCount} participants.)\n`;
+            } else {
+                mailtoBody += `(No individual raw data strings were processed in this session.)\n`;
+            }
+
+            const encodedMailtoBody = encodeURIComponent(mailtoBody);
+            const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${encodedMailtoBody}`;
+            
+            navigator.clipboard.writeText(resultsUrlWithAvg) // Copy the link to averages as a fallback
+                .then(() => { console.log("Team results average link copied to clipboard as fallback."); })
+                .catch(err => { console.warn('Could not copy team results average link to clipboard: ', err); });
+
+            window.location.href = mailtoLink;
+        };
+    }
+
     function generateTeamStrengthsAndGrowth() {
         if (!competenciesData || competenciesData.length === 0) return;
-
         const teamCompetencyScores = competenciesData.map((comp, i) => {
             const k = teamAverageAnswers.Knowledge[i] || 0;
             const s = teamAverageAnswers.Skills[i] || 0;
             const a = teamAverageAnswers.Attitudes[i] || 0;
             return {
-                key: comp.key,
-                name: comp.name,
-                avgKnowledge: k,
-                avgSkills: s,
-                avgAttitudes: a,
-                overallAverage: parseFloat(((k + s + a) / 3).toFixed(1)) // Average of the 3 dimensions for this competency
+                key: comp.key, name: comp.name,
+                avgKnowledge: k, avgSkills: s, avgAttitudes: a,
+                overallAverage: parseFloat(((k + s + a) / 3).toFixed(1))
             };
         });
 
         const sortedDesc = [...teamCompetencyScores].sort((a, b) => b.overallAverage - a.overallAverage);
         const sortedAsc = [...teamCompetencyScores].sort((a, b) => a.overallAverage - b.overallAverage);
-
         const topTeamAreas = sortedDesc.slice(0, 3);
         const growthTeamAreas = sortedAsc.slice(0, 3);
 
         if (teamStrengthsContainer) {
-            teamStrengthsContainer.innerHTML = ''; // Clear previous
+            teamStrengthsContainer.innerHTML = ''; 
             const strengthsTitleEl = document.getElementById('strengths-title');
             if(strengthsTitleEl) strengthsTitleEl.innerHTML = `<span class="icon">🏆</span>Team's Top ${topTeamAreas.length} Areas`;
-            
             topTeamAreas.forEach(comp => {
-                teamStrengthsContainer.innerHTML += `<div class="card"><h4>${comp.name} (Avg: ${comp.overallAverage}/5)</h4>
+                teamStrengthsContainer.innerHTML += `<div class="card"><h4>${comp.name} (Team Avg: ${comp.overallAverage}/5)</h4>
                     <p style="font-size:0.9em;">Avg Knowledge: ${comp.avgKnowledge}, Avg Skills: ${comp.avgSkills}, Avg Attitudes: ${comp.avgAttitudes}</p>
                     </div>`;
             });
         }
-
         if (teamGrowthAreasContainer) {
-            teamGrowthAreasContainer.innerHTML = ''; // Clear previous
+            teamGrowthAreasContainer.innerHTML = ''; 
             const growthTitleEl = document.getElementById('growth-areas-title');
             if(growthTitleEl) growthTitleEl.innerHTML = `<span class="icon">📈</span>Team's Top ${growthTeamAreas.length} Growth Opportunities`;
-
             growthTeamAreas.forEach(comp => {
-                teamGrowthAreasContainer.innerHTML += `<div class="card"><h4>${comp.name} (Avg: ${comp.overallAverage}/5)</h4>
+                teamGrowthAreasContainer.innerHTML += `<div class="card"><h4>${comp.name} (Team Avg: ${comp.overallAverage}/5)</h4>
                      <p style="font-size:0.9em;">Avg Knowledge: ${comp.avgKnowledge}, Avg Skills: ${comp.avgSkills}, Avg Attitudes: ${comp.avgAttitudes}</p>
                      </div>`;
             });
         }
     }
-
     document.addEventListener('DOMContentLoaded', initializeTeamPage);
 </script>
 </body>
