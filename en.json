@@ -53,7 +53,15 @@
     "strongestDimensionLabel": "Strongest Dimension:",
     "growthAreaLabel": "Growth Area:",
     "smartObjectiveLabel": "SMART Objective:",
-    "recommendedResourcesLabel": "Recommended Resources:"
+    "recommendedResourcesLabel": "Recommended Resources:",
+    "emailResultsButtonText": "Email My Results to [Your Team/Contact Name]",
+    "emailSubject": "Digital Skills Assessment Results",
+    "emailBodyIntro": "Please find my Digital Skills Assessment results link below:",
+    "emailBodyPleaseSend": "\n\nPlease send this email to share your results.",
+    "resultsLinkCopiedForEmailMessage": "Your email client should open. If not, the full results summary has been copied to your clipboard. Please paste it into an email to [Your Team/Contact Name] at [your.email@example.com]. The direct link is also part of the copied text.",
+    "copyLinkButtonText": "Copy Results Link (Alternative)",
+    "resultsLinkCopiedMessage": "Results link copied! Please paste into an email/document.",
+    "copyLinkFailedMessage": "Could not copy the link/summary automatically. Please manually select and copy the link or summary text."
   },
   "proficiencyLabels": {
     "1": "Beginner",
