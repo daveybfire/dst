@@ -54,7 +54,7 @@
         .proficiency-button.selected { background: #4caf50; color: white; transform: scale(1.05); }
 
         .no-selection-warning { color: red; font-size: 14px; margin-top: 10px; display: none; }
-        .button { padding: 12px 25px; margin: 20px 0; background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
+        .button { padding: 12px 25px; margin: 10px 0; /* Adjusted margin for multiple buttons */ background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
         .button:hover { background: #0a5e60; }
         .button:disabled { background: #ccc; cursor: not-allowed; }
         .hidden { display: none !important; } /* Added !important to ensure override */
@@ -90,7 +90,8 @@
         #question-text-container { font-size: 18px; font-weight: bold; color: #2c3e50; line-height: 1.6; margin-bottom: 10px; text-align: center; }
         #example-text-container { font-size: 16px; font-style: italic; color: #555; line-height: 1.4; margin-top: 5px; margin-bottom: 0; text-align: center; }
         .chart-description { font-size: 16px; color: #555; margin-bottom: 20px; line-height: 1.5; text-align: center; }
-        .qr-url { font-size: 12px; color: #aaa; /* Lighter color for better contrast if background is dark, or adjust as needed */ margin-top: 10px; word-wrap: break-word; }
+        .qr-url-container { text-align: center; margin-top: 10px; } /* Container for URL and its copy button */
+        .qr-url { font-size: 12px; color: #aaa; margin-top: 0; margin-bottom: 5px; /* Adjusted margins */ word-wrap: break-word; }
         #language-selector-container { padding: 10px; text-align: right; background-color: #f8f9fa; border-bottom: 1px solid #e0e0e0; margin-bottom:15px; }
 
         /* --- Styles for Smaller Screens (Mobiles) --- */
@@ -237,9 +238,10 @@
             </div>
         </div>
     </div>
-    <div style="text-align: center;">
+    <div style="text-align: center;" id="end-screen-actions-container"> <!-- Container for action buttons -->
+        <!-- Email and Copy Link buttons will be inserted here by JS before Restart -->
         <button class="button" id="restart-button" type="button"></button>
-        <div style="text-align: center; margin-top: 10px;">
+        <div class="qr-url-container"> <!-- Wrapped p and its potential button -->
             <p id="qr-url" class="qr-url"></p>
         </div>
     </div>
@@ -260,12 +262,13 @@
     const answers = { Knowledge: [], Skills: [], Attitudes: [] };
     let currentIndex = 0;
     let radarChart;
+    let userProficiencyLevelName = ''; // To store just the proficiency name for summary
 
     // DOM Element Grabbers (declared here, assigned in assignDOMelements after DOMContentLoaded)
     let startScreen, assessmentScreen, endScreen, progressBar, progressLabel, competencyBanner,
         questionTextContainer, exampleTextContainer, proficiencyButtonsNodeList, noSelectionWarningEl,
         strengthsContainer, growthAreasContainer, smartObjectivesContainer,
-        restartButton, startButton, langSelectorElement, proficiencyDropdownContentEl; // Added proficiencyDropdownContentEl
+        restartButton, startButton, langSelectorElement, proficiencyDropdownContentEl, endScreenActionsContainer;
 
     // --- FUNCTION DEFINITIONS ---
 
@@ -285,8 +288,8 @@
         restartButton = document.getElementById("restart-button");
         startButton = document.getElementById("start-button");
         langSelectorElement = document.getElementById('language-selector');
-        proficiencyDropdownContentEl = document.getElementById('proficiency-dropdown-content'); // Assigned
-        // console.log("assignDOMelements FINISHED. Start button:", startButton); 
+        proficiencyDropdownContentEl = document.getElementById('proficiency-dropdown-content');
+        endScreenActionsContainer = document.getElementById('end-screen-actions-container');
     }
 
     function setText(id, text) { 
@@ -309,7 +312,10 @@
                 textValue = textValue[part];
             } else { return `MISSING_TRANSLATION: ${key}`; }
         }
-        if (typeof textValue !== 'string') return `INVALID_TRANSLATION_TYPE: ${key}`;
+        if (typeof textValue !== 'string') {
+            // console.warn(`Value for key '${key}' is not a string:`, textValue);
+            return `INVALID_TRANSLATION_TYPE: ${key}`;
+        }
         let finalText = textValue;
         for (const placeholder in replacements) {
             finalText = finalText.replace(new RegExp(`{${placeholder}}`, 'g'), replacements[placeholder]);
@@ -318,29 +324,26 @@
     }
     
     async function loadVariantFiles(variantId) {
-        // console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`);
-        let textJsonToLoad = `${variantId.toLowerCase()}.json`; // Ensure lowercase for consistency
-        let resourcesJsToLoad = `resources-${variantId.toLowerCase()}.js`; // Ensure lowercase
-        let primaryLangForFallback = variantId.split('-')[0].toLowerCase();  // Ensure lowercase
+        let textJsonToLoad = `${variantId.toLowerCase()}.json`;
+        let resourcesJsToLoad = `resources-${variantId.toLowerCase()}.js`;
+        let primaryLangForFallback = variantId.split('-')[0].toLowerCase(); 
         let successLoadingText = false;
         let successLoadingResources = false;
 
         try {
             let response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
             if (!response.ok) {
-                 console.warn(`Failed to load ${textJsonToLoad}, trying primary fallback.`);
+                console.warn(`Failed to load ${textJsonToLoad}, trying primary fallback: ${primaryLangForFallback}.json`);
                 if (variantId.toLowerCase() !== primaryLangForFallback && primaryLangForFallback) {
                     textJsonToLoad = `${primaryLangForFallback}.json`;
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
                 }
                 if (!response.ok) { 
-                    console.warn(`Failed to load ${textJsonToLoad}, trying English fallback.`);
-                    if (textJsonToLoad.startsWith('en') && variantId.toLowerCase() !== 'en' && primaryLangForFallback !== 'en') {
-                         // Already tried or will try 'en.json'
-                    } else if (textJsonToLoad === 'en.json') { // If primary was 'en' and failed
-                        throw new Error('CRITICAL: Failed to load en.json for text initially.'); 
+                    console.warn(`Failed to load ${textJsonToLoad}, trying English fallback (en.json).`);
+                    if (textJsonToLoad === 'en.json') { 
+                        throw new Error('CRITICAL: Failed to load en.json for text initially and as primary fallback.'); 
                     }
-                    textJsonToLoad = 'en.json'; // Ultimate fallback
+                    textJsonToLoad = 'en.json';
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
                     if (!response.ok) throw new Error('CRITICAL: Failed to load en.json as ultimate text fallback.');
                 }
@@ -348,10 +351,9 @@
             i18nData = await response.json();
             currentVariantIdentifier = textJsonToLoad.replace('.json', ''); 
             successLoadingText = true;
-            // console.log('Successfully loaded Text JSON for:', currentVariantIdentifier); 
         } catch (error) {
             console.error("Fatal error loading text JSON file:", error);
-            document.body.innerHTML = `<div style="text-align:center;padding:20px;"><h1>Error</h1><p>Could not load language text resources.</p><p><em>${error.message}</em></p></div>`;
+            document.body.innerHTML = `<div style="text-align:center;padding:20px;"><h1>Error</h1><p>Could not load language text resources. Please check console for details and ensure '${variantId.toLowerCase()}.json', '${primaryLangForFallback}.json', or 'en.json' are available.</p><p><em>${error.message}</em></p></div>`;
             return; 
         }
 
@@ -387,11 +389,11 @@
                     await loadScript(resourcesJsToLoad);
                  } catch (error3) { console.error("CRITICAL: Failed to load resources-en.js as final fallback for resources."); }
             } else if (!successLoadingResources && (variantId.toLowerCase() === 'en' || primaryLangForFallback === 'en')) {
-                 console.error(`CRITICAL: Failed to load resources-en.js (or primary was en).`);
+                 console.error(`CRITICAL: Failed to load resources-en.js (or primary was en and failed).`);
             }
         }
         if (!successLoadingResources) {
-            console.warn("No custom resources loaded. Defaulting to empty array.");
+            console.warn("No custom resources loaded. window.customResources will be empty.");
             window.customResources = [];
         }
         
@@ -407,14 +409,13 @@
             answers.Skills = Array(numCompetencies).fill(0);
             answers.Attitudes = Array(numCompetencies).fill(0);
         } else {
-            console.error("Competencies data is empty after loading JSON. Cannot initialize answers array properly.");
+            console.error("Competencies data is empty after loading JSON. Assessment functionality will be limited.");
         }
 
-        applyTranslations(); // This will also handle the dropdown button text
+        applyTranslations();
         updateLanguageSelectorValue(currentLanguage); 
         localStorage.setItem('selectedUserLanguage', currentLanguage); 
         if (currentBU) localStorage.setItem('selectedUserBU', currentBU); else localStorage.removeItem('selectedUserBU');
-        // console.log(`${currentVariantIdentifier.toUpperCase()} variant files applied successfully.`);
     }
     
     function updateLanguageSelectorValue(langCode) { 
@@ -428,35 +429,24 @@
     }
 
     function applyTranslations() {
-        // console.log("applyTranslations CALLED. Attempting to translate Start Screen elements."); 
         const langLabel = document.getElementById('language-selector-label');
         if (langLabel) {
             const labelText = t('misc.languageLabel');
             langLabel.textContent = labelText.startsWith('MISSING_') ? 'Language:' : labelText;
         }
 
-        const ssTitleEl = document.getElementById('start-screen-title');
-        const ssTitleText = t('startScreen.title');
-        if (ssTitleEl) setText('start-screen-title', ssTitleText);
-
-        const ssP1El = document.getElementById('start-screen-p1');
-        const ssP1Text = t('startScreen.introParagraph1');
-        if (ssP1El) setHTML('start-screen-p1', ssP1Text);
-        
+        setText('start-screen-title', t('startScreen.title'));
+        setHTML('start-screen-p1', t('startScreen.introParagraph1'));
         setHTML('start-screen-p2', t('startScreen.introParagraph2'));
         setHTML('start-screen-p3', t('startScreen.introParagraph3'));
         setHTML('start-screen-p4', t('startScreen.introParagraph4'));
-        
-        if (startButton) { 
-            const ssButtonTextVal = t('startScreen.startButtonText');
-            setText('start-button', ssButtonTextVal);
-        }
+        if (startButton) setText('start-button', t('startScreen.startButtonText'));
         
         if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
         
         const toggleProfButton = document.getElementById('toggle-proficiency-button');
-        if (toggleProfButton && proficiencyDropdownContentEl) { // Check if proficiencyDropdownContentEl is defined
-            if (proficiencyDropdownContentEl.classList.contains('hidden')) { // Check class instead of style
+        if (toggleProfButton && proficiencyDropdownContentEl) {
+            if (proficiencyDropdownContentEl.classList.contains('hidden')) {
                 toggleProfButton.textContent = t('assessmentScreen.showProficiencyLevelsButton');
             } else {
                 toggleProfButton.textContent = t('assessmentScreen.hideProficiencyLevelsButton');
@@ -491,9 +481,7 @@
             setText('survey-prompt', t('endScreen.surveyPrompt'));
             setText('survey-button', t('endScreen.surveyButtonText'));
             if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
-            if (answers.Knowledge.length > 0 || answers.Skills.length > 0 || answers.Attitudes.length > 0) {
-                 generateResultsPageContent();
-            }
+            // Results specific content is generated by generateResultsPageContent called in showResults
         }
     }
 
@@ -531,7 +519,7 @@
         if (exampleTextContainer) exampleTextContainer.textContent = `${examplePrefixText.startsWith("MISSING_") ? "Example: " : examplePrefixText}${t(`questionTexts.${question.exampleKey}`)}`;
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button");
         if (proficiencyButtonsNodeList) proficiencyButtonsNodeList.forEach(button => button.classList.remove("selected"));
-        if(noSelectionWarningEl) noSelectionWarningEl.classList.add('hidden'); // Use class
+        if(noSelectionWarningEl) noSelectionWarningEl.classList.add('hidden');
         attachEventListeners();
     }
     function attachEventListeners() { 
@@ -544,7 +532,7 @@
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button"); 
         proficiencyButtonsNodeList.forEach(button => {
             button.onclick = () => {
-                if(noSelectionWarningEl) noSelectionWarningEl.classList.add('hidden'); // Use class
+                if(noSelectionWarningEl) noSelectionWarningEl.classList.add('hidden');
                 proficiencyButtonsNodeList.forEach(btn => btn.classList.remove("selected"));
                 button.classList.add("selected");
                 const selectedValue = parseInt(button.getAttribute("data-value"));
@@ -567,6 +555,131 @@
             };
         });
     }
+    
+    function generateResultsTextSummary(resultsUrl) {
+        const overallScoreText = document.getElementById('total-score-advanced')?.textContent || 'N/A';
+        const dateText = document.getElementById('current-date-advanced')?.textContent || 'N/A';
+
+        let strengthsText = `${t('endScreen.strengthsSectionTitle').replace(/<[^>]*>?/gm, '')}:\n`; // Strip HTML from title
+        const strengthItems = document.querySelectorAll('#strengths .strength-item.card'); // More specific selector
+        strengthItems.forEach(item => {
+            const title = item.querySelector('h4')?.textContent || '';
+            // Find the dimension text which is not bold. The strong tag contains the label.
+            const dimensionP = Array.from(item.querySelectorAll('p')).find(p => p.querySelector('strong')?.textContent === t('endScreen.strongestDimensionLabel'));
+            const dimension = dimensionP ? dimensionP.innerHTML.replace(/<strong>.*?<\/strong>\s*/, '').trim() : '';
+            strengthsText += `- ${title} (${dimension})\n`;
+        });
+
+        let growthAreasText = `\n${t('endScreen.growthAreasSectionTitle').replace(/<[^>]*>?/gm, '')}:\n`; // Strip HTML
+        const growthItems = document.querySelectorAll('#growth-areas .growth-item.card'); // More specific
+        growthItems.forEach(item => {
+            const title = item.querySelector('h4')?.textContent || '';
+            const dimensionP = Array.from(item.querySelectorAll('p')).find(p => p.querySelector('strong')?.textContent === t('endScreen.growthAreaLabel'));
+            const dimension = dimensionP ? dimensionP.innerHTML.replace(/<strong>.*?<\/strong>\s*/, '').trim() : '';
+            growthAreasText += `- ${title} (${dimension})\n`;
+        });
+
+        return `${t('appTitle')} ${t('endScreen.title')} (${dateText})\n` + // "Digital Skills Assessment Results"
+               `------------------------------------------\n` +
+               `Overall Score: ${overallScoreText}\n` +
+               (userProficiencyLevelName ? `Proficiency Level: ${userProficiencyLevelName}\n` : '') +
+               `${strengthsText}` +
+               `${growthAreasText}\n` +
+               `View full results online: ${resultsUrl}\n\n` +
+               `--- Raw Scores ---\n` +
+               `Knowledge: ${answers.Knowledge.join(',')}\n`+
+               `Skills: ${answers.Skills.join(',')}\n`+
+               `Attitudes: ${answers.Attitudes.join(',')}\n`;
+    }
+
+    function addEmailResultsFeature(resultsUrl) {
+        if (!endScreenActionsContainer || !restartButton) {
+            console.error("Cannot add email button: endScreenActionsContainer or restartButton not found.");
+            return;
+        }
+        let emailButton = document.getElementById('email-results-button');
+        if (!emailButton) {
+            emailButton = document.createElement('button');
+            emailButton.id = 'email-results-button';
+            emailButton.classList.add('button');
+            emailButton.style.display = 'block';
+            emailButton.style.marginLeft = 'auto';
+            emailButton.style.marginRight = 'auto';
+            emailButton.style.marginBottom = '10px';
+            endScreenActionsContainer.insertBefore(emailButton, restartButton);
+        }
+        emailButton.textContent = t('endScreen.emailResultsButtonText'); // e.g., "Email My Results to [Your Team]"
+
+        const newEmailButton = emailButton.cloneNode(true);
+        emailButton.parentNode.replaceChild(newEmailButton, emailButton);
+        emailButton = newEmailButton;
+
+        emailButton.onclick = () => {
+            const subject = encodeURIComponent(t('endScreen.emailSubject'));
+            const emailBodyIntroText = t('endScreen.emailBodyIntro');
+            const emailBodyPleaseSendText = t('endScreen.emailBodyPleaseSend');
+            const summaryForEmail = generateResultsTextSummary(resultsUrl); // Generate summary
+
+            // For mailto, it's better to keep the body short.
+            // We'll include the link and a brief instruction.
+            // The full summary is copied to clipboard as a fallback.
+            const mailtoBody = `${emailBodyIntroText}\n${resultsUrl}\n\n${emailBodyPleaseSendText}`;
+            const encodedMailtoBody = encodeURIComponent(mailtoBody);
+
+            navigator.clipboard.writeText(summaryForEmail) // Copy the FULL summary
+                .then(() => {
+                    alert(t('endScreen.resultsLinkCopiedForEmailMessage')); // "Your email client should open..."
+                    window.location.href = `mailto:?subject=${subject}&body=${encodedMailtoBody}`;
+                })
+                .catch(err => {
+                    console.error('Failed to copy full results summary to clipboard: ', err);
+                    alert(t('endScreen.resultsLinkCopiedForEmailMessage')); // Still give this message
+                    window.location.href = `mailto:?subject=${subject}&body=${encodedMailtoBody}`;
+                });
+        };
+    }
+
+    function addCopyResultsLinkButton(urlToCopy) {
+        const qrUrlContainer = document.querySelector('.qr-url-container');
+        if (!qrUrlContainer) {
+             console.error("Cannot add copy link button: .qr-url-container not found.");
+            return;
+        }
+        let copyButton = document.getElementById('copy-direct-link-button');
+        if (!copyButton) {
+            copyButton = document.createElement('button');
+            copyButton.id = 'copy-direct-link-button';
+            copyButton.classList.add('button');
+            copyButton.style.marginTop = '0px'; // Align with paragraph
+            copyButton.style.marginLeft = '10px'; // Space from URL text
+            copyButton.style.fontSize = '12px';
+            copyButton.style.padding = '5px 10px';
+            copyButton.style.backgroundColor = '#6c757d'; // Subdued color
+            copyButton.style.verticalAlign = 'middle'; // Align with paragraph text
+            
+            // Insert after the paragraph displaying the URL
+            const qrUrlP = document.getElementById('qr-url');
+            if (qrUrlP) qrUrlP.parentNode.insertBefore(copyButton, qrUrlP.nextSibling);
+            else qrUrlContainer.appendChild(copyButton); // Fallback if p isn't there
+        }
+        copyButton.textContent = t('endScreen.copyLinkButtonText');
+
+        const newCopyButton = copyButton.cloneNode(true);
+        copyButton.parentNode.replaceChild(newCopyButton, copyButton);
+        copyButton = newCopyButton;
+
+        copyButton.onclick = () => {
+            navigator.clipboard.writeText(urlToCopy)
+                .then(() => {
+                    alert(t('endScreen.resultsLinkCopiedMessage'));
+                })
+                .catch(err => {
+                    console.error('Failed to copy results link: ', err);
+                    alert(t('endScreen.copyLinkFailedMessage'));
+                });
+        };
+    }
+
     function showResults() { 
         if(progressBar) progressBar.style.width = "100%";
         if(progressLabel) progressLabel.textContent = `100${t('assessmentScreen.progressLabelSuffix')}`;
@@ -576,46 +689,34 @@
         const today = new Date();
         const formattedCurrentDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
         setText('current-date-advanced', formattedCurrentDate);
-        applyTranslations(); 
-        generateResultsPageContent(); 
+        
         const totalScore = (answers.Knowledge.reduce((a,b)=>a+b,0)||0) + (answers.Skills.reduce((a,b)=>a+b,0)||0) + (answers.Attitudes.reduce((a,b)=>a+b,0)||0);
         const maxScore = (competenciesData.length || 0) * 3 * 5;
         const percentageScore = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
         let userProficiencyLevelText = "", userKeyCharacteristics = [], userFeedback = "";
+        userProficiencyLevelName = 'N/A'; // Reset for global var
+
         for (let level of overallProficiencyLevelsData) {
             if (percentageScore >= level.range[0] && percentageScore <= level.range[1]) {
-                const levelName = t(`proficiencyTexts.${level.nameKey}`);
-                userProficiencyLevelText = `${levelName} (${level.range[0]}% - ${level.range[1]}%)`;
+                userProficiencyLevelName = t(`proficiencyTexts.${level.nameKey}`); // Store just the name
+                userProficiencyLevelText = `${userProficiencyLevelName} (${level.range[0]}% - ${level.range[1]}%)`;
                 userKeyCharacteristics = level.characteristicsKeys.map(key => t(`proficiencyTexts.${key}`));
                 userFeedback = t(`proficiencyTexts.${level.feedbackKey}`);
                 break;
             }
         }
-        setText('total-score-advanced', `${percentageScore}% (${userProficiencyLevelText.split(' ')[0] || 'N/A'})`);
+        setText('total-score-advanced', `${percentageScore}% (${userProficiencyLevelName})`);
         displayKeyCharacteristics(userKeyCharacteristics);
         setText('personalised-feedback-advanced', userFeedback);
+        
+        applyTranslations(); // Apply general translations first
+        generateResultsPageContent(); // Then generate dynamic content like strengths etc.
+
         const encodedData = encodeResponses();
         if (document.getElementById('qr-code')) generateQRCode(encodedData, 'qr-code');
-        updateQRCodeURL(encodedData);
-        setText('end-screen-title', t('endScreen.title'));
-        setText('qr-code-title', t('endScreen.qrCodeSectionTitle'));
-        setText('qr-code-instruction', t('endScreen.qrCodeInstruction'));
-        setText('key-char-title', t('endScreen.keyCharacteristicsTitle'));
-        setText('key-char-intro', t('endScreen.keyCharacteristicsIntro'));
-        setText('radar-chart-title', t('endScreen.radarChartTitle'));
-        setText('radar-chart-desc', t('endScreen.radarChartDescription'));
-        setHTML('radar-chart-legend', constructRadarLegend());
-        setHTML('strengths-title', t('endScreen.strengthsSectionTitle'));
-        setText('strengths-intro', t('endScreen.strengthsSectionIntro'));
-        setHTML('growth-areas-title', t('endScreen.growthAreasSectionTitle'));
-        setText('growth-areas-intro', t('endScreen.growthAreasSectionIntro'));
-        setHTML('smart-objectives-title', t('endScreen.smartObjectivesSectionTitle'));
-        setText('smart-objectives-intro', t('endScreen.smartObjectivesSectionIntro'));
-        setHTML('thank-you-message', t('endScreen.thankYouMessage'));
-        setText('survey-prompt', t('endScreen.surveyPrompt'));
-        setText('survey-button', t('endScreen.surveyButtonText'));
-        if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
+        updateQRCodeURL(encodedData); // This will also call functions to add share buttons
     }
+
     function encodeResponses() { 
         const numCompetencies = competenciesData.length || 0;
         return `${(answers.Knowledge||[]).slice(0,numCompetencies).join('')}-${(answers.Skills||[]).slice(0,numCompetencies).join('')}-${(answers.Attitudes||[]).slice(0,numCompetencies).join('')}`;
@@ -708,23 +809,16 @@
             const userLevel = comp[`${weakestDimension.toLowerCase()}Score`];
             let levelsToShow = userLevel ? (userLevel === 1 ? [1,2,3] : (userLevel === 5 ? [3,4,5] : [userLevel-1, userLevel, userLevel+1].filter(l=>l>=1 && l<=5))) : [1,2,3];
             
-            // console.log(`SMART Objectives - Competency Key: "${competencyKeyForResourceLookup}", Weakest Dim: "${weakestDimension.toLowerCase()}", User Level: ${userLevel}`);
-            // console.log("SMART Objectives - Window.customResources (length):", (window.customResources || []).length);
-
             const filteredResources = (window.customResources || []).filter(r => {
                 return r.competencyKey === competencyKeyForResourceLookup && r.level === weakestDimension.toLowerCase();
             });
-            // console.log(`SMART Objectives - Filtered Resources (for ${competencyKeyForResourceLookup} / ${weakestDimension.toLowerCase()}):`, JSON.parse(JSON.stringify(filteredResources)));
 
             const chosenResources = filteredResources.filter(r => levelsToShow.includes(r.rating)).slice(0, 3);
-            // console.log(`SMART Objectives - Chosen Resources (after rating filter for levels ${levelsToShow.join(',')} ):`, JSON.parse(JSON.stringify(chosenResources)));
             
             let resourcesHTML = '';
             if (chosenResources.length > 0) {
                 resourcesHTML = `<h5>${t('endScreen.recommendedResourcesLabel')}</h5><ul style="list-style:none; padding:0; margin:10px 0;">
                         ${chosenResources.map(r => `<li><a href="${r.URL}" target="_blank" style="text-decoration:none; color:#0f777b;"><strong>${r.title}</strong>: ${r.description}</a></li>`).join('')}</ul>`;
-            } else {
-                // console.log(`No chosen resources to display for ${competencyNameDisplay} - ${weakestDimension}`);
             }
             smartObjectivesContainer.innerHTML += `<div class="smart-item card"><h4>${competencyNameDisplay}</h4><p><strong>${growthLabel}</strong> ${translatedDimensionNameForSMART}</p><p><strong>${smartObjectiveLabel}</strong> ${smartObjectiveText}</p>${resourcesHTML}</div>`;
         });
@@ -747,10 +841,15 @@
             options: { responsive: true, maintainAspectRatio: true, elements: { line: { tension: 0.1 } }, scales: { r: { angleLines: { display: false }, suggestedMin: 0, suggestedMax: 5, ticks: { stepSize: 1, beginAtZero: true, backdropColor: 'transparent' } } } }
         });
     }
+
     function updateQRCodeURL(data) { 
         const resultsURL = `${window.location.origin}${window.location.pathname}?data=${data}`;
         setText('qr-url', resultsURL);
+        // Call the functions to add/update share buttons
+        addEmailResultsFeature(resultsURL); 
+        addCopyResultsLinkButton(resultsURL); 
     }
+
     function generateQRCode(data, canvasId) { 
         const qrCodeCanvas = document.getElementById(canvasId);
         if (!qrCodeCanvas) { console.error(`Canvas ${canvasId} not found.`); return; }
@@ -761,7 +860,7 @@
     }
     function toggleDropdown(event) { 
         const button = event.target;
-        if (proficiencyDropdownContentEl) { // Use the global variable
+        if (proficiencyDropdownContentEl) {
             const isCurrentlyHidden = proficiencyDropdownContentEl.classList.contains('hidden');
             if (isCurrentlyHidden) {
                 proficiencyDropdownContentEl.classList.remove('hidden');
@@ -793,16 +892,19 @@
                 if(strengthsContainer) strengthsContainer.innerHTML = '';
                 if(growthAreasContainer) growthAreasContainer.innerHTML = '';
                 if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
-                // No need to call applyTranslations() here if start screen doesn't need dynamic content beyond what initializeApp handles
-                // OR ensure applyTranslations can safely re-apply to the start screen.
-                // For safety, let's re-apply.
+                
+                // Remove share buttons if they exist, they'll be re-added by showResults if needed
+                const emailBtn = document.getElementById('email-results-button');
+                if(emailBtn) emailBtn.remove();
+                const copyDirectBtn = document.getElementById('copy-direct-link-button');
+                if(copyDirectBtn) copyDirectBtn.remove();
+
                 applyTranslations(); 
             });
         }
 
         if (startButton) {
             startButton.addEventListener("click", () => {
-                // console.log("Start button CLICKED!"); 
                 if(startScreen) startScreen.classList.add("hidden");
                 if(assessmentScreen) assessmentScreen.classList.remove("hidden");
                 
@@ -833,11 +935,10 @@
                 }
                 await loadVariantFiles(variantToLoad); 
 
-                // If on start screen, just re-apply translations. Otherwise, restart.
                 if (startScreen && !startScreen.classList.contains('hidden') && 
                     assessmentScreen && assessmentScreen.classList.contains('hidden') && 
                     endScreen && endScreen.classList.contains('hidden')) {
-                    applyTranslations(); // Re-apply for start screen
+                    applyTranslations();
                 } else { 
                     if (restartButton) restartButton.click(); 
                 }
@@ -846,7 +947,6 @@
     }
     
     async function initializeApp() {
-        // console.log("initializeApp CALLED"); 
         assignDOMelements(); 
         addEventListenersToDOM(); 
 
@@ -862,18 +962,28 @@
             initialLang = storedLang;
         } else if (browserLang) {
             const primaryBrowserLang = browserLang.toLowerCase().split('-')[0];
+            const regionCode = browserLang.toLowerCase().split('-')[1]; // e.g., 'cn', 'sg', 'tw', 'hk'
+            
             let langOptionExists = false;
             if (langSelectorElement && langSelectorElement.options) {
                  langOptionExists = Array.from(langSelectorElement.options).some(opt => opt.value === primaryBrowserLang);
             }
-            if (langOptionExists) {
+
+            if (primaryBrowserLang === 'zh') { // Special handling for Chinese
+                if (regionCode === 'cn' || regionCode === 'sg' || browserLang.toLowerCase() === 'zh-hans') {
+                    initialLang = 'zh-hans';
+                } else if (regionCode === 'tw' || regionCode === 'hk' || regionCode === 'mo' || browserLang.toLowerCase() === 'zh-hant') {
+                    initialLang = 'zh-hant';
+                } else if (langOptionExists && Array.from(langSelectorElement.options).some(opt => opt.value === 'zh-hans')) { // Fallback if region not specific
+                    initialLang = 'zh-hans';
+                } else {
+                    initialLang = 'en'; // Ultimate fallback for unhandled zh variants
+                }
+            } else if (langOptionExists) {
                 initialLang = primaryBrowserLang;
+            } else {
+                initialLang = 'en'; // Fallback for other unlisted browser languages
             }
-            // More specific fallbacks for Chinese variants based on common browser language codes
-            if (browserLang.toLowerCase() === 'zh-cn' || browserLang.toLowerCase() === 'zh-sg') initialLang = 'zh-hans';
-            else if (browserLang.toLowerCase() === 'zh-tw' || browserLang.toLowerCase() === 'zh-hk' || browserLang.toLowerCase() === 'zh-mo') initialLang = 'zh-hant';
-            else if (browserLang.toLowerCase().startsWith('zh-hans')) initialLang = 'zh-hans'; // General simplified
-            else if (browserLang.toLowerCase().startsWith('zh-hant')) initialLang = 'zh-hant'; // General traditional
         }
         
         currentLanguage = initialLang; 
@@ -885,13 +995,11 @@
         
         await loadVariantFiles(variantToLoad); 
         
-        // Only decode and load if competenciesData is available, otherwise it can cause errors
         if (competenciesData && competenciesData.length > 0) {
             decodeAndLoadResults(); 
         } else {
-            console.warn("initializeApp: competenciesData not ready after loadVariantFiles. Skipping decodeAndLoadResults.");
+            console.warn("initializeApp: competenciesData not ready after loadVariantFiles. Skipping decodeAndLoadResults from URL (if any).");
         }
-        // console.log("initializeApp COMPLETED");
     }
 
     document.addEventListener('DOMContentLoaded', initializeApp);
