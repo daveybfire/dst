@@ -73,18 +73,9 @@
         .qr-url { font-size: 12px; color: #aaa; margin-top: 0; margin-bottom: 5px; word-wrap: break-word; }
         #language-selector-container { padding: 10px; text-align: right; background-color: #f8f9fa; border-bottom: 1px solid #e0e0e0; margin-bottom:15px; }
         
-        /* New style for the Email Results button */
-        .button-email {
-            background-color: #007bff; /* A common 'action blue' */
-        }
-        .button-email:hover {
-            background-color: #0056b3; /* Darker shade of blue for hover */
-        }
-        .button-email .icon-email { /* Style for the icon within the button */
-            margin-right: 8px;
-            font-size: 1.1em; 
-            vertical-align: middle;
-        }
+        .button-email { background-color: #007bff; } 
+        .button-email:hover { background-color: #0056b3; }
+        .button-email .icon-email { margin-right: 8px; font-size: 1.1em; vertical-align: middle; }
 
         @media (max-width: 600px) {
             .container { padding: 15px 20px; }
@@ -95,7 +86,7 @@
             h1, h2, h3 { font-size: 24px; }
             h4 { font-size: 20px; }
             p { font-size: 15px; }
-            .button { font-size: 16px; padding: 10px 20px;} /* This will also apply to .button-email */
+            .button { font-size: 16px; padding: 10px 20px;}
             .competency-banner { font-size: 18px; }
         }
     </style>
@@ -522,7 +513,7 @@
         });
     }
     
-    function generateResultsTextSummary(resultsUrl) {
+    function generateResultsTextSummary(resultsUrl, encodedDataForSummary) { // Added encodedDataForSummary
         const overallScoreText = document.getElementById('total-score-advanced')?.textContent || 'N/A';
         const dateText = document.getElementById('current-date-advanced')?.textContent || 'N/A';
 
@@ -544,20 +535,21 @@
             growthAreasText += `- ${title} (${dimension})\n`;
         });
 
-        return `${t('appTitle')} - ${t('endScreen.title')} (${dateText})\n` + // Changed slightly for clarity
+        return `RESULTS DATA STRING (for copy/paste into team tool):\n${encodedDataForSummary}\n\n`+ // Add this line
+               `${t('appTitle')} - ${t('endScreen.title')} (${dateText})\n` +
                `------------------------------------------\n` +
                `Overall Score: ${overallScoreText}\n` +
                (userProficiencyLevelName ? `Proficiency Level: ${userProficiencyLevelName}\n` : '') +
                `${strengthsText}` +
                `${growthAreasText}\n` +
                `View full results online: ${resultsUrl}\n\n` +
-               `--- Raw Scores ---\n` +
+               `--- Raw Scores (K,S,A per competency) ---\n` + // Clarified this part
                `Knowledge: ${answers.Knowledge.join(',')}\n`+
                `Skills: ${answers.Skills.join(',')}\n`+
                `Attitudes: ${answers.Attitudes.join(',')}\n`;
     }
 
-    function addEmailResultsFeature(resultsUrl) {
+    function addEmailResultsFeature(resultsUrl, encodedDataString) {
         if (!endScreenActionsContainer || !restartButton) {
             console.error("Cannot add email button: endScreenActionsContainer or restartButton not found.");
             return;
@@ -566,43 +558,49 @@
         if (!emailButton) {
             emailButton = document.createElement('button');
             emailButton.id = 'email-results-button';
-            emailButton.classList.add('button'); // Base class
-            emailButton.classList.add('button-email'); // Specific class for styling
-            emailButton.style.display = 'block'; // Make it a block to center with auto margins
+            emailButton.classList.add('button', 'button-email');
+            emailButton.style.display = 'block';
             emailButton.style.marginLeft = 'auto';
             emailButton.style.marginRight = 'auto';
-            emailButton.style.marginBottom = '15px'; // Space from restart button
-            
-            // Insert the email button before the restart button
+            emailButton.style.marginBottom = '15px'; 
             endScreenActionsContainer.insertBefore(emailButton, restartButton);
         }
         
-        const emailIconHTML = '<span class="icon-email">📧</span>'; // Envelope icon
-        emailButton.innerHTML = emailIconHTML + t('endScreen.emailResultsButtonText'); // e.g., "Email My Results"
+        const emailIconHTML = '<span class="icon-email">📧</span>';
+        emailButton.innerHTML = emailIconHTML + (t('endScreen.emailResultsButtonText') || "Email My Results");
 
-        // Clone to ensure fresh event listener
         const newEmailButton = emailButton.cloneNode(true);
         emailButton.parentNode.replaceChild(newEmailButton, emailButton);
         emailButton = newEmailButton;
 
         emailButton.onclick = () => {
             const recipientEmail = "david.bythell@uk.aswatson.com"; 
-            const subject = encodeURIComponent(t('endScreen.emailSubject'));
-            const emailBodyIntroText = t('endScreen.emailBodyIntro');
-            const summaryForClipboard = generateResultsTextSummary(resultsUrl); 
+            const subjectText = t('endScreen.emailSubject') || "Digital Skills Assessment Results";
+            const subjectWithData = encodeURIComponent(`${subjectText} - Data: ${encodedDataString}`);
 
-            const mailtoBody = `${emailBodyIntroText}\n${resultsUrl}\n\n${t('endScreen.thankYouMessage')}`; 
-            const encodedMailtoBody = encodeURIComponent(mailtoBody);
+            const emailBodyIntroText = t('endScreen.emailBodyIntro') || "Please find my Digital Skills Assessment results below:";
             
-            const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${encodedMailtoBody}`;
+            let mailtoBody = `RESULTS DATA STRING (for direct input into team tool):\n${encodedDataString}\n\n`;
+            mailtoBody += `${emailBodyIntroText}\n`;
+            mailtoBody += `Link to view my full results: ${resultsUrl}\n\n`;
+            mailtoBody += `--- My Summary ---\n`;
+            mailtoBody += `Overall Score: ${document.getElementById('total-score-advanced')?.textContent || 'N/A'}\n`;
+            mailtoBody += `Proficiency Level: ${userProficiencyLevelName || 'N/A'}\n\n`;
+            mailtoBody += `${t('endScreen.thankYouMessage') || 'Thank you!'}`; 
+            
+            const encodedMailtoBody = encodeURIComponent(mailtoBody);
+            const mailtoLink = `mailto:${recipientEmail}?subject=${subjectWithData}&body=${encodedMailtoBody}`;
 
+            // For clipboard, use the more detailed summary which also includes the raw data string.
+            const summaryForClipboard = generateResultsTextSummary(resultsUrl, encodedDataString);
             navigator.clipboard.writeText(summaryForClipboard)
                 .then(() => {
-                    // console.log("Full summary copied to clipboard as fallback.");
+                    // console.log("Full summary (including data string) copied to clipboard.");
                 })
                 .catch(err => {
                     console.warn('Could not copy full summary to clipboard: ', err);
                 });
+
             window.location.href = mailtoLink;
         };
     }
@@ -655,16 +653,18 @@
             if (parts.length === 3 && competenciesData && competenciesData.length > 0) {
                 const [knowledgeStr, skillsStr, attitudesStr] = parts;
                 const numCompetencies = competenciesData.length;
-                answers.Knowledge = knowledgeStr.split('').map(Number).slice(0, numCompetencies);
-                answers.Skills = skillsStr.split('').map(Number).slice(0, numCompetencies);
-                answers.Attitudes = attitudesStr.split('').map(Number).slice(0, numCompetencies);
-                while (answers.Knowledge.length < numCompetencies) answers.Knowledge.push(0);
-                while (answers.Skills.length < numCompetencies) answers.Skills.push(0);
-                while (answers.Attitudes.length < numCompetencies) answers.Attitudes.push(0);
-                showResults();
+                if (knowledgeStr.length === numCompetencies && skillsStr.length === numCompetencies && attitudesStr.length === numCompetencies) {
+                    answers.Knowledge = knowledgeStr.split('').map(Number).slice(0, numCompetencies);
+                    answers.Skills = skillsStr.split('').map(Number).slice(0, numCompetencies);
+                    answers.Attitudes = attitudesStr.split('').map(Number).slice(0, numCompetencies);
+                    // No need to pad with zeros if lengths are correct, slice handles it.
+                    showResults();
+                } else {
+                    console.warn("URL Data: Length of K, S, or A string does not match number of competencies. Data:", data);
+                }
             } else if (!competenciesData || competenciesData.length === 0) {
                  console.warn("URL Data: competenciesData not ready. Will not attempt to show results from URL.");
-            } else { console.warn("URL Data: malformed."); }
+            } else { console.warn("URL Data: malformed (expected 3 parts after split by '-'). Data:", data); }
         }
     }
     function displayKeyCharacteristics(characteristics) { 
@@ -772,7 +772,7 @@
     function updateQRCodeURL(data) { 
         const resultsURL = `${window.location.origin}${window.location.pathname}?data=${data}`;
         setText('qr-url', resultsURL);
-        addEmailResultsFeature(resultsURL); 
+        addEmailResultsFeature(resultsURL, data); // Pass the raw encodedDataString
     }
 
     function generateQRCode(data, canvasId) { 
