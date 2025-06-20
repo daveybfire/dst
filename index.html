@@ -10,13 +10,13 @@
       gtag('config', 'G-WX8HLE4W5Q');
     </script>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added for responsiveness -->
     <title>Digital Skills Assessment</title> <!-- Will be updated by JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <!-- resources.js is NOT loaded here by default anymore. It will be loaded dynamically -->
 
     <style>
-        /* CSS STYLES (as provided by you, unchanged) */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
         .container { max-width: 800px; width: 90%; margin: 20px auto; background: #fff; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 20px 30px; padding-top: 10px; }
         h1, h2, h3 { font-size: 28px; margin: 20px 0; color: #2c3e50; }
@@ -29,15 +29,35 @@
         .question-container { background: #e0f7fa; border: 2px solid #0f777b; border-radius: 10px; padding: 15px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); min-height: 120px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .question-container h2 { font-size: 24px; font-weight: bold; color: #333; margin: 0; line-height: 1.5; }
         .example { font-style: italic; color: #555; font-size: 16px; margin-top: 15px; }
-        .proficiency-buttons { margin: 20px 0; display: flex; justify-content: space-between; flex-wrap: nowrap; }
-        .proficiency-button { background: #e0e0e0; border: none; padding: 12px 10px; margin: 0 5px; border-radius: 5px; font-size: 14px; cursor: pointer; transition: background 0.3s ease, transform 0.1s ease; flex: 1; text-align: center; white-space: nowrap; }
+
+        /* Proficiency Buttons - Default (Larger Screens) */
+        .proficiency-buttons {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            /* flex-wrap: nowrap; /* Removed for easier override */
+        }
+        .proficiency-button {
+            background: #e0e0e0;
+            border: none;
+            padding: 12px 10px;
+            margin: 0 5px; /* Horizontal margin for side-by-side buttons */
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.1s ease;
+            flex: 1; /* Distribute space equally when in a row */
+            text-align: center;
+            white-space: nowrap; /* Prevent text inside button from wrapping by default */
+        }
         .proficiency-button:hover { background: #d5d5d5; }
         .proficiency-button.selected { background: #4caf50; color: white; transform: scale(1.05); }
+
         .no-selection-warning { color: red; font-size: 14px; margin-top: 10px; display: none; }
         .button { padding: 12px 25px; margin: 20px 0; background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
         .button:hover { background: #0a5e60; }
         .button:disabled { background: #ccc; cursor: not-allowed; }
-        .hidden { display: none; }
+        .hidden { display: none !important; } /* Added !important to ensure override */
         .summary-header { background: #e0f7fa; border: 1px solid #0f777b; border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; }
         .summary-header p { font-size: 18px; color: #2c3e50; margin: 10px 0; }
         .summary-header p span { font-weight: bold; }
@@ -59,7 +79,6 @@
         .thank-you p { font-size: 18px; font-weight: bold; }
         .thank-you a { color: #ffffff; background-color: #0f777b; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 16px; }
         .thank-you a:hover { background-color: #0a5e60; }
-        @media (max-width: 600px) { .proficiency-button { flex: 1 1 100%; margin: 5px 0; } .container { padding: 15px 20px; } }
         .strengths { background: #e8f5e9; border: 2px solid #4caf50; border-radius: 10px; padding: 20px; margin: 30px 0; }
         .growth-areas { background: #ffebee; border: 2px solid #f44336; border-radius: 10px; padding: 20px; margin: 30px 0; }
         .smart-objectives { background: #fff3e0; border: 2px solid #ff9800; border-radius: 10px; padding: 20px; margin: 30px 0; }
@@ -67,12 +86,43 @@
         .strengths .card, .growth-areas .card, .smart-objectives .card { background: #fff; border-radius: 8px; padding: 15px; margin: 15px 0; }
         .dropdown .button { background: #0f777b; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px; transition: background 0.3s ease; }
         .dropdown .button:hover { background: #0a5e60; }
-        .dropdown-content { display: none; padding: 15px; margin-top: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #333; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .dropdown-content { /* display: none; /* Default to hidden, controlled by JS or class */ padding: 15px; margin-top: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #333; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         #question-text-container { font-size: 18px; font-weight: bold; color: #2c3e50; line-height: 1.6; margin-bottom: 10px; text-align: center; }
         #example-text-container { font-size: 16px; font-style: italic; color: #555; line-height: 1.4; margin-top: 5px; margin-bottom: 0; text-align: center; }
         .chart-description { font-size: 16px; color: #555; margin-bottom: 20px; line-height: 1.5; text-align: center; }
-        .qr-url { font-size: 12px; color: #e0e0e0; margin-top: 10px; word-wrap: break-word; }
+        .qr-url { font-size: 12px; color: #aaa; /* Lighter color for better contrast if background is dark, or adjust as needed */ margin-top: 10px; word-wrap: break-word; }
         #language-selector-container { padding: 10px; text-align: right; background-color: #f8f9fa; border-bottom: 1px solid #e0e0e0; margin-bottom:15px; }
+
+        /* --- Styles for Smaller Screens (Mobiles) --- */
+        @media (max-width: 600px) {
+            .container { padding: 15px 20px; }
+
+            /* Stack Proficiency Buttons Vertically */
+            .proficiency-buttons {
+                flex-direction: column; /* Stack them vertically */
+                align-items: stretch;   /* Make buttons take full width of container */
+            }
+            .proficiency-button {
+                flex-basis: auto;       /* Reset flex-basis for stacked items */
+                margin: 8px 0;          /* Adjust margin for vertical stacking, increased spacing */
+                white-space: normal;    /* Allow text inside button to wrap */
+                padding: 15px 10px;     /* Slightly increase padding for better touch targets */
+                font-size: 15px;        /* Slightly larger font for readability */
+            }
+
+            /* Larger Question and Example Text */
+            #question-text-container {
+                font-size: 20px; /* Increased from 18px */
+            }
+            #example-text-container {
+                font-size: 17px; /* Increased from 16px */
+            }
+             h1, h2, h3 { font-size: 24px; } /* Slightly reduce heading sizes on mobile */
+             h4 { font-size: 20px; }
+             p { font-size: 15px; }
+             .button { font-size: 16px; padding: 10px 20px;}
+             .competency-banner { font-size: 18px; }
+        }
     </style>
 </head>
 <body>
@@ -127,7 +177,7 @@
     <div class="no-selection-warning" id="no-selection-warning"></div>
     <div class="dropdown">
         <button class="button" id="toggle-proficiency-button" onclick="toggleDropdown(event)"></button>
-        <div class="dropdown-content" id="proficiency-dropdown-content" style="display: block;">
+        <div class="dropdown-content hidden" id="proficiency-dropdown-content"> <!-- Changed: Default to hidden by adding 'hidden' class -->
         </div>
     </div>
 </div>
@@ -215,7 +265,7 @@
     let startScreen, assessmentScreen, endScreen, progressBar, progressLabel, competencyBanner,
         questionTextContainer, exampleTextContainer, proficiencyButtonsNodeList, noSelectionWarningEl,
         strengthsContainer, growthAreasContainer, smartObjectivesContainer,
-        restartButton, startButton, langSelectorElement;
+        restartButton, startButton, langSelectorElement, proficiencyDropdownContentEl; // Added proficiencyDropdownContentEl
 
     // --- FUNCTION DEFINITIONS ---
 
@@ -235,6 +285,7 @@
         restartButton = document.getElementById("restart-button");
         startButton = document.getElementById("start-button");
         langSelectorElement = document.getElementById('language-selector');
+        proficiencyDropdownContentEl = document.getElementById('proficiency-dropdown-content'); // Assigned
         // console.log("assignDOMelements FINISHED. Start button:", startButton); 
     }
 
@@ -268,23 +319,28 @@
     
     async function loadVariantFiles(variantId) {
         // console.log(`loadVariantFiles CALLED for effective variant: ${variantId}`);
-        let textJsonToLoad = `${variantId}.json`;
-        let resourcesJsToLoad = `resources-${variantId}.js`;
-        let primaryLangForFallback = variantId.split('-')[0]; 
+        let textJsonToLoad = `${variantId.toLowerCase()}.json`; // Ensure lowercase for consistency
+        let resourcesJsToLoad = `resources-${variantId.toLowerCase()}.js`; // Ensure lowercase
+        let primaryLangForFallback = variantId.split('-')[0].toLowerCase();  // Ensure lowercase
         let successLoadingText = false;
         let successLoadingResources = false;
 
         try {
             let response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
             if (!response.ok) {
-                if (variantId !== primaryLangForFallback && primaryLangForFallback) {
+                 console.warn(`Failed to load ${textJsonToLoad}, trying primary fallback.`);
+                if (variantId.toLowerCase() !== primaryLangForFallback && primaryLangForFallback) {
                     textJsonToLoad = `${primaryLangForFallback}.json`;
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
                 }
                 if (!response.ok) { 
-                    if (textJsonToLoad.startsWith('en') && variantId !== 'en' && primaryLangForFallback !== 'en') {}
-                    else if (textJsonToLoad === 'en.json' || textJsonToLoad === 'en') { throw new Error('CRITICAL: Failed to load en.json for text.'); }
-                    textJsonToLoad = 'en.json';
+                    console.warn(`Failed to load ${textJsonToLoad}, trying English fallback.`);
+                    if (textJsonToLoad.startsWith('en') && variantId.toLowerCase() !== 'en' && primaryLangForFallback !== 'en') {
+                         // Already tried or will try 'en.json'
+                    } else if (textJsonToLoad === 'en.json') { // If primary was 'en' and failed
+                        throw new Error('CRITICAL: Failed to load en.json for text initially.'); 
+                    }
+                    textJsonToLoad = 'en.json'; // Ultimate fallback
                     response = await fetch(`${textJsonToLoad}?v=${new Date().getTime()}`);
                     if (!response.ok) throw new Error('CRITICAL: Failed to load en.json as ultimate text fallback.');
                 }
@@ -317,22 +373,27 @@
         try {
             await loadScript(resourcesJsToLoad);
         } catch (error) {
-            let triedPrimary = false;
-            if (variantId !== primaryLangForFallback && primaryLangForFallback) {
-                triedPrimary = true;
+            let triedPrimaryResource = false;
+            if (variantId.toLowerCase() !== primaryLangForFallback && primaryLangForFallback) {
+                resourcesJsToLoad = `resources-${primaryLangForFallback}.js`;
+                triedPrimaryResource = true;
                 try {
-                    await loadScript(`resources-${primaryLangForFallback}.js`);
+                    await loadScript(resourcesJsToLoad);
                 } catch (error2) { /* Fall through */ }
             }
-            if (!successLoadingResources && (primaryLangForFallback !== 'en' || !triedPrimary ) && variantId !== 'en' ) {
+            if (!successLoadingResources && (primaryLangForFallback !== 'en' || !triedPrimaryResource ) && variantId.toLowerCase() !== 'en' ) {
+                 resourcesJsToLoad = 'resources-en.js';
                  try {
-                    await loadScript('resources-en.js');
+                    await loadScript(resourcesJsToLoad);
                  } catch (error3) { console.error("CRITICAL: Failed to load resources-en.js as final fallback for resources."); }
-            } else if (!successLoadingResources && (variantId === 'en' || primaryLangForFallback === 'en')) {
+            } else if (!successLoadingResources && (variantId.toLowerCase() === 'en' || primaryLangForFallback === 'en')) {
                  console.error(`CRITICAL: Failed to load resources-en.js (or primary was en).`);
             }
         }
-        if (!successLoadingResources) window.customResources = [];
+        if (!successLoadingResources) {
+            console.warn("No custom resources loaded. Defaulting to empty array.");
+            window.customResources = [];
+        }
         
         document.documentElement.lang = i18nData.lang || currentVariantIdentifier.split('-')[0];
         document.title = t('appTitle');
@@ -349,7 +410,7 @@
             console.error("Competencies data is empty after loading JSON. Cannot initialize answers array properly.");
         }
 
-        applyTranslations();
+        applyTranslations(); // This will also handle the dropdown button text
         updateLanguageSelectorValue(currentLanguage); 
         localStorage.setItem('selectedUserLanguage', currentLanguage); 
         if (currentBU) localStorage.setItem('selectedUserBU', currentBU); else localStorage.removeItem('selectedUserBU');
@@ -372,19 +433,15 @@
         if (langLabel) {
             const labelText = t('misc.languageLabel');
             langLabel.textContent = labelText.startsWith('MISSING_') ? 'Language:' : labelText;
-        } else { 
-            // console.warn("language-selector-label not found in applyTranslations."); 
         }
 
         const ssTitleEl = document.getElementById('start-screen-title');
         const ssTitleText = t('startScreen.title');
-        // console.log(` - Start Screen Title: "${ssTitleText}" (Element found: ${!!ssTitleEl})`);
-        if (ssTitleEl) setText('start-screen-title', ssTitleText); else console.error("start-screen-title element NOT FOUND in applyTranslations");
+        if (ssTitleEl) setText('start-screen-title', ssTitleText);
 
         const ssP1El = document.getElementById('start-screen-p1');
         const ssP1Text = t('startScreen.introParagraph1');
-        // console.log(` - Start Screen P1: (Element found: ${!!ssP1El})`);
-        if (ssP1El) setHTML('start-screen-p1', ssP1Text); else console.error("start-screen-p1 element NOT FOUND in applyTranslations");
+        if (ssP1El) setHTML('start-screen-p1', ssP1Text);
         
         setHTML('start-screen-p2', t('startScreen.introParagraph2'));
         setHTML('start-screen-p3', t('startScreen.introParagraph3'));
@@ -392,26 +449,22 @@
         
         if (startButton) { 
             const ssButtonTextVal = t('startScreen.startButtonText');
-            // console.log(` - Start Screen Button Text: "${ssButtonTextVal}" (startButton global var exists: true)`);
             setText('start-button', ssButtonTextVal);
-        } else {
-            console.error("startButton global variable is null/undefined in applyTranslations when trying to set text.");
         }
-        // console.log("applyTranslations: Finished setting start screen elements.");
         
         if (noSelectionWarningEl) setText('no-selection-warning', t('assessmentScreen.noSelectionWarning'));
+        
         const toggleProfButton = document.getElementById('toggle-proficiency-button');
-        if (toggleProfButton) { 
-            const proficiencyDropdownEl = document.getElementById('proficiency-dropdown-content');
-            if (proficiencyDropdownEl && (proficiencyDropdownEl.style.display === "none" || proficiencyDropdownEl.style.display === "")) {
+        if (toggleProfButton && proficiencyDropdownContentEl) { // Check if proficiencyDropdownContentEl is defined
+            if (proficiencyDropdownContentEl.classList.contains('hidden')) { // Check class instead of style
                 toggleProfButton.textContent = t('assessmentScreen.showProficiencyLevelsButton');
-            } else if (proficiencyDropdownEl) {
+            } else {
                 toggleProfButton.textContent = t('assessmentScreen.hideProficiencyLevelsButton');
             }
         }
-        const proficiencyDropdown = document.getElementById('proficiency-dropdown-content');
-        if (proficiencyDropdown) { 
-            proficiencyDropdown.innerHTML = `<p>${t('assessmentScreen.proficiencyLevelsDropdown.beginner')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.developing')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.competent')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.proficient')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.expert')}</p>`;
+
+        if (proficiencyDropdownContentEl) { 
+            proficiencyDropdownContentEl.innerHTML = `<p>${t('assessmentScreen.proficiencyLevelsDropdown.beginner')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.developing')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.competent')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.proficient')}</p><p>${t('assessmentScreen.proficiencyLevelsDropdown.expert')}</p>`;
         }
         populateProficiencyButtons();
 
@@ -478,7 +531,7 @@
         if (exampleTextContainer) exampleTextContainer.textContent = `${examplePrefixText.startsWith("MISSING_") ? "Example: " : examplePrefixText}${t(`questionTexts.${question.exampleKey}`)}`;
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button");
         if (proficiencyButtonsNodeList) proficiencyButtonsNodeList.forEach(button => button.classList.remove("selected"));
-        if(noSelectionWarningEl) noSelectionWarningEl.style.display = 'none';
+        if(noSelectionWarningEl) noSelectionWarningEl.classList.add('hidden'); // Use class
         attachEventListeners();
     }
     function attachEventListeners() { 
@@ -491,7 +544,7 @@
         proficiencyButtonsNodeList = document.querySelectorAll("#assessment-screen .proficiency-button"); 
         proficiencyButtonsNodeList.forEach(button => {
             button.onclick = () => {
-                if(noSelectionWarningEl) noSelectionWarningEl.style.display = 'none';
+                if(noSelectionWarningEl) noSelectionWarningEl.classList.add('hidden'); // Use class
                 proficiencyButtonsNodeList.forEach(btn => btn.classList.remove("selected"));
                 button.classList.add("selected");
                 const selectedValue = parseInt(button.getAttribute("data-value"));
@@ -582,7 +635,7 @@
                 while (answers.Attitudes.length < numCompetencies) answers.Attitudes.push(0);
                 showResults();
             } else if (!competenciesData || competenciesData.length === 0) {
-                 console.warn("URL Data: competenciesData not ready.");
+                 console.warn("URL Data: competenciesData not ready. Will not attempt to show results from URL.");
             } else { console.warn("URL Data: malformed."); }
         }
     }
@@ -646,7 +699,7 @@
         bottomCompetencies.forEach(comp => {
             const weakestDimension = getWeakestDimension(comp);
             const competencyNameDisplay = comp.name; 
-            const competencyKeyForResourceLookup = comp.key; // USE KEY FOR MATCHING
+            const competencyKeyForResourceLookup = comp.key; 
             
             const growthLabel = t('endScreen.growthAreaLabel');
             const smartObjectiveLabel = t('endScreen.smartObjectiveLabel');
@@ -655,24 +708,23 @@
             const userLevel = comp[`${weakestDimension.toLowerCase()}Score`];
             let levelsToShow = userLevel ? (userLevel === 1 ? [1,2,3] : (userLevel === 5 ? [3,4,5] : [userLevel-1, userLevel, userLevel+1].filter(l=>l>=1 && l<=5))) : [1,2,3];
             
-            console.log(`SMART Objectives - Competency Key: "${competencyKeyForResourceLookup}", Weakest Dim: "${weakestDimension.toLowerCase()}", User Level: ${userLevel}`);
-            console.log("SMART Objectives - Window.customResources (length):", (window.customResources || []).length);
+            // console.log(`SMART Objectives - Competency Key: "${competencyKeyForResourceLookup}", Weakest Dim: "${weakestDimension.toLowerCase()}", User Level: ${userLevel}`);
+            // console.log("SMART Objectives - Window.customResources (length):", (window.customResources || []).length);
 
             const filteredResources = (window.customResources || []).filter(r => {
-                // console.log(`Filtering resource: (Res Key: "${r.competencyKey}", Res Lvl: "${r.level}") vs (Lookup Key: "${competencyKeyForResourceLookup}", Lookup Lvl: "${weakestDimension.toLowerCase()}")`);
                 return r.competencyKey === competencyKeyForResourceLookup && r.level === weakestDimension.toLowerCase();
             });
-            console.log(`SMART Objectives - Filtered Resources (for ${competencyKeyForResourceLookup} / ${weakestDimension.toLowerCase()}):`, JSON.parse(JSON.stringify(filteredResources)));
+            // console.log(`SMART Objectives - Filtered Resources (for ${competencyKeyForResourceLookup} / ${weakestDimension.toLowerCase()}):`, JSON.parse(JSON.stringify(filteredResources)));
 
             const chosenResources = filteredResources.filter(r => levelsToShow.includes(r.rating)).slice(0, 3);
-            console.log(`SMART Objectives - Chosen Resources (after rating filter for levels ${levelsToShow.join(',')} ):`, JSON.parse(JSON.stringify(chosenResources)));
+            // console.log(`SMART Objectives - Chosen Resources (after rating filter for levels ${levelsToShow.join(',')} ):`, JSON.parse(JSON.stringify(chosenResources)));
             
             let resourcesHTML = '';
             if (chosenResources.length > 0) {
                 resourcesHTML = `<h5>${t('endScreen.recommendedResourcesLabel')}</h5><ul style="list-style:none; padding:0; margin:10px 0;">
                         ${chosenResources.map(r => `<li><a href="${r.URL}" target="_blank" style="text-decoration:none; color:#0f777b;"><strong>${r.title}</strong>: ${r.description}</a></li>`).join('')}</ul>`;
             } else {
-                console.log(`No chosen resources to display for ${competencyNameDisplay} - ${weakestDimension}`);
+                // console.log(`No chosen resources to display for ${competencyNameDisplay} - ${weakestDimension}`);
             }
             smartObjectivesContainer.innerHTML += `<div class="smart-item card"><h4>${competencyNameDisplay}</h4><p><strong>${growthLabel}</strong> ${translatedDimensionNameForSMART}</p><p><strong>${smartObjectiveLabel}</strong> ${smartObjectiveText}</p>${resourcesHTML}</div>`;
         });
@@ -709,11 +761,15 @@
     }
     function toggleDropdown(event) { 
         const button = event.target;
-        const dropdownContent = document.getElementById('proficiency-dropdown-content');
-        if (dropdownContent) {
-            const isHidden = dropdownContent.style.display === "none" || dropdownContent.style.display === "";
-            dropdownContent.style.display = isHidden ? "block" : "none";
-            button.textContent = t(isHidden ? 'assessmentScreen.hideProficiencyLevelsButton' : 'assessmentScreen.showProficiencyLevelsButton');
+        if (proficiencyDropdownContentEl) { // Use the global variable
+            const isCurrentlyHidden = proficiencyDropdownContentEl.classList.contains('hidden');
+            if (isCurrentlyHidden) {
+                proficiencyDropdownContentEl.classList.remove('hidden');
+                button.textContent = t('assessmentScreen.hideProficiencyLevelsButton');
+            } else {
+                proficiencyDropdownContentEl.classList.add('hidden');
+                button.textContent = t('assessmentScreen.showProficiencyLevelsButton');
+            }
         }
     }
     
@@ -737,13 +793,16 @@
                 if(strengthsContainer) strengthsContainer.innerHTML = '';
                 if(growthAreasContainer) growthAreasContainer.innerHTML = '';
                 if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
+                // No need to call applyTranslations() here if start screen doesn't need dynamic content beyond what initializeApp handles
+                // OR ensure applyTranslations can safely re-apply to the start screen.
+                // For safety, let's re-apply.
                 applyTranslations(); 
             });
-        } else { console.error("Restart button not found for listener in addEventListenersToDOM."); }
+        }
 
         if (startButton) {
             startButton.addEventListener("click", () => {
-                console.log("Start button CLICKED!"); 
+                // console.log("Start button CLICKED!"); 
                 if(startScreen) startScreen.classList.add("hidden");
                 if(assessmentScreen) assessmentScreen.classList.remove("hidden");
                 
@@ -761,12 +820,11 @@
                     console.error("Cannot start assessment, competencies data not loaded.");
                 }
             });
-        } else { console.error("Start button not found for listener in addEventListenersToDOM."); }
+        }
 
         if (langSelectorElement) {
             langSelectorElement.addEventListener('change', async (event) => {
                 const newLang = event.target.value; 
-                // console.log(`Language dropdown changed to: ${newLang}. Current BU: ${currentBU}`);
                 currentLanguage = newLang; 
                 
                 let variantToLoad = currentLanguage;
@@ -775,19 +833,20 @@
                 }
                 await loadVariantFiles(variantToLoad); 
 
+                // If on start screen, just re-apply translations. Otherwise, restart.
                 if (startScreen && !startScreen.classList.contains('hidden') && 
                     assessmentScreen && assessmentScreen.classList.contains('hidden') && 
                     endScreen && endScreen.classList.contains('hidden')) {
-                    // On start screen fine
+                    applyTranslations(); // Re-apply for start screen
                 } else { 
                     if (restartButton) restartButton.click(); 
                 }
             });
-        }  else { console.warn("Language selector element not found for event listener attachment in addEventListenersToDOM."); }
+        }
     }
     
     async function initializeApp() {
-        console.log("initializeApp CALLED"); 
+        // console.log("initializeApp CALLED"); 
         assignDOMelements(); 
         addEventListenersToDOM(); 
 
@@ -810,8 +869,11 @@
             if (langOptionExists) {
                 initialLang = primaryBrowserLang;
             }
-            if (browserLang.toLowerCase().startsWith('zh-hans') || browserLang.toLowerCase() === 'zh-cn' || browserLang.toLowerCase() === 'zh-sg') initialLang = 'zh-hans';
-            else if (browserLang.toLowerCase().startsWith('zh-hant') || browserLang.toLowerCase() === 'zh-tw' || browserLang.toLowerCase() === 'zh-hk') initialLang = 'zh-hant';
+            // More specific fallbacks for Chinese variants based on common browser language codes
+            if (browserLang.toLowerCase() === 'zh-cn' || browserLang.toLowerCase() === 'zh-sg') initialLang = 'zh-hans';
+            else if (browserLang.toLowerCase() === 'zh-tw' || browserLang.toLowerCase() === 'zh-hk' || browserLang.toLowerCase() === 'zh-mo') initialLang = 'zh-hant';
+            else if (browserLang.toLowerCase().startsWith('zh-hans')) initialLang = 'zh-hans'; // General simplified
+            else if (browserLang.toLowerCase().startsWith('zh-hant')) initialLang = 'zh-hant'; // General traditional
         }
         
         currentLanguage = initialLang; 
@@ -819,14 +881,17 @@
         let variantToLoad = currentLanguage;
         if (currentBU) {
             variantToLoad = `${currentLanguage}-${currentBU}`;
-        } else {
-            // console.log(`No BU parameter. Initial language: '${currentLanguage}' (effective variant: ${variantToLoad})`);
         }
         
         await loadVariantFiles(variantToLoad); 
         
-        decodeAndLoadResults(); 
-        console.log("initializeApp COMPLETED");
+        // Only decode and load if competenciesData is available, otherwise it can cause errors
+        if (competenciesData && competenciesData.length > 0) {
+            decodeAndLoadResults(); 
+        } else {
+            console.warn("initializeApp: competenciesData not ready after loadVariantFiles. Skipping decodeAndLoadResults.");
+        }
+        // console.log("initializeApp COMPLETED");
     }
 
     document.addEventListener('DOMContentLoaded', initializeApp);
