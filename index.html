@@ -72,6 +72,19 @@
         .qr-url-container { text-align: center; margin-top: 10px; }
         .qr-url { font-size: 12px; color: #aaa; margin-top: 0; margin-bottom: 5px; word-wrap: break-word; }
         #language-selector-container { padding: 10px; text-align: right; background-color: #f8f9fa; border-bottom: 1px solid #e0e0e0; margin-bottom:15px; }
+        
+        /* New style for the Email Results button */
+        .button-email {
+            background-color: #007bff; /* A common 'action blue' */
+        }
+        .button-email:hover {
+            background-color: #0056b3; /* Darker shade of blue for hover */
+        }
+        .button-email .icon-email { /* Style for the icon within the button */
+            margin-right: 8px;
+            font-size: 1.1em; 
+            vertical-align: middle;
+        }
 
         @media (max-width: 600px) {
             .container { padding: 15px 20px; }
@@ -82,7 +95,7 @@
             h1, h2, h3 { font-size: 24px; }
             h4 { font-size: 20px; }
             p { font-size: 15px; }
-            .button { font-size: 16px; padding: 10px 20px;}
+            .button { font-size: 16px; padding: 10px 20px;} /* This will also apply to .button-email */
             .competency-banner { font-size: 18px; }
         }
     </style>
@@ -200,6 +213,7 @@
         </div>
     </div>
     <div style="text-align: center;" id="end-screen-actions-container">
+        <!-- Email My Results button will be inserted here by JS -->
         <button class="button" id="restart-button" type="button"></button>
         <div class="qr-url-container">
             <p id="qr-url" class="qr-url"></p>
@@ -530,7 +544,7 @@
             growthAreasText += `- ${title} (${dimension})\n`;
         });
 
-        return `${t('appTitle')} ${t('endScreen.title')} (${dateText})\n` +
+        return `${t('appTitle')} - ${t('endScreen.title')} (${dateText})\n` + // Changed slightly for clarity
                `------------------------------------------\n` +
                `Overall Score: ${overallScoreText}\n` +
                (userProficiencyLevelName ? `Proficiency Level: ${userProficiencyLevelName}\n` : '') +
@@ -552,34 +566,36 @@
         if (!emailButton) {
             emailButton = document.createElement('button');
             emailButton.id = 'email-results-button';
-            emailButton.classList.add('button');
-            emailButton.style.display = 'block';
+            emailButton.classList.add('button'); // Base class
+            emailButton.classList.add('button-email'); // Specific class for styling
+            emailButton.style.display = 'block'; // Make it a block to center with auto margins
             emailButton.style.marginLeft = 'auto';
             emailButton.style.marginRight = 'auto';
-            emailButton.style.marginBottom = '10px'; // Space before the restart button
-            endScreenActionsContainer.insertBefore(emailButton, restartButton); // Insert before restart button
+            emailButton.style.marginBottom = '15px'; // Space from restart button
+            
+            // Insert the email button before the restart button
+            endScreenActionsContainer.insertBefore(emailButton, restartButton);
         }
-        // Generic button text, the recipient is handled in the mailto link.
-        emailButton.textContent = t('endScreen.emailResultsButtonText'); // e.g., "Email My Results" 
+        
+        const emailIconHTML = '<span class="icon-email">📧</span>'; // Envelope icon
+        emailButton.innerHTML = emailIconHTML + t('endScreen.emailResultsButtonText'); // e.g., "Email My Results"
 
+        // Clone to ensure fresh event listener
         const newEmailButton = emailButton.cloneNode(true);
         emailButton.parentNode.replaceChild(newEmailButton, emailButton);
         emailButton = newEmailButton;
 
         emailButton.onclick = () => {
-            const recipientEmail = "david.bythell@uk.aswatson.com"; // Hardcoded email address
+            const recipientEmail = "david.bythell@uk.aswatson.com"; 
             const subject = encodeURIComponent(t('endScreen.emailSubject'));
             const emailBodyIntroText = t('endScreen.emailBodyIntro');
-            //const emailBodyPleaseSendText = t('endScreen.emailBodyPleaseSend'); // This text isn't strictly needed in the body if TO is prefilled
-            const summaryForClipboard = generateResultsTextSummary(resultsUrl); // Full summary for clipboard
+            const summaryForClipboard = generateResultsTextSummary(resultsUrl); 
 
-            // Mailto body will be concise: intro + results link
-            const mailtoBody = `${emailBodyIntroText}\n${resultsUrl}\n\n${t('endScreen.thankYouMessage')}`; // Add a polite closing
+            const mailtoBody = `${emailBodyIntroText}\n${resultsUrl}\n\n${t('endScreen.thankYouMessage')}`; 
             const encodedMailtoBody = encodeURIComponent(mailtoBody);
             
             const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${encodedMailtoBody}`;
 
-            // Copy full summary to clipboard as a silent fallback
             navigator.clipboard.writeText(summaryForClipboard)
                 .then(() => {
                     // console.log("Full summary copied to clipboard as fallback.");
@@ -587,8 +603,6 @@
                 .catch(err => {
                     console.warn('Could not copy full summary to clipboard: ', err);
                 });
-
-            // Attempt to open mailto link
             window.location.href = mailtoLink;
         };
     }
@@ -759,7 +773,6 @@
         const resultsURL = `${window.location.origin}${window.location.pathname}?data=${data}`;
         setText('qr-url', resultsURL);
         addEmailResultsFeature(resultsURL); 
-        // addCopyResultsLinkButton(resultsURL); // Removed this call
     }
 
     function generateQRCode(data, canvasId) { 
@@ -807,8 +820,6 @@
                 
                 const emailBtn = document.getElementById('email-results-button');
                 if(emailBtn) emailBtn.remove();
-                // const copyDirectBtn = document.getElementById('copy-direct-link-button'); // No longer used
-                // if(copyDirectBtn) copyDirectBtn.remove();
 
                 applyTranslations(); 
             });
