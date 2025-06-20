@@ -37,9 +37,12 @@
         }
         .team-summary-box p { margin: 5px 0; font-size: 1.1em;}
         .team-summary-box strong { color: #0f777b;}
-        .button-email { background-color: #007bff; } /* Blue for email button */
+        .button-email { background-color: #007bff; } 
         .button-email:hover { background-color: #0056b3; }
         .button-email .icon-email { margin-right: 8px; font-size: 1.1em; vertical-align: middle; }
+        .team-results-url-container { text-align: center; margin-top: 20px; padding-top: 15px; border-top:1px solid #eee; }
+        .team-results-url { font-size: 0.8em; color: #777; word-wrap: break-word; background-color: #f8f8f8; padding: 5px; border-radius: 3px; display: inline-block; max-width: 90%;}
+        .button-copy-link { font-size: 0.8em; padding: 3px 8px; margin-left: 5px; vertical-align: middle;}
 
 
         @media (max-width: 600px) {
@@ -91,12 +94,16 @@
     </div>
 
     <div id="team-actions-container" style="text-align: center; margin-top:30px; padding-top:20px; border-top: 1px solid #eee;">
-        <!-- Email button will be added here by JS -->
         <button class="button" id="process-new-data-button" style="background-color: #6c757d;">Process New Team Data</button>
         <div id="team-qr-code-container" style="margin-top: 20px;">
             <h4>QR Code for this Team Tool</h4>
             <canvas id="team-tool-qr-code"></canvas>
             <p style="font-size:0.9em; color: #666;">Scan to bookmark this team results generation tool.</p>
+        </div>
+        <div class="team-results-url-container">
+            <p><strong>Shareable Link for these Averages:</strong></p>
+            <span id="team-shareable-url" class="team-results-url"></span>
+            <button id="copy-team-url-button" class="button button-copy-link">Copy Link</button>
         </div>
     </div>
 </div>
@@ -116,7 +123,8 @@
     let radarChart;
 
     let teamDataInputScreen, teamDataStringsTextarea, processTeamDataButton, participantCountInfo, processingErrorsP;
-    let teamResultsScreen, teamStrengthsContainer, teamGrowthAreasContainer, processNewDataButton, teamActionsContainer;
+    let teamResultsScreen, teamStrengthsContainer, teamGrowthAreasContainer, processNewDataButton, teamActionsContainer,
+        teamShareableUrlEl, copyTeamUrlButtonEl;
 
     function assignDOMelements() {
         teamDataInputScreen = document.getElementById('team-data-input-screen');
@@ -129,6 +137,8 @@
         teamGrowthAreasContainer = document.getElementById('team-growth-areas');
         processNewDataButton = document.getElementById('process-new-data-button');
         teamActionsContainer = document.getElementById('team-actions-container');
+        teamShareableUrlEl = document.getElementById('team-shareable-url');
+        copyTeamUrlButtonEl = document.getElementById('copy-team-url-button');
     }
 
      function t(key, replacements = {}) { 
@@ -214,15 +224,16 @@
 
     function parseAndDisplayTeamAvgData(teamAvgDataString) {
         const parts = teamAvgDataString.split('-');
-        if (parts.length !== 4) { // K-S-A-Count
+        if (parts.length !== 4) {
             console.error("Malformed teamAvgData string in URL (expected 4 parts):", teamAvgDataString);
             if (processingErrorsP) processingErrorsP.textContent = "Error: Invalid team average data link (format error).";
-            if (teamDataInputScreen) teamDataInputScreen.classList.remove('hidden');
+            if (teamDataInputScreen && !teamDataInputScreen.classList.contains('hidden')) { /* Stay on input screen if already visible */ }
+            else if (teamDataInputScreen) { teamDataInputScreen.classList.remove('hidden'); }
             return;
         }
         const [kAvgStr, sAvgStr, aAvgStr, countStr] = parts;
         const numCompetencies = COMPETENCY_KEYS_IN_ORDER.length;
-        const expectedScoreStrLength = numCompetencies * 2; // Each score is 2 digits (00-50)
+        const expectedScoreStrLength = numCompetencies * 2;
 
         try {
             if (kAvgStr.length !== expectedScoreStrLength || 
@@ -257,14 +268,15 @@
         } catch (e) {
             console.error("Error parsing teamAvgData from URL:", e, teamAvgDataString);
             if (processingErrorsP) processingErrorsP.textContent = "Error: Corrupted team average data link (parsing error). Details in console.";
-            if (teamDataInputScreen) teamDataInputScreen.classList.remove('hidden'); 
+            if (teamDataInputScreen && !teamDataInputScreen.classList.contains('hidden')) { /* Stay on input screen */ }
+            else if (teamDataInputScreen) { teamDataInputScreen.classList.remove('hidden'); }
             return;
         }
         
         showTeamResults(teamProcessedParticipantCount); 
         if (teamDataInputScreen) teamDataInputScreen.classList.add('hidden');
         if (participantCountInfo) participantCountInfo.textContent = `Displaying pre-calculated average results for ${teamProcessedParticipantCount} participants from link.`;
-        rawInputDataStringsForEmail = []; // Raw data is not available when loading from avg link for emailing
+        rawInputDataStringsForEmail = []; 
     }
 
     function decodeAndProcessTeamData() {
@@ -347,7 +359,7 @@
         }
         
         let sumOfOverallAveragesPerCompetency = 0;
-        if (COMPETENCY_KEYS_IN_ORDER.length > 0) {
+        if (COMPETENCY_KEYS_IN_ORDER.length > 0 && teamAverageAnswers.Knowledge.length === COMPETENCY_KEYS_IN_ORDER.length) { // Check array length
             for(let i=0; i < COMPETENCY_KEYS_IN_ORDER.length; i++){
                 const kAvg = teamAverageAnswers.Knowledge[i] || 0;
                 const sAvg = teamAverageAnswers.Skills[i] || 0;
@@ -415,8 +427,23 @@
         generateTeamStrengthsAndGrowth();
         generateTeamToolQRCode();
         addTeamEmailResultsFeature();
+        displayTeamShareableLink();
     }
     
+    function displayTeamShareableLink() {
+        if (teamShareableUrlEl && copyTeamUrlButtonEl) {
+            const teamAvgDataEncoded = encodeTeamAverageScoresToString();
+            const resultsUrlWithAvg = `${window.location.href.split('?')[0]}?teamAvgData=${teamAvgDataEncoded}`;
+            teamShareableUrlEl.textContent = resultsUrlWithAvg;
+
+            copyTeamUrlButtonEl.onclick = () => {
+                navigator.clipboard.writeText(resultsUrlWithAvg)
+                    .then(() => { alert('Shareable link for team averages copied to clipboard!'); })
+                    .catch(err => { console.error('Failed to copy team averages link:', err); alert('Could not copy link.'); });
+            };
+        }
+    }
+
     function generateTeamToolQRCode() {
         const qrCanvas = document.getElementById('team-tool-qr-code');
         if (qrCanvas) {
@@ -443,7 +470,8 @@
         }
         
         const emailIconHTML = '<span class="icon-email">📧</span>';
-        emailButton.innerHTML = emailIconHTML + (t('endScreen.emailTeamResultsButtonText') || "Email Team Results");
+        // Hardcoded button text as requested
+        emailButton.innerHTML = emailIconHTML + "Email Team Results";
 
         const newEmailButton = emailButton.cloneNode(true);
         emailButton.parentNode.replaceChild(newEmailButton, emailButton);
@@ -451,14 +479,15 @@
 
         emailButton.onclick = () => {
             const recipientEmail = "david.bythell@uk.aswatson.com";
+            // Use hardcoded subject or get from t() if you add the key
             const subject = encodeURIComponent(t('endScreen.emailTeamSubject') || "Aggregated Team Digital Skills Results");
             const emailBodyIntroText = t('endScreen.emailTeamBodyIntro') || "Team Digital Skills Assessment - Aggregated Averages:";
             
-            const teamAvgDataEncoded = encodeTeamAverageScoresToString(); // Includes participant count
+            const teamAvgDataEncoded = encodeTeamAverageScoresToString();
             const resultsUrlWithAvg = `${window.location.href.split('?')[0]}?teamAvgData=${teamAvgDataEncoded}`;
 
             let mailtoBody = `${emailBodyIntroText}\n\n` +
-                               `Participants Processed: ${teamProcessedParticipantCount > 0 ? teamProcessedParticipantCount : 'N/A (from link)'}\n` +
+                               `Participants Processed: ${teamProcessedParticipantCount > 0 ? teamProcessedParticipantCount : 'N/A (viewing shared link)'}\n` +
                                `Overall Team Average: ${document.getElementById('team-average-percentage')?.textContent || 'N/A'}%\n` +
                                `Team Proficiency: ${document.getElementById('team-proficiency-rank')?.textContent || 'N/A'}\n\n` +
                                `Link to view this aggregated report graph: ${resultsUrlWithAvg}\n\n`;
@@ -475,10 +504,7 @@
             const encodedMailtoBody = encodeURIComponent(mailtoBody);
             const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${encodedMailtoBody}`;
             
-            navigator.clipboard.writeText(resultsUrlWithAvg) 
-                .then(() => { console.log("Team results average link copied to clipboard as fallback."); })
-                .catch(err => { console.warn('Could not copy team results average link to clipboard: ', err); });
-
+            // No alert, just attempt to open mailto
             window.location.href = mailtoLink;
         };
     }
