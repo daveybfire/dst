@@ -10,11 +10,10 @@
       gtag('config', 'G-WX8HLE4W5Q');
     </script>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added for responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Skills Assessment</title> <!-- Will be updated by JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    <!-- resources.js is NOT loaded here by default anymore. It will be loaded dynamically -->
 
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
@@ -29,35 +28,15 @@
         .question-container { background: #e0f7fa; border: 2px solid #0f777b; border-radius: 10px; padding: 15px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); min-height: 120px; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .question-container h2 { font-size: 24px; font-weight: bold; color: #333; margin: 0; line-height: 1.5; }
         .example { font-style: italic; color: #555; font-size: 16px; margin-top: 15px; }
-
-        /* Proficiency Buttons - Default (Larger Screens) */
-        .proficiency-buttons {
-            margin: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            /* flex-wrap: nowrap; /* Removed for easier override */
-        }
-        .proficiency-button {
-            background: #e0e0e0;
-            border: none;
-            padding: 12px 10px;
-            margin: 0 5px; /* Horizontal margin for side-by-side buttons */
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.1s ease;
-            flex: 1; /* Distribute space equally when in a row */
-            text-align: center;
-            white-space: nowrap; /* Prevent text inside button from wrapping by default */
-        }
+        .proficiency-buttons { margin: 20px 0; display: flex; justify-content: space-between; }
+        .proficiency-button { background: #e0e0e0; border: none; padding: 12px 10px; margin: 0 5px; border-radius: 5px; font-size: 14px; cursor: pointer; transition: background 0.3s ease, transform 0.1s ease; flex: 1; text-align: center; white-space: nowrap; }
         .proficiency-button:hover { background: #d5d5d5; }
         .proficiency-button.selected { background: #4caf50; color: white; transform: scale(1.05); }
-
         .no-selection-warning { color: red; font-size: 14px; margin-top: 10px; display: none; }
-        .button { padding: 12px 25px; margin: 10px 0; /* Adjusted margin for multiple buttons */ background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
+        .button { padding: 12px 25px; margin: 10px 0; background: #0f777b; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; transition: background 0.3s ease; }
         .button:hover { background: #0a5e60; }
         .button:disabled { background: #ccc; cursor: not-allowed; }
-        .hidden { display: none !important; } /* Added !important to ensure override */
+        .hidden { display: none !important; }
         .summary-header { background: #e0f7fa; border: 1px solid #0f777b; border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; }
         .summary-header p { font-size: 18px; color: #2c3e50; margin: 10px 0; }
         .summary-header p span { font-weight: bold; }
@@ -86,43 +65,25 @@
         .strengths .card, .growth-areas .card, .smart-objectives .card { background: #fff; border-radius: 8px; padding: 15px; margin: 15px 0; }
         .dropdown .button { background: #0f777b; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 10px; transition: background 0.3s ease; }
         .dropdown .button:hover { background: #0a5e60; }
-        .dropdown-content { /* display: none; /* Default to hidden, controlled by JS or class */ padding: 15px; margin-top: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #333; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .dropdown-content { padding: 15px; margin-top: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #333; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
         #question-text-container { font-size: 18px; font-weight: bold; color: #2c3e50; line-height: 1.6; margin-bottom: 10px; text-align: center; }
         #example-text-container { font-size: 16px; font-style: italic; color: #555; line-height: 1.4; margin-top: 5px; margin-bottom: 0; text-align: center; }
         .chart-description { font-size: 16px; color: #555; margin-bottom: 20px; line-height: 1.5; text-align: center; }
-        .qr-url-container { text-align: center; margin-top: 10px; } /* Container for URL and its copy button */
-        .qr-url { font-size: 12px; color: #aaa; margin-top: 0; margin-bottom: 5px; /* Adjusted margins */ word-wrap: break-word; }
+        .qr-url-container { text-align: center; margin-top: 10px; }
+        .qr-url { font-size: 12px; color: #aaa; margin-top: 0; margin-bottom: 5px; word-wrap: break-word; }
         #language-selector-container { padding: 10px; text-align: right; background-color: #f8f9fa; border-bottom: 1px solid #e0e0e0; margin-bottom:15px; }
 
-        /* --- Styles for Smaller Screens (Mobiles) --- */
         @media (max-width: 600px) {
             .container { padding: 15px 20px; }
-
-            /* Stack Proficiency Buttons Vertically */
-            .proficiency-buttons {
-                flex-direction: column; /* Stack them vertically */
-                align-items: stretch;   /* Make buttons take full width of container */
-            }
-            .proficiency-button {
-                flex-basis: auto;       /* Reset flex-basis for stacked items */
-                margin: 8px 0;          /* Adjust margin for vertical stacking, increased spacing */
-                white-space: normal;    /* Allow text inside button to wrap */
-                padding: 15px 10px;     /* Slightly increase padding for better touch targets */
-                font-size: 15px;        /* Slightly larger font for readability */
-            }
-
-            /* Larger Question and Example Text */
-            #question-text-container {
-                font-size: 20px; /* Increased from 18px */
-            }
-            #example-text-container {
-                font-size: 17px; /* Increased from 16px */
-            }
-             h1, h2, h3 { font-size: 24px; } /* Slightly reduce heading sizes on mobile */
-             h4 { font-size: 20px; }
-             p { font-size: 15px; }
-             .button { font-size: 16px; padding: 10px 20px;}
-             .competency-banner { font-size: 18px; }
+            .proficiency-buttons { flex-direction: column; align-items: stretch; }
+            .proficiency-button { flex-basis: auto; margin: 8px 0; white-space: normal; padding: 15px 10px; font-size: 15px; }
+            #question-text-container { font-size: 20px; }
+            #example-text-container { font-size: 17px; }
+            h1, h2, h3 { font-size: 24px; }
+            h4 { font-size: 20px; }
+            p { font-size: 15px; }
+            .button { font-size: 16px; padding: 10px 20px;}
+            .competency-banner { font-size: 18px; }
         }
     </style>
 </head>
@@ -178,7 +139,7 @@
     <div class="no-selection-warning" id="no-selection-warning"></div>
     <div class="dropdown">
         <button class="button" id="toggle-proficiency-button" onclick="toggleDropdown(event)"></button>
-        <div class="dropdown-content hidden" id="proficiency-dropdown-content"> <!-- Changed: Default to hidden by adding 'hidden' class -->
+        <div class="dropdown-content hidden" id="proficiency-dropdown-content">
         </div>
     </div>
 </div>
@@ -238,10 +199,9 @@
             </div>
         </div>
     </div>
-    <div style="text-align: center;" id="end-screen-actions-container"> <!-- Container for action buttons -->
-        <!-- Email and Copy Link buttons will be inserted here by JS before Restart -->
+    <div style="text-align: center;" id="end-screen-actions-container">
         <button class="button" id="restart-button" type="button"></button>
-        <div class="qr-url-container"> <!-- Wrapped p and its potential button -->
+        <div class="qr-url-container">
             <p id="qr-url" class="qr-url"></p>
         </div>
     </div>
@@ -249,28 +209,22 @@
 
 <script>
     // --- START OF SCRIPT ---
-
-    // --- GLOBAL VARIABLE DECLARATIONS (Must be at the very top) ---
     let i18nData = {};
     let currentLanguage = 'en'; 
     let currentBU = null; 
     let currentVariantIdentifier = 'en'; 
-
     let questionsData = [];
     let competenciesData = [];
     let overallProficiencyLevelsData = [];
     const answers = { Knowledge: [], Skills: [], Attitudes: [] };
     let currentIndex = 0;
     let radarChart;
-    let userProficiencyLevelName = ''; // To store just the proficiency name for summary
+    let userProficiencyLevelName = '';
 
-    // DOM Element Grabbers (declared here, assigned in assignDOMelements after DOMContentLoaded)
     let startScreen, assessmentScreen, endScreen, progressBar, progressLabel, competencyBanner,
         questionTextContainer, exampleTextContainer, proficiencyButtonsNodeList, noSelectionWarningEl,
         strengthsContainer, growthAreasContainer, smartObjectivesContainer,
         restartButton, startButton, langSelectorElement, proficiencyDropdownContentEl, endScreenActionsContainer;
-
-    // --- FUNCTION DEFINITIONS ---
 
     function assignDOMelements() {
         startScreen = document.getElementById("start-screen");
@@ -313,7 +267,6 @@
             } else { return `MISSING_TRANSLATION: ${key}`; }
         }
         if (typeof textValue !== 'string') {
-            // console.warn(`Value for key '${key}' is not a string:`, textValue);
             return `INVALID_TRANSLATION_TYPE: ${key}`;
         }
         let finalText = textValue;
@@ -481,7 +434,6 @@
             setText('survey-prompt', t('endScreen.surveyPrompt'));
             setText('survey-button', t('endScreen.surveyButtonText'));
             if (restartButton) setText('restart-button', t('endScreen.restartButtonText'));
-            // Results specific content is generated by generateResultsPageContent called in showResults
         }
     }
 
@@ -560,18 +512,17 @@
         const overallScoreText = document.getElementById('total-score-advanced')?.textContent || 'N/A';
         const dateText = document.getElementById('current-date-advanced')?.textContent || 'N/A';
 
-        let strengthsText = `${t('endScreen.strengthsSectionTitle').replace(/<[^>]*>?/gm, '')}:\n`; // Strip HTML from title
-        const strengthItems = document.querySelectorAll('#strengths .strength-item.card'); // More specific selector
+        let strengthsText = `${t('endScreen.strengthsSectionTitle').replace(/<[^>]*>?/gm, '')}:\n`;
+        const strengthItems = document.querySelectorAll('#strengths .strength-item.card');
         strengthItems.forEach(item => {
             const title = item.querySelector('h4')?.textContent || '';
-            // Find the dimension text which is not bold. The strong tag contains the label.
             const dimensionP = Array.from(item.querySelectorAll('p')).find(p => p.querySelector('strong')?.textContent === t('endScreen.strongestDimensionLabel'));
             const dimension = dimensionP ? dimensionP.innerHTML.replace(/<strong>.*?<\/strong>\s*/, '').trim() : '';
             strengthsText += `- ${title} (${dimension})\n`;
         });
 
-        let growthAreasText = `\n${t('endScreen.growthAreasSectionTitle').replace(/<[^>]*>?/gm, '')}:\n`; // Strip HTML
-        const growthItems = document.querySelectorAll('#growth-areas .growth-item.card'); // More specific
+        let growthAreasText = `\n${t('endScreen.growthAreasSectionTitle').replace(/<[^>]*>?/gm, '')}:\n`;
+        const growthItems = document.querySelectorAll('#growth-areas .growth-item.card');
         growthItems.forEach(item => {
             const title = item.querySelector('h4')?.textContent || '';
             const dimensionP = Array.from(item.querySelectorAll('p')).find(p => p.querySelector('strong')?.textContent === t('endScreen.growthAreaLabel'));
@@ -579,7 +530,7 @@
             growthAreasText += `- ${title} (${dimension})\n`;
         });
 
-        return `${t('appTitle')} ${t('endScreen.title')} (${dateText})\n` + // "Digital Skills Assessment Results"
+        return `${t('appTitle')} ${t('endScreen.title')} (${dateText})\n` +
                `------------------------------------------\n` +
                `Overall Score: ${overallScoreText}\n` +
                (userProficiencyLevelName ? `Proficiency Level: ${userProficiencyLevelName}\n` : '') +
@@ -605,78 +556,40 @@
             emailButton.style.display = 'block';
             emailButton.style.marginLeft = 'auto';
             emailButton.style.marginRight = 'auto';
-            emailButton.style.marginBottom = '10px';
-            endScreenActionsContainer.insertBefore(emailButton, restartButton);
+            emailButton.style.marginBottom = '10px'; // Space before the restart button
+            endScreenActionsContainer.insertBefore(emailButton, restartButton); // Insert before restart button
         }
-        emailButton.textContent = t('endScreen.emailResultsButtonText'); // e.g., "Email My Results to [Your Team]"
+        // Generic button text, the recipient is handled in the mailto link.
+        emailButton.textContent = t('endScreen.emailResultsButtonText'); // e.g., "Email My Results" 
 
         const newEmailButton = emailButton.cloneNode(true);
         emailButton.parentNode.replaceChild(newEmailButton, emailButton);
         emailButton = newEmailButton;
 
         emailButton.onclick = () => {
+            const recipientEmail = "david.bythell@uk.aswatson.com"; // Hardcoded email address
             const subject = encodeURIComponent(t('endScreen.emailSubject'));
             const emailBodyIntroText = t('endScreen.emailBodyIntro');
-            const emailBodyPleaseSendText = t('endScreen.emailBodyPleaseSend');
-            const summaryForEmail = generateResultsTextSummary(resultsUrl); // Generate summary
+            //const emailBodyPleaseSendText = t('endScreen.emailBodyPleaseSend'); // This text isn't strictly needed in the body if TO is prefilled
+            const summaryForClipboard = generateResultsTextSummary(resultsUrl); // Full summary for clipboard
 
-            // For mailto, it's better to keep the body short.
-            // We'll include the link and a brief instruction.
-            // The full summary is copied to clipboard as a fallback.
-            const mailtoBody = `${emailBodyIntroText}\n${resultsUrl}\n\n${emailBodyPleaseSendText}`;
+            // Mailto body will be concise: intro + results link
+            const mailtoBody = `${emailBodyIntroText}\n${resultsUrl}\n\n${t('endScreen.thankYouMessage')}`; // Add a polite closing
             const encodedMailtoBody = encodeURIComponent(mailtoBody);
-
-            navigator.clipboard.writeText(summaryForEmail) // Copy the FULL summary
-                .then(() => {
-                    alert(t('endScreen.resultsLinkCopiedForEmailMessage')); // "Your email client should open..."
-                    window.location.href = `mailto:?subject=${subject}&body=${encodedMailtoBody}`;
-                })
-                .catch(err => {
-                    console.error('Failed to copy full results summary to clipboard: ', err);
-                    alert(t('endScreen.resultsLinkCopiedForEmailMessage')); // Still give this message
-                    window.location.href = `mailto:?subject=${subject}&body=${encodedMailtoBody}`;
-                });
-        };
-    }
-
-    function addCopyResultsLinkButton(urlToCopy) {
-        const qrUrlContainer = document.querySelector('.qr-url-container');
-        if (!qrUrlContainer) {
-             console.error("Cannot add copy link button: .qr-url-container not found.");
-            return;
-        }
-        let copyButton = document.getElementById('copy-direct-link-button');
-        if (!copyButton) {
-            copyButton = document.createElement('button');
-            copyButton.id = 'copy-direct-link-button';
-            copyButton.classList.add('button');
-            copyButton.style.marginTop = '0px'; // Align with paragraph
-            copyButton.style.marginLeft = '10px'; // Space from URL text
-            copyButton.style.fontSize = '12px';
-            copyButton.style.padding = '5px 10px';
-            copyButton.style.backgroundColor = '#6c757d'; // Subdued color
-            copyButton.style.verticalAlign = 'middle'; // Align with paragraph text
             
-            // Insert after the paragraph displaying the URL
-            const qrUrlP = document.getElementById('qr-url');
-            if (qrUrlP) qrUrlP.parentNode.insertBefore(copyButton, qrUrlP.nextSibling);
-            else qrUrlContainer.appendChild(copyButton); // Fallback if p isn't there
-        }
-        copyButton.textContent = t('endScreen.copyLinkButtonText');
+            const mailtoLink = `mailto:${recipientEmail}?subject=${subject}&body=${encodedMailtoBody}`;
 
-        const newCopyButton = copyButton.cloneNode(true);
-        copyButton.parentNode.replaceChild(newCopyButton, copyButton);
-        copyButton = newCopyButton;
-
-        copyButton.onclick = () => {
-            navigator.clipboard.writeText(urlToCopy)
+            // Copy full summary to clipboard as a silent fallback
+            navigator.clipboard.writeText(summaryForClipboard)
                 .then(() => {
-                    alert(t('endScreen.resultsLinkCopiedMessage'));
+                    // console.log("Full summary copied to clipboard as fallback.");
                 })
                 .catch(err => {
-                    console.error('Failed to copy results link: ', err);
-                    alert(t('endScreen.copyLinkFailedMessage'));
+                    console.warn('Could not copy full summary to clipboard: ', err);
                 });
+
+            // Attempt to open mailto link
+            window.location.href = mailtoLink;
         };
     }
 
@@ -694,11 +607,11 @@
         const maxScore = (competenciesData.length || 0) * 3 * 5;
         const percentageScore = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
         let userProficiencyLevelText = "", userKeyCharacteristics = [], userFeedback = "";
-        userProficiencyLevelName = 'N/A'; // Reset for global var
+        userProficiencyLevelName = 'N/A';
 
         for (let level of overallProficiencyLevelsData) {
             if (percentageScore >= level.range[0] && percentageScore <= level.range[1]) {
-                userProficiencyLevelName = t(`proficiencyTexts.${level.nameKey}`); // Store just the name
+                userProficiencyLevelName = t(`proficiencyTexts.${level.nameKey}`);
                 userProficiencyLevelText = `${userProficiencyLevelName} (${level.range[0]}% - ${level.range[1]}%)`;
                 userKeyCharacteristics = level.characteristicsKeys.map(key => t(`proficiencyTexts.${key}`));
                 userFeedback = t(`proficiencyTexts.${level.feedbackKey}`);
@@ -709,12 +622,12 @@
         displayKeyCharacteristics(userKeyCharacteristics);
         setText('personalised-feedback-advanced', userFeedback);
         
-        applyTranslations(); // Apply general translations first
-        generateResultsPageContent(); // Then generate dynamic content like strengths etc.
+        applyTranslations(); 
+        generateResultsPageContent(); 
 
         const encodedData = encodeResponses();
         if (document.getElementById('qr-code')) generateQRCode(encodedData, 'qr-code');
-        updateQRCodeURL(encodedData); // This will also call functions to add share buttons
+        updateQRCodeURL(encodedData); 
     }
 
     function encodeResponses() { 
@@ -771,7 +684,7 @@
     function getSmartObjective(competencyKey, dimension) { return t(`smartObjectives.${competencyKey}.${dimension}`); }
 
     function generateStrengths(topCompetencies) { 
-        if (!strengthsContainer) { console.error("strengthsContainer is null"); return; }
+        if (!strengthsContainer) { return; }
         strengthsContainer.innerHTML = '';
         topCompetencies.forEach(comp => {
             const strongestDimension = getStrongestDimension(comp);
@@ -783,7 +696,7 @@
         });
     }
     function generateGrowthAreas(bottomCompetencies) { 
-        if (!growthAreasContainer) { console.error("growthAreasContainer is null"); return; }
+        if (!growthAreasContainer) { return; }
         growthAreasContainer.innerHTML = '';
         bottomCompetencies.forEach(comp => {
             const weakestDimension = getWeakestDimension(comp);
@@ -795,7 +708,7 @@
         });
     }
     function generateSmartObjectives(bottomCompetencies) { 
-        if (!smartObjectivesContainer) { console.error("smartObjectivesContainer is null"); return; }
+        if (!smartObjectivesContainer) { return; }
         smartObjectivesContainer.innerHTML = '';
         bottomCompetencies.forEach(comp => {
             const weakestDimension = getWeakestDimension(comp);
@@ -845,9 +758,8 @@
     function updateQRCodeURL(data) { 
         const resultsURL = `${window.location.origin}${window.location.pathname}?data=${data}`;
         setText('qr-url', resultsURL);
-        // Call the functions to add/update share buttons
         addEmailResultsFeature(resultsURL); 
-        addCopyResultsLinkButton(resultsURL); 
+        // addCopyResultsLinkButton(resultsURL); // Removed this call
     }
 
     function generateQRCode(data, canvasId) { 
@@ -893,11 +805,10 @@
                 if(growthAreasContainer) growthAreasContainer.innerHTML = '';
                 if(smartObjectivesContainer) smartObjectivesContainer.innerHTML = '';
                 
-                // Remove share buttons if they exist, they'll be re-added by showResults if needed
                 const emailBtn = document.getElementById('email-results-button');
                 if(emailBtn) emailBtn.remove();
-                const copyDirectBtn = document.getElementById('copy-direct-link-button');
-                if(copyDirectBtn) copyDirectBtn.remove();
+                // const copyDirectBtn = document.getElementById('copy-direct-link-button'); // No longer used
+                // if(copyDirectBtn) copyDirectBtn.remove();
 
                 applyTranslations(); 
             });
@@ -962,27 +873,27 @@
             initialLang = storedLang;
         } else if (browserLang) {
             const primaryBrowserLang = browserLang.toLowerCase().split('-')[0];
-            const regionCode = browserLang.toLowerCase().split('-')[1]; // e.g., 'cn', 'sg', 'tw', 'hk'
+            const regionCode = browserLang.toLowerCase().split('-')[1];
             
             let langOptionExists = false;
             if (langSelectorElement && langSelectorElement.options) {
                  langOptionExists = Array.from(langSelectorElement.options).some(opt => opt.value === primaryBrowserLang);
             }
 
-            if (primaryBrowserLang === 'zh') { // Special handling for Chinese
+            if (primaryBrowserLang === 'zh') {
                 if (regionCode === 'cn' || regionCode === 'sg' || browserLang.toLowerCase() === 'zh-hans') {
                     initialLang = 'zh-hans';
                 } else if (regionCode === 'tw' || regionCode === 'hk' || regionCode === 'mo' || browserLang.toLowerCase() === 'zh-hant') {
                     initialLang = 'zh-hant';
-                } else if (langOptionExists && Array.from(langSelectorElement.options).some(opt => opt.value === 'zh-hans')) { // Fallback if region not specific
+                } else if (langOptionExists && Array.from(langSelectorElement.options).some(opt => opt.value === 'zh-hans')) {
                     initialLang = 'zh-hans';
                 } else {
-                    initialLang = 'en'; // Ultimate fallback for unhandled zh variants
+                    initialLang = 'en'; 
                 }
             } else if (langOptionExists) {
                 initialLang = primaryBrowserLang;
             } else {
-                initialLang = 'en'; // Fallback for other unlisted browser languages
+                initialLang = 'en';
             }
         }
         
