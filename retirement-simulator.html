@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirement Modelling Tool</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f6f8; color: #1f2937; }
+    .wrap { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+    .card { background: #fff; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); padding: 16px; margin-bottom: 16px; }
+    h1 { margin: 0 0 12px; font-size: 28px; }
+    h2 { margin: 0 0 10px; font-size: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px 16px; }
+    label { display: flex; flex-direction: column; font-size: 13px; gap: 6px; }
+    input { padding: 8px; border-radius: 8px; border: 1px solid #cbd5e1; }
+    .small { font-size: 13px; color: #475569; margin: 8px 0 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid #e5e7eb; padding: 8px 6px; text-align: right; }
+    th { position: sticky; top: 0; background: #f8fafc; z-index: 1; }
+    th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align: left; }
+    .table-wrap { max-height: 520px; overflow: auto; border: 1px solid #e5e7eb; border-radius: 8px; }
+    .ok { color: #166534; font-weight: bold; }
+    .risk { color: #991b1b; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Live Retirement Simulator</h1>
+      <p class="small">One-sheet model: tweak inputs and the full year-by-year engine updates instantly.</p>
+    </div>
+
+    <div class="card">
+      <h2>Inputs</h2>
+      <div class="grid" id="inputs"></div>
+      <p class="small">Crash test: set early retirement-year growth overrides (e.g. -10, -5, 0) to stress sequence risk.</p>
+    </div>
+
+    <div class="card">
+      <h2>Health check</h2>
+      <div id="health"></div>
+    </div>
+
+    <div class="card">
+      <h2>Year-by-year engine (to age 95)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Age</th>
+              <th>Start balance</th>
+              <th>Contribution</th>
+              <th>Fees</th>
+              <th>Growth</th>
+              <th>Withdrawal</th>
+              <th>End balance</th>
+              <th>Growth % used</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const spec = [
+      ["startingPot", "Starting pot", 350000],
+      ["retirementAge", "Retirement age", 65],
+      ["currentAge", "Current age", 45],
+      ["annualContribution", "Annual contribution until retirement", 12000],
+      ["growth", "Growth assumption %", 4],
+      ["badGrowth", "Bad growth default %", -10],
+      ["fee", "Ongoing fee %", 0.5],
+      ["inflation", "Inflation %", 2.5],
+      ["desiredSpending", "Desired annual spending (today's money)", 30000],
+      ["statePension", "State Pension per year", 11000],
+      ["statePensionAge", "State Pension start age", 67],
+      ["crashYear1", "Crash override: retirement year 1 growth %", -10],
+      ["crashYear2", "Crash override: retirement year 2 growth %", -5],
+      ["crashYear3", "Crash override: retirement year 3 growth %", 0],
+      ["crashYear4", "Crash override: retirement year 4 growth % (optional)", ""],
+      ["crashYear5", "Crash override: retirement year 5 growth % (optional)", ""]
+    ];
+
+    const root = document.getElementById('inputs');
+    const fields = {};
+    for (const [key, label, value] of spec) {
+      const l = document.createElement('label');
+      l.textContent = label;
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.value = value;
+      input.step = 'any';
+      input.addEventListener('input', render);
+      l.appendChild(input);
+      root.appendChild(l);
+      fields[key] = input;
+    }
+
+    const toNum = (key) => Number(fields[key].value || 0);
+    const toCrash = (key) => fields[key].value === '' ? null : Number(fields[key].value);
+    const fmt = (n) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(n);
+
+    function render() {
+      const startYear = new Date().getFullYear();
+      const rowsEl = document.getElementById('rows');
+      rowsEl.innerHTML = '';
+
+      const startingPot = toNum('startingPot');
+      const retirementAge = toNum('retirementAge');
+      const currentAge = toNum('currentAge');
+      const annualContribution = toNum('annualContribution');
+      const growth = toNum('growth') / 100;
+      const fee = toNum('fee') / 100;
+      const inflation = toNum('inflation') / 100;
+      const desiredSpending = toNum('desiredSpending');
+      const statePension = toNum('statePension');
+      const statePensionAge = toNum('statePensionAge');
+
+      const crashOverrides = [toCrash('crashYear1'), toCrash('crashYear2'), toCrash('crashYear3'), toCrash('crashYear4'), toCrash('crashYear5')];
+
+      let age = currentAge;
+      let endBalance = startingPot;
+      let depletedAge = null;
+
+      while (age <= 95) {
+        const startBalance = endBalance;
+        const contribution = age < retirementAge ? annualContribution : 0;
+        const fees = startBalance * fee;
+
+        let growthRate = growth;
+        if (age >= retirementAge) {
+          const yearsInRetirement = age - retirementAge;
+          const crash = crashOverrides[yearsInRetirement];
+          if (crash !== null && !Number.isNaN(crash)) growthRate = crash / 100;
+        }
+
+        const growthAmt = (startBalance + contribution - fees) * growthRate;
+
+        let withdrawal = 0;
+        if (age >= retirementAge) {
+          const inflationFactor = Math.pow(1 + inflation, age - retirementAge);
+          const spendNeed = desiredSpending * inflationFactor;
+          const pensionIncome = age >= statePensionAge ? statePension : 0;
+          withdrawal = Math.max(0, spendNeed - pensionIncome);
+        }
+
+        endBalance = startBalance + contribution - fees + growthAmt - withdrawal;
+
+        if (depletedAge === null && age >= retirementAge && endBalance <= 0) {
+          depletedAge = age;
+        }
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${startYear + (age - currentAge)}</td>
+          <td>${age}</td>
+          <td>${fmt(startBalance)}</td>
+          <td>${fmt(contribution)}</td>
+          <td>${fmt(fees)}</td>
+          <td>${fmt(growthAmt)}</td>
+          <td>${fmt(withdrawal)}</td>
+          <td>${fmt(endBalance)}</td>
+          <td>${(growthRate * 100).toFixed(1)}%</td>
+        `;
+        rowsEl.appendChild(tr);
+        age += 1;
+      }
+
+      const health = document.getElementById('health');
+      if (depletedAge === null) {
+        health.innerHTML = `<p class="ok">Pot survives to age 95 under this scenario.</p>`;
+      } else {
+        health.innerHTML = `<p class="risk">Pot depletes around age ${depletedAge}. Try later retirement, lower spending, lower fees, or higher contributions.</p>`;
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
